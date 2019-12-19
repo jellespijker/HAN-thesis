@@ -1,0 +1,62 @@
+% !TeX TS-program = pdfLaTeX
+% !TeX spellcheck = en-EN
+% !TeX encoding = UTF-8
+% !BIB program = bibtex
+%
+% Options (first one is default):
+%   languages: english|dutch
+%   businessunit: ihc|mti|medusa
+%   headingstyle: color|bw
+%   file glossary: resources/glossary|custom file
+%   showunits: (shows units in your eqations)
+%   classification: none|confidential|secret (shows a watermark when confidential or secret are selected)
+%   status: concept|final
+\documentclass[english, businessunit=mti, status=concept]{IHCreport}
+
+% === REPORT METADATA ===
+\title{Thesis}
+\subtitle{Design of an autonoumous dredge bot controller}
+\subject{ A \LaTeX\ class, typeset according to the Royal IHC brandguidelines. This report has full support for glossaries, biblatex and various environments. Such as equations, figures and listings. Glossaries descriptions are comdined with tooltips, such that a digital reader, has imidiate acces to the description.}
+\date{\today}
+\client{Royal IHC}
+\externalreference{mk-4.55}
+\internalreference{MED01}
+\version{0}
+
+\addauthor{Jelle Spijker}{\today}{sig.png}{IHC Medusa B.V.} % #1 name, #2 date, #3 location of signature picture, #4 affiliation
+\addreviewedby{ir. Frits Hofstra}{\today}{IHC MTI B.V.} % #1 name, #2 date, #3 location of signature picture
+\addreviewedby{J. B. van Elburg MSc. BEng.}{\today}{University of applied sciences HAN} % #1 name, #2 date, #3 location of signature picture
+\addapprovedby{A. J. P. M. Koevoets MBA BSc.}{\today}{IHC Medusa B.V.} % #1 name, #2 date, #3 location of signature picture
+
+\begin{document}
+
+% front environment
+% Creates, a cover, title and quality control page and the table of content
+% A user can add his own code between the quality control page and the table of
+% content, e.q. a summary.
+% All front pages have no header. The pages are numbered using Roman numerals,
+% starting from the quality control page
+%
+% Options for the environment are:
+%  no cover: Don't create a cover page
+%  no title: Don't create a title page
+%  no qualitycontrol: Don't create a quality control page
+%  no disclaimer: Don't show the disclaimer
+%  page style: Allows a user to use a custom pagestyle (default: frontmatter)
+\begin{front}[]
+ \import{frontmatter/}{summary}
+\end{front}
+
+\begin{main}
+ \import{mainmatter/}{ch1_introduction}
+ \import{mainmatter/}{ch2_dredging_principles}
+\end{main}
+
+\begin{back}[]
+ \printglossaries
+ \printbibliography
+ \begin{app}
+  \import{appendices/}{appendix-I}
+ \end{app}
+\end{back}
+\end{document}

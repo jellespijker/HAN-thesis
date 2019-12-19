@@ -1,0 +1,33 @@
+short,long
+EHP,Electrical driven Heat Pump
+AHP,Absorption Heat Pump
+GDHP,Gas Diffusion Heat Pump
+GEHP,Gas Engine Heat Pump
+MVR,Mechanical Vapor Recompression
+COP,Coefficient Of Performance
+ESEER,European Seasonal Energy Ratio
+DEC,Desiccant Evaporative Cooling
+ICS,Integral Collector Storage
+FPC,Flat Plate Collector
+ETC,Evacuated Tube Collector
+PDR,Parabolic Dish Reflector
+PTC,Parabolic Trough Collector
+PMV,Predicted Mean Vote
+PPD,Predicted Percentage of Dissatisfied
+CFC,ChloroFluoroCarbons
+HCFS,HydroChloroFluoroCarbons
+GWP,Global Warming Potential
+HC,HydroCarbons
+HFE,HydroFluorEther
+HE,HydroEther
+HFIC,HydroFluoro-IodoCarbon
+FIC,Fluoro-IodoCarbon
+HCFC,HydroChloroFluoroCarbons
+HFC,HydroFluoroCarbons
+FR,Frame
+LT,Low Teemperature
+OP,Organic Polymer Gel
+AOD,Autonomous Operating Dredgebot
+TSHD,Trailing Suction Hopper Dredger
+CSD,Cutter Suction Dredger
+ASD,Auger Suction Dredger

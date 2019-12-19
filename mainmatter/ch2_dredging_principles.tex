@@ -1,0 +1,90 @@
+% !TeX root = ../report.tex
+% !TeX spellcheck = en-GB
+% !TeX encoding = UTF-8
+\chapter{Dredging principles and applications}\label{chap:dredgingprocess}
+This chapter describes the dredging task in some detail. Readers familiar with dredging and commonly used terminology can skip this chapter, since no new information will be provided. It first describes basic principles, applications and tools applicable by the used machinery for the use-cases.
+
+\section{Basic dredging application}\label{sec:basic dredging applications}
+\citet{training_institute_for_dredging_ingewijden_2008} defines dredging as the underwater removal of soil and its transport from one place to another for the purpose of deepening or making profitable use of the removed soil. They make an distinction between nine types of operations: dredging for prosperity, dredging in ports an
+d channels, exploitation of agricultural resources, mineral dredging, coastal protection, land reclamation, infrastructural projects, improvement of the environment and trenches for cables and pipelines.
+
+All three described use-cases are of the maintenance type. \citet{van_der_schrieck_dredging_2014} states that the issue in maintain existing waterways and harbours, preserve the depth of the bed by regular removing silt. In canals and ports basins, where currents are low, the sediment is mostly fine-grained silt and sludge. Where currents are stronger, as in access channels in tidal zones, or rivers, the sediment is sand. He further describes that a characteristics of this kind of work is the weak cohesion of the soil to be removed, since it consist of recently deposited sediment and no significant consolidation has taken place yet.
+
+A special kind of maintenance dredging is sanitation dredging which is a process specially designed for contaminated sediment. Just in the way, sediment settles in rivers, harbours and deltas so does heavy metal, inorganic and aromatic compounds. Especially downstream of industrial areas. When these contaminated sediments become a risk towards public health and environment it needs to be removed with care and precision.
+
+\section{Commonly used vessels and equipment}\label{sec:Commonly used vessels and equipment}
+Common dredge tools used during maintenance work are listed below, of this list backhoes and suction dredgers are mostly used during port maintenance. \citet{vlasblom_designing_nodate} states that dredgers can be divided in mechanical dredgers and hydraulic dredgers. Where the difference lies in the way the soil is excavated; either mechanical or hydraulic.
+
+\subsection{Mechanical Dredgers}\label{sec:Mechanical Dredgers}
+Work by removing soil and sediment from the submerged soil bed by mechanically excavating it and transporting it to a storage location, such as a \gls[first]{gls-hopper}.
+
+Because the 
+\subsection{Hydraulic Dredger}
+Work by removing and transporting soil from the seabed, using suction, provided by a dredge pump. The soil is stored in a storage location such as a \gls{gls-hopper}.
+
+\subsubsection{Plain Suction Dredger}
+\citet{vlasblom_designing_nodate} describes a plain suction dredger as an stationary dredger, consisting of a pontoon anchored by one or more wires an with at least one sand pump, that is connected to a suction pipe. The discharge of the dredged material can take place via a pipeline or via a barge-loading installation. During sand dredging the dredger is moved slowly forwards by a set of winches.
+
+\subsubsection{Trailing suction hopper dredger}
+The \gls[first]{acr-TSHD} is a seagoing ship equipped with one or two suction tubes, a pump installation and a \gls{gls-hopper} with multiple bottom doors and one or more overflows. A \gls{gls-draghead} attached to each suction tube and is trailed across the sea bed to loosen the soil before it is pumped up~\cite{van_der_schrieck_dredging_2014}. This soil is stored in a \gls{gls-hopper} which is periodically discharged, at an designated location, through dumping or pumping out.
+
+\subsubsection{Auger Suction Dredger}
+According to \citet{vbko_vereniging_van_waterbouwers_in_bagger_kust_en_oeverwerken_voortgezette_1998} an \gls[first]{acr-ASD} consists of a double symmetrical Archimedes screw, also called an auger, surrounded with a steel protective cover and a flexible rubber curtain. This auger is lowered on a rigid arm and positioned on the soil bed, where it cuts the material and actively transports in to the centre, where it is sucked away by a dredge pump. Because the complete dredging process takes place behind a flexible rubber curtain and the auger guides all material towards the suction mouth, this types of dredgers are well suited for sanitation maintenance.
+
+\begin{RoyalFigure}[htb]{AUGER SUCTION DREDGER~\cite{vbko_vereniging_van_waterbouwers_in_bagger_kust_en_oeverwerken_voortgezette_1998} }
+  \includegraphics[width=\textwidth]{wormwielzuiger.png}
+\end{RoyalFigure}
+
+\subsubsection{Cutter Suction Dredger}
+According to \citet{vlasblom_designing_nodate} a \gls[first]{acr-CSD} is a stationary dredger equipped with a cutter device (cutter head)  which excavate the soil before it is sucked up by the flow dredge-pump(s). During this operation the dredger moves around a spud pole by pulling and slacking on the two fore sideline wires. This type of dredger is accurate and can cut almost all types of sediment.
+
+\section{Hydraulic dredging principals}
+According to \citet{van_den_berg_ihc_2013} the de-facto industry of transportation of dredged sedimented, or \gls{gls-slurry}, are pipelines and combined with centrifugal pumps. The section below shortly describe the workings of a dredge-pump when it is used during \gls{gls-slurry} transport, the workings of an auger \gls{gls-draghead} and the shore pipeline.
+
+\subsection{Dredgepump}
+In order to transport \gls{gls-slurry} with a particular density and velocity through a pipeline, a pressure, equal to the sum of all the resistances and geodetic head must be generated. A pump supplies this pressure~\cite{van_den_berg_ihc_2013}. Assuming a steady flow, the pump basically increases the Bernoulli head of the flow between point 1, the eye and point 2, the exit~\cite{white_fluid_2011}, which is illustrated in figure~\ref{fig:centrifugal} and equation~\ref{eq:head}. Where the viscous work and heat transfer are neglected. Here \gls[first]{sym-H_2}, \gls[first]{sym-p_1} and \gls[first]{sym-p_2}  and \gls[first]{sym-v_f_1} and \gls[first]{sym-v_f_2}. Coupled with \gls[first]{sym-rho_s} and \gls[first]{sym-g}, describe \gls[first]{sym-Delta_p}.
+
+\begin{RoyalFigure}[htb!, label=fig:centrifugal]{CENTRIFUGAL PUMP~\cite{white_fluid_2011}}
+  \includegraphics[width=\textwidth]{centrifugalpump.png}
+\end{RoyalFigure}
+
+\begin{equation}\label{eq:head}
+   \gls{sym-H_2} = \left(\frac{\gls{sym-p_2}}{\gls{sym-rho_s}\gls{sym-g}} + \frac{\gls{sym-v_f_2}}{2\gls{sym-g}} + \gls{sym-z_2} \right) - \left(\frac{\gls{sym-p_1}}{\gls{sym-rho_s}\gls{sym-g}} + \frac{\gls{sym-v_f_1}}{2\gls{sym-g}} + \gls{sym-z_1} \right) \approx \frac{\gls{sym-Delta_p}}{\gls{sym-rho_s}\gls{sym-g}}
+\end{equation}
+
+\begin{equation}\label{eq:pumppower}
+  \gls{sym-P_w} = \gls{sym-rho_s} \gls{sym-g} \gls{sym-V_dot_s} \gls{sym-H_2} \approx \gls{sym-V_dot_s} \gls{sym-Delta_p}
+\end{equation}
+
+The needed drive power \gls{sym-P_w} given in \glsunit{sym-P_w}  for \gls[first]{sym-V_dot_s} can be calculated with equation~\ref{eq:pumppower}. Where a efficiency factor should be applied to compensate for the losses. It is relevant to know how much power the pump uses, to transport a certain amount of slurry because it taps from the same source as that of a dredge bot propulsion system. The bot will use an \textbf{IHC 37.5-9.5-15} from which the characteristics are well known and documented in appendix \todo{point to correct appendix}.
+
+\begin{RoyalNote}{Out-off scope}
+	Control of the dredge-pump during dredging operations is left out of the scope. It is assumed through out this paper that the pump is operated at a maximum capacity.
+\end{RoyalNote}
+
+\subsection{Auger dredge head}
+An auger \gls[first]{gls-umbilical} This method ensures an extremely quit cutting and mixing process with little spillage and turbidity in the surroundings. The large working width of the auger makes it extremely suited to dredge thin possible polluted, layers at a relatively high production rate~\cite{van_der_schrieck_dredging_2014}.
+
+The auger is in effect a conveyor, guiding the material towards the suction head. According to the~\citet{international_standard_iso_neniso_1981} \gls[first]{sym-I_v}  \gls[first]{sym-A_a}.
+
+
+this is the product of the working section of the screw conveyor $ \gls{s:A_a} = \varphi \frac{\pi}{4} D^2_{w} $ by the conveying speed, $ v = P_{au}\frac{n}{60} \left[ \sfrac{m}{s} \right] $. The working section is the outer diameter $ D_{o} [m] $ of the auger minus a diameter of the axis $ D_{a} [m] $, which the result is equation \ref{eq:augerflow}. Where $ \varphi $ is a dimensionless trough filling coefficient which is empirically determined to be $ \varphi \approx 0.4 $ for sand like materials that flow relatively easily and have average abrasive properties. $ P_{au} $ is the screw pitch in $ \left[m\right] $ and $ n $ is the number of screw rotations per minute $ \left[min^{-1}\right] $.
+
+\begin{sBox}
+	\begin{equation}\label{eq:augerflow}
+	\gls{s:I_v} =  60 \varphi \frac{\pi}{4} \left(D_{o} - D_{a}\right)^2 P_{au} n
+	\end{equation}
+\end{sBox}
+
+When converting equation \ref{eq:augerflow} to the instantaneous flow $ \dv{V_{au}}{t} \left[\sfrac{m^3}{s}\right] $ a conversion needs to take place; By dividing with $ 3600 $ and substituting $ \varphi $ with $ \frac{4}{10} $, and $ n \left[\frac{1}{min}\right] $ with $ \frac{60}{2 \pi} \omega_{au} \left[rad\right] $ equation \ref{eq:SIaugerflow} shows the instantaneous flow.
+
+\begin{sBox}
+	\begin{equation}\label{eq:SIaugerflow}
+	\dv{V_{au}}{t} = \frac{1}{20} \left(D_{o} - D_{a}\right)^2 P_{au} \omega{au}
+	\end{equation}
+\end{sBox}
+
+\subsection{Discharging to shore}
+\begin{note}
+Two of the use-cases mention that additional constrains such as a flexible dredge line to shore can be added to the equation. Since the dredge bot does not have a holding space to store collected sediment this is part of the normal operation. It was however opted, to not applied these additional constraints, due to a time constraint on the assignment as a whole.
+\end{note}

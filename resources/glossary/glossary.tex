@@ -1,0 +1,16 @@
+\ProvidesFile{glossary.tex}
+\glsnoexpandfields{}
+% === MATH SYMBOLS ===
+\loadglssymbolcsv[sym]{resources/glossary/symbols-\languagename.csv}
+\loadglssymbolcsv[usym]{resources/glossary/symbols-user.csv}
+
+% === ACRONYMS ===
+\loadglsacrocsv[shp]{resources/glossary/acronyms-ships.csv}
+\loadglsacrocsv[comp]{resources/glossary/acronyms-companies-organizations.csv}
+\loadglsacrocsv[acr]{resources/glossary/acronyms-\languagename.csv}
+
+% === GLOSSARIES ===
+\loadglscsv[gls]{resources/glossary/glossary-\languagename.csv}
+\loadglscsv[ugls]{resources/glossary/glossary-user.csv}
+
+\endinput

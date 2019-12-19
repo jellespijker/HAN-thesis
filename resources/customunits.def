@@ -1,0 +1,8 @@
+\ProvidesFile{customunits.def}
+
+\DeclareSIUnit{\clothing}{clo}
+\DeclareSIUnit{\metabolicrate}{met}
+\DeclareSIUnit{\person}{pers}
+\DeclareSIUnit{\month}{month}
+
+\endinput

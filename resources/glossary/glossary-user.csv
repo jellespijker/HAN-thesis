@@ -1,0 +1,10 @@
+key|name|plural|description
+CompositeEdge|CompositeEdge|CompositeEdges|Edge between node, which consists of chain of edges, which could be either ConvectionEdge, ConductionEdge or RadiationEdge
+ConductionEdge|ConductionEdge|ConductionEdges|an edge between two nodes modeling the behavior of conduction heat transfer
+ConvectionEdge|ConvectionEdge|ConvectionEdges|an edge between two nodes modeling the behavior of convection heat transfer
+HeatFlowNode|HeatFlowNode|HeatFlowNodes|a node were heat flows in or out
+HeatSourceNode|HeatSourceNode|HeatSourceNodes|a node that represent an unlimited heat source or sink
+HeatStoreNode|HeatStoreNode|HeatStoreNodes|a node were heat flows in and out, and any excess of heat is stored
+HeatWaterSourceNode|HeatWaterSourceNode|HeatWaterSourceNodes|a node that represent a heat and water vapor generating node, such as persons
+MassFlowHeatCoupling|MassFlowHeatCoupling|MassFlowHeatCouplings|an edge between two nodes, modeling the transfer of heat, through mass flow
+RadiationEdge|RadiationEdge|RadiationEdges|an edge between two nodes modeling the behavior of radiation heat transfer
