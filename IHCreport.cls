@@ -869,7 +869,7 @@
 \newglossarystyle{symbolsliststyle}{
  \renewenvironment{theglossary}
  {
-  \tabulinesep=3pt
+  \tabulinesep=3ptaddreviewedby
   \noindent
   \taburowcolors[2] 2{RoyalWhite .. RoyalLightGrey}
   \begin{longtabu}{X[1,c,m] X[6,l,m] X[1.5,c,m] X[2,r,m]}
