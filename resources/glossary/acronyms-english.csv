@@ -1,33 +1,49 @@
 short,long
-EHP,Electrical driven Heat Pump
 AHP,Absorption Heat Pump
+IoT,Internet of Things
+RESL,Robotic Embedded Systems Laboratory
+SW,Sound Waves
+AW,Acoustic Waves
+AOD,Autonomous Operating Dredgebot
+ASD,Auger Suction Dredger
+AUV,Autonomous Underwater Vehicle
+CFC,ChloroFluoroCarbons
+CIP,Common Industrial Protocol
+COP,Coefficient Of Performance
+CPP,Coverage Path Planning
+CSD,Cutter Suction Dredger
+DEC,Desiccant Evaporative Cooling
+EHP,Electrical driven Heat Pump
+ESEER,European Seasonal Energy Ratio
+ETC,Evacuated Tube Collector
+FIC,Fluoro-IodoCarbon
+FPC,Flat Plate Collector
+FR,Frame
 GDHP,Gas Diffusion Heat Pump
 GEHP,Gas Engine Heat Pump
-MVR,Mechanical Vapor Recompression
-COP,Coefficient Of Performance
-ESEER,European Seasonal Energy Ratio
-DEC,Desiccant Evaporative Cooling
-ICS,Integral Collector Storage
-FPC,Flat Plate Collector
-ETC,Evacuated Tube Collector
-PDR,Parabolic Dish Reflector
-PTC,Parabolic Trough Collector
-PMV,Predicted Mean Vote
-PPD,Predicted Percentage of Dissatisfied
-CFC,ChloroFluoroCarbons
-HCFS,HydroChloroFluoroCarbons
+GPS,Global Positioning System
 GWP,Global Warming Potential
 HC,HydroCarbons
-HFE,HydroFluorEther
-HE,HydroEther
-HFIC,HydroFluoro-IodoCarbon
-FIC,Fluoro-IodoCarbon
 HCFC,HydroChloroFluoroCarbons
+HCFS,HydroChloroFluoroCarbons
+HE,HydroEther
 HFC,HydroFluoroCarbons
-FR,Frame
+HFE,HydroFluorEther
+HFIC,HydroFluoro-IodoCarbon
+ICS,Integral Collector Storage
+IEEE,Institute of Electrical and Electronics Engineers
+LLC,Logical Link Control
 LT,Low Teemperature
+MAC,Media Access Control
+MVR,Mechanical Vapor Recompression
 OP,Organic Polymer Gel
-AOD,Autonomous Operating Dredgebot
+UDP,User Datagram Protocol
+PDR,Parabolic Dish Reflector
+PMV,Predicted Mean Vote
+PPD,Predicted Percentage of Dissatisfied
+PTC,Parabolic Trough Collector
+ROV,Remote Operated Vehicle
+TCP,Transmission Control Protocol
+EMW,Electromagnetic Waves
+TIR,Total Internal Reflection
 TSHD,Trailing Suction Hopper Dredger
-CSD,Cutter Suction Dredger
-ASD,Auger Suction Dredger

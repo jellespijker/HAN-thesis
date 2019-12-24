@@ -1,21 +1,28 @@
 key|name|plural|description
+cooling-load|cooling load|cooling loads|a rate at which sensible and latent heat must be removed from the space to maintain a constant space dry-bulb air temperature and humidity
+lora|LoRa|LoRa|A wireless technology that has been developed to enable low data rate communications to be made over long distances by sensors and actuators for M2M and Internet of Things, IoT applications
 auger-dredge-head|auger dredge head|auger dredge heads|consists of two opposite-thread spiral cutters on a horizontal tubular body. The soil is cut by the spiral cutters, and the pitch ensures that it is carried to the center of the auger, where the suction head is situated.
+bandwidth|bandwidth|bandwidths|a difference between the upper and lower frequencies in a continuous set of frequencies
+bitstream|bitstream|bitstreams|a sequential binary sequence
 black-body|black body|black bodies|an idealized physical body that absorbs all incident electromagnetic radiation, regardless of frequency or angle of incidence
 closed-system|closed system|closed systems|a physical system that doesn't exchange any matter with its surroundings, and isn't subject to any net force whose source is external to the system
 conduction|conduction|conduction's|a transfer of heat by microscopic collisions of particles and movement of electrons within a body
-convection|convection|convection's|a heat transfer due to bulk movement of molecules within fluids such as gases and liquids. Convection takes place through advection, diffusion or both
-cooling-load|cooling load|cooling loads|a rate at which sensible and latent heat must be removed from the space to maintain a constant space dry-bulb air temperature and humidity
+convection|convection|convection's|an algorithm that uses a series of measurements observed over time, containing statistical noise and other inaccuracies, and produces estimates of unknown variables that tend to be more precise than those based on a single measurement alone, by using Bayesian inference and estimating a joint probability distribution over the variables for each time frame
 draghead|draghead|dragheads|a suction mouth which is dragged across a water body
 dredgeline|dredgeline|dredgelines|a pipeline which transports excavated slurry
-edge|edge|edges|one of the two basic units out of which graphs are constructed. Each edge has two (or in hypergraphs, more) vertices to which it is attached, called its endpoints. Edges may be directed or undirected
+electric-field|electric field|electric fields|a vector field that associates to each point in space the Coulomb force that would be experienced per unit of electric charge, by an infinitesimal test charge at that point.[1] Electric fields converge and diverge at electric charges and can be induced by time-varying magnetic fields
 erosion|erosion|erosions|an action of surface processes (such as water flow or wind) that removes soil
 graph|graph|graphs|a mathematical structure used to model pairwise relations between objects. A graph in this context is made up of vertices, nodes, or points which are connected by edges, arcs, or lines
 heating-load|heating load|heating loads|a rate at which sensible and latent heat must be added to the space to maintain a constant space dry-bulb air temperature and humidity
 hopper|hopper|hoppers|a storage container or compartment
+Kalman-filter|Kalman filter|Kalman filters|an algorithm that uses a series of measurements observed over time, containing statistical noise and other inaccuracies, and produces estimates of unknown variables that tend to be more precise than those based on a single measurement alone, by using Bayesian inference and estimating a joint probability distribution over the variables for each time frame
 latent-heat|latent heat|latent heats|thermal energy released or absorbed by a body
+magnetic-field|magnetic field|magnetic fields|a magnetic effect of electric currents and magnetic materials. The magnetic field at any given point is specified by both a direction and a magnitude (or strength); as such it is a vector field
+maxwell|Maxwell's equation|Maxwell's equations|are a set of partial differential equations that, together with the Lorentz force law, form the foundation of classical electrodynamics, classical optics, and electric circuits
 MTIpython|MTIpython|MTIpython’s|a Python package, used within IHC, to solve engineering problems in the disciplines: fluids, thermodynamics, mechanical and electrical
 node|node|nodes|fundamental unit of which graphs are formed
 open-system|open system|open systems|a system that has external interactions. Such interactions can take the form of information, energy, or material transfers into or out of the system boundary
+polarized-plane|polarized plane|polarized planes|is a confinement of the electric field vector or magnetic field vector to a given plane along the direction of propagation
 Python|Python|Pythons|an interpreted high-level programming language for general-purpose programming
 radiation|radiation|radiations|an electromagnetic radiation generated by the thermal motion of charged particles in matter. All matter with a temperature greater than absolute zero emits thermal radiation
 refrigerant|refrigerant|refrigerants|a substance or mixture, used in heat pumps to transport heat energy

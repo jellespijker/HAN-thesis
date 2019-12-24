@@ -1,4 +1,4 @@
-% !TeX TS-program = luaLaTeX
+% !TeX TS-program = lualatex
 % !TeX spellcheck = en-GB
 % !TeX encoding = UTF-8
 % !BIB program = bibtex
@@ -14,8 +14,8 @@
 \documentclass[english, businessunit=mti, status=concept]{IHCreport}
 
 % === REPORT METADATA ===
-\title{Thesis}
-\subtitle{Design of an autonomous dredge bot controller}
+\title{THESIS}
+\subtitle{AUTONOMOUS CRAWLER DESIGN}
 \subject{ A \LaTeX\ class, typeset according to the Royal IHC brandguidelines. This report has full support for glossaries, biblatex and various environments. Such as equations, figures and listings. Glossaries descriptions are comdined with tooltips, such that a digital reader, has imidiate acces to the description.}
 \date{\today}
 \client{Royal IHC}
@@ -52,6 +52,11 @@
 \begin{main}
  \import{mainmatter/}{ch1_introduction}
  \import{mainmatter/}{ch2_dredging_principles}
+ \import{mainmatter/}{ch3_research}
+ \import{mainmatter/}{ch3_communication}
+ \import{mainmatter/}{ch3_sensors}
+ \import{mainmatter/}{ch3_uncertainty}
+ \import{mainmatter/}{ch3_coverage_path_planning}
 \end{main}
 
 \begin{back}[]
@@ -59,6 +64,7 @@
  \printbibliography
  \begin{app}
   \import{appendices/}{appendix-I}
+  \import{appendices/}{appendix-research_methods}
  \end{app}
 \end{back}
 \end{document}

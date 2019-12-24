@@ -173,6 +173,48 @@
 \usepackage{longtable}
 \usepackage{colortbl}
 
+\NewDocumentCommand\RoyalCell{om}
+{
+  \IfValueT{#1}
+  {
+    \color{#1} #2
+  }
+  #2
+  \let\RoyalCell\RoyalCella
+}
+\NewDocumentCommand\RoyalCella{om}
+{
+  &
+  \IfValueT{#1}
+  {
+  \color{#1}
+  }
+  #2
+}
+
+\NewDocumentCommand\RoyalRow{>{\SplitList{|}}m}
+{
+  \\ \ProcessList{#1}{\RoyalCell}
+}
+
+\NewDocumentCommand\RoyalHeader{>{\SplitList{|}}m}
+{
+  \ProcessList{#1}{\RoyalCell}
+}
+
+
+\NewDocumentEnvironment{ RoyalTable }{m}
+{
+\tabulinesep=3pt
+\noindent
+\taburowcolors[2] 2{RoyalWhite .. RoyalLightGrey}
+\begin{longtabu}{#1}
+  \rowcolor{RoyalRed} \rowfont{\sffamily\bfseries\color{RoyalWhite}}
+}
+{
+\end{longtabu}
+}
+
 % === COLORS ===
 \usepackage[svgnames, table]{xcolor}
 \definecolor{RoyalRed}{HTML}{FF0000}
@@ -184,7 +226,7 @@
 % === GRAPHICS ===
 \usepackage{graphicx}
 \graphicspath{ {resources/} }
-\usepackage{morewrites}
+%\usepackage{morewrites}
 \usepackage[most]{tcolorbox}
 \tcbuselibrary{minted}
 \usepackage{tikz}
@@ -193,9 +235,15 @@
 \usepackage[type1, default]{lato}
 \usepackage[type1, black]{raleway}
 \usepackage{mdsymbol}
+%\usepackage{amsmath,amssymb}
+%\usepackage[no-math]{fontspec}
 \usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
-
+%\usepackage[utf8]{inputenc}
+\usepackage{mathrsfs}
+\let\Re\undefined
+\let\Im\undefined
+\DeclareMathOperator{\Re}{\mathscr{R}}
+\DeclareMathOperator{\Im}{\mathscr{I}}
 % === HEADINGS ===
 \usepackage{stringstrings}
 \newcommand{\colorheading}{\ifthenelse{\equal{\headingstyle}{color}}{\color{RoyalRed}}{\normalcolor}}
@@ -210,10 +258,10 @@
 
 \let\scr@chapter\chapter
 \def\chapter{\@ifstar\seamus@chapter\seamus@chapter}
-\def\seamus@chapters#1{\scr@chapter*{\solelyuppercase{#1}}}
+\def\seamus@chapters#1{\scr@chapter*{#1}}
 \def\seamus@chapter{\@dblarg{\seamus@chapter@}}
 \def\seamus@chapter@[#1]#2{%
- \scr@chapter[\solelyuppercase{#1}]{\MakeUppercase{#2}}}
+ \scr@chapter[#1]{\MakeUppercase{#2}}}
 
 \renewcommand*{\sectionformat}{\colorheading\thesection\enskip}
 \let\scr@section\section
@@ -221,7 +269,7 @@
 \def\seamus@sections#1{\scr@section*{\MakeUppercase{#1}}}
 \def\seamus@section{\@dblarg{\seamus@section@}}
 \def\seamus@section@[#1]#2{%
- \scr@section[\solelyuppercase{#1}]{\MakeUppercase{#2}}}
+ \scr@section[#1]{\MakeUppercase{#2}}}
 
 \renewcommand*{\subsectionformat}{\colorheading\thesubsection\enskip}
 \let\scr@subsection\subsection
@@ -229,7 +277,7 @@
 \def\seamus@subsections#1{\scr@subsection*{\MakeUppercase{#1}}}
 \def\seamus@subsection{\@dblarg{\seamus@subsection@}}
 \def\seamus@subsection@[#1]#2{%
- \scr@subsection[\solelyuppercase{#1}]{\MakeUppercase{#2}}}
+ \scr@subsection[#1]{\MakeUppercase{#2}}}
 
 \setkomafont{subsubsection}{\colorheading}
 \let\scr@subsubsection\subsubsection
@@ -237,23 +285,23 @@
 \def\seamus@subsubsections#1{\scr@subsubsection*{\MakeUppercase{#1}}}
 \def\seamus@subsubsection{\@dblarg{\seamus@subsubsection@}}
 \def\seamus@subsubsection@[#1]#2{%
- \scr@subsubsection[\solelyuppercase{#1}]{\MakeUppercase{#2}}}
+ \scr@subsubsection[#1]{\MakeUppercase{#2}}}
 
 \renewcommand*{\othersectionlevelsformat}[3]{\colorheading#3\enskip}
 
 \newlanguagecommand{\summarycaption}
-\addtolanguagecommand{\summarycaption}{english}{Summary}
-\addtolanguagecommand{\summarycaption}{dutch}{Samenvatting}
+\addtolanguagecommand{\summarycaption}{english}{SUMMARY}
+\addtolanguagecommand{\summarycaption}{dutch}{SAMENVATTING}
 \newcommand{\summary}{\chapter*{\summarycaption}\label{chap:summary}}
 
 \newlanguagecommand{\introductioncaption}
-\addtolanguagecommand{\introductioncaption}{english}{Introduction}
-\addtolanguagecommand{\introductioncaption}{dutch}{Inleiding}
+\addtolanguagecommand{\introductioncaption}{english}{INTRODUCTION}
+\addtolanguagecommand{\introductioncaption}{dutch}{INLEIDING}
 \newcommand{\introduction}{\chapter{\introductioncaption}\label{chap:introduction}}
 
 \newlanguagecommand{\conclusioncaption}
-\addtolanguagecommand{\conclusioncaption}{english}{Conclusion}
-\addtolanguagecommand{\conclusioncaption}{dutch}{Conclusie}
+\addtolanguagecommand{\conclusioncaption}{english}{CONCLUSION}
+\addtolanguagecommand{\conclusioncaption}{dutch}{CONCLUSIE}
 \newcommand{\conclusion}{\chapter{\conclusioncaption}\label{chap:conclusion}\glsresetall}
 
 % === APPENDIX ===
@@ -282,7 +330,7 @@
 
 \setkomafont{captionlabel}{\sffamily\bfseries}
 \addtokomafont{caption}{\sffamily\bfseries\MakeUppercase}
-\setkomafont{descriptionlabel}{\bfseries}
+%\setkomafont{descriptionlabel}{\bfseries}
 
 \setlength\footheight{20pt}
 \ohead[]{}
@@ -435,7 +483,7 @@
 
 % === QUALITY CONTROL PAGE ===
 \usepackage{intcalc}
-\usepackage{array}[=2016-10-06]
+\usepackage{array}
 
 \newlanguagecommand{\qualitycontrolcaption}
 \addtolanguagecommand{\qualitycontrolcaption}{english}{Quality control}
@@ -706,7 +754,7 @@
 
 
 % === BIBLIOGRAPHY ===
-\usepackage[backend=bibtex, style=ieee, sorting=ynt]{biblatex}
+\usepackage[backend=biber, bibencoding=utf8, style=ieee, sorting=ynt]{biblatex}
 \newcommand{\citet}[1]{\citeauthor{#1}~\cite{#1}}
 
 % === UNITS ===
@@ -869,7 +917,7 @@
 \newglossarystyle{symbolsliststyle}{
  \renewenvironment{theglossary}
  {
-  \tabulinesep=3ptaddreviewedby
+  \tabulinesep=3pt
   \noindent
   \taburowcolors[2] 2{RoyalWhite .. RoyalLightGrey}
   \begin{longtabu}{X[1,c,m] X[6,l,m] X[1.5,c,m] X[2,r,m]}
@@ -972,16 +1020,19 @@
 \addto\captionsenglish{\renewcommand{\tablename}{TABLE}}
 \addto\captionsdutch{\renewcommand{\tablename}{TABEL}}
 
+%TODO check if label can be offset when needed
 \newtcolorbox[use counter*=figure]{RoyalFigure}[2][]{
+enhanced,
  blankest,
+ center,
  float=#1,
  capture=hbox,
  lowerbox=invisible,
  boxrule=0pt,
  halign title=flush right,
  finish={
-   \node[fill=RoyalWhite, anchor=south east, draw=RoyalWhite, thick] at (frame.south east) {
-%    \usekomafont{captionlabel}\figurename~\thetcbcounter:~\MakeUppercase{#2}};}
+   % \node[fill=RoyalWhite, anchor=north east, draw=RoyalWhite, thick] at ($(current page.east |- frame.south) $) {
+   \node[fill=RoyalWhite, anchor=north east, draw=RoyalWhite, thick] at (frame.south east) {
     \usekomafont{captionlabel}\figurename~\thetcbcounter:~#2};}
 }
 
@@ -1020,17 +1071,5 @@
  colbacktitle=RoyalGrey,
  #1
 }
-
-% \tcolorboxenvironment{RoyalNote}{
-%  blankest, left=5mm,
-%  before skip=10pt, after skip=10pt,
-%  borderline west={2mm}{0pt}{RoyalRed},
-%  colback=RoyalGrey,
-%  enhanced jigsaw,
-%  boxsep=5mm,
-%  title={NOTE~\thetcbcounter:~\MakeUppercase{#2}},
-%  fonttitle=\usekomafont{captionlabel}\color{RoyalWhite},
-%  #1
-% }
 
 \usepackage{csquotes}

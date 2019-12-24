@@ -3,29 +3,36 @@ a,a,\si{-},coefficient as a function of spent time and sex of the subject
 A,A,\si{\meter\squared},surface
 A_1,A_1,\si{\meter\squared},surface of object 1
 A_2,A_2,\si{\meter\squared},surface of object 2
-A_c,A_c,\si{\meter\squared},collector sunlight exposed surface
 A_a,A_a,\si{\meter\squared},working section of the screw conveyor
+A_c,A_c,\si{\meter\squared},collector sunlight exposed surface
 alpha,\alpha,\si{-},absorption coefficient
 alpha_s,\alpha_s,\si{-},sensitivity coefficient
+alpha_e,\alpha_e,\si{\decibel\per\meter},attenuation
 b,b,\si{-},coefficient as a function of spent time and sex of the subject
+beta,\beta,\si{-},phase factor of a wave
 c,c,\si{-},coefficient as a function of spent time and sex of the subject
 c_p,c_p,\si{\joule\per\kilo\gram\per\kelvin},specific heat at constant pressure
 c_v,c_v,\si{\joule\per\kilo\gram\per\kelvin},specific heat at constant volume
+Delta_p,\Delta p,\si{\pascal},pressureloss
 Delta_Q_c,\Delta Q_{c},\si{\watt},heat flow stored in a node
 Delta_x,\Delta x,\si{\meter},distance between nodes
-Delta_p,\Delta p,\si{\pascal},pressureloss
+E_x,E_x,\si{\volt\per\meter},Is defined mathematically as a vector field that associates to each point in space the (electrostatic or Coulomb) force per unit of charge exerted on an infinitesimal positive test charge at rest at that point.
+E_hat,\hat{E},\si{\volt\per\meter},amplitude of the electric field wave
 epsilon_1,\epsilon_1,\si{-},emissivity property of material 1
 epsilon_2,\epsilon_2,\si{-},emissivity property of material 2
+epsilon_e,\epsilon_e,\si{-},permittivity
 eta_c,\eta_c,\si{-},efficiency of an solar collector
-eta_eff_comp,"\eta_{eff,comp}",\si{-},effective efficiency of an electrical compressor
-eta_is_comp,"\eta_{is,comp}",\si{-},efficiency of an isentropic compressor
+eta_eff_comp,\eta_{eff,comp},\si{-},effective efficiency of an electrical compressor
+eta_is_comp,\eta_{is,comp},\si{-},efficiency of an isentropic compressor
 eta_m,\eta_m,\si{-},efficiency of a electrical engine
-eta_mech_comp,"\eta_{me,comp}",\si{-},mechanical efficiency of an compressor
+eta_mech_comp,\eta_{me,comp},\si{-},mechanical efficiency of an compressor
+exp,e,\si{-},Eulers number \ensuremath{2.7182818284}
 F_12,\mathcal{F}_{12},\si{-},view factor between geometries
 g,g,\si{\meter\per\squared\second},standard gravity model
 G,G,\si{\watt\per\kelvin},heat conductance
 G_T,G_T,\si{\watt\per\meter\squared},total global solar radiation
 gamma,\gamma,\si{\newton\per\cubic\meter},specific weight
+gamma_EM,\gamma_e,\si{\meter},propagation constant
 H,H,\si{\meter},net head of a flow
 H_1,H_1,\si{\meter},net head of a flow at point 1
 H_2,H_2,\si{\meter},net head of a flow at point 2
@@ -33,9 +40,13 @@ h_c,h_c,\si{\watt\per\square\meter},convection heat-transfer coefficient
 h_in,h_{in},\si{\kilo\joule\per\kilo\gram\per\kelvin},specific enthalpy at entry point
 h_out,h_{out},\si{\kilo\joule\per\kilo\gram\per\kelvin},specific enthalpy at exit point
 h_out_prime,h_{out}^{‘},\si{\kilo\joule\per\kilo\gram\per\kelvin},actual specific enthalpy at exit point
+H_y,H_y,\si{\ampere\per\meter},is a vector field that describes the magnetic influence of electric charges in relative motion and magnetized materials
+H_hat,\hat{H},\si{\ampere},amplitude of the magnetic field wave
+I_v,I_v,\si{\cubic\meter\per\hour},flow rate of an auger, according to NEN-ISO 7119:1982
+imag,i,\si{-},imaginary unit
 k,k,\si{\watt\per\meter\per\kelvin},thermal conductivity
 k_1,k_1,\si{-},constant representing thermal losses to the outside
-k_2,k_2,\si{-},"constant representing thermal losses to the outside, due to radiation"
+k_2,k_2,\si{-},constant representing thermal losses to the outside, due to radiation
 kappa,\kappa,\si{\kelvin\per\watt},heat capacity ratio
 L,L,\si{\watt\per\meter\squared},thermal load on the body
 M,M,\si{\watt\per\meter\squared},metabolic heat production
@@ -44,6 +55,7 @@ m_flux_rf,\dot{m}_{rf},\si{\kilo\gram\per\second},mass flux refrigerant
 M_mat,M_{mat},\si{\kilo\gram\per\mole},moleculair weight
 M_v,M_v,\si{\kilo\gram\per\mole},moleculair weight of water vapor
 mu,\mu,\si{\pascal\second},dynamic viscosity
+mu_e,\mu_e,\si{\henry\per\meter},electromagnetism permeability
 nu,\nu,\si{\squared\meter\per\second},kinematic viscosity
 p,p,\si{\pascal},pressure
 p_1,p_1,\si{\pascal},pressure at point 1
@@ -51,18 +63,17 @@ p_2,p_2,\si{\pascal},pressure at point 2
 P_e,P_e,\si{\kilo\watt},electrical power
 P_eff,P_{eff},\si{\kilo\watt},effective needed power
 p_in,p_{in},\si{\pascal},pressure at entry point
-P_w,P_w,\si{\kilo\watt},drive power
 p_out,p_{out},\si{\pascal},pressure at exit point
 P_s,P_s,\si{\kilo\watt},power at a shaft
 p_v,p_v,\si{\pascal},pressure of water vapor in ambient air
 P_v,P_v,\si{\pascal},partial pressure of water vapor
-P_v_sat,"P_{v,sat}",\si{\pascal},partial pressure of water vapor at saturated air
+P_v_sat,P_{v,sat},\si{\pascal},partial pressure of water vapor at saturated air
+P_w,P_w,\si{\kilo\watt},drive power
 q,q,\si{\watt},heat flow
 Q,Q,\si{\kilo\watt},heat energy
-V_dot_s,\dot{V}_s,\si{\cubic\meter\per\second},volumetric fluid flow
 Q_1_2,Q_{1-2},\si{\watt},heat flow from node 1 to node 2
-Q_c_ab,"\dot{Q}_{c,ab}",\si{\watt},energy-flow due to convection on the absorber
-Q_c_cp,"\dot{Q}_{c,cp}",\si{\watt},energy-flow due to convection on the cover-plate
+Q_c_ab,\dot{Q}_{c,ab},\si{\watt},energy-flow due to convection on the absorber
+Q_c_cp,\dot{Q}_{c,cp},\si{\watt},energy-flow due to convection on the cover-plate
 Q_con,Q_{con},\si{\watt},heat flow at condensator
 q_e,q_e,\si{\watt},space heat gain
 Q_H,Q_H,\si{\kilo\watt},heat transferred at a high temperature
@@ -71,12 +82,12 @@ Q_j,Q_j,\si{\watt},heat flow out from a node
 Q_L,Q_L,\si{\kilo\watt},heat transferred at a low temperature
 Q_n,\dot{Q}_{n},\si{\watt},useful energy
 Q_p,Q_p,\si{\watt},heat generated by a person
-Q_r_ab,"\dot{Q}_{r,ab}",\si{\watt},energy-flow due to reflection on the  absorber
-Q_r_cp,"\dot{Q}_{r,cp}",\si{\watt},energy-flow due to reflection on the cover-plate
+Q_r_ab,\dot{Q}_{r,ab},\si{\watt},energy-flow due to reflection on the  absorber
+Q_r_cp,\dot{Q}_{r,cp},\si{\watt},energy-flow due to reflection on the cover-plate
 Q_rc,Q_{rc},\si{\watt},external heat
 q_rf,q_{rf},\si{\joule\per\kilo\gram},refrigerating effect of a refrigerant
-Q_s_ab,"\dot{Q}_{s,ab}",\si{\watt},energy-flow due to radiation on the absorber
-Q_s_cp,"\dot{Q}_{s,cp}",\si{\watt},energy-flow due to radiation on the cover-plate
+Q_s_ab,\dot{Q}_{s,ab},\si{\watt},energy-flow due to radiation on the absorber
+Q_s_cp,\dot{Q}_{s,cp},\si{\watt},energy-flow due to radiation on the cover-plate
 Q_wp,Q_{wp},\si{\watt},heat generated due to the water vapor production of a person
 q_x,q_x,\si{\watt},heat transfer rate
 R,R,\si{\watt\per\kelvin},heat resistance due the conduction and convection
@@ -85,6 +96,7 @@ RH,RH,\si{\percent},relative humidty
 rho,\rho,\si{\kilo\gram\per\cubic\meter},density of a material
 rho_s,\rho_s,\si{\kilo\gram\per\cubic\meter},density of a slurry
 sigma_boltz,\sigma_c,\si{\square\meter\kilo\gram\per\square\second\per\kelvin},Boltzmann constant \ensuremath{1.38064852\cdot10^{-23}}
+sigma_e,\sigma_e,\si{\siemens\per\meter},Electrical conductivity
 t,t,\si{\second},time
 T,T,\si{\kelvin},temperature
 T_1,T_1,\si{\kelvin},temperature in node 1
@@ -102,9 +114,10 @@ T_w,T_w,\si{\kelvin},temperature of a wall
 tau,\tau,\si{-},transmission coefficient
 v,v,\si{\cubic\meter\per\kilo\gram},specific volume
 V,V,\si{\cubic\meter},volume
+V_dot_s,\dot{V}_s,\si{\cubic\meter\per\second},volumetric fluid flow
 v_f,v_f,\si{\meter\per\second},speed of a fluid at a certain point
-v_f_1,"v_{f,1}",\si{\meter\per\second},speed of a fluid at point 1
-v_f_2,"v_{f,2}",\si{\meter\per\second},speed of a fluid at point 2
+v_f_1,v_{f,1},\si{\meter\per\second},speed of a fluid at point 1
+v_f_2,v_{f,2},\si{\meter\per\second},speed of a fluid at point 2
 V_flow_fa,\dot{V}_{fa},\si{\meter\cubic\per\second},volume flow of fresh air
 varepsilon_c,\varepsilon_c,\si{-},heating efficiency of a Carnot cycle
 varepsilon_eff,\varepsilon_{eff},\si{-},effective cooling efficiency
@@ -116,5 +129,6 @@ w_is,w_{is},\si{\joule\per\kilo\gram},specific isentropic work
 x,x,\si{\meter},location along the x-axis
 x_w,x_w,\si{-},humidity by mass
 z_1,z_1,\si{\meter},height at point 1
-I_v,I_v,\si{\cubic\meter\per\hour},"flow rate of an auger, according to NEN-ISO 7119:1982"
 z_2,z_2,\si{\meter},height at point 2
+Delta_d_1_2,\Delta d_{1,2},\si{\meter},distance between point 1 and point 2
+L_alpha_epsilon,L_{\alpha, \epsilon},\si{\decibel},Electromagnetic Signal strength
