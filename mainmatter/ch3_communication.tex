@@ -93,7 +93,7 @@ we get the \gls{gls-electric-field} strength \gls{sym-E_x}  and the \gls{gls-mag
 	\draw[->] (0,0,0) -- (0,2,0) node[above] {$x$};
 	\draw[->] (0,0,0) -- (0,0,2) node[left] {$y$};
 	% Propagation
-	\draw[->, thick] (5,0,0) -- node[above] {$\gamma$} (6,0,0);
+	\draw[->, thick] (5,0,0) -- node[above] {\gls{sym-gamma_EM} } (6,0,0);
 	% Waves
 	\draw[RoyalRed,thick] plot[domain=0:4.5,samples=200] (\x,{2*cos(deg(pi*\x))/(\x/2+1)},0);
 	\draw[RoyalRed,thick] plot[domain=0:4.5,samples=200] (\x,0,{2*cos(deg(pi*\x))/(\x/2+1)});
@@ -112,16 +112,16 @@ Where \gls{sym-E_hat}  and \gls{sym-H_hat} are the amplitudes of the electric an
 where \gls[first]{sym-mu_e} and \gls[first]{sym-sigma_e} of a material. Here \gls[first]{sym-alpha_e} and \gls[first]{sym-beta}.
 
 	\begin{equation}\label{eq:MaxwellE}
-		\gls{sym-E_x} = \gls{sym-E_hat} \gls{sym-exp}^{\gls{sym-imag}  \omega t - \gamma z}
+		\gls{sym-E_x} = \gls{sym-E_hat} \gls{sym-exp}^{\gls{sym-imag}  \gls{sym-omega}  \gls{sym-t}  - \gls{sym-gamma_EM}  z}
 	\end{equation}
 
 	\begin{equation}\label{eq:MaxwellH}
-		\gls{sym-H_y}  = \gls{sym-H_hat} \gls{sym-exp}^{\gls{sym-imag}  \omega t - \gamma z}
+		\gls{sym-H_y}  = \gls{sym-H_hat} \gls{sym-exp}^{\gls{sym-imag}  \gls{sym-omega}  \gls{sym-t}  - \gls{sym-gamma_EM}  z}
 	\end{equation}
 
 	\begin{equation}\label{eq:propegationconst}
-		\gls{sym-gamma_EM}  = \gls{sym-imag}  \omega \sqrt{\gls{sym-epsilon_e}  \gls{sym-mu_e}  - \frac{\gls{sym-imag}
-    \gls{sym-sigma_e}  \gls{sym-mu_e} }{\omega}} = \alpha + \gls{sym-imag} \gls{sym-beta}
+		\gls{sym-gamma_EM}  = \gls{sym-imag}  \gls{sym-omega}  \sqrt{\gls{sym-epsilon_e}  \gls{sym-mu_e}  - \frac{\gls{sym-imag}
+    \gls{sym-sigma_e}  \gls{sym-mu_e} }{\gls{sym-omega} }} = \alpha + \gls{sym-imag} \gls{sym-beta}
 	\end{equation}
 
 	\begin{equation}\label{eq:attfactor}
