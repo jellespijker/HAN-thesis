@@ -1,49 +1,52 @@
-short,long
-AHP,Absorption Heat Pump
-IoT,Internet of Things
-RESL,Robotic Embedded Systems Laboratory
-SW,Sound Waves
-AW,Acoustic Waves
-AOD,Autonomous Operating Dredgebot
-ASD,Auger Suction Dredger
-AUV,Autonomous Underwater Vehicle
-CFC,ChloroFluoroCarbons
-CIP,Common Industrial Protocol
-COP,Coefficient Of Performance
-CPP,Coverage Path Planning
-CSD,Cutter Suction Dredger
-DEC,Desiccant Evaporative Cooling
-EHP,Electrical driven Heat Pump
-ESEER,European Seasonal Energy Ratio
-ETC,Evacuated Tube Collector
-FIC,Fluoro-IodoCarbon
-FPC,Flat Plate Collector
-FR,Frame
-GDHP,Gas Diffusion Heat Pump
-GEHP,Gas Engine Heat Pump
-GPS,Global Positioning System
-GWP,Global Warming Potential
-HC,HydroCarbons
-HCFC,HydroChloroFluoroCarbons
-HCFS,HydroChloroFluoroCarbons
-HE,HydroEther
-HFC,HydroFluoroCarbons
-HFE,HydroFluorEther
-HFIC,HydroFluoro-IodoCarbon
-ICS,Integral Collector Storage
-IEEE,Institute of Electrical and Electronics Engineers
-LLC,Logical Link Control
-LT,Low Teemperature
-MAC,Media Access Control
-MVR,Mechanical Vapor Recompression
-OP,Organic Polymer Gel
-UDP,User Datagram Protocol
-PDR,Parabolic Dish Reflector
-PMV,Predicted Mean Vote
-PPD,Predicted Percentage of Dissatisfied
-PTC,Parabolic Trough Collector
-ROV,Remote Operated Vehicle
-TCP,Transmission Control Protocol
-EMW,Electromagnetic Waves
-TIR,Total Internal Reflection
-TSHD,Trailing Suction Hopper Dredger
+short|long
+AHP|Absorption Heat Pump
+AOD|Autonomous Operating Dredgebot
+ASD|Auger Suction Dredger
+AUV|Autonomous Underwater Vehicle
+AW|Acoustic Waves
+ADC|Analog Digital Conversion
+CFC|ChloroFluoroCarbons
+CIP|Common Industrial Protocol
+COP|Coefficient Of Performance
+CPP|Coverage Path Planning
+CSD|Cutter Suction Dredger
+DEC|Desiccant Evaporative Cooling
+EHP|Electrical driven Heat Pump
+EMW|Electromagnetic Waves
+ESEER|European Seasonal Energy Ratio
+ETC|Evacuated Tube Collector
+FIC|Fluoro-IodoCarbon
+FPC|Flat Plate Collector
+FR|Frame
+GDHP|Gas Diffusion Heat Pump
+GEHP|Gas Engine Heat Pump
+GPS|Global Positioning System
+GWP|Global Warming Potential
+HC|HydroCarbons
+HCFC|HydroChloroFluoroCarbons
+HCFS|HydroChloroFluoroCarbons
+HE|HydroEther
+HFC|HydroFluoroCarbons
+HFE|HydroFluorEther
+HFIC|HydroFluoro-IodoCarbon
+ICS|Integral Collector Storage
+IEEE|Institute of Electrical and Electronics Engineers
+IoT|Internet of Things
+IMU|Inertial Measurement Unit
+LLC|Logical Link Control
+LT|Low Teemperature
+MAC|Media Access Control
+MVR|Mechanical Vapor Recompression
+MEMS|Micro Electro Mechanical System
+OP|Organic Polymer Gel
+PDR|Parabolic Dish Reflector
+PMV|Predicted Mean Vote
+PPD|Predicted Percentage of Dissatisfied
+PTC|Parabolic Trough Collector
+RESL|Robotic Embedded Systems Laboratory
+ROV|Remote Operated Vehicle
+SW|Sound Waves
+TCP|Transmission Control Protocol
+TIR|Total Internal Reflection
+TSHD|Trailing Suction Hopper Dredger
+UDP|User Datagram Protocol

@@ -1,6 +1,5 @@
 key|name|plural|description
-cooling-load|cooling load|cooling loads|a rate at which sensible and latent heat must be removed from the space to maintain a constant space dry-bulb air temperature and humidity
-lora|LoRa|LoRa|A wireless technology that has been developed to enable low data rate communications to be made over long distances by sensors and actuators for M2M and Internet of Things, IoT applications
+accelerometer|accelerometer|accelerometers|a device that measures proper acceleration
 auger-dredge-head|auger dredge head|auger dredge heads|consists of two opposite-thread spiral cutters on a horizontal tubular body. The soil is cut by the spiral cutters, and the pitch ensures that it is carried to the center of the auger, where the suction head is situated.
 bandwidth|bandwidth|bandwidths|a difference between the upper and lower frequencies in a continuous set of frequencies
 bitstream|bitstream|bitstreams|a sequential binary sequence
@@ -8,29 +7,42 @@ black-body|black body|black bodies|an idealized physical body that absorbs all i
 closed-system|closed system|closed systems|a physical system that doesn't exchange any matter with its surroundings, and isn't subject to any net force whose source is external to the system
 conduction|conduction|conduction's|a transfer of heat by microscopic collisions of particles and movement of electrons within a body
 convection|convection|convection's|an algorithm that uses a series of measurements observed over time, containing statistical noise and other inaccuracies, and produces estimates of unknown variables that tend to be more precise than those based on a single measurement alone, by using Bayesian inference and estimating a joint probability distribution over the variables for each time frame
+cooling-load|cooling load|cooling loads|a rate at which sensible and latent heat must be removed from the space to maintain a constant space dry-bulb air temperature and humidity
+coriolis-effect|Coriolis effect|Coriolis effects|an inertial or fictitious force that acts on objects that are in motion within a frame of reference that rotates with respect to an inertial frame.
+dead-reckoning|dead-reckoning|dead-reckonings|the process of calculating one's current position by using a previously determined position, or fix, and advancing that position based upon known or estimated speeds over elapsed time and course
 draghead|draghead|dragheads|a suction mouth which is dragged across a water body
 dredgeline|dredgeline|dredgelines|a pipeline which transports excavated slurry
-electric-field|electric field|electric fields|a vector field that associates to each point in space the Coulomb force that would be experienced per unit of electric charge, by an infinitesimal test charge at that point.[1] Electric fields converge and diverge at electric charges and can be induced by time-varying magnetic fields
+electric-field|electric field|electric fields|a vector field that associates to each point in space the Coulomb force that would be experienced per unit of electric charge, by an infinitesimal test charge at that point. Electric fields converge and diverge at electric charges and can be induced by time-varying magnetic fields
 erosion|erosion|erosions|an action of surface processes (such as water flow or wind) that removes soil
 graph|graph|graphs|a mathematical structure used to model pairwise relations between objects. A graph in this context is made up of vertices, nodes, or points which are connected by edges, arcs, or lines
+gyroscope|gyroscope|gyroscopes|a spinning wheel or disc in which the axis of rotation is free to assume any orientation by itself. When rotating, the orientation of this axis is unaffected by tilting or rotation of the mounting, according to the conservation of angular momentum. Because of this, gyroscopes are useful for measuring or maintaining orientation
 heating-load|heating load|heating loads|a rate at which sensible and latent heat must be added to the space to maintain a constant space dry-bulb air temperature and humidity
 hopper|hopper|hoppers|a storage container or compartment
-Kalman-filter|Kalman filter|Kalman filters|an algorithm that uses a series of measurements observed over time, containing statistical noise and other inaccuracies, and produces estimates of unknown variables that tend to be more precise than those based on a single measurement alone, by using Bayesian inference and estimating a joint probability distribution over the variables for each time frame
+Kalman-filter|Kalman filter|Kalman filters|an algorithm that uses a series of measurements observed over time, containing statistical noise and other inaccuracies, and produces estimates of unknown variables that tend to be more precise than those based on a single measurement alone
 latent-heat|latent heat|latent heats|thermal energy released or absorbed by a body
+lora|LoRa|LoRa|a wireless technology that has been developed to enable low data rate communications to be made over long distances by sensors and actuators for M2M and Internet of Things, IoT applications
+lorentz-force|Lorentz force|Lorentz forces| the combination of electric and magnetic force on a point charge due to electromagnetic fields
 magnetic-field|magnetic field|magnetic fields|a magnetic effect of electric currents and magnetic materials. The magnetic field at any given point is specified by both a direction and a magnitude (or strength); as such it is a vector field
+magnetometer|magnetometer|magnetometers|a magnetometer is an instrument that measures magnetism, either magnetization of magnetic material like a ferromagnet, or the strength and, in some cases, direction of the magnetic field at a point in space
 maxwell|Maxwell's equation|Maxwell's equations|are a set of partial differential equations that, together with the Lorentz force law, form the foundation of classical electrodynamics, classical optics, and electric circuits
 MTIpython|MTIpython|MTIpython’s|a Python package, used within IHC, to solve engineering problems in the disciplines: fluids, thermodynamics, mechanical and electrical
 node|node|nodes|fundamental unit of which graphs are formed
+odometry|odometry|odometries|the use of data from motion sensors to estimate change in position over time
 open-system|open system|open systems|a system that has external interactions. Such interactions can take the form of information, energy, or material transfers into or out of the system boundary
 polarized-plane|polarized plane|polarized planes|is a confinement of the electric field vector or magnetic field vector to a given plane along the direction of propagation
+pressure-sensor|pressure sensor|pressure sensors|can be classified in terms of pressure ranges they measure, temperature ranges of operation, and most importantly the type of pressure they measure
 Python|Python|Pythons|an interpreted high-level programming language for general-purpose programming
 radiation|radiation|radiations|an electromagnetic radiation generated by the thermal motion of charged particles in matter. All matter with a temperature greater than absolute zero emits thermal radiation
 refrigerant|refrigerant|refrigerants|a substance or mixture, used in heat pumps to transport heat energy
 resistor|resistor|resistors|a passive two-terminal electrical component that implements electrical resistance as a circuit element
 Sankey diagram|Sankey diagram|Sankey diagrams|a specific type of flow diagram, in which the width of the arrows is shown proportionally to the flow quantity
-sedimentation|sedimentation|sedimentations|"the opposite of erosion| it is  tendency for particles in suspension to settle out of the fluid in which they are entrained and come to rest against a barrier"
+sedimentation|sedimentation|sedimentations|the opposite of erosion
 silt|silt|silts|a granular material of a size between sand and clay
 slurry|slurry|slurries|describe a mixture that consist of both solid and fluid phases
 solvent|solvent|solvents|a substance that dissolves a solute, such as a chemically distinct liquid, solid or gas, resulting in a solution
 tooltip|tooltip|tooltips|a popup window, containing additional information. It appears when a mouse pointer hoovers over a designated area
+trapezoidal-rule|Trapezoidal rule|Trapezoidal rules|a technique for approximating the definite integral
 umbilical|umbilical|umbilicals|a electronic cable connecting an underwater vehicle
+word|word|words|a string of bits representing a value which is stored in memory
+hard-iron|hard iron|hard irons|a constant additive disturbance in the magnetic field of the magnetometer
+soft-iron|soft iron|soft irons|a result of material that distorts the magnetic field of magnetometer, but does not necessarily generate its own magnetic field

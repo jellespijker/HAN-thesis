@@ -1,134 +1,163 @@
-key,symbol,units,description
-a,a,\si{-},coefficient as a function of spent time and sex of the subject
-A,A,\si{\meter\squared},surface
-A_1,A_1,\si{\meter\squared},surface of object 1
-A_2,A_2,\si{\meter\squared},surface of object 2
-A_a,A_a,\si{\meter\squared},working section of the screw conveyor
-A_c,A_c,\si{\meter\squared},collector sunlight exposed surface
-alpha,\alpha,\si{-},absorption coefficient
-alpha_s,\alpha_s,\si{-},sensitivity coefficient
-alpha_e,\alpha_e,\si{\decibel\per\meter},attenuation
-b,b,\si{-},coefficient as a function of spent time and sex of the subject
-beta,\beta,\si{-},phase factor of a wave
-c,c,\si{-},coefficient as a function of spent time and sex of the subject
-c_p,c_p,\si{\joule\per\kilo\gram\per\kelvin},specific heat at constant pressure
-c_v,c_v,\si{\joule\per\kilo\gram\per\kelvin},specific heat at constant volume
-Delta_p,\Delta p,\si{\pascal},pressureloss
-Delta_Q_c,\Delta Q_{c},\si{\watt},heat flow stored in a node
-Delta_x,\Delta x,\si{\meter},distance between nodes
-E_x,E_x,\si{\volt\per\meter},Is defined mathematically as a vector field that associates to each point in space the (electrostatic or Coulomb) force per unit of charge exerted on an infinitesimal positive test charge at rest at that point.
-E_hat,\hat{E},\si{\volt\per\meter},amplitude of the electric field wave
-epsilon_1,\epsilon_1,\si{-},emissivity property of material 1
-epsilon_2,\epsilon_2,\si{-},emissivity property of material 2
-epsilon_e,\epsilon_e,\si{-},permittivity
-eta_c,\eta_c,\si{-},efficiency of an solar collector
-eta_eff_comp,\eta_{eff,comp},\si{-},effective efficiency of an electrical compressor
-eta_is_comp,\eta_{is,comp},\si{-},efficiency of an isentropic compressor
-eta_m,\eta_m,\si{-},efficiency of a electrical engine
-eta_mech_comp,\eta_{me,comp},\si{-},mechanical efficiency of an compressor
-exp,e,\si{-},Eulers number \ensuremath{2.7182818284}
-F_12,\mathcal{F}_{12},\si{-},view factor between geometries
-g,g,\si{\meter\per\squared\second},standard gravity model
-G,G,\si{\watt\per\kelvin},heat conductance
-G_T,G_T,\si{\watt\per\meter\squared},total global solar radiation
-gamma,\gamma,\si{\newton\per\cubic\meter},specific weight
-gamma_EM,\gamma_e,\si{\meter},propagation constant
-H,H,\si{\meter},net head of a flow
-H_1,H_1,\si{\meter},net head of a flow at point 1
-H_2,H_2,\si{\meter},net head of a flow at point 2
-h_c,h_c,\si{\watt\per\square\meter},convection heat-transfer coefficient
-h_in,h_{in},\si{\kilo\joule\per\kilo\gram\per\kelvin},specific enthalpy at entry point
-h_out,h_{out},\si{\kilo\joule\per\kilo\gram\per\kelvin},specific enthalpy at exit point
-h_out_prime,h_{out}^{‘},\si{\kilo\joule\per\kilo\gram\per\kelvin},actual specific enthalpy at exit point
-H_y,H_y,\si{\ampere\per\meter},is a vector field that describes the magnetic influence of electric charges in relative motion and magnetized materials
-H_hat,\hat{H},\si{\ampere},amplitude of the magnetic field wave
-I_v,I_v,\si{\cubic\meter\per\hour},flow rate of an auger, according to NEN-ISO 7119:1982
-imag,i,\si{-},imaginary unit
-k,k,\si{\watt\per\meter\per\kelvin},thermal conductivity
-k_1,k_1,\si{-},constant representing thermal losses to the outside
-k_2,k_2,\si{-},constant representing thermal losses to the outside, due to radiation
-kappa,\kappa,\si{\kelvin\per\watt},heat capacity ratio
-L,L,\si{\watt\per\meter\squared},thermal load on the body
-M,M,\si{\watt\per\meter\squared},metabolic heat production
-m_flux,\dot{m},\si{\kilo\gram\per\second},mass flux
-m_flux_rf,\dot{m}_{rf},\si{\kilo\gram\per\second},mass flux refrigerant
-M_mat,M_{mat},\si{\kilo\gram\per\mole},moleculair weight
-M_v,M_v,\si{\kilo\gram\per\mole},moleculair weight of water vapor
-mu,\mu,\si{\pascal\second},dynamic viscosity
-mu_e,\mu_e,\si{\henry\per\meter},electromagnetism permeability
-nu,\nu,\si{\squared\meter\per\second},kinematic viscosity
-p,p,\si{\pascal},pressure
-p_1,p_1,\si{\pascal},pressure at point 1
-p_2,p_2,\si{\pascal},pressure at point 2
-P_e,P_e,\si{\kilo\watt},electrical power
-P_eff,P_{eff},\si{\kilo\watt},effective needed power
-p_in,p_{in},\si{\pascal},pressure at entry point
-p_out,p_{out},\si{\pascal},pressure at exit point
-P_s,P_s,\si{\kilo\watt},power at a shaft
-p_v,p_v,\si{\pascal},pressure of water vapor in ambient air
-P_v,P_v,\si{\pascal},partial pressure of water vapor
-P_v_sat,P_{v,sat},\si{\pascal},partial pressure of water vapor at saturated air
-P_w,P_w,\si{\kilo\watt},drive power
-q,q,\si{\watt},heat flow
-Q,Q,\si{\kilo\watt},heat energy
-Q_1_2,Q_{1-2},\si{\watt},heat flow from node 1 to node 2
-Q_c_ab,\dot{Q}_{c,ab},\si{\watt},energy-flow due to convection on the absorber
-Q_c_cp,\dot{Q}_{c,cp},\si{\watt},energy-flow due to convection on the cover-plate
-Q_con,Q_{con},\si{\watt},heat flow at condensator
-q_e,q_e,\si{\watt},space heat gain
-Q_H,Q_H,\si{\kilo\watt},heat transferred at a high temperature
-Q_i,Q_i,\si{\watt},heat flow in to a node
-Q_j,Q_j,\si{\watt},heat flow out from a node
-Q_L,Q_L,\si{\kilo\watt},heat transferred at a low temperature
-Q_n,\dot{Q}_{n},\si{\watt},useful energy
-Q_p,Q_p,\si{\watt},heat generated by a person
-Q_r_ab,\dot{Q}_{r,ab},\si{\watt},energy-flow due to reflection on the  absorber
-Q_r_cp,\dot{Q}_{r,cp},\si{\watt},energy-flow due to reflection on the cover-plate
-Q_rc,Q_{rc},\si{\watt},external heat
-q_rf,q_{rf},\si{\joule\per\kilo\gram},refrigerating effect of a refrigerant
-Q_s_ab,\dot{Q}_{s,ab},\si{\watt},energy-flow due to radiation on the absorber
-Q_s_cp,\dot{Q}_{s,cp},\si{\watt},energy-flow due to radiation on the cover-plate
-Q_wp,Q_{wp},\si{\watt},heat generated due to the water vapor production of a person
-q_x,q_x,\si{\watt},heat transfer rate
-R,R,\si{\watt\per\kelvin},heat resistance due the conduction and convection
-R_rad,R_{rad},\si{\watt\per\kelvin\tothe{4}},heat resistance due to radiation
-RH,RH,\si{\percent},relative humidty
-rho,\rho,\si{\kilo\gram\per\cubic\meter},density of a material
-rho_s,\rho_s,\si{\kilo\gram\per\cubic\meter},density of a slurry
-sigma_boltz,\sigma_c,\si{\square\meter\kilo\gram\per\square\second\per\kelvin},Boltzmann constant \ensuremath{1.38064852\cdot10^{-23}}
-sigma_e,\sigma_e,\si{\siemens\per\meter},Electrical conductivity
-t,t,\si{\second},time
-T,T,\si{\kelvin},temperature
-T_1,T_1,\si{\kelvin},temperature in node 1
-T_2,T_2,\si{\kelvin},temperature in node 2
-T_a,T_a,\si{\kelvin},ambient environment temperature
-T_dp,T_{dp},\si{\kelvin},dew point temperature
-T_H,T_H,\si{\kelvin},high temperature
-T_in,T_{in},\si{\kelvin},temperature of an ingoing flow
-T_inf,T_{\infty},\si{\kelvin},temperature of a free stream
-T_L,T_L,\si{\kelvin},low temperature
-T_m,T_m,\si{\kelvin},mean temperature of an absorber
-T_out,T_{out},\si{\kelvin},temperature of an outgoing flow
-T_sp,T_{sp},\si{\kelvin},temperature setpoint
-T_w,T_w,\si{\kelvin},temperature of a wall
-tau,\tau,\si{-},transmission coefficient
-v,v,\si{\cubic\meter\per\kilo\gram},specific volume
-V,V,\si{\cubic\meter},volume
-V_dot_s,\dot{V}_s,\si{\cubic\meter\per\second},volumetric fluid flow
-v_f,v_f,\si{\meter\per\second},speed of a fluid at a certain point
-v_f_1,v_{f,1},\si{\meter\per\second},speed of a fluid at point 1
-v_f_2,v_{f,2},\si{\meter\per\second},speed of a fluid at point 2
-V_flow_fa,\dot{V}_{fa},\si{\meter\cubic\per\second},volume flow of fresh air
-varepsilon_c,\varepsilon_c,\si{-},heating efficiency of a Carnot cycle
-varepsilon_eff,\varepsilon_{eff},\si{-},effective cooling efficiency
-varepsilon_th,\varepsilon_{th},\si{-},theoretical heating efficiency
-varepsilon_w,\varepsilon_w,\si{-},real heating efficiency
-W_c,W_c,\si{\kilo\watt},added heat energy
-w_eff,w_{eff},\si{\joule\per\kilo\gram},specific effective work
-w_is,w_{is},\si{\joule\per\kilo\gram},specific isentropic work
-x,x,\si{\meter},location along the x-axis
-x_w,x_w,\si{-},humidity by mass
-z_1,z_1,\si{\meter},height at point 1
-z_2,z_2,\si{\meter},height at point 2
-Delta_d_1_2,\Delta d_{1,2},\si{\meter},distance between point 1 and point 2
-L_alpha_epsilon,L_{\alpha, \epsilon},\si{\decibel},Electromagnetic Signal strength
+key|symbol|units|description
+a|a|\si{\meter\per\second\squared}|acceleration
+A|A|\si{\meter\squared}|surface
+A_1|A_1|\si{\meter\squared}|surface of object 1
+A_2|A_2|\si{\meter\squared}|surface of object 2
+A_a|A_a|\si{\meter\squared}|working section of the screw conveyor
+A_c|A_c|\si{\meter\squared}|collector sunlight exposed surface
+a_x|a_x|\si{\meter\per\second\squared}|acceleration along the x-axis
+a_y|a_y|\si{\meter\per\second\squared}|acceleration along the y-axis
+a_z|a_z|\si{\meter\per\second\squared}|acceleration along the z-axis
+alpha|\alpha|\si{-}|absorption coefficient
+alpha_e|\alpha_e|\si{\decibel\per\meter}|attenuation
+alpha_s|\alpha_s|\si{-}|sensitivity coefficient
+b|b|\si{-}|coefficient as a function of spent time and sex of the subject
+B_d|B_d|\si{\radian\per\second}|slow chancing component of the signal; this is the gyroscope drift
+beta|\beta|\si{-}|phase factor of a wave
+c|c|\si{-}|coefficient as a function of spent time and sex of the subject
+c_p|c_p|\si{\joule\per\kilo\gram\per\kelvin}|specific heat at constant pressure
+c_v|c_v|\si{\joule\per\kilo\gram\per\kelvin}|specific heat at constant volume
+Delta_d_1_2|\Delta d_{1,2}|\si{\meter}|distance between two pints
+Delta_p|\Delta_p|\si{\pascal}|pressureloss
+Delta_Q_c|\Delta Q_{c}|\si{\watt}|heat flow stored in a node
+Delta_x|\Delta|\si{\meter}|distance between nodes
+E_hat|\hat{E}|\si{\volt\per\meter}|amplitude of the electric field wave
+E_x|E_x|\si{\volt\per\meter}|Is defined mathematically as a vector field that associates to each point in space the (electrostatic or Coulomb) force per unit of charge exerted on an infinitesimal positive test charge at rest at that point.
+epsilon_1|\epsilon_1|\si{-}|emissivity property of material 1
+epsilon_2|\epsilon_2|\si{-}|emissivity property of material 2
+epsilon_e|\epsilon_e|\si{-}|permittivity
+eta_c|\eta_c|\si{-}|efficiency of an solar collector
+eta_eff_comp|\eta_{eff,comp}|\si{-}|efficiency of a compressor
+eta_is_comp|\eta_{is,comp}|\si{-}|efficiency of an isotropisch compressor
+eta_m|\eta_m|\si{-}|efficiency of a electrical engine
+eta_mech_comp|\eta_{me,comp}|\si{-}|efficiency of a mechanical compressor
+exp|e|\si{-}|Eulers number \ensuremath{2.7182818284}
+F|F|\si{\newton}|force
+F_12|\mathcal{F}_{12}|\si{-}|view factor between geometries
+g|g|\si{\meter\per\squared\second}|standard gravity model
+G|G|\si{\watt\per\kelvin}|heat conductance
+G_T|G_T|\si{\watt\per\meter\squared}|total global solar radiation
+gamma|\gamma|\si{\newton\per\cubic\meter}|specific weight
+gamma_w|\gamma_w|\si{\newton\per\cubic\meter}|specific weight of water
+gamma_sw|\gamma_{sw}|\si{\newton\per\cubic\meter}|specific weight of submerged soil
+gamma_m|\gamma_m|\si{\newton\per\cubic\meter}|specific weight of diluted water during dredging
+gamma_EM|\gamma_e|\si{\meter}|propagation constant
+H|H|\si{\meter}|net head of a flow
+H_1|H_1|\si{\meter}|net head of a flow at point 1
+H_2|H_2|\si{\meter}|net head of a flow at point 2
+h_c|h_c|\si{\watt\per\square\meter}|convection heat-transfer coefficient
+H_hat|\hat{H}|\si{\ampere}|amplitude of the magnetic field wave
+h_in|h_{in}|\si{\kilo\joule\per\kilo\gram\per\kelvin}|specific enthalpy at entry point
+h_out|h_{out}|\si{\kilo\joule\per\kilo\gram\per\kelvin}|specific enthalpy at exit point
+h_out_prime|h_{out}^{‘}|\si{\kilo\joule\per\kilo\gram\per\kelvin}|actual specific enthalpy at exit point
+H_y|H_y|\si{\ampere\per\meter}|is a vector field that describes the magnetic influence of electric charges in relative motion and magnetized materials
+I_v|I_v|\si{\cubic\meter\per\hour}|flow rate of an auger
+imag|i|\si{-}|imaginary unit
+k|k|\si{\watt\per\meter\per\kelvin}|thermal conductivity
+k_1|k_1|\si{-}|constant representing thermal losses to the outside
+k_2|k_2|\si{-}|constant representing thermal losses to the outside
+kappa|\kappa|\si{\kelvin\per\watt}|heat capacity ratio
+L|L|\si{\watt\per\meter\squared}|thermal load on the body
+L_alpha_epsilon|L_{\alpha, \epsilon}|\si{\decibel}|electromagnetic signal strength
+m|m|\si{\kg}|mass
+M|M|\si{\watt\per\meter\squared}|metabolic heat production
+m_flux|\dot{m}|\si{\kilo\gram\per\second}|mass flux
+m_flux_rf|\dot{m}_{rf}|\si{\kilo\gram\per\second}|mass flux refrigerant
+M_mat|M_{mat}|\si{\kilo\gram\per\mole}|moleculair weight
+M_v|M_v|\si{\kilo\gram\per\mole}|moleculair weight of water vapor
+mu|\mu|\si{\pascal\second}|dynamic viscosity
+mu_e|\mu_e|\si{\henry\per\meter}|electromagnetism permeability
+n_s|n_s|\si{\radian\per\second}|stochastic component of a signal
+nu|\nu|\si{\squared\meter\per\second}|kinematic viscosity
+omega|\omega|\si{\radian\per\second}|angular velocity
+omega_t|\omega_t|\si{\radian\per\second}|true angular velocity
+p|p|\si{\pascal}|pressure
+p_1|p_1|\si{\pascal}|pressure at point 1
+p_2|p_2|\si{\pascal}|pressure at point 2
+p_a|p_a|\si{\pascal}|atmospheric pressure
+P_e|P_e|\si{\kilo\watt}|electrical power
+P_eff|P_{eff}|\si{\kilo\watt}|effective needed power
+p_in|p_{in}|\si{\pascal}|pressure at entry point
+p_out|p_{out}|\si{\pascal}|pressure at exit point
+P_s|P_s|\si{\kilo\watt}|power at a shaft
+p_v|p_v|\si{\pascal}|pressure of water vapor in ambient air
+P_v|P_v|\si{\pascal}|partial pressure of water vapor
+P_w|P_w|\si{\kilo\watt}|drive power
+phi_imu|\phi_{IMU}|\si{\radian}|roll of the IMU on the Euclidean z-axis
+psi_imu|\psi_{IMU}|\si{\radian}|yaw of the IMU bot on the Euclidean z-axis
+q|q|\si{\watt}|heat flow
+Q|Q|\si{\kilo\watt}|heat energy
+Q_1_2|Q_{1-2}|\si{\watt}|heat flow from node 1 to node 2
+Q_con|Q_{con}|\si{\watt}|heat flow at condensator
+q_e|q_e|\si{\watt}|space heat gain
+Q_H|Q_H|\si{\kilo\watt}|heat transferred at a high temperature
+Q_i|Q_i|\si{\watt}|heat flow in to a node
+Q_j|Q_j|\si{\watt}|heat flow out from a node
+Q_L|Q_L|\si{\kilo\watt}|heat transferred at a low temperature
+Q_n|\dot{Q}_{n}|\si{\watt}|useful energy
+Q_p|Q_p|\si{\watt}|heat generated by a person
+Q_rc|Q_{rc}|\si{\watt}|external heat
+q_rf|q_{rf}|\si{\joule\per\kilo\gram}|refrigerating effect of a refrigerant
+Q_wp|Q_{wp}|\si{\watt}|heat generated due to the water vapor production of a person
+q_x|q_x|\si{\watt}|heat transfer rate
+R|R|\si{\watt\per\kelvin}|heat resistance due the conduction and convection
+R_rad|R_{rad}|\si{\watt\per\kelvin\tothe{4}}|heat resistance due to radiation
+RH|RH|\si{\percent}|relative humidty
+rho|\rho|\si{\kilo\gram\per\cubic\meter}|density of a material
+rho_s|\rho_s|\si{\kilo\gram\per\cubic\meter}|density of a slurry
+rho_m|\rho_m|\si{\kilo\gram\per\cubic\meter}|density of a mixture
+rho_w|\rho_w|\si{\kilo\gram\per\cubic\meter}|density of water
+sigma_boltz|\sigma_c|\si{\square\meter\kilo\gram\per\square\second\per\kelvin}|Boltzmann constant \ensuremath{1.38064852\cdot10^{-23}}
+sigma_e|\sigma_e|\si{\siemens\per\meter}|Electrical conductivity
+t|t|\si{\second}|time
+T|T|\si{\kelvin}|temperature
+T_1|T_1|\si{\kelvin}|temperature in node 1
+T_2|T_2|\si{\kelvin}|temperature in node 2
+T_a|T_a|\si{\kelvin}|ambient environment temperature
+T_dp|T_{dp}|\si{\kelvin}|dew point temperature
+T_H|T_H|\si{\kelvin}|high temperature
+T_in|T_{in}|\si{\kelvin}|temperature of an ingoing flow
+T_inf|T_{\infty}|\si{\kelvin}|temperature of a free stream
+T_L|T_L|\si{\kelvin}|low temperature
+T_m|T_m|\si{\kelvin}|mean temperature of an absorber
+T_out|T_{out}|\si{\kelvin}|temperature of an outgoing flow
+T_sp|T_{sp}|\si{\kelvin}|temperature setpoint
+T_w|T_w|\si{\kelvin}|temperature of a wall
+T_prime|T^{\prime}|\si{\kelvin\per\second}|rate of temperature variation
+tau|\tau|\si{-}|transmission coefficient
+theta|\theta|\si{\radian}|angle on the z-axis
+theta_imu|\theta_{IMU}|\si{\radian}|picth of the IMU on the Euclidean z-axis
+theta_si|\theta_{si}|\si{\radian}|soft iron axis offset along the z-axis
+v|v|\si{\cubic\meter\per\kilo\gram}|specific volume
+V|V|\si{\cubic\meter}|volume
+V_dot_s|\dot{V}_s|\si{\cubic\meter\per\second}|volumetric fluid flow
+v_f|v_f|\si{\meter\per\second}|speed of a fluid at a certain point
+v_f_1|v_{f,1}|\si{\meter\per\second}|speed of a fluid at point 1
+v_f_2|v_{f,2}|\si{\meter\per\second}|speed of a fluid at point 2
+V_flow_fa|\dot{V}_{fa}|\si{\meter\cubic\per\second}|volume flow of fresh air
+varepsilon_c|\varepsilon_c|\si{-}|heating efficiency of a Carnot cycle
+varepsilon_eff|\varepsilon_{eff}|\si{-}|effective cooling efficiency
+varepsilon_th|\varepsilon_{th}|\si{-}|theoretical heating efficiency
+varepsilon_w|\varepsilon_w|\si{-}|real heating efficiency
+W_c|W_c|\si{\kilo\watt}|added heat energy
+w_eff|w_{eff}|\si{\joule\per\kilo\gram}|specific effective work
+w_is|w_{is}|\si{\joule\per\kilo\gram}|specific isentropic work
+x|x|\si{\meter}|location along the x-axis
+x_k|\vv{x}_k|\si{-}|state vector describing the state of a dredge bot at the \textit{k}th component of vector \( x \)
+x_w|x_w|\si{-}|humidity by mass
+x_m|x_m|\si{\tesla}|raw magnetometer value along the x-axis
+x_h|x_h|\si{\tesla}|hard iron distortion along the x-axis
+y_m|y_m|\si{\tesla}|raw magnetometer value along the y-axis
+y_h|y_h|\si{\tesla}|hard iron distortion along the y-axis
+y_1|y_1|\si{\tesla}|y-index of greatest magnetic magnitude
+z_m|z_m|\si{\tesla}|raw magnetometer value along the z-axis
+z_1|z_1|\si{\meter}|height at point 1
+z_2|z_2|\si{\meter}|height at point 2
+z|z|\si{\meter}|height
+z_epsilon|z_{\epsilon}|\si{\meter}|height error
+z_p|z_p|\si{\meter}|height of the pressure sensor with regards to the soil bed
+m_vec|\vv{m}|\si{\tesla}|raw magnetometer vector
+m_hi|\vv{m}_{hi}|\si{\tesla}|hard iron adjusted vector
+m_si|\vv{m}_{si}|\si{\tesla}|soft iron adjusted vector
+r_si|r_{si}|\si{\tesla}|greatest magnitude of a point on the ellipse, and thus the vector of the A-axis
+q_si|q_{si}|\si{\tesla}|smallest magnitude of a point on the ellipse, and thus the vector of the B-axis
