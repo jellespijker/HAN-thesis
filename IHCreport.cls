@@ -770,7 +770,8 @@
  round-mode=places,
  round-precision=1,
  round-integer-to-decimal=true,
- multi-part-units=single]{siunitx}
+ multi-part-units=single,
+ binary-units]{siunitx}
 \sisetup{range-phrase=\rangephrase}
 
 \input{resources/customunits.def}
@@ -878,7 +879,10 @@
 }
 
 \NewDocumentCommand{\loadglssymbolcsv}{ o m }{
- \DTLifdbexists{#1}{}{\DTLloaddb{#1}{#2}}%
+\DTLifdbexists{#1}{}{%
+\DTLsetdelimiter{|}%
+\DTLsetseparator{|}%
+\DTLloaddb{#1}{#2}}%
  \glsnoexpandfields
  % Iterate through the columns and generate a newglossaryentry
  \DTLforeach*{#1}%
@@ -902,7 +906,10 @@
 }
 
 \NewDocumentCommand{\loadglsacrocsv}{ o m }{
- \DTLifdbexists{#1}{}{\DTLloaddb{#1}{#2}}%
+\DTLifdbexists{#1}{}{%
+\DTLsetdelimiter{|}%
+\DTLsetseparator{|}%
+\DTLloaddb{#1}{#2}}%
  % Iterate through the columns and generate a newacronym
  \DTLforeach*{#1}%
  {%
@@ -990,6 +997,7 @@
 
 % === MATH ===
 \usepackage{mathtools}
+\usepackage{esvect}
 
 \tcolorboxenvironment{equation}{
  blankest, left=5mm,
