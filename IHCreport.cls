@@ -67,6 +67,14 @@
 \newcommand{\addtolanguagecommand}[3]{%
  \@namedef{\string#1#2}{#3}}
 
+ % === COLORS ===
+ \usepackage[svgnames, table]{xcolor}
+ \definecolor{RoyalRed}{HTML}{FF0000}
+ \definecolor{RoyalBlack}{HTML}{000000}
+ \definecolor{RoyalGrey}{HTML}{968F85}
+ \definecolor{RoyalLightGrey}{HTML}{E0E0E0}
+ \definecolor{RoyalWhite}{HTML}{FFFFFF}
+
 % === HOOKS ===
 \AtEndPreamble{
  \addbibresource{resources/report.bib}
@@ -215,21 +223,31 @@
 \end{longtabu}
 }
 
-% === COLORS ===
-\usepackage[svgnames, table]{xcolor}
-\definecolor{RoyalRed}{HTML}{FF0000}
-\definecolor{RoyalBlack}{HTML}{000000}
-\definecolor{RoyalGrey}{HTML}{968F85}
-\definecolor{RoyalLightGrey}{HTML}{E0E0E0}
-\definecolor{RoyalWhite}{HTML}{FFFFFF}
-
 % === GRAPHICS ===
 \usepackage{graphicx}
 \graphicspath{ {resources/} }
+%\usepackage{minted}
 %\usepackage{morewrites}
-\usepackage[most]{tcolorbox}
+\usepackage[most, minted]{tcolorbox}
 \tcbuselibrary{minted}
 \usepackage{tikz}
+
+
+\usetikzlibrary{calc, arrows, arrows.meta, shapes, positioning, shadows, trees, fit,automata,patterns}
+
+%tikz controller shit
+\tikzstyle{block} = [draw, fill=RoyalLightGrey, rectangle,
+minimum height=3em, minimum width=6em,rounded corners=.15cm]
+\tikzstyle{blockgrey} = [draw, fill=RoyalLightGrey, rectangle,
+minimum height=3em, minimum width=6em,rounded corners=.15cm]
+\tikzstyle{blockdashed} = [draw=RoyalRed,dashed, fill=RoyalLightGrey, rectangle,
+minimum height=3em, minimum width=6em,rounded corners=.15cm]
+\tikzstyle{blockdashedwhite} = [draw=RoyalRed,dashed, rectangle,
+minimum height=3em, minimum width=6em,rounded corners=.15cm]
+\tikzstyle{sum} = [draw, fill=RoyalRed!50, circle, node distance=2cm]
+\tikzstyle{input} = [coordinate]
+\tikzstyle{output} = [coordinate]
+\tikzstyle{pinstyle} = [pin edge={to-,thin,RoyalBlack}]
 
 % === FONT ===
 \usepackage[type1, default]{lato}
@@ -1045,9 +1063,30 @@ enhanced,
 }
 
 % === LISTINGS ===
+\newtcbinputlisting[auto counter, number within=chapter]{RoyalFileListing}[4][]{
+ blankest,
+ listing engine=minted,
+ minted language=#2,
+ minted style=colorful,
+ listing file={#3},
+ listing only,
+ before skip=10pt,
+ after skip=10pt,
+ colback=RoyalLightGrey,
+ enhanced jigsaw,
+ lowerbox=invisible,
+ toptitle=5pt,
+ lefttitle=5pt,
+ title={LISTING~\thetcbcounter:~\MakeUppercase{#4}},
+ fonttitle=\usekomafont{captionlabel}\color{RoyalWhite},
+ colbacktitle=RoyalGrey,
+ breakable,
+ #1
+}
 
 \newtcblisting[auto counter, number within=chapter]{RoyalListing}[2][]{
  blankest,
+ listing engine=minted,
  before skip=10pt,
  after skip=10pt,
  colback=RoyalLightGrey,
@@ -1058,7 +1097,6 @@ enhanced,
  title={LISTING~\thetcbcounter:~\MakeUppercase{#2}},
  fonttitle=\usekomafont{captionlabel}\color{RoyalWhite},
  colbacktitle=RoyalGrey,
- listing engine=minted,
  #1
 }
 

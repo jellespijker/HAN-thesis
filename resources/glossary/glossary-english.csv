@@ -46,3 +46,9 @@ umbilical|umbilical|umbilicals|a electronic cable connecting an underwater vehic
 word|word|words|a string of bits representing a value which is stored in memory
 hard-iron|hard iron|hard irons|a constant additive disturbance in the magnetic field of the magnetometer
 soft-iron|soft iron|soft irons|a result of material that distorts the magnetic field of magnetometer, but does not necessarily generate its own magnetic field
+acoustic-navigation|time of flight acoustic navigation|time of flight acoustic navigation's|triangulation of a position using the difference in send and receive time of signal, to calculate the distance from a source
+geophysical-navigation|geophysical navigation|geophysical navigation's|navigation using landmarks
+bathymetric-map|bathymetric map|bathymetric maps|submerged equivalent of an above-water topographic map
+off-line|off-line|off-lines|algorithm which plans an optimal path ahead of time, thus which needs to know the environment a priori
+quaternion|quaternion|quaternions|a number system that extends the complex numbers. They were first described by Irish mathematician William Rowan Hamilton in 1843 and applied to mechanics in three-dimensional space. A feature of quaternions is that multiplication of two quaternions is non-commutative. Hamilton defined a quaternion as the quotient of two directed lines in a three-dimensional space or equivalently as the quotient of two vectors
+kalman-gain|Kalman gain|Kalman gains|the relative weight given to the measurements and current state estimate, and can be "tuned" to achieve particular performance. With a high gain, the filter places more weight on the most recent measurements, and thus follows them more responsively. With a low gain, the filter follows the model predictions more closely. At the extremes, a high gain close to one will result in a more jumpy estimated trajectory, while low gain close to zero will smooth out noise but decrease the responsiveness

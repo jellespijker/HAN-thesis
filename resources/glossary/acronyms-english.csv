@@ -50,3 +50,11 @@ TCP|Transmission Control Protocol
 TIR|Total Internal Reflection
 TSHD|Trailing Suction Hopper Dredger
 UDP|User Datagram Protocol
+LBL|Long Base Line
+USBL|Ultra Short Base Line
+TRN|Terrain Relative navigation
+SLAM|Simultaneous Localization And Mapping
+LQG-MP|Linear-Quadratic Gaussian Motion Planning
+RRT|Rapidly exploring Random Trees
+LQE|Linear Quadratic Estimation
+NEES|Normalized Estimated Error Squared
