@@ -170,9 +170,9 @@ A new standard 802.11af is being developed. This standard will make use of the \
  extra x tick style={
    xticklabel style={yshift=-0.5ex,xshift=-1cm, anchor=south}
  }];
- \addplot[mark=none, color=blue, thick] file {resources/range_sea_802_11.dat};
+ \addplot[mark=none, color=RoyalRed, thick, dashed] file {resources/range_sea_802_11.dat};
  \addlegendentry{Sea water \(\gls{sym-sigma_e} = \SI{4}{\siemens\per\meter} \)};
- \addplot[mark=none, color=red, thick] file {resources/range_fresh_802_11.dat};
+ \addplot[mark=none, color=RoyalRed, thick] file {resources/range_fresh_802_11.dat};
  \addlegendentry{Fresh water \(\gls{sym-sigma_e} = \SI{1e-2}{\siemens\per\meter} \)};
  %\addplot +[mark=none, color=black] coordinates {(700e6,0) (700e6,32)}
  \draw (axis cs:700e6,-10) -- (axis cs:700e6,15);
@@ -210,7 +210,7 @@ When this is compared with figure~\ref{fig:propagationrange_wifi} in increase in
 	extra x tick style={
 		xticklabel style={yshift=-0.5ex,xshift=-1cm, anchor=south}
 	}];
-	\addplot[mark=none, color=blue, thick] file {resources/range_sea_EM.dat};
+	\addplot[mark=none, color=RoyalRed, dashed, thick] file {resources/range_sea_EM.dat};
 	\addlegendentry{Sea water \(\gls{sym-sigma_e} = \SI{4}{\siemens\per\meter} \)};
 	\addplot[mark=none, color=red, thick] file {resources/range_fresh_EM.dat};
 	\addlegendentry{Fresh water \(\gls{sym-sigma_e} = \SI{1e-2}{\siemens\per\meter} \)};
