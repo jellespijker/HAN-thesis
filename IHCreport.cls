@@ -214,7 +214,8 @@
 
 \NewDocumentEnvironment{ RoyalTable }{m}
 {
-\tabulinesep=3pt
+\setlength{\tabulinesep}{4mm}
+\setlength{\extrarowsep}{2mm}
 \noindent
 \taburowcolors[2] 2{RoyalWhite .. RoyalLightGrey}
 \begin{longtabu}{#1}
@@ -333,6 +334,7 @@ minimum height=3em, minimum width=6em,rounded corners=.15cm]
 \addto\captionsdutch{\renewcommand{\appendixpagename}{\sffamily\bfseries\Huge BIJLAGES}}
 \addto\captionsenglish{\renewcommand{\appendixpagename}{\sffamily\bfseries\Huge APPENDICES}}
 \addto\captionsdutch{\renewcommand{\appendixtocname}{BIJLAGES}}
+\renewcommand{\appendixtocname}{APPENDICES}
 
 % === LAYOUT ===
 \usepackage{lipsum}
@@ -882,8 +884,16 @@ minimum height=3em, minimum width=6em,rounded corners=.15cm]
 \addtolanguagecommand{\pageheader}{dutch}{PAGINA}
 
 \newlanguagecommand{\symbolslisttitle}
-\addtolanguagecommand{\symbolslisttitle}{english}{Symbols list}
-\addtolanguagecommand{\symbolslisttitle}{dutch}{Symbolen lijst}
+\addtolanguagecommand{\symbolslisttitle}{english}{NOMENCLATURE}
+\addtolanguagecommand{\symbolslisttitle}{dutch}{NOMENCLATURE}
+
+\newlanguagecommand{\glostitle}
+\addtolanguagecommand{\glostitle}{english}{GLOSSARY}
+\addtolanguagecommand{\glostitle}{dutch}{WOORDENLIJST}
+
+\newlanguagecommand{\acrtitle}
+\addtolanguagecommand{\acrtitle}{english}{ACRONYMS}
+\addtolanguagecommand{\acrtitle}{dutch}{ACRONIEMEN}
 
 \NewDocumentCommand{\loadglscsv}{ o m }{
  \DTLifdbexists{#1}{}{%
@@ -954,7 +964,8 @@ minimum height=3em, minimum width=6em,rounded corners=.15cm]
 \newglossarystyle{symbolsliststyle}{
  \renewenvironment{theglossary}
  {
-  \tabulinesep=3pt
+  \setlength{\tabulinesep}{4mm}
+  \setlength{\extrarowsep}{2mm}
   \noindent
   \taburowcolors[2] 2{RoyalWhite .. RoyalLightGrey}
   \begin{longtabu}{X[1,c,m] X[6,l,m] X[1.5,c,m] X[2,r,m]}
@@ -976,8 +987,9 @@ minimum height=3em, minimum width=6em,rounded corners=.15cm]
 \newglossarystyle{ihclongstyle}{
  \renewenvironment{theglossary}
  {
-  \tabulinesep=3pt
-  \noindent
+ \setlength{\tabulinesep}{4mm}
+ \setlength{\extrarowsep}{2mm}
+ \noindent
   \taburowcolors[2] 2{RoyalWhite .. RoyalLightGrey}
   \begin{longtabu}{X[3,l,m] X[5,l,m] X[1,l,m]}
    }
@@ -998,8 +1010,9 @@ minimum height=3em, minimum width=6em,rounded corners=.15cm]
 \newglossarystyle{ihclongacrostyle}{
  \renewenvironment{theglossary}
  {
-  \tabulinesep=3pt
-  \noindent
+ \setlength{\tabulinesep}{4mm}
+ \setlength{\extrarowsep}{2mm}
+ \noindent
   \taburowcolors[2] 2{RoyalWhite .. RoyalLightGrey}
   \begin{longtabu}{X[1,l,m] X[6,l,m] X[1,c,m]}
    }
@@ -1021,8 +1034,8 @@ minimum height=3em, minimum width=6em,rounded corners=.15cm]
 \renewcommand*{\printglossaries}{
  \label{chap:glossaries}
  \printglossary[type=symbolslist,style=symbolsliststyle,title=\symbolslisttitle]
- \printglossary[type=main,style=ihclongstyle]
- \printglossary[type=\acronymtype,style=ihclongacrostyle]
+ \printglossary[type=main,style=ihclongstyle, title=\glostitle]
+ \printglossary[type=\acronymtype,style=ihclongacrostyle, title=\acrtitle]
 }
 
 % === MATH ===
