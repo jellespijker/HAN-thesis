@@ -1,5 +1,5 @@
 % !TeX root = ../report.tex
-% !TeX spellcheck = en-GB
+% !TeX spellcheck = en-US
 % !TeX encoding = UTF-8
 \section{LOCATION UNDER UNCERTAINTY}\label{chap:coverageunderuncertainty}
 Due to the absence of an ubiquitous global localization system such as \gls{acr-GPS} in underwater environments, \gls{acr-AUV} navigation is confined to these three primary methods: (1) \gls{gls-dead-reckoning}, (2) \gls{gls-acoustic-navigation}, and (3) \gls{gls-geophysical-navigation}.
@@ -375,39 +375,3 @@ The performance of our example or the \( \gls{sym-epsilon_nees_mean} = \num{1.30
 	\end{axis}
 	\end{tikzpicture}
 \end{RoyalFigure}
-
-\begin{figure}[!htb]
-	\begin{center}
-		\begin{tikzpicture}[auto, node distance=3cm,>=latex', align=center, inner sep=5mm]
-		\node (inputs) {Inputs};
-		\node[right of=inputs, xshift=2cm] (dynamics)  {Dynamics};
-		\node[right of=dynamics, xshift=2cm] (outputs) {Outputs};
-		\node[blockgrey, below of=inputs, yshift=2cm](random disturbances) {Random \\ Disturbances};
-		\node[block, below of=random disturbances] (control) {Control};
-		\node[blockdashed, below of=dynamics, yshift=2cm] (model parameters) {Model \\ parameters};
-		\node[block, below of=model parameters] (system dynamics) {System \\ dynamics};
-		\node[blockdashed, below of=system dynamics] (initial condition) {Inital \\ condition};
-		\node[blockdashed, below of=outputs, yshift=2cm] (sensor parameters) {Sensor \\ parameters};
-		\node[block, below of=sensor parameters] (sensor model) {Sensor \\ model};
-		\node[blockgrey, below of=sensor model] (sensor noise) {Sensor \\ noise};
-
-		\node[blockdashedwhite, label=above:{\Large \textbf{Real-world model}},fit={(inputs) (outputs) (random disturbances) (control) (initial condition) (dynamics) (sensor model) (sensor parameters) (sensor noise)} ] (real world model) {};
-
-		\node[block, below of=initial condition, yshift=-1cm] (k sensor model) {Sensor \\ model};
-		\node[block, left of=k sensor model, xshift=-2cm] (state dynamics) {State \\ dynamics};
-		\node[block, below of=k sensor model] (covariance dynamics) {Covariance \\ dynamics};
-		\node[sum, inner sep=1mm, right of=k sensor model] (sum sensor) {$ \sum $};
-		\node[sum, inner sep=1mm, right of=covariance dynamics] (sum cov) {$ \sum $};
-		\node[blockdashedwhite, label=below:{\Large \textbf{Kalman filter model}},fit={(k sensor model) (state dynamics) (covariance dynamics) (sum sensor) (sum cov)} ] (real world model) {};
-
-		\draw[-latex] (random disturbances.east) -- ([xshift=6mm]random disturbances.east) node[above, yshift=-5mm] {$ \gls{sym-w_k} $ } |- ([yshift=5mm]system dynamics.west);
-
-		\draw[-latex] (control.east) -- (system dynamics.west) node[midway, above, yshift=-5mm] {$ \gls{sym-u_k} $};
-
-		\draw[*-latex] ([xshift=10mm,yshift=0.5mm]control.east) |- ([yshift=5mm]state dynamics.east);
-		\draw[-latex] (state dynamics.east) -- (k sensor model.west) node[midway, above, yshift=-5mm] {\gls{sym-x_kt-1hat}};
-
-		\draw[-latex] (initial condition.north) -- (system dynamics.south) node[midway, right,xshift=-4mm] {\gls{sym-x_k0} \\ \gls{sym-P_0}};
-		\end{tikzpicture}
-	\end{center}
-\end{figure}

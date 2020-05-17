@@ -55,6 +55,7 @@
 \usepackage{caption}
 
 % === HELPERS ===
+\usepackage{changepage}
 \usepackage{import}
 
 \newcommand{\newlanguagecommand}[1]{%
@@ -250,18 +251,22 @@ minimum height=3em, minimum width=6em,rounded corners=.15cm]
 \tikzstyle{pinstyle} = [pin edge={to-,thin,RoyalBlack}]
 
 % === FONT ===
+\ifthenelse{\equal{\status}{concept}}{}{%
 \usepackage[type1, default]{lato}
 \usepackage[type1, black]{raleway}
+}
 \usepackage{mdsymbol}
 %\usepackage{amsmath,amssymb}
 %\usepackage[no-math]{fontspec}
-\usepackage[T1]{fontenc}
+%\usepackage[T1]{fontenc}
 %\usepackage[utf8]{inputenc}
+\usepackage[utf8]{luainputenc}
 \usepackage{mathrsfs}
 \let\Re\undefined
 \let\Im\undefined
 \DeclareMathOperator{\Re}{\mathscr{R}}
 \DeclareMathOperator{\Im}{\mathscr{I}}
+\DeclareMathOperator{\Eu}{\mathscr{E}}
 % === HEADINGS ===
 \usepackage{stringstrings}
 \newcommand{\colorheading}{\ifthenelse{\equal{\headingstyle}{color}}{\color{RoyalRed}}{\normalcolor}}
@@ -762,7 +767,7 @@ minimum height=3em, minimum width=6em,rounded corners=.15cm]
    \end{tikzpicture}
   };
   \node[inner sep=0pt, outer sep=0pt, anchor=north west, yshift=-4mm] at (titlebackground.south west) (imgnode) {
-   \includegraphics[width=\paperwidth-80mm]{front.png}};
+   \includegraphics[width=\paperwidth-80mm]{front.pdf}};
   \node[covernode/base, anchor=south east, inner sep = 5pt, xshift=16mm, yshift=-16mm] at (imgnode.south east) (subjectnode) {\parbox[b]{64mm}{\usekomafont{subject}\@subject}};
 
  \end{tikzpicture}
@@ -803,17 +808,22 @@ minimum height=3em, minimum width=6em,rounded corners=.15cm]
 
 \glsaddkey{unit}{\glsentrytext{\glslabel}}{\glsentryunit}{\GLsentryunit}{\glsunit}{\Glsunit}{\GLSunit}
 \newglossary[slg]{symbolslist}{sys}{syo}{Symbolslist}
-
 \defglsentryfmt[main]{%
  \ifglsused{\glslabel}{%
-  \pdftooltip{\glsgenentryfmt}{\glsentrydesc{\glslabel}}%
+   \ifthenelse{\equal{\status}{concept}}{%
+     \glsgenentryfmt%
+   }{%
+    \pdftooltip{\glsgenentryfmt}{\glsentrydesc{\glslabel}}}%
  }{%
   \glsgenentryfmt%
  }%
 }
 \defglsentryfmt[\acronymtype]{%
  \ifglsused{\glslabel}{%
-  \pdftooltip{\glsgenentryfmt}{\glsentrydesc{\glslabel}}%
+   \ifthenelse{\equal{\status}{concept}}{%
+     \glsgenentryfmt%
+     }{%
+    \pdftooltip{\glsgenentryfmt}{\glsentrydesc{\glslabel}}}%
  }{%
   \glsgenentryfmt%
  }%
@@ -822,16 +832,18 @@ minimum height=3em, minimum width=6em,rounded corners=.15cm]
 \newlanguagecommand{\unitgivenin}
 \addtolanguagecommand{\unitgivenin}{english}{Units are given in:}
 \addtolanguagecommand{\unitgivenin}{dutch}{Eenheden zijn opgegeven in:}
-
 \defglsentryfmt[symbolslist]{%
  \ifglsused{\glslabel}{%
+ \ifthenelse{\equal{\status}{concept}}{%
+   \ensuremath{\glsgenentryfmt}%
+ }{%
   \pdftooltip{%
    \ensuremath{\glsgenentryfmt%
     \ifshowunits%
      \left[\si{\glsentryunit{\glslabel}}\right]%
     \else%
     \fi}}{%
-   \glsentrydesc{\glslabel} \unitgivenin\ \si{\glsentryunit{\glslabel}}}%
+   \glsentrydesc{\glslabel} \unitgivenin\ \si{\glsentryunit{\glslabel}}}}%
  }{%
   \glsgenentryfmt%
  }
@@ -1016,6 +1028,7 @@ minimum height=3em, minimum width=6em,rounded corners=.15cm]
 % === MATH ===
 \usepackage{mathtools}
 \usepackage{esvect}
+\usepackage{physics}
 
 \tcolorboxenvironment{equation}{
  blankest, left=5mm,
@@ -1056,10 +1069,14 @@ enhanced,
  lowerbox=invisible,
  boxrule=0pt,
  halign title=flush right,
+ remember,
+ check odd page=true,
  finish={
-   % \node[fill=RoyalWhite, anchor=north east, draw=RoyalWhite, thick] at ($(current page.east |- frame.south) $) {
-   \node[fill=RoyalWhite, anchor=north east, draw=RoyalWhite, thick] at (frame.south east) {
-    \usekomafont{captionlabel}\figurename~\thetcbcounter:~#2};}
+   \ifoddpage
+    \node[fill=RoyalWhite, anchor=north east, draw=RoyalWhite, thick] at ([xshift=0mm]$(current page.east |- frame.south) $) {\usekomafont{captionlabel}\figurename~\thetcbcounter:~#2};
+   \else
+   \node[fill=RoyalWhite, anchor=north east, draw=RoyalWhite, thick] at ([xshift=-1.0in-8mm]$(current page.east |- frame.south) $) {\usekomafont{captionlabel}\figurename~\thetcbcounter:~#2};
+  }
 }
 
 % === LISTINGS ===
@@ -1094,6 +1111,22 @@ enhanced,
  lowerbox=invisible,
  toptitle=5pt,
  lefttitle=5pt,
+ title={LISTING~\thetcbcounter:~\MakeUppercase{#2}},
+ fonttitle=\usekomafont{captionlabel}\color{RoyalWhite},
+ colbacktitle=RoyalGrey,
+ #1
+}
+
+% === ALGORITHMS ===
+
+\usepackage{algpseudocode}
+
+\newtcolorbox[auto counter, number within=chapter]{RoyalAlgorithm}[2][]{
+ blankest, left=5mm,
+ before skip=10pt, after skip=10pt,
+ colback=RoyalLightGrey,
+ enhanced jigsaw,
+ boxsep=5mm,
  title={LISTING~\thetcbcounter:~\MakeUppercase{#2}},
  fonttitle=\usekomafont{captionlabel}\color{RoyalWhite},
  colbacktitle=RoyalGrey,

@@ -1,5 +1,5 @@
 % !TeX root = ../report.tex
-% !TeX spellcheck = en-GB
+% !TeX spellcheck = en-US
 % !TeX encoding = UTF-8
 
 \section{UNDERWATER COMMUNICATION}\label{sec:communication}
@@ -19,7 +19,7 @@ The low signal attenuation performance and superior signal integrity found in fi
 In figure~\ref{fig:attenuationFibreVSCopper} the attenuation loss of \( 1 \si{\km} \) of cable is shown as a function of frequency. Both signals propagate with nearly the same speed through their corresponding wire, but when a high data throughput is wanted.  It becomes evident from this figure that usage of fibre-optics are paramount.
 
 \begin{RoyalFigure}[htb]{EFFECTIVE ATTENUATION FIBRE VS COPPER CABLE 1 km~\cite{joseph_c_palais_fibre_1998}}
-  \includegraphics[width=0.75\textwidth]{attenuationFibreVSCopper}
+  \includegraphics[width=0.75\textwidth]{attenuationFibreVSCopper.pdf}
 \end{RoyalFigure}
 
 Other important factors to consider, for an underwater wired-communication between a base station and a dredge bot, are the effects of the wire on the bot itself. \citet{whitcomb_underwater_2000} states that most present day vehicles are \gls[first]{acr-ROV} --- tele-operated vehicles  employing an \gls{gls-umbilical} cable to carry both power and telemetry from a mother-ship to the vehicle.
@@ -46,7 +46,7 @@ A common method to transfer data via a wireless connection is to make use of \gl
 These waves travel the speed of light and are transverse waves, because the amplitude is perpendicular to the direction of the wave travel. However, \gls{acr-EMW} are always waves of fields, not of matter, because they are fields, \gls{acr-EMW} can propagate in empty space~\cite{giancoli_physics_2015}.
 
 \begin{RoyalFigure}[!htb, label=fig:emspectrum]{ELECTROMAGNETIC SPECTRUM~\cite{giancoli_physics_2015}}
-   \includegraphics[width=\textwidth]{emspectrum.png}
+   \includegraphics[width=\textwidth]{emspectrum.pdf}
  \end{RoyalFigure}
 
  Data is transferred between devices by either modulating the frequency or the amplitude of a signal data can be transferred. Where a carrier frequency is modulated by superimposing a data signal. Which is illustrated in figure~\ref{fig:AMFM}.

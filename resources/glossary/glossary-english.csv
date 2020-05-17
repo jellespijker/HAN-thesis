@@ -52,3 +52,18 @@ bathymetric-map|bathymetric map|bathymetric maps|submerged equivalent of an abov
 off-line|off-line|off-lines|algorithm which plans an optimal path ahead of time, thus which needs to know the environment a priori
 quaternion|quaternion|quaternions|a number system that extends the complex numbers. They were first described by Irish mathematician William Rowan Hamilton in 1843 and applied to mechanics in three-dimensional space. A feature of quaternions is that multiplication of two quaternions is non-commutative. Hamilton defined a quaternion as the quotient of two directed lines in a three-dimensional space or equivalently as the quotient of two vectors
 kalman-gain|Kalman gain|Kalman gains|the relative weight given to the measurements and current state estimate, and can be "tuned" to achieve particular performance. With a high gain, the filter places more weight on the most recent measurements, and thus follows them more responsively. With a low gain, the filter follows the model predictions more closely. At the extremes, a high gain close to one will result in a more jumpy estimated trajectory, while low gain close to zero will smooth out noise but decrease the responsiveness
+optimal-path|optimal path|optimal paths|a sequence of steps which are optimized
+coverage-path|coverage path|coverage paths|a sequence of steps which coveres a whole area by following a certain path
+on-line|on-line|on-lines|an algorithm which has the ability to adapt when needed
+morse-function|Morse function|Morse functions|a function for which all critical points are non-degenerate and all critical levels are different
+critical-point|critical point|critical points|a value of average degree, which separates networks
+hessian|Hessian|Hessians|a square matrix of second-order partial derivatives of a scalar-valued function, or scalar field. It describes the local curvature of a function of many variables
+traveling-salesman-problem|traveling salesman|traveling salesmans|asks the following question: ``Given a list of cities and the distances between each pair of cities, what is the shortest possible route that visits each city exactly once and returns to the origin city?'' It is an NP-hard problem in combinatorial optimization, important in operations research and theoretical computer science
+adjacency-graph|adjacency graph|adjacency graphs|a graph representing depicting all the nodes
+reeb-graph|Reeb graph|Reeb graphs|a mathematical object reflecting the evolution of the level sets of a real-valued function on a manifold
+vast-cell|VAST-cell|VAST-cells|a cell located in a vast open space
+narrow-cell|NARROW-cell|NARROW-cells|a cell is located in a narrow space, bound between multiple walls
+cusp-point|cusp point|cusp points|are points where its surface normal of the boundary of the free configuration space is non-smooth
+voronoi-diagram|Voronoi diagram|Voronoi diagrams|a partition of a plane into regions close to each of a given set of objects
+deadlock-state|deadlock state|dead lock states|a standstill situation, from which the algorithm has no means of escape
+monotonically|monotonically|monotonically|a function between ordered sets that preserves or reverses the given order

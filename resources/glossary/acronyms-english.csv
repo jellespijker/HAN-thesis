@@ -58,3 +58,7 @@ LQG-MP|Linear-Quadratic Gaussian Motion Planning
 RRT|Rapidly exploring Random Trees
 LQE|Linear Quadratic Estimation
 NEES|Normalized Estimated Error Squared
+BCD|Boustrophedon Cellular Decomposition
+GVD|Generalized Voronoi Diagram
+MLP|Multi-Layer Perceptron
+Spiral-STC|Spiral Spanning Tree Coverage
