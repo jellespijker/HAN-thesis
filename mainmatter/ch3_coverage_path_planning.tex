@@ -175,7 +175,8 @@ be the closest point to \gls{sym-x}  on the surface of obstacle \gls{sym-Cp_i}:
 	\gls{sym-Cp_0}  = \underset{\gls{sym-x}  \in \gls{sym-Cp_i} }{arg min} ||\gls{sym-x} - \gls{sym-Cp} ||,
 \end{equation}
 
-\noindent and let \gls{sym-d_x_i} be the distance between point \gls{sym-x} and the obstacle \gls{sym-Cp_i}. Now, the gradient of \( \gls{sym-d_x_i}, \nabla \gls{sym-d_x_i} \) can be calculated as
+\noindent and let \gls{sym-d_x_i} be the distance between point \gls{sym-x} and the obstacle \gls{sym-Cp_i}. Now, the
+gradient of \( \gls{sym-d_x_i}, \nabla \gls{sym-d_x_i} \) can be calculated as
 
 \begin{equation}\label{eq:gradiantdix}
 	\nabla \gls{sym-d_x_i} = \frac{\gls{sym-x}  - \gls{sym-Cp_0}}{||\gls{sym-x}  - \gls{sym-Cp_0}||}.
@@ -277,7 +278,7 @@ step. \citeauthor{wong_complete_2004} states that there are two situations where
 \end{enumerate}
 
 \begin{RoyalFigure}[!htb, label=fig:slicedec]{(a) SPLITTING OF SEGMENTS (b) MERGING OF SEGMENTS \cite{wong_complete_2004}}
-		\includegraphics[height=3cm,trim=2 2 2 2,clip]{slicedec.pdf}
+		\includegraphics[height=2.5cm,trim=2 2 2 2,clip]{slicedec.pdf}
 \end{RoyalFigure}
 
 \begin{RoyalAlgorithm}[label=alg:offlineslicedecomposition]{OFF-LINE SLICE DECOMPOSITION}
@@ -321,18 +322,26 @@ to be used during the \gls{gls-on-line} algorithm~\ref{alg:offlineslicedecomposi
 instance with an \gls{gls-umbilical}, not every cell can be be reached. The restrictions created by this tether can be
 view as a change of the boundary of the environment.
 
-\begin{RoyalTable}{X[1,l,m] X[4,l,m]}
-	\RoyalHeader{ACTION|DESCRIPTION} %TODO Header and colors not shown colors are not shown
-	\RoyalRow{SPLIT|Free space segment in the previous slice is split into two by the emergence of an obstacle. This is equivalent to obstacle segment emergence in normal Slice Decomposition.}
-	\RoyalRow{MERGE|Free space segment in the current slice neighbors free spaces other than the free space segment in the previous slice in the direction of the previous slice. This is equivalent to obstacle segment disappearance in normal slice decomposition.}
-	\RoyalRow{END|The previous free space segment is the final one in the current cell. This is equivalent to free space segment disappearance in the normal version.}
-	\RoyalRow{LENGTHEN|Free space segment in the current slice neighbors an obstacle segment in addition to the free space segment in the previous slice in the direction of the previous slice. Another way to view this situation is that the current slice is much longer than the previous slice.}
-	\RoyalRow{SHORTEN|Free space segment in the previous slice neighbors and obstacle segment in addition to the free space segment in the current slice in the direction of the current slice. Another way to view this situation is that the current slice is much shorter than the previous slice.}
-\end{RoyalTable}
-
-\begin{RoyalFigure}[!htb, label=fig:slicedecompII]{EVENTS IN SLICE DECOMPOSITION II: (a) SPLIT, (b) MERGE, (c) END, (d) LENGTHEN, (e) SHORTEN}
+\begin{RoyalFigure}[!htb, label=fig:slicedecompII]{(a) SPLIT, (b) MERGE, (c) END, (d) LENGTHEN, (e) SHORTEN}
 	\includegraphics[height=10cm,trim=2 2 2 2,clip]{slicedecompII.pdf}
 \end{RoyalFigure}
+
+\begin{RoyalTable}{X[1,l,m] X[4,l,m]}
+	\RoyalHeader{ACTION|DESCRIPTION}
+	\RoyalRow{SPLIT|Free space segment in the previous slice is split into two by the emergence of an obstacle. This is
+	equivalent to obstacle segment emergence in normal Slice Decomposition.}
+	\RoyalRow{MERGE|Free space segment in the current slice neighbors free spaces other than the free space segment in the
+	previous slice in the direction of the previous slice. This is equivalent to obstacle segment disappearance in normal
+	slice decomposition.}
+	\RoyalRow{END|The previous free space segment is the final one in the current cell. This is equivalent to free space
+	segment disappearance in the normal version.}
+	\RoyalRow{LENGTHEN|Free space segment in the current slice neighbors an obstacle segment in addition to the free space
+	segment in the previous slice in the direction of the previous slice. Another way to view this situation is that the
+	current slice is much longer than the previous slice.}
+	\RoyalRow{SHORTEN|Free space segment in the previous slice neighbors and obstacle segment in addition to the free space
+	segment in the current slice in the direction of the current slice. Another way to view this situation is that the
+	current slice is much shorter than the previous slice.}
+\end{RoyalTable}
 
 \begin{RoyalAlgorithm}[label=alg:offlineslicedecompositionII]{OFF-LINE SLICE DECOMPOSITION II}
 	\begin{algorithmic}[1]
@@ -361,11 +370,21 @@ view as a change of the boundary of the environment.
 \end{RoyalAlgorithm}
 
 \subsubsection{ON-LINE TOPOLOGICAL COVERAGE ALGORITHM}
-By using the in subsection~\ref{subsec:slicedecomp} described slice decomposition II combined with a topological map, The robot has a tool set to construct the slice decomposition II algorithm on-line. In other words it can perform its tasks in a unknown environment. The topological map embeds the slice decomposition of the environment by using the events in slice decomposition II as landmarks for its nodes. The map is updated whenever relevant information becomes available. The path planner then generates a new path based on the updated partial topological map~\cite{wong_qualitative_2006}.
+By using slice decomposition II, which is described in Section~\ref{subsec:slicedecomp}, with a topological map. A
+crawler can construct it on-line. It now allows in to perform its task in a unknown environment. The topological map
+embeds the slice decomposition of an environment by using events as nodes. The map is updated whenever relevant
+information becomes available. The path planner  generates a new path un each update, based on the new partial
+topological map~\cite{wong_qualitative_2006}.
 
-This topological map is represented as a planar graph, where the nodes represent landmarks (i.e., split, merge, end, lengthen or shorten, such as depicted in figure~\ref{fig:slicedecompII}) and edges indicate the types of motion required to travel between nodes they are incident upon. For example, whether the edge is next to a wall and which side the wall is on. They also store estimated distances separating the two nodes they connect~\cite{galceran_coverage_2012}.
+This topological map is represented as a planar graph, where the nodes represent landmarks (i.e., split, merge, end,
+lengthen or shorten, such as depicted in figure~\ref{fig:slicedecompII}) and edges indicate the types of motion required
+to travel between nodes they are incident upon. For example, whether the edge is next to a wall and which side the wall
+is on. They also store estimated distances separating the two nodes they connect~\cite{galceran_coverage_2012}.
 
-This topological coverage algorithm makes use of the state transition diagram~\ref{dia:statetopo}. In this diagram three states are described, each with corresponding algorithm (\ref{alg:boundaryStateTopo},~\ref{alg:normalStateTopo} and~\ref{alg:travelStateTopo}). The robot is assumed to be placed in a corner near a wall, therefore the boundary state is considered as entry point.
+This topological coverage algorithm makes use of a state transition diagram~\ref{dia:statetopo}. In this diagram three
+states are described, each with corresponding algorithm (\ref{alg:boundaryStateTopo},~\ref{alg:normalStateTopo}
+and~\ref{alg:travelStateTopo}). The crawler is assumed to be placed in a corner near a wall, therefore the boundary state
+is considered as entry point.
 
 \begin{RoyalFigure}[!htb, label=dia:statetopo]{STATE TRANSITIONS FOR TOPOLOGICAL COVERAGE ALGORITHM}
 	\resizebox{!}{6cm}{
@@ -377,13 +396,16 @@ This topological coverage algorithm makes use of the state transition diagram~\r
 	\node[state,fill=RoyalLightGrey]	  			(normal)   	[right of=boundary] 		{Normal\\Algorithm~\ref{alg:normalStateTopo}};
 	\node						(exit)		[right of=normal, xshift=-20mm]	{exit};
 	\path (boundary) edge [bend right] node[xshift=-10mm, pos=0.4, align=center, below] {boundary fully\\explored} (travel);
-	\path (normal) edge [bend right] node [pos=0.7] {all covered} (exit);
+	\path (normal) edge [bend right] node [pos=0.5] {all covered} (exit);
 	\path (travel) edge [bend right] node [pos=0.8, align=center, below, xshift=10mm]{arrived at\\uncovered cell} (normal);
 	\path (normal) edge [bend right] node [align=center, above] {event occurred\\new landmark reached} (boundary);
 	\end{tikzpicture}}
 \end{RoyalFigure}
 
-The robot starts in the \emph{boundary} state by executing algorithm~\ref{alg:boundaryStateTopo}. During this state the robot performs a wall following algorithm. When it finds a landmark or it arrives at the end of a strip, it updates graph \gls{sym-G_adj}. When it is at the end of a strip and the boundary is fully explored it gets in to the state travel, described in algorithm~\ref{alg:travelStateTopo}, otherwise it turns around and continues in the boundary state.
+The crawler starts in the \emph{boundary} state by executing algorithm~\ref{alg:boundaryStateTopo}. During this state
+the crawler performs a wall following algorithm. When it finds a landmark or it arrives at the end of a strip, it updates
+graph \gls{sym-G_adj}. When it is at the end of a strip and the boundary is fully explored it gets in to the state
+travel, described in algorithm~\ref{alg:travelStateTopo}, otherwise it turns around and continues in the boundary state.
 
 \begin{RoyalAlgorithm}[label=alg:boundaryStateTopo]{BOUNDARY STATE}
 	\begin{algorithmic}[1]
@@ -406,8 +428,11 @@ The robot starts in the \emph{boundary} state by executing algorithm~\ref{alg:bo
 	\end{algorithmic}
 \end{RoyalAlgorithm}
 
-Once in the \emph{travel} state, the path is generated that moves the robot from one cell to another, it does so by implementing line 5 and 6 from algorithm~\ref{alg:offlineslicedecompositionII} described at page~\pageref{alg:offlineslicedecompositionII}. This state is described in algorithm~\ref{alg:travelStateTopo}.
-Once it arrives at an cell its operation state becomes \emph{normal}. A normal boustrophedon zig-zag movement is followed in this state.
+Once in the \emph{travel} state, the path is generated that moves the crawler from one cell to another, it does so by
+implementing line 5 and 6 from algorithm~\ref{alg:offlineslicedecompositionII} described at
+page~\pageref{alg:offlineslicedecompositionII}. Algorithm~\ref{alg:travelStateTopo} is executed in this state. Once it
+arrives at an cell its operation state becomes \emph{normal}. A normal boustrophedon zig-zag movement is followed in
+this state.
 
 \begin{RoyalAlgorithm}[label=alg:normalStateTopo]{NORMAL STATE}
 	\begin{algorithmic}[1]
@@ -440,23 +465,38 @@ Once it arrives at an cell its operation state becomes \emph{normal}. A normal b
 \end{RoyalAlgorithm}
 
 \subsubsection{LANDMARK RECOGNITION USING NEURAL NETWORKS}
-\citet{wong_qualitative_2006} proposes a novel idea to classify landmarks using Neural Networks. These are classification algorithms which approximates the operations of a human brain. \citeauthor{wong_qualitative_2006} build a test robot with a 360\textdegree rotatable single-beam sonar. Each scan consists of 48 individual sonar-beams taken over a range of 360\textdegree. This vector is made independent of orientation, by virtually rotating it so that index 0 would always point towards the direction where the sonar range measured the shortest distance, as depicted in figure~\ref{fig:rotatedsonarvectors}. This virtual rotation is achieved with equation~\ref{eq:index0vec}.
+\citet{wong_qualitative_2006} proposes a novel idea to classify landmarks using Neural Networks. These are
+classification algorithms which approximates the operations of a human brain. \citeauthor{wong_qualitative_2006} build a
+test robot with a 360\textdegree rotatable single-beam sonar. Each scan consists of 48 individual sonar-beams taken over
+a range of 360\textdegree. This vector is made independent of orientation, by virtually rotating it so that index 0
+would always point towards the direction where the sonar range measured the shortest distance, as depicted in
+figure~\ref{fig:rotatedsonarvectors}.
 
-\begin{equation}\label{eq:index0vec}
-	\vec{d}_{MOO}=\frac{1}{n}\sum_{i=1}^{n}\vec{d}_i
-\end{equation}
-
-This vector is fed into a \gls[first]{acr-MLP} which distinguishes three different type of classes: free space nodes, obstacle nodes and everything else. This neural network first has to be taught. This is done under supervision, meaning that the landmark type have to be predefined.
-
-\begin{RoyalFigure}[!htb, label=fig:rotatedsonarvectors]{ROTATION OF SONAR READING TO MOST OCCUPIED DIRECTION~\citet{wong_qualitative_2006}}
+\begin{RoyalFigure}[!htb, label=fig:rotatedsonarvectors]{ROTATION OF SONAR READING TO MOST OCCUPIED DIRECTION~\cite{wong_qualitative_2006}}
 	\includegraphics[width=\textwidth,trim=2 2 2 2,clip]{rotatedsonarvectors.pdf}
 \end{RoyalFigure}
 
-\subsection{GRID-BASED METHODS}
-Grid-based methods dived the working area into a raster of uniform grid cells. Each cell has an associated value stating whether an obstacles is present or if it is rather free space. The value can either be binary or a probability \cite{galceran_coverage_2014}. These grid cells are typically square in shape, but it is not uncommon to use triangle shaped cell. The size of the cell usually corresponds with the size of the robot.
+This vector is fed into a \gls[first]{acr-MLP} which distinguishes three different type of classes: free space nodes,
+obstacle nodes and everything else. This neural network first has to be taught. This is done under supervision, meaning
+that the landmark type have to be predefined.
 
-Once the environment is mapped onto an uniform grid. An optimal \gls{gls-coverage-path} can be found using the by \citet{zelinsky_coverage_1998} proposed method, whom uses a conventional wave-front algorithm (distance transform) to determine a \gls{gls-coverage-path}. First a start and goal cell has to be assigned. The wave-front algorithm initially assigns a 0 to the goal and then a 1 to all surrounding [red. reachable] cells. Then all the unmarked cells neighbouring the marked 1 are then labelled with a 2. This process repeats until the wave-front crosses the start. Once this occurs, the robot can use gradient descent on this numeric potential function to find a path \cite{choset_coverage_2001}.
-This results of algorithm \ref{alg:offlinegridbased} is shown in figure \ref{fig:ccpdistancetransform}.
+\subsection{GRID-BASED METHODS}
+Grid-based methods dived the working area into a raster of uniform grid cells. Each cell has an associated value stating
+whether an obstacles is present or if it is rather free space. The value can either be binary or a probability
+\cite{galceran_coverage_2014}. These grid cells are typically square in shape, but it is not uncommon to use triangle
+shaped cell. The size of the cell usually corresponds with the size of a crawler.
+
+\begin{RoyalFigure}[!htb, label=fig:ccpdistancetransform]{COVERAGE PATH GENERATED FROM A DISTANCE TRANSFORM~\cite{wong_qualitative_2006}}
+	\includegraphics[height=7cm,trim=2 2 2 2,clip]{cppdistancetransform.pdf}
+\end{RoyalFigure}
+
+Once the environment is mapped onto an uniform grid. An optimal \gls{gls-coverage-path} can be found using the by
+\citet{zelinsky_coverage_1998} proposed method, whom uses a conventional wave-front algorithm (distance transform) to
+determine a \gls{gls-coverage-path}. First a start and goal cell has to be assigned. The wave-front algorithm initially
+assigns a 0 to the goal and then a 1 to all surrounding [red.~reachable] cells. Then all the unmarked cells neighboring
+the marked 1 are then labeled with a 2. This process repeats until the wave-front crosses the start. Once this occurs,
+the robot can use gradient descent on this numeric potential function to find a path~\cite{choset_coverage_2001}. This
+results of algorithm~\ref{alg:offlinegridbased} is shown in figure~\ref{fig:ccpdistancetransform}.
 
 \begin{RoyalAlgorithm}[label=alg:offlinegridbased]{OFF-LINE GRID-BASED COMPLETE COVERAGE}
 	\begin{algorithmic}[1]
@@ -479,11 +519,10 @@ This results of algorithm \ref{alg:offlinegridbased} is shown in figure \ref{fig
 	\end{algorithmic}
 \end{RoyalAlgorithm}
 
-\begin{RoyalFigure}[!htb, label=fig:ccpdistancetransform]{COVERAGE PATH GENERATED FROM A DISTANCE TRANSFORM~\citet{wong_qualitative_2006}}
-	\includegraphics[height=10cm,trim=2 2 2 2,clip]{cppdistancetransform.pdf}
-\end{RoyalFigure}
-
-The author states that it is important to note that an optimal placement of the start and goal cell is paramount. The algorithm \ref{alg:offlinegridbased} does not take into account a \gls{gls-deadlock-state}. Which is illustrated in figure \ref{fig:deadlock}. In this figure goal and start cell are arbitrarily placed. Execution of the algorithm ensures that the dredge bot is stuck at the farthest cell. Where it remains, if no backtracking over previous visited cells is allowed.
+The author states an optimal placement of the start and goal cell is paramount. The algorithm~\ref{alg:offlinegridbased}
+does not take into account a \gls{gls-deadlock-state}. Which is illustrated in figure~\ref{fig:deadlock}. In this figure
+goal and start cell are arbitrarily placed. Execution of the algorithm ensures that the dredge bot is stuck at the
+farthest cell. Where it remains, if no backtracking over previous visited cells is allowed.
 
 \begin{RoyalFigure}[!htb, label=fig:deadlock]{DEADLOCK STATE DUE TO INCORRECT STARTING POINT}
 		\begin{tikzpicture}[every node/.style={draw,rectangle,minimum size=1cm}]
@@ -600,8 +639,18 @@ The author states that it is important to note that an optimal placement of the 
 \end{RoyalFigure}
 
 \subsubsection{GRID-BASED COVERAGE USING SPANNING TREES}
-An sub-family of grid-based coverage are the systematic spiral paths algorithms. These work by following a systematic spiral spanning tree of the partial grid map, which is constructed using its on-board sensors~\cite{galceran_coverage_2014} and uses two different sizes of grid cells. The smaller grid cell is the same size as the robot. Four of these grid cells then form a mega cell. \cite{wong_qualitative_2006}. The \gls[first]{acr-Spiral-STC} illustrated in algorithm~\ref{alg:stc}, works as follows: Starting at the current cell, the robot chooses a new travel direction by selecting the first new mega cell in the free space in anti-clockwise direction. Then, a new spanning-tree edge is grown from the current mega cell to the new one. The algorithm is called recursively. The recursion stops only when the current cell has no new neighbours (a mega cell is considered old if at least one of its four smaller cells is covered, it is considered new otherwise).
-As a result of this recursion, the robot moves along one side of the spanning tree until it reaches the end of the tree. At this point, the robot turns around to traverse the other side of the tree. \cite{galceran_coverage_2014}.
+An sub-family of grid-based coverage are systematic spiral paths algorithms. These work by following a systematic spiral
+spanning tree of a partial grid map. This map is constructed using its on-board sensors~\cite{galceran_coverage_2014}
+and uses two different sizes of grid cells. The smaller grid cell is the same size as the robot. Four of these grid
+cells then form a mega cell. \cite{wong_qualitative_2006}. The \gls[first]{acr-Spiral-STC} described in
+algorithm~\ref{alg:stc}, works as follows:
+
+Starting at the current cell, the robot chooses a new travel direction by selecting the first new mega cell in the free
+space in anti-clockwise direction. Then, a new spanning-tree edge is grown from the current mega cell to the new one.
+The algorithm is called recursively. The recursion stops only when the current cell has no new neighbors (a mega cell
+is considered old if at least one of its four smaller cells is covered, it is considered new otherwise). As a result of
+this recursion, the robot moves along one side of the spanning tree until it reaches the end of the tree. At this point,
+the robot turns around to traverse the other side of the tree~\cite{galceran_coverage_2014}.
 
 \begin{RoyalFigure}[!htb, label=]{COVERAGE PATH GENERATED WITH THE SPIRAL-STC ALGORITHM~\cite{galceran_survey_2013}.}
 		\includegraphics[height=7cm,trim=2 2 2 2,clip]{spiral-stc.pdf}
@@ -624,22 +673,46 @@ As a result of this recursion, the robot moves along one side of the spanning tr
 	\end{algorithmic}
 \end{RoyalAlgorithm}
 
-\citet{wong_qualitative_2006} and \citet{lee_smooth_2011} states the path can be optimized by using smaller grid cells, however because accurate manoeuvrability is often an issue, a higher resolution is not the best approached. \citeauthor{lee_smooth_2011} proposes a new method for \gls{acr-Spiral-STC} by limiting the number of turns,
-decelerations and accelerations. \citet{mei_energy-efficient_2004} determined by analytically comparing energy efficiency of different coverage algorithm that sharp turns bring about inefficiency. Thus by limiting these, an energy efficient path can be generated. Since the dredge bot will be powered by an external land-based source, this option won't be further explored.
+\citet{wong_qualitative_2006} and \citet{lee_smooth_2011} states the path can be optimized by using smaller grid cells,
+however because accurate maneuverability is often an issue, a higher resolution is not the best approached.
+\citeauthor{lee_smooth_2011} proposes a new method for \gls{acr-Spiral-STC} by limiting the number of turns,
+decelerations and accelerations. \citet{mei_energy-efficient_2004} determined by analytically comparing energy
+efficiency of different coverage algorithm that sharp turns bring about inefficiency. Thus by limiting these, an energy
+efficient path can be generated. Since the dredge bot will be powered by an external land-based source, this option
+won't be further explored.
 
 \subsubsection{NEURAL NETWORK-BASED COVERAGE ON GRID MAPS}
-\citet{luo_solution_2002} proposes a model which is capable of planning a real-time path to reasonably cover every area in the vicinity of obstacles. The robot path is autonomously generated through the dynamic neural activity landscape of the neural network and the previous robot location~\cite{luo_solution_2002}\cite{luo_bioinspired_2008}. \citeauthor{luo_solution_2002} discretized a 2D space in a grid map where the diagonal length of each grid cell is equal to the robot sweeping radius and then a neuron is associated to each and every grid cell.
-Each neuron has connections to its immediate 8 neighbours~\cite{galceran_survey_2013}. This architecture is illustrated in figure~\ref{fig:cppnn}.
+\citet{luo_solution_2002} proposes a model capable of planning a real-time path; Which covers every area, in
+the vicinity of obstacles, to a reasonably extent. A crawlers path is autonomously generated through a dynamic neural
+activity landscape~\cite{luo_solution_2002}\cite{luo_bioinspired_2008}. \citeauthor{luo_solution_2002} discretized a 2D
+space in a grid map where the diagonal length of each grid cell is equal to the robot sweeping radius and then a neuron
+is associated to each and every grid cell. Each neuron has connections to its immediate 8
+neighbors~\cite{galceran_survey_2013}. This architecture is illustrated in figure~\ref{fig:cppnn}.
 
-The proposed neural network is expressed topologically on a 2-dimensional occupancy grid map. The location of the \(k\)th neuron of the neural network represent a location (cell) in the map. Each neuron has local lateral connections to its neighbouring neurons in a small region \( [0,\gls{sym-r_0}] \) where \gls[first]{sym-r_0} is the receptive field radius of the \( k \)th neuron, as shown in figure \ref{fig:cppnn} (b). The excitatory input results from uncovered area and lateral neural connections while inhibitory input results from obstacles \cite{yan_complete_2012}.
-The shunting equation~\ref{eq:shunting} derived from Hodgkin and Huxley \cite{hodgkin_quantitative_1952} determines the dynamics of each neuron in the network.
+\begin{RoyalFigure}[!htb, label=fig:cppnn]{ARCHITECTURE OF A NEURODYNAMICS MODEL~\cite{yan_complete_2012}}
+	\includegraphics[height=12cm,trim=2 2 2 2,clip]{cppnn.pdf}
+\end{RoyalFigure}
+
+The proposed neural network, is topologically expressed on a 2-dimensional occupancy grid map. The location of the
+\(k\)th neuron of the neural network represent a location (cell). Where each neuron has local lateral connections
+to its neighboring neurons, in the small region \( [0,\gls{sym-r_0}] \); Where \gls[first]{sym-r_0} is the receptive field
+radius of the \( k \)th neuron, as shown in figure~\ref{fig:cppnn} (b). The excitatory input results from uncovered area
+and lateral neural connections, while inhibitory inputs, results from obstacles~\cite{yan_complete_2012}. The shunting
+equation~\ref{eq:shunting} derived from Hodgkin and Huxley~\cite{hodgkin_quantitative_1952} determines the dynamics of
+each neuron in the network.
 
 \begin{equation}\label{eq:shunting}
 	\dv{x_k}{t} = -Ax_k + (B - x_k) \left(\left[I_k\right]^+ + \sum_{l=1}^{m}w_{kl}\left[\gls{sym-n_a_l}\right]^+ \right) - (D + x_i)\left[I_i\right]^-
 \end{equation}
 
-Equation~\ref{eq:shunting} consist of the following $ x_k $ is the $ k $th neuron in the neural network, while $A, B \text{ and } D$ are non negative constants describing the passive decay rate, and the upper and lower bounds of the neural activity. The terms $ \left[I_k\right]^+ + \sum_{l=1}^{m}w_{kl}\left[\gls{sym-n_a_l}\right]^+ $ are the excitatory inputs while $ \left[I_i\right]^-  $ is the inhibitor.
-These are linear-above and below thresholds defined as $ [a]^+ = \max\{a,0\} $ and $ [a]^- = \max\{-a,0\} $. The connection weight is given by $ w_{kl} $ which is assigned between the $ k $th and the $ l $th neuron, which is given by $ w_{kl} = f(|q_k - q_l|) $, where $ |q_k - q_l| $ is the Euclidean distance between vectors $ q_k $ and $ q_l $ in the state space, and $ f(d) $is a \gls{gls-monotonically} decreasing function defined as
+Equation~\ref{eq:shunting} consist of the following \( x_k \) is the \( k \)th neuron in the neural network, while $A, B
+\text{ and } D$ are non negative constants describing the passive decay rate, and the upper and lower bounds of the
+neural activity. The terms $ \left[I_k\right]^+ + \sum_{l=1}^{m}w_{kl}\left[\gls{sym-n_a_l}\right]^+ $ are the
+excitatory inputs while $ \left[I_i\right]^-  $ is the inhibitor. These are linear-above and below thresholds defined as
+$ [a]^+ = \max\{a,0\} $ and $ [a]^- = \max\{-a,0\} $. The connection weight is given by $ w_{kl} $ which is assigned
+between the $ k $th and the $ l $th neuron, which is given by $ w_{kl} = f(|q_k - q_l|) $, where $ |q_k - q_l| $ is the
+Euclidean distance between vectors $ q_k $ and $ q_l $ in the state space, and $ f(d) $is a \gls{gls-monotonically}
+decreasing function defined as
 
 \begin{equation}\label{eq:fd}
 	f(d) = \left\{
@@ -662,9 +735,7 @@ These are linear-above and below thresholds defined as $ [a]^+ = \max\{a,0\} $ a
 	\right.
 \end{equation}
 
-\begin{RoyalFigure}[!htb, label=fig:cppnn]{ARCHITECTURE OF A NEURODYNAMICS MODEL~\cite{yan_complete_2012}}
-	\includegraphics[height=12cm,trim=2 2 2 2,clip]{cppnn.pdf}
-\end{RoyalFigure}
+
 
 By properly defining the external inputs from the changing environment and internal neural connections, the unclean areas and obstacles are guaranteed to stay at the peak and the valley of the activity landscape of the neural network, respectively. The unclean areas globally attract the robot in the whole workspace through neural activity propagation, while the obstacles have only local effect in a small region to avoid collisions. The collision-free robot motion is planned in real time based on the dynamic activity landscape of the neural network and the previous robot position, such that all areas will be cleaned and the robot will travel along a smooth zigzag path~\cite{luo_bioinspired_2008}. An advantage of this method is that can handle non stationary environments(i.e., dynamically changing obstacles)~ \cite{galceran_survey_2013}.
 %

@@ -214,11 +214,24 @@
 
 \NewDocumentEnvironment{ RoyalTable }{m}
 {
-\setlength{\tabulinesep}{4mm}
-\setlength{\extrarowsep}{2mm}
+\setlength{\tabulinesep}{1pt}
+\setlength{\extrarowsep}{2pt}
 \noindent
 \taburowcolors[2] 2{RoyalWhite .. RoyalLightGrey}
 \begin{longtabu}{#1}
+  \rowcolor{RoyalRed} \rowfont{\sffamily\bfseries\color{RoyalWhite}}
+}
+{
+\end{longtabu}
+}
+
+\NewDocumentEnvironment{ RoyalUM }{m}
+{
+\setlength{\tabulinesep}{1pt}
+\setlength{\extrarowsep}{2pt}
+\noindent
+\taburowcolors[2] 2{RoyalWhite .. RoyalLightGrey}
+\begin{longtabu} to 170mm {#1}
   \rowcolor{RoyalRed} \rowfont{\sffamily\bfseries\color{RoyalWhite}}
 }
 {

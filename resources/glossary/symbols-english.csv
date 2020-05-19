@@ -123,7 +123,7 @@ q_rf|q_{rf}|\si{\joule\per\kilo\gram}|refrigerating effect of a refrigerant
 Q_wp|Q_{wp}|\si{\watt}|heat generated due to the water vapor production of a person
 q_x|q_x|\si{\watt}|heat transfer rate
 r|r|\si{\meter}|radius
-r_0|r_0|\si{\meter}|the receptive field radius of the\ensuremath{k}th neuron
+r_0|r_0|\si{\meter}|the receptive field radius of the \ensuremath{k}th neuron
 R|R|\si{\watt\per\kelvin}|heat resistance due the conduction and convection
 R_k|\mathbf{R}|\si{-}|covariance matrix of state estimation uncertainty
 R_rad|R_{rad}|\si{\watt\per\kelvin\tothe{4}}|heat resistance due to radiation
