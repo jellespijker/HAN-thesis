@@ -67,3 +67,10 @@ cusp-point|cusp point|cusp points|are points where its surface normal of the bou
 voronoi-diagram|Voronoi diagram|Voronoi diagrams|a partition of a plane into regions close to each of a given set of objects
 deadlock-state|deadlock state|dead lock states|a standstill situation, from which the algorithm has no means of escape
 monotonically|monotonically|monotonically|a function between ordered sets that preserves or reverses the given order
+Archimedes-screw|Archimedes screw|Archimedes screws|a machine historically used for transferring water from a low-lying body of water into irrigation ditches. The same principle can also be used propel the screw in a medium
+hydraulic-motor|hydraulic motor|hydraulikc motors|a mechanical actuator that converts hydraulic pressure and flow into torque and angular displacement
+hydraulic-pump|hydraulic pump|hydraulic pumps|a mechanical source of power that converts mechanical power into hydraulic energy
+electric-motor|electric motor|electric motors|an electrical machine that converts electrical energy into mechanical energy
+gimbal-lock|gimbal lock|gimbal locking|the loss of one degree of freedom in a three-dimensional space, three-gimbal mechanism that occurs when the axes of two of the three gimbals are driven into a parallel configuration, ``locking'' the system into rotation in a degenerate two-dimensional space
+non-commutative|non-commutative|non-commutative|a operation in which the order of the operands determine the results
+quaternion|quaternion|quaternions|a number system that extends the complex numbers, they are very useful in describing a rotatation involving three dimensions

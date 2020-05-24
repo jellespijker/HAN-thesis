@@ -274,6 +274,7 @@ minimum height=3em, minimum width=6em,rounded corners=.15cm]
 %\usepackage[no-math]{fontspec}
 %\usepackage[T1]{fontenc}
 %\usepackage[utf8]{inputenc}
+\usepackage{bm}
 \usepackage[utf8]{luainputenc}
 \usepackage{mathrsfs}
 \let\Re\undefined

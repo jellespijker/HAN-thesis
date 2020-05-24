@@ -2,40 +2,87 @@
 % !TeX spellcheck = en-US
 % !TeX encoding = UTF-8
 \section{LOCATION UNDER UNCERTAINTY}\label{chap:coverageunderuncertainty}
-Due to the absence of an ubiquitous global localization system such as \gls{acr-GPS} in underwater environments, \gls{acr-AUV} navigation is confined to these three primary methods: (1) \gls{gls-dead-reckoning}, (2) \gls{gls-acoustic-navigation}, and (3) \gls{gls-geophysical-navigation}.
 
-The most obvious and longest established technique is \gls{gls-dead-reckoning}, which consist in integrating vehicle velocity measurements from sensors such as \gls{gls-accelerometer} and \gls{gls-gyroscope} to obtain new position estimates.
-The problem with exclusive reliance on \gls{gls-dead-reckoning} is that the position error increases without bound as the distance travelled by the \gls{acr-AUV}~\cite{galceran_coverage_2014}. It will be illustrated in section~\ref{sec:KalmanRefinement} that the position error can de limited by making use of sensor fusion. But this won't be enough.
-The effects of sporadically position updating using stationary \gls[first]{acr-LBL} and \gls[first]{acr-USBL} is shown as well. Both \gls{acr-LBL} as \gls{acr-USBL} make use of acoustic energy, which is described in more detail in section~\ref{sec:ac}. Because acoustic energy is known for its excellent travel characteristics underwater it's common practice to deploy those transponders as beacons, such that they can update the position and bound the dead-reckoning error.
+Due to the absence of an ubiquitous global localization system such as \gls{acr-GPS} in underwater environments, crawler
+navigation is confined to these three primary methods: (1) \gls{gls-dead-reckoning}, (2) \gls{gls-acoustic-navigation},
+and (3) \gls{gls-geophysical-navigation}.
 
-\gls{gls-geophysical-navigation} such as \gls[first]{acr-TRN} and \gls[first]{acr-SLAM} are up and coming methods which show potential. These use the characteristic of a terrain, perceived through there sensors, to obtain their position. These methods will be illustrated in section~\ref{sec:Localization and mapping}
+The most obvious and longest established technique is \gls{gls-dead-reckoning}, which consist in integrating vehicle
+velocity measurements from sensors such as \gls{gls-accelerometer} and \gls{gls-gyroscope} to obtain new position
+estimates. The problem with exclusive reliance on \gls{gls-dead-reckoning} is that the position error increases without
+bound as the distance travelled by the crawler~\cite{galceran_coverage_2014}. It will be illustrated in
+section~\ref{sec:KalmanRefinement} that the position error can de limited by making use of sensor fusion. But this won't
+be enough. The effects of sporadically position updating using stationary \gls[first]{acr-LBL} and \gls[first]{acr-USBL}
+is shown as well. Both \gls{acr-LBL} as \gls{acr-USBL} make use of acoustic energy, which is described in more detail in
+section~\ref{sec:ac}. Because acoustic energy is known for its excellent travel characteristics underwater it's common
+practice to deploy those transponders as beacons, such that they can update the position and bound the dead-reckoning
+error.
 
-Other methods for navigation under uncertainty are based on probabilities taken into account \emph{a priori} known characteristics of sensors and actuators such as \gls[first]{acr-LQG-MP} and \gls[first]{acr-RRT}. According to~\citet{galceran_uncertainty_driven_2013} these methods are theoretically satisfactory but they require discretization of the environment, and will, as a result suffer from scalability problems. They propose the use of \emph{a priori} known \gls[first]{gls-bathymetric-map}.
-Which classifies this method as \gls{gls-off-line} and therefore unsuitable to be employed for an autonomous operating crawler. These will therefore not be described in this thesis.
+\gls{gls-geophysical-navigation} such as \gls[first]{acr-TRN} and \gls[first]{acr-SLAM} are up and coming methods which
+show potential. These use the characteristic of a terrain, perceived through there sensors, to obtain their position.
+These methods will be illustrated in section~\ref{sec:Localization and mapping}
 
-Recent studies have been focused on minimizing uncertainties using multiple robots, such as the leap-frog strategy proposed by~\citet{tully_leap_frog_2010}, which uses a team of three robots where two alternating robots act as stationary beacons. Others like~\citet{wei_gao_robust_2014} use a single surface which act as an communication and navigation aid. It is quite common to filter sensor readings and state vectors from the multiple robots using a \gls{gls-Kalman-filter}. Section~\ref{sec:Cooperative localization} describes in more detailed how swarms of bots could help each other in estimating their position.
+Other methods for navigation under uncertainty are based on probabilities taken into account \emph{a priori} known
+characteristics of sensors and actuators such as \gls[first]{acr-LQG-MP} and \gls[first]{acr-RRT}. According
+to~\citet{galceran_uncertainty_driven_2013} these methods are theoretically satisfactory but they require discretization
+of the environment, and will, as a result suffer from scalability problems. They propose the use of \emph{a priori}
+known \gls[first]{gls-bathymetric-map}. Which classifies this method as \gls{gls-off-line} and therefore unsuitable to
+be employed for an autonomous operating crawler. These will therefore not be described in this thesis.
 
-But this chapter begins with a dive into \gls{gls-Kalman-filter}. The sections below describe how the state representation \gls{sym-x_k} of a crawler can be obtained using a \gls{gls-Kalman-filter}, which fuses multiple sensors together. It will then explore how the growth of errors can bound, using a sporadically obtained position estimate from a alternative source, such as moving or stationary beacons.
+Recent studies have been focused on minimizing uncertainties using multiple robots, such as the leap-frog strategy
+proposed by~\citet{tully_leap_frog_2010}, which uses a team of three robots where two alternating robots act as
+stationary beacons. Others like~\citet{wei_gao_robust_2014} use a single surface which act as an communication and
+navigation aid. It is quite common to filter sensor readings and state vectors from the multiple robots using a
+\gls{gls-Kalman-filter}. Section~\ref{sec:Cooperative localization} describes in more detailed how swarms of bots could
+help each other in estimating their position.
+
+But this chapter begins with a dive into \gls{gls-Kalman-filter}. The sections below describe how the state
+representation \gls{sym-x_k} of a crawler can be obtained using a \gls{gls-Kalman-filter}, which fuses multiple sensors
+together. It will then explore how the growth of errors can bound, using a sporadically obtained position estimate from
+a alternative source, such as moving or stationary beacons.
 
 \subsection{LOCALIZATION REFINEMENT USING KALMAN FILTERS}\label{sec:KalmanRefinement}
-A crawler has multiple sensors on-board to establish were and what its orientation is; These will in a likelihood be a \gls{gls-gyroscope}, \gls{gls-accelerometer}, \gls{gls-magnetometer} and a \gls{gls-pressure-sensor}. It was established in section~\ref{sec:sensorstate} that each of these sensors have their own limitations and strengths.
-It is common practice to fuse multiple sensors together, to counteract these limitations with strengths of the other sensors. \gls{gls-Kalman-filter} or as they are also known \gls[first]{acr-LQE}, are a tried and practice method to achieve this.
 
-Section~\ref{sec:KalmanRefinement} explains the filter using a simple example of a falling ball with only gravity working on the ball.
+A crawler has multiple sensors on-board to establish were and what its orientation is; These will in a likelihood be a
+\gls{gls-gyroscope}, \gls{gls-accelerometer}, \gls{gls-magnetometer} and a \gls{gls-pressure-sensor}. It was established
+in section~\ref{sec:sensorstate} that each of these sensors have their own limitations and strengths. It is common
+practice to fuse multiple sensors together, to counteract these limitations with strengths of the other sensors.
+\gls{gls-Kalman-filter} or as they are also known \gls[first]{acr-LQE}, are a tried and practice method to achieve this.
 
-\subsection{BASIC KALMAN FILTERING}
-Before a \gls{gls-Kalman-filter}  can be designed it is important that the basics are explained. The section will feature a short description of the background and workings of a \gls{gls-Kalman-filter}  and \gls[first]{gls-quaternion}.
+Section~\ref{sec:KalmanRefinement} explains the filter using a simple example of a falling ball with only gravity
+working on the ball.
 
-In 1960, R.E. Kalman published his paper \citet{kalman_new_1960} --- \textit{''A new approach to linear filtering and prediction problems``}. In this paper he described a recursive solution to the discrete-data linear filter problem.
+\subsection{BASIC KALMAN FILTERING}\label{sec:basic Kalman filter}
+
+Before a \gls{gls-Kalman-filter}  can be designed it is important that the basics are explained. The section will
+feature a short description of the background and workings of a \gls{gls-Kalman-filter}  and
+\gls[first]{gls-quaternion}.
+
+In 1960, R.E. Kalman published his paper \citet{kalman_new_1960} --- \textit{''A new approach to linear filtering and
+prediction problems``}. In this paper he described a recursive solution to the discrete-data linear filter problem.
 \citet{welch_introduction_2006},~\citet{dandrea_novel_control_2013}, \citet{chui_kalman_1999},
-\citet{grewal_kalman_2015} all describe how \gls{gls-Kalman-filter}s have had a huge impact on control theory, and have been subject to extensive research and application. The paragraphs below are based on the theory proposed by \citet{kalman_new_1960}.
+\citet{grewal_kalman_2015} all describe how \gls{gls-Kalman-filter}s have had a huge impact on control theory, and have
+been subject to extensive research and application. The paragraphs below are based on the theory proposed by
+\citet{kalman_new_1960}.
 
-A \gls{gls-Kalman-filter} can be used to control a dynamic model, especially those represented by systems of linear differential equations. These generally come from the laws of physics. The real-world dynamics are used to model the state dynamics. Which should contain a fairly faithful replication of the true system dynamics. The state of a falling object in one dimension can be described with the state \( \gls{sym-x_k} = \left[\gls{sym-s_z}, \gls{sym-v_z}\right]^T \). Here \gls[first]{sym-s_z} and \gls[first]{sym-v_z}.
+A \gls{gls-Kalman-filter} can be used to control a dynamic model, especially those represented by systems of linear
+differential equations. These generally come from the laws of physics. The real-world dynamics are used to model the
+state dynamics. Which should contain a fairly faithful replication of the true system dynamics. The state of a falling
+object in one dimension can be described with the state \( \gls{sym-x_k} = \left[\gls{sym-s_z}, \gls{sym-v_z}\right]^T
+\). Here \gls[first]{sym-s_z} and \gls[first]{sym-v_z}.
 
-A \gls{gls-Kalman-filter} works by estimating the state of a process based on \textit{a priori} states. It is in effect an optimal estimator based on a prediction made from the previous input and current input. The \gls{gls-Kalman-filter} addresses the general problem of trying to estimate the state \( \gls{sym-x_khat} \in \Re^n \) of a discrete-time controlled process that is governed by the linear stochastic difference equation~\ref{eq:kalman}.
-Here \gls{sym-F_k} is a state transition model which is applied to the previous state \gls{sym-x_kt-1}, to estimate the current state. Where \gls{sym-B_k} is the control-input model which is applied to the control vector \gls{sym-u_k}.
-The process noise \gls{sym-w_k} is assumed to be white, with a normal probability distribution. The \gls{sym-Q_k} is the process noise covariance.
-Each predicted step is updated with a measurement, which is shown in equation~\ref{eq:kalman measurement}. Here the measurement \( \gls{sym-z_k} \in \Re^m  \), where \gls{sym-H_k} is the observation model, which maps the true state space \gls{sym-x_k} into the observed space, whilst taking into account the observation noise \gls{sym-v_k}, which is assumed to be unrelated to \gls{sym-w_k}, and is white with a normal probability distribution. Where \gls{sym-R_k} is the measurement noise covariance.
+A \gls{gls-Kalman-filter} works by estimating the state of a process based on \textit{a priori} states. It is in effect
+an optimal estimator based on a prediction made from the previous input and current input. The \gls{gls-Kalman-filter}
+addresses the general problem of trying to estimate the state \( \gls{sym-x_khat} \in \Re^n \) of a discrete-time
+controlled process that is governed by the linear stochastic difference equation~\ref{eq:kalman}. Here \gls{sym-F_k} is
+a state transition model which is applied to the previous state \gls{sym-x_kt-1}, to estimate the current state. Where
+\gls{sym-B_k} is the control-input model which is applied to the control vector \gls{sym-u_k}. The process noise
+\gls{sym-w_k} is assumed to be white, with a normal probability distribution. The \gls{sym-Q_k} is the process noise
+covariance. Each predicted step is updated with a measurement, which is shown in equation~\ref{eq:kalman measurement}.
+Here the measurement \( \gls{sym-z_k} \in \Re^m  \), where \gls{sym-H_k} is the observation model, which maps the true
+state space \gls{sym-x_k} into the observed space, whilst taking into account the observation noise \gls{sym-v_k}, which
+is assumed to be unrelated to \gls{sym-w_k}, and is white with a normal probability distribution. Where \gls{sym-R_k} is
+the measurement noise covariance.
 
 \begin{equation}\label{eq:kalman}
 	\gls{sym-x_khat} = \gls{sym-F_k} \gls{sym-x_kt-1} + \gls{sym-B_k} \gls{sym-u_k} + \gls{sym-w_k}, \qquad p(\gls{sym-w_k}) \sim \mathit{N}(0,\gls{sym-Q_k})
@@ -45,8 +92,9 @@ Each predicted step is updated with a measurement, which is shown in equation~\r
 	\gls{sym-z_k} = \gls{sym-H_k} \gls{sym-x_k} + \gls{sym-v_k}, \qquad p(\gls{sym-v_k}) \sim \mathit{N}(0,\gls{sym-R_k})
 \end{equation}
 
-
-Figure \ref{fig:Kalman workflow}, shows the algorithm as a flow diagram. It starts with and initial assumption of the state \gls{sym-x_k0} and \gls{sym-P_0}, which is the initial state of the error covariance matrix. Which can be described as a measure of the estimated accuracy of the state estimate.
+Figure \ref{fig:Kalman workflow}, shows the algorithm as a flow diagram. It starts with and initial assumption of the
+state \gls{sym-x_k0} and \gls{sym-P_0}, which is the initial state of the error covariance matrix. Which can be
+described as a measure of the estimated accuracy of the state estimate.
 
 \begin{RoyalFigure}[!htb, label=fig:Kalman workflow]{FLOW OF A KALMAN FILTER}
 	\begin{tikzpicture}[auto, node distance=4cm,>=latex', align=center]
@@ -82,10 +130,17 @@ Figure \ref{fig:Kalman workflow}, shows the algorithm as a flow diagram. It star
 	\end{tikzpicture}
 \end{RoyalFigure}
 
-These initialized values are fed in the loop as a \textbf{previous state}. With which a \textbf{new predicted state} is estimated using equation~\ref{eq:kalman}. If the previous example of a falling object in one dimensions is used, with the state \(\gls{sym-x_k} = \left[\gls{sym-s_z}, \gls{sym-v_z}\right]^T\). A prediction can be made of the position in the next time step.
-Which will follows the equation \( \gls{sym-s_z_k} = \gls{sym-s_z_k-1} + \gls{sym-v_z_k-1} \gls{sym-Delta_t}+ \frac{1}{2}\gls{sym-a_z_k-1} \gls{sym-Delta_t}^2\)
-and the new velocity \( \gls{sym-v_z_k} = \gls{sym-v_z_k-1} + \gls{sym-a_z_k} \gls{sym-Delta_t} \). For simplicity sake the process noise \gls{sym-w_k} is set to zero. The matrix \gls{sym-F_k} is used to map the previous state to the new state.
-Where the matrix \gls{sym-B_k} is used to map the control variable \gls{sym-u_k} to the new state. These variable dictate the change; In the case of our example it will be an acceleration due to gravity \gls{sym-a_z} = -\gls{sym-g}. Equation~\ref{eq:kalman example estimate} illustrates the new estimation of the state of our example. Here \( \gls{sym-Delta_t} \) is an incremental time step.
+These initialized values are fed in the loop as a \textbf{previous state}. With which a \textbf{new predicted state} is
+estimated using equation~\ref{eq:kalman}. If the previous example of a falling object in one dimensions is used, with
+the state \(\gls{sym-x_k} = \left[\gls{sym-s_z}, \gls{sym-v_z}\right]^T\). A prediction can be made of the position in
+the next time step. Which will follows the equation \( \gls{sym-s_z_k} = \gls{sym-s_z_k-1} + \gls{sym-v_z_k-1}
+\gls{sym-Delta_t}+ \frac{1}{2}\gls{sym-a_z_k-1} \gls{sym-Delta_t}^2\) and the new velocity \( \gls{sym-v_z_k} =
+\gls{sym-v_z_k-1} + \gls{sym-a_z_k} \gls{sym-Delta_t} \). For simplicity sake the process noise \gls{sym-w_k} is set to
+zero. The matrix \gls{sym-F_k} is used to map the previous state to the new state. Where the matrix \gls{sym-B_k} is
+used to map the control variable \gls{sym-u_k} to the new state. These variable dictate the change; In the case of our
+example it will be an acceleration due to gravity \gls{sym-a_z} = -\gls{sym-g}. Equation~\ref{eq:kalman example
+estimate} illustrates the new estimation of the state of our example. Here \( \gls{sym-Delta_t} \) is an incremental
+time step.
 
 \begin{equation}\label{eq:kalman example estimate}
 	\gls{sym-x_khat} =
@@ -112,8 +167,13 @@ Where the matrix \gls{sym-B_k} is used to map the control variable \gls{sym-u_k}
 	\end{array}\right]
 \end{equation}
 
-The new predicted error of the estimate, known as the error covariance matrix \gls{sym-P_k}, is used to map the covariance between the \( i^{th} \) and \( j^{th} \) elements of the state vector \gls{sym-x_k}. In this example it is initial assumed that error between the state of its position \gls{sym-s_z} and the velocity are unrelated. The assumption is also made that the position has an error of \( \sigma{\gls{sym-s_z}} \) and the velocity \( \sigma{\gls{sym-v_z} } \).
-From this, a simple error covariance matrix can be constructed. Which can be used in equation~\ref{eq:kalman new predicted P}, with which a new error covariance matrix can be calculated, as is shown in equation~\ref{eq:kalman example P}. The noise matrix \gls{sym-Q_k} is set to zero.
+The new predicted error of the estimate, known as the error covariance matrix \gls{sym-P_k}, is used to map the
+covariance between the \( i^{th} \) and \( j^{th} \) elements of the state vector \gls{sym-x_k}. In this example it is
+initial assumed that error between the state of its position \gls{sym-s_z} and the velocity are unrelated. The
+assumption is also made that the position has an error of \( \sigma{\gls{sym-s_z}} \) and the velocity \(
+\sigma{\gls{sym-v_z} } \). From this, a simple error covariance matrix can be constructed. Which can be used in
+equation~\ref{eq:kalman new predicted P}, with which a new error covariance matrix can be calculated, as is shown in
+equation~\ref{eq:kalman example P}. The noise matrix \gls{sym-Q_k} is set to zero.
 
 \begin{equation}\label{eq:kalman new predicted P}
 	\gls{sym-P_k} = \gls{sym-F_k} \gls{sym-P_k-1} \gls{sym-F_k}^T + \gls{sym-Q_k}
@@ -151,7 +211,12 @@ From this, a simple error covariance matrix can be constructed. Which can be use
 \end{multlined}
 \end{equation}
 
-Once the prediction of a new state and error covariance matrix is made, The \textbf{measurements} can be calculated. It is important to note that only the inputs and outputs of the system can be measured. Equation~\ref{eq:kalman measurement form} shows the measured values, mapped to the state space \gls{sym-x_k}, where \gls{sym-H_k} is the measurement sensitivity matrix defining the linear relationship between the state of a dynamic system and the measurements that can be made, which for now is set equal to a \( 2 \times 2 \) identity matrix. Lets assume that for our example only the position can be measured \gls{sym-s_z_m_k} and that the measurement noise is assumed to be zero.
+Once the prediction of a new state and error covariance matrix is made, The \textbf{measurements} can be calculated. It
+is important to note that only the inputs and outputs of the system can be measured. Equation~\ref{eq:kalman measurement
+form} shows the measured values, mapped to the state space \gls{sym-x_k}, where \gls{sym-H_k} is the measurement
+sensitivity matrix defining the linear relationship between the state of a dynamic system and the measurements that can
+be made, which for now is set equal to a \( 2 \times 2 \) identity matrix. Lets assume that for our example only the
+position can be measured \gls{sym-s_z_m_k} and that the measurement noise is assumed to be zero.
 
 \begin{equation}\label{eq:kalman measurement form}
 	\gls{sym-z_k} = \gls{sym-H_k} \gls{sym-y_k} + \gls{sym-v_k}
@@ -179,7 +244,10 @@ Once the prediction of a new state and error covariance matrix is made, The \tex
 	\end{array}\right]
 \end{equation}
 
-With the predicted state and the obtained measurements a new state can be estimated. During this \textbf{update} phase, we determine how much weight the \gls{gls-Kalman-filter} needs to put in to its measurements compared to its predicted state. This can be done by calculating the \gls{sym-Kgain}~\gls[first]{gls-kalman-gain}. It can be calculated with equation~\ref{eq:kalman gain}. Where \gls{sym-R_k} is the covariance matrix of observational (measurement) uncertainty.
+With the predicted state and the obtained measurements a new state can be estimated. During this \textbf{update} phase,
+we determine how much weight the \gls{gls-Kalman-filter} needs to put in to its measurements compared to its predicted
+state. This can be done by calculating the \gls{sym-Kgain}~\gls[first]{gls-kalman-gain}. It can be calculated with
+equation~\ref{eq:kalman gain}. Where \gls{sym-R_k} is the covariance matrix of observational (measurement) uncertainty.
 
 \begin{equation}\label{eq:kalman gain}
 \gls{sym-Kgain} = \frac{\gls{sym-P_k}\gls{sym-H_k}^T}{\gls{sym-H_k}\gls{sym-P_k}\gls{sym-H_k}^T + \gls{sym-R_k}}
@@ -216,11 +284,18 @@ With the predicted state and the obtained measurements a new state can be estima
 		\end{array}\right]
 \end{equation}
 
-The \gls{gls-kalman-gain} obtained in equation~\ref{eq:kalman gain}, is used in equation~\ref{eq:kalman xk}.
-Where a new state is calculated by taking the predicted state \gls{sym-x_k} calculated with equation~\ref{eq:kalman example estimate} and adding the innovation multiplied with the \gls{gls-kalman-gain} \(\gls{sym-z_k} - \gls{sym-H_k} \gls{sym-x_khat} \).
-Innovations are the differences between observed and predicted measurements. \citet{grewal_kalman_2015} states that they are the carotid artery of a \gls{gls-Kalman-filter}. They provide an easily accessible point for monitoring vital health status without disrupting normal operations, and the statistical and temporal properties of its pulses can tell us much about what might be right or wrong with a \gls{gls-Kalman-filter} implementation.
+The \gls{gls-kalman-gain} obtained in equation~\ref{eq:kalman gain}, is used in equation~\ref{eq:kalman xk}. Where a new
+state is calculated by taking the predicted state \gls{sym-x_k} calculated with equation~\ref{eq:kalman example
+estimate} and adding the innovation multiplied with the \gls{gls-kalman-gain} \(\gls{sym-z_k} - \gls{sym-H_k}
+\gls{sym-x_khat} \). Innovations are the differences between observed and predicted measurements.
+\citet{grewal_kalman_2015} states that they are the carotid artery of a \gls{gls-Kalman-filter}. They provide an easily
+accessible point for monitoring vital health status without disrupting normal operations, and the statistical and
+temporal properties of its pulses can tell us much about what might be right or wrong with a \gls{gls-Kalman-filter}
+implementation.
 
-From the worked out 1-dimensional example it becomes apparent, that the state variable, calculated in equation~\ref{eq:kalman example xk} are weighted average between the measurements and the prediction, normalized against the error of the covariance, between the state variables.
+From the worked out 1-dimensional example it becomes apparent, that the state variable, calculated in
+equation~\ref{eq:kalman example xk} are weighted average between the measurements and the prediction, normalized against
+the error of the covariance, between the state variables.
 
 \begin{equation}\label{eq:kalman xk}
 	\gls{sym-x_k} = \gls{sym-x_khat} + \gls{sym-Kgain}\left[\gls{sym-z_k} - \gls{sym-H_k} \gls{sym-x_khat}\right]
@@ -262,7 +337,10 @@ From the worked out 1-dimensional example it becomes apparent, that the state va
 	\end{aligned}
 \end{equation}
 
-This newly obtained state, or \textbf{current state} \gls{sym-x_k} can be used in the next iteration. During this phase a new process covariance matrix \gls{sym-P_k} is calculated with equation~\ref{eq:kalman new Pk}. Where the matrix \( \mathbf{I} \) is a \( 2 \times 2 \) identity matrix. Both the new state, obtained from equation~\ref{eq:kalman xk} and the newly obtained process covariance matrix are set as the previous iteration.
+This newly obtained state, or \textbf{current state} \gls{sym-x_k} can be used in the next iteration. During this phase
+a new process covariance matrix \gls{sym-P_k} is calculated with equation~\ref{eq:kalman new Pk}. Where the matrix \(
+\mathbf{I} \) is a \( 2 \times 2 \) identity matrix. Both the new state, obtained from equation~\ref{eq:kalman xk} and
+the newly obtained process covariance matrix are set as the previous iteration.
 
 \begin{equation}\label{eq:kalman new Pk}
 	\gls{sym-P_k} = \left[\mathbf{I}-\gls{sym-Kgain}\gls{sym-H_k}\right] \gls{sym-P_k}
@@ -296,8 +374,14 @@ This newly obtained state, or \textbf{current state} \gls{sym-x_k} can be used i
 	\end{aligned}
 \end{equation}
 
-The above described example of a falling ball can be simulated with a Python script. Such a script can be found in appendix~\ref{app:Python Kalman}. Results from such a simulation are shown in figure~\ref{fig:pos_ball_kalman}. Were it is clearly evident that the estimated Kalman value, of the position, is a better estimate then the measured values. According to \citet{roger_r_labbe_jr_kalman_2017} an effective way to measure the results of a simulated Kalman filters, is the \gls[first]{acr-NEES}.
-Which can be calculated with equation~\ref{eq:eps_nees}, where \gls{sym-x_ktilde} is the error, or difference, between the ground truth state vector \gls{sym-x_kg} and the estimated filter value \gls{sym-x_khat}, squared and multiplied with the inverse of the process covariance matrix \gls{sym-P_k}; All evaluated at time \( k \).
+The above described example of a falling ball can be simulated with a Python script. Such a script can be found in
+appendix~\ref{app:Python Kalman}. Results from such a simulation are shown in figure~\ref{fig:pos_ball_kalman}. Were it
+is clearly evident that the estimated Kalman value, of the position, is a better estimate then the measured values.
+According to \citet{roger_r_labbe_jr_kalman_2017} an effective way to measure the results of a simulated Kalman filters,
+is the \gls[first]{acr-NEES}. Which can be calculated with equation~\ref{eq:eps_nees}, where \gls{sym-x_ktilde} is the
+error, or difference, between the ground truth state vector \gls{sym-x_kg} and the estimated filter value
+\gls{sym-x_khat}, squared and multiplied with the inverse of the process covariance matrix \gls{sym-P_k}; All evaluated
+at time \( k \).
 
 \begin{equation}\label{eq:xtild}
 	\gls{sym-x_ktilde} = \gls{sym-x_kg} - \gls{sym-x_khat}
@@ -354,8 +438,13 @@ Which can be calculated with equation~\ref{eq:eps_nees}, where \gls{sym-x_ktilde
 \end{RoyalFigure}
 
 
-This means that if the covariance matrix gets smaller, \gls{acr-NEES} gets larger for the same error. A covariance matrix is the filter's estimate of it's error, so if it is small relative to the estimation error then it is performing worse than if it is large relative to the same estimation error. Equation \ref{eq:eps_nees} gives a scalar for each time step, which is said to be \textit{chi-squared distributed with n degrees of freedom}. The average \gls{acr-NEES} value \gls{sym-epsilon_nees_mean} should be less then number of elements in the state space vector \gls{sym-n_x}, as is shown in equation \ref{eq:mean_eps}.
-The performance of our example or the \( \gls{sym-epsilon_nees_mean} = \num{1.307745} \) is shown in figure \ref{fig:nees_ball_kalman}.
+This means that if the covariance matrix gets smaller, \gls{acr-NEES} gets larger for the same error. A covariance
+matrix is the filter's estimate of it's error, so if it is small relative to the estimation error then it is performing
+worse than if it is large relative to the same estimation error. Equation \ref{eq:eps_nees} gives a scalar for each time
+step, which is said to be \textit{chi-squared distributed with n degrees of freedom}. The average \gls{acr-NEES} value
+\gls{sym-epsilon_nees_mean} should be less then number of elements in the state space vector \gls{sym-n_x}, as is shown
+in equation \ref{eq:mean_eps}. The performance of our example or the \( \gls{sym-epsilon_nees_mean} = \num{1.307745} \)
+is shown in figure \ref{fig:nees_ball_kalman}.
 
 \begin{RoyalFigure}[!htb, label=fig:nees_ball_kalman]{\gls{acr-NEES} for \gls{gls-Kalman-filter}}
 	\begin{tikzpicture}

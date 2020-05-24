@@ -62,3 +62,7 @@ BCD|Boustrophedon Cellular Decomposition
 GVD|Generalized Voronoi Diagram
 MLP|Multi-Layer Perceptron
 Spiral-STC|Spiral Spanning Tree Coverage
+UKF|Unscented Kalman Filter
+UT|Unscented Transformation
+ToF|Time of Flight
+DoA|Direction of arrival

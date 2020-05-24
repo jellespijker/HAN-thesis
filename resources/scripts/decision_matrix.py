@@ -20,7 +20,7 @@ strategies = [
 ]
 
 #%% add online criterium
-online      = [
+online      = [ # Is the algorithm suitable for online usage (Leave this out since I allready filter on it?)
                # ufloat(1, 0.2),
                # ufloat(1, 0.2),
                ufloat(5, 0.2),
@@ -36,7 +36,7 @@ online      = [
                ufloat(5, 0.2),
                ufloat(5, 0.2),
                ufloat(5, 0.2)]
-energy_eff  = [
+energy_eff  = [ # How energy efficient is the algorithm in, taking in to account accelerations, decelirations, turns, revisits, drag etc
                # ufloat(1, 0.2),
                # ufloat(1, 0.2),
                ufloat(5, 0.2),
@@ -51,12 +51,164 @@ energy_eff  = [
                ufloat(5, 0.2),
                ufloat(5, 0.2),
                ufloat(5, 0.2),
-               ufloat(5, 0.2)]
-
+               ufloat(2, 0.1)]
+time  = [ # how much time
+               # ufloat(1, 0.2),
+               # ufloat(1, 0.2),
+               ufloat(5, 0.2),
+               ufloat(5, 0.2),
+               ufloat(5, 0.2),
+               # ufloat(1, 0.2),
+               # ufloat(1, 0.2),
+               ufloat(5, 0.2),
+               ufloat(1, 0.4),
+               # ufloat(5, 0.2),
+               ufloat(5, 0.2),
+               ufloat(5, 0.2),
+               ufloat(5, 0.2),
+               ufloat(5, 0.2),
+               ufloat(2, 0.1)]
+revisits    = [ # How many revisits on certain locations
+               # ufloat(1, 0.2),
+               # ufloat(1, 0.2),
+               ufloat(0, 0.2),
+               ufloat(0, 0.2),
+               ufloat(0, 0.2),
+               # ufloat(1, 0.2),
+               # ufloat(1, 0.2),
+               ufloat(0, 0.2),
+               ufloat(0, 0.2),
+               # ufloat(5, 0.2),
+               ufloat(0, 0.2),
+               ufloat(0, 0.2),
+               ufloat(0, 0.2),
+               ufloat(0, 0.2),
+               ufloat(3, 0.2)]
+complexity  = [ # Implementation complexity
+               # ufloat(1, 0.2),
+               # ufloat(1, 0.2),
+               ufloat(0, 0.2),
+               ufloat(0, 0.2),
+               ufloat(0, 0.2),
+               # ufloat(1, 0.2),
+               # ufloat(1, 0.2),
+               ufloat(0, 0.2),
+               ufloat(0, 0.2),
+               # ufloat(5, 0.2),
+               ufloat(0, 0.2),
+               ufloat(0, 0.2),
+               ufloat(0, 0.2),
+               ufloat(0, 0.2),
+               ufloat(2, 0.5)]
+adaptivity  = [ # Performance in a changing environment
+               # ufloat(1, 0.2),
+               # ufloat(1, 0.2),
+               ufloat(0, 0.2),
+               ufloat(0, 0.2),
+               ufloat(0, 0.2),
+               # ufloat(1, 0.2),
+               # ufloat(1, 0.2),
+               ufloat(0, 0.2),
+               ufloat(0, 0.2),
+               # ufloat(5, 0.2),
+               ufloat(0, 0.2),
+               ufloat(0, 0.2),
+               ufloat(0, 0.2),
+               ufloat(0, 0.2),
+               ufloat(4, 0.2)]
+maintainability = [ # Bug fixes regression in between commits
+               # ufloat(1, 0.2),
+               # ufloat(1, 0.2),
+               ufloat(0, 0.2),
+               ufloat(0, 0.2),
+               ufloat(0, 0.2),
+               # ufloat(1, 0.2),
+               # ufloat(1, 0.2),
+               ufloat(0, 0.2),
+               ufloat(0, 0.2),
+               # ufloat(5, 0.2),
+               ufloat(0, 0.2),
+               ufloat(0, 0.2),
+               ufloat(0, 0.2),
+               ufloat(0, 0.2),
+               ufloat(2, 0.5)]
+TRL          = [ # Technological Readiness Level (novel --> proven)
+               # ufloat(1, 0.2),
+               # ufloat(1, 0.2),
+               ufloat(0, 0.2),
+               ufloat(0, 0.2),
+               ufloat(0, 0.2),
+               # ufloat(1, 0.2),
+               # ufloat(1, 0.2),
+               ufloat(0, 0.2),
+               ufloat(0, 0.2),
+               # ufloat(5, 0.2),
+               ufloat(0, 0.2),
+               ufloat(0, 0.2),
+               ufloat(0, 0.2),
+               ufloat(0, 0.2),
+               ufloat(1, 0.2)]
+integration  = [  # how wel it behaves with the rest of the crawler components and controllers
+               # ufloat(1, 0.2),
+               # ufloat(1, 0.2),
+               ufloat(0, 0.2),
+               ufloat(0, 0.2),
+               ufloat(0, 0.2),
+               # ufloat(1, 0.2),
+               # ufloat(1, 0.2),
+               ufloat(0, 0.2),
+               ufloat(0, 0.2),
+               # ufloat(5, 0.2),
+               ufloat(0, 0.2),
+               ufloat(0, 0.2),
+               ufloat(0, 0.2),
+               ufloat(0, 0.2),
+               ufloat(3, 0.2)]
+rulesregulation  = [ # Is it allowed by law
+               # ufloat(1, 0.2),
+               # ufloat(1, 0.2),
+               ufloat(0, 0.2),
+               ufloat(0, 0.2),
+               ufloat(0, 0.2),
+               # ufloat(1, 0.2),
+               # ufloat(1, 0.2),
+               ufloat(0, 0.2),
+               ufloat(0, 0.2),
+               # ufloat(5, 0.2),
+               ufloat(0, 0.2),
+               ufloat(0, 0.2),
+               ufloat(0, 0.2),
+               ufloat(0, 0.2),
+               ufloat(2, 0.5)]
+environment  = [ # Environmental impact (sound,marine life)
+               # ufloat(1, 0.2),
+               # ufloat(1, 0.2),
+               ufloat(0, 0.2),
+               ufloat(0, 0.2),
+               ufloat(0, 0.2),
+               # ufloat(1, 0.2),
+               # ufloat(1, 0.2),
+               ufloat(0, 0.2),
+               ufloat(0, 0.2),
+               # ufloat(5, 0.2),
+               ufloat(0, 0.2),
+               ufloat(0, 0.2),
+               ufloat(0, 0.2),
+               ufloat(0, 0.2),
+               ufloat(2, 0.5)]
 #%%
 data = [
     pd.Series(data=dict(zip(strategies, online)), name='online'),
-    pd.Series(data=dict(zip(strategies, energy_eff)), name='energy eff.')
+    pd.Series(data=dict(zip(strategies, time)), name='time'),
+    pd.Series(data=dict(zip(strategies, energy_eff)), name='energy eff.'),
+    pd.Series(data=dict(zip(strategies, revisits)), name='revisits'),
+    pd.Series(data=dict(zip(strategies, complexity)), name='complexity'),
+    pd.Series(data=dict(zip(strategies, adaptivity)), name='adaptivity'),
+    pd.Series(data=dict(zip(strategies, TRL)), name='TRL'),
+    pd.Series(data=dict(zip(strategies, maintainability)), name='maintainability'),
+    pd.Series(data=dict(zip(strategies, integration)), name='integration'),
+    pd.Series(data=dict(zip(strategies, rulesregulation)), name='legislation'),
+    pd.Series(data=dict(zip(strategies, environment)), name='environment')
 ]
 
 pugh = pd.DataFrame(data, columns=strategies)

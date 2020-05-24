@@ -647,10 +647,10 @@ algorithm~\ref{alg:stc}, works as follows:
 
 Starting at the current cell, the robot chooses a new travel direction by selecting the first new mega cell in the free
 space in anti-clockwise direction. Then, a new spanning-tree edge is grown from the current mega cell to the new one.
-The algorithm is called recursively. The recursion stops only when the current cell has no new neighbors (a mega cell
-is considered old if at least one of its four smaller cells is covered, it is considered new otherwise). As a result of
-this recursion, the robot moves along one side of the spanning tree until it reaches the end of the tree. At this point,
-the robot turns around to traverse the other side of the tree~\cite{galceran_coverage_2014}.
+The algorithm is called recursively. The recursion stops only when the current cell has no new neighbors. A mega cell is
+considered old if at least one of its four smaller cells is covered. As a result of this recursion, the robot moves
+along one side of the spanning tree until it reaches the end of the tree. At this point, the robot turns around to
+traverse the other side of the tree~\cite{galceran_coverage_2014}.
 
 \begin{RoyalFigure}[!htb, label=]{COVERAGE PATH GENERATED WITH THE SPIRAL-STC ALGORITHM~\cite{galceran_survey_2013}.}
 		\includegraphics[height=7cm,trim=2 2 2 2,clip]{spiral-stc.pdf}
@@ -705,9 +705,9 @@ each neuron in the network.
 	\dv{x_k}{t} = -Ax_k + (B - x_k) \left(\left[I_k\right]^+ + \sum_{l=1}^{m}w_{kl}\left[\gls{sym-n_a_l}\right]^+ \right) - (D + x_i)\left[I_i\right]^-
 \end{equation}
 
-Equation~\ref{eq:shunting} consist of the following \( x_k \) is the \( k \)th neuron in the neural network, while $A, B
-\text{ and } D$ are non negative constants describing the passive decay rate, and the upper and lower bounds of the
-neural activity. The terms $ \left[I_k\right]^+ + \sum_{l=1}^{m}w_{kl}\left[\gls{sym-n_a_l}\right]^+ $ are the
+Equation~\ref{eq:shunting} consist of the following terms: \( x_k \) is the \( k \)th neuron in the neural network,
+while $A, B \text{ and } D$ are non negative constants describing the passive decay rate, and the upper and lower bounds
+of the neural activity. The terms $ \left[I_k\right]^+ + \sum_{l=1}^{m}w_{kl}\left[\gls{sym-n_a_l}\right]^+ $ are the
 excitatory inputs while $ \left[I_i\right]^-  $ is the inhibitor. These are linear-above and below thresholds defined as
 $ [a]^+ = \max\{a,0\} $ and $ [a]^- = \max\{-a,0\} $. The connection weight is given by $ w_{kl} $ which is assigned
 between the $ k $th and the $ l $th neuron, which is given by $ w_{kl} = f(|q_k - q_l|) $, where $ |q_k - q_l| $ is the
@@ -723,7 +723,9 @@ decreasing function defined as
 	\right.
 \end{equation}
 
-\noindent Where $ \mu $ and $ \gls{sym-r_0} $ are positive constants, The external input $ I_k $ to the $ k $th neuron is defined in equation \ref{eq:externalinputs}. In this equation $ E $ is a large constant.
+% todo: sym mu
+\noindent Where $ \mu $ and $ \gls{sym-r_0} $ are positive constants, The external input $ I_k $ to the $ k $th neuron
+is defined in equation \ref{eq:externalinputs}. In this equation $ E $ is a large constant.
 
 \begin{equation}\label{eq:externalinputs}
 	I_k = \left\{
@@ -735,34 +737,55 @@ decreasing function defined as
 	\right.
 \end{equation}
 
+By properly defining the external inputs from the changing environment and internal neural connections, the unclean
+areas and obstacles are guaranteed to stay at the peak and the valley of the activity landscape of the neural network,
+respectively. The unclean areas globally attract the robot in the whole workspace through neural activity propagation,
+while the obstacles have only local effect in a small region to avoid collisions. The collision-free robot motion is
+planned in real time based on the dynamic activity landscape of the neural network and the previous robot position, such
+that all areas will be cleaned and the robot will travel along a smooth zigzag path~\cite{luo_bioinspired_2008}. An
+advantage of this method is that can handle non stationary environments (i.e., dynamically changing obstacles)~
+\cite{galceran_survey_2013}.
 
+\citeauthor{yan_complete_2012} further states that if there are power and time limitations, the crawler should
+travel the path with the least revisited areas and the least turns of moving directions. Therefore, for a given current
+crawler location at time \( k \), denoted by \gls{sym-p_k}, the next crawler location at time \(k + 1\),
+\gls{sym-p_k+1} is obtained by equation~\ref{eq:nextauvloc}. Where \( c \) is a positive constant and \gls{sym-m_n} is
+the number of neighbouring neurons of the \gls{sym-p_k} neuron, that is all the possible locations of the current
+location \gls{sym-p_k}; variable \gls{sym-n_a_l} is the neural activity of the \( l \)th neuron, which is the same as in
+equation~\ref{eq:shunting}; \gls{sym-y_l} is a \gls{gls-monotonically} increasing function of the difference  between
+the next crawler moving directions, defined in equation~\ref{eq:movementfucntion}.
 
-By properly defining the external inputs from the changing environment and internal neural connections, the unclean areas and obstacles are guaranteed to stay at the peak and the valley of the activity landscape of the neural network, respectively. The unclean areas globally attract the robot in the whole workspace through neural activity propagation, while the obstacles have only local effect in a small region to avoid collisions. The collision-free robot motion is planned in real time based on the dynamic activity landscape of the neural network and the previous robot position, such that all areas will be cleaned and the robot will travel along a smooth zigzag path~\cite{luo_bioinspired_2008}. An advantage of this method is that can handle non stationary environments(i.e., dynamically changing obstacles)~ \cite{galceran_survey_2013}.
-%
-% \citeauthor{yan_complete_2012} further states that if there are power and time limitations, the\gls{acr-AUV} should travel the path with the least revisited areas and the least turns of moving directions. Therefore, for a given current \gls{acr-AUV} location at time \( k \), denoted by \gls{sym-p_k}, the next \gls{acr-AUV} location at time \(k + 1\),
-% \gls{sym-p_k+1} is obtained by equation~\ref{eq:nextauvloc}. Where \( c \) is a positive constant and \gls{sym-m_n} is the number of neighbouring neurons of the \gls{sym-p_k} neuron, that is all the possible locations of the current location \gls{sym-p_k}; variable \gls{sym-n_a_l} is the neural activity of the \( l \)th neuron, which is the same as in equation~\ref{eq:shunting};
-%  \gls{sym-y_l} is a \gls{gls-monotonically} increasing function of the difference  between the next \gls{acr-AUV} moving directions, defined in equation~\ref{eq:movementfucntion}
-%
-% \begin{equation}\label{eq:nextauvloc}
-% 	\gls{sym-p_k+1} \Longleftarrow x_{\gls{sym-p_k}} = \max\{\gls{sym-n_a_l} + c~\gls{sym-y_l}, l=1,2...,m\}
-% \end{equation}
-%
-% Where $ \Delta \varPsi_l \in [0,\pi] $ is the turning angle between the current moving direction and the next moving direction. Where $ \Delta \varPsi_l = 0 $ is straight ahead, while $ \Delta \varPsi_l  = \pi $ is backwards \cite{yan_complete_2012}. This would indicated that the \gls{acr-AUV} only has the ability to turn either left or right depending on the convention place on  $ \Delta \varPsi_l $. By defining it as $ \Delta \varPsi_l \in [-\pi,\pi] $, the \gls{acr-AUV} has a full turning range. Thus $ \Delta \varPsi_l = \varPsi_l - \varPsi_c = |a \tan 2(y_{p_l} - y_{p_c}, x_{p_l} - x_{p_c}) - a \tan 2(y_{p_c} - y_{p_p}, x_{p_c} - x_{p_p})| $
-%
-% \begin{sBox}
-% 	\begin{equation}\label{eq:movementfucntion}
-% 		y_l = 1 - \frac{\Delta \varPsi_l}{\pi}
-% 	\end{equation}
-% \end{sBox}
-%
-% According to \citet{yan_complete_2012} path planning in the vicinity of some unstructured obstacles may cause overlap, resulting in additional turns, which translates in a higher energy consumption and additional time \cite{lee_smooth_2011}\cite{algabri_comparative_2015}\cite{mei_energy-efficient_2004}. They propose the use of four predefined tables as shown in figure \ref{fig:fourtemp}. These predefined templates are effective to deal with the vicinity situation of unstructured obstacles and enable the \gls{acr-AUV} to plan a more reasonable path with less overlapping areas.
-%
-% \begin{figure}
-% 	\begin{center}
-% 		\includegraphics[width=\textwidth,trim=2 2 2 2,clip]{predefinedtemplates.pdf}
-% 	\end{center}
-% 	\caption{Four predefined templates. Source: \citet{yan_complete_2012}}\label{fig:fourtemp}
-% \end{figure}
-%
-% Grid based neural networks methods lend themself to be easily integrated with map building. \citet{yan_complete_2012} describes how the sensor model can be used to build an on-line map of the enivronment where the \gls{Demspter-Shafer theory} is used to filter out uncertainties of the sensor.
-%
+\begin{equation}\label{eq:nextauvloc}
+	\gls{sym-p_k+1} \Longleftarrow x_{\gls{sym-p_k}} = \max\{\gls{sym-n_a_l} + c~\gls{sym-y_l}, l=1,2...,m\}
+\end{equation}
+
+Where \( \Delta \varPsi_l \in [0,\pi] \) is the turning angle between the current moving direction and the next moving
+direction. Here \( \Delta \varPsi_l = 0 \) is straight ahead, while \( \Delta \varPsi_l  = \pi \) stands for a backwards
+movement~\cite{yan_complete_2012}. This would indicated that the crawler only has the ability to turn either left or right
+depending on the convention place on  \( \Delta \varPsi_l \). By defining it as \( \Delta \varPsi_l \in [-\pi,\pi] \), the
+crawler has a full turning range. Thus \( \Delta \varPsi_l = \varPsi_l - \varPsi_c = |a \tan 2(y_{p_l} - y_{p_c},
+x_{p_l} - x_{p_c}) - a \tan 2(y_{p_c} - y_{p_p}, x_{p_c} - x_{p_p})| \)
+
+\begin{sBox}
+	\begin{equation}\label{eq:movementfucntion}
+		y_l = 1 - \frac{\Delta \varPsi_l}{\pi}
+	\end{equation}
+\end{sBox}
+
+According to \citet{yan_complete_2012} path planning in the vicinity of some unstructured obstacles may cause overlap,
+resulting in additional turns, which translates in a higher energy consumption and additional time
+\cite{lee_smooth_2011}\cite{algabri_comparative_2015}\cite{mei_energy-efficient_2004}. They propose the use of four
+predefined tables as shown in figure~\ref{fig:fourtemp}. These predefined templates are effective to deal with the
+vicinity situation of unstructured obstacles and enable the crawler to plan a more reasonable path with less
+overlapping areas.
+
+\begin{figure}
+	\begin{center}
+		\includegraphics[width=\textwidth,trim=2 2 2 2,clip]{predefinedtemplates.pdf}
+	\end{center}
+	\caption{Four predefined templates. Source: \citet{yan_complete_2012}}\label{fig:fourtemp}
+\end{figure}
+
+Grid based neural networks methods lend themselves to be easily integrated with map building. \citet{yan_complete_2012}
+describes how the sensor model can be used to build an on-line map of the environment where the \gls{Demspter-Shafer
+theory} is used to filter out uncertainties of the sensor.
