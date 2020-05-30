@@ -1,0 +1,5 @@
+\begin{tikzpicture}
+	\begin{pgfonlayer}{nodelayer}
+		\node [style=red dot] (0) at (0, 1.75) {};
+	\end{pgfonlayer}
+\end{tikzpicture}

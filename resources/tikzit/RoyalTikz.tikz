@@ -1,0 +1,11 @@
+\begin{tikzpicture}
+	\begin{pgfonlayer}{nodelayer}
+		\node [style=block] (0) at (0, 0) {test};
+		\node [style=block] (1) at (-5, 0) {testeer};
+	\end{pgfonlayer}
+	\begin{pgfonlayer}{edgelayer}
+		\draw [in=135, out=45, loop] (0) to ();
+		\draw [in=135, out=45, loop] (0) to ();
+		\draw [in=135, out=45, loop] (0) to ();
+	\end{pgfonlayer}
+\end{tikzpicture}
