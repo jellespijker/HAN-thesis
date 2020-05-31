@@ -10,5 +10,5 @@ cd ..
 time lualatex --draftmode -interaction=nonstopmode -file-line-error -shell-escape -recorder -output-directory="build" -jobname="report" "report.tex" | awk 'BEGIN{IGNORECASE = 1}/warning|!/,/^$/;'
 time lualatex -interaction=nonstopmode -file-line-error -shell-escape -recorder -output-directory="build" -jobname="report" "report.tex" | awk 'BEGIN{IGNORECASE = 1}/warning|!/,/^$/;'
 mv build/report.pdf .
-cp build/report.glsdefs
+cp build/report.glsdefs .
 okular report.pdf &
