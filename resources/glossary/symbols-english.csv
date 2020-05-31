@@ -193,6 +193,9 @@ w_eff|w_{eff}|\si{\joule\per\kilo\gram}|specific effective work
 w_is|w_{is}|\si{\joule\per\kilo\gram}|specific isentropic work
 w_k|\vv{w}_k|\si{-}|process noise
 x|x|\si{\meter}|location along the x-axis
+p_k|\vv{p}_k|\si{\meter}|pose components of the state vector \ensuremath{\vv{x}_k}
+p_k_dot|\vv{\dot{p}}_k|\si{\meter\per\second}|velocity components of the state vector \ensuremath{\vv{x}_k}
+p_kt+1|\vv{p}_{k+1}|\si{\meter}|pose components of the state vector \ensuremath{\vv{x}_{k+1}}
 x_k|\vv{x}_k|\si{-}|state vector describing the state of a system at the \textit{k}th component of \ensuremath{\vv{x}}
 x_k0|\vv{x}_0|\si{-}|state vector describing the initial state of a system at the \textit{k}th component of \ensuremath{\vv{x}}
 x_khat|\hat{x}_k|\si{-}|an estimation of the state vector \ensuremath{\vv{x}}

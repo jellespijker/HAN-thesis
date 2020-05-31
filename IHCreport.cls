@@ -69,6 +69,7 @@
  \@namedef{\string#1#2}{#3}}
 
  % === COLORS ===
+
  \usepackage[svgnames, table]{xcolor}
  \definecolor{RoyalRed}{HTML}{FF0000}
  \definecolor{RoyalBlack}{HTML}{000000}

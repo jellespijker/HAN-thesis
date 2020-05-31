@@ -179,7 +179,7 @@ interpreted as movements in the 2D x-y space. This coupled with an unreliable pr
 disturbance of sediment from the sea bed during dredging operations, as described in Section~\ref{sec:pressure sensor},
 means the the state representation should be in 3D Euler space, as is shown in figure~\ref{fig:staterepentation}.
 
-\subsubsection{\gls{gls-quaternion}S}
+\subsubsection{QUATERNIONS}
 
 Because the \gls{acr-UKF} is run on a embedded device, with limited resources, all rotational translations are
 calculated with the help of \gls{gls-quaternion}s. Which make use of the same concept as complex numbers, except of
@@ -192,6 +192,90 @@ rows, consisting  of a magnitude and three components for the axes \(\gls{sym-q}
 ~\gls{sym-q_y}  ~\gls{sym-q_z} \right]^T \), Where the \gls{sym-q_s} is used to normalize the \gls{gls-quaternion}, this
 keeps the error from accumulating. It is important to note that \gls{gls-quaternion}s are \gls{gls-non-commutative},
 thus the order in which they are applied matters to the outcome of the rotation.
+
+\subsection{MOTION MODEL}\label{sec:motion model}
+It is important to evaluate the effects of control inputs \( \gls{sym-u_k} \) on the pose vector \( \gls{sym-p_k} =
+[\gls{sym-x}, \gls{sym-y}, \gls{sym-z}]^T \) such that \( \gls{sym-p_kt+1} \) can be predicted. Since the
+continuous-time model for the vehicle state's speed and rate can be described as:
+
+\begin{equation}\label{eq:motionmodel}
+	\gls{sym-p_kt+1} = f(\gls{sym-x_k},\gls{sym-u_k})
+\end{equation}
+
+The function \( f(\cdot) \) in equation~\ref{eq:motionmodel} can be very complex and is usually non-linear, it has to take
+into account all external forces that can influence the movement of the crawler. According to
+\citet{bahr_cooperative_2009} the more complex the model, the more accurately it can represent the vehicle dynamics and
+provide a better prediction of the future pose, but obtaining such a model requires detailed knowledge of the structure
+as well as the parameters listed below. All of which influence movement and sensor reading:
+\begin{itemize}
+	\setlength\itemsep{0mm}
+	\item Shape of the crawler\footnote{\label{c} Constant parameter}\footnote{\label{used} Used in the model}
+	\item Size of the crawler\footnotemark[\getrefnumber{c}]\footnotemark[\getrefnumber{used}]
+	\item Weight of the crawler\footnotemark[\getrefnumber{c}]\footnotemark[\getrefnumber{used}]
+	\item Buoyancy of the crawler\footnotemark[\getrefnumber{c}]\footnotemark[\getrefnumber{used}]
+	\item Actuators (pumps, motors etc.) and their behavior, such as vibrations
+	\item Forces exerted on the crawler due to fluid transportation through the floating line
+	\item Forces exerted on the crawler due to the buoyancy of the floating line
+	\item Forces exerted on the crawler from the umbilical
+	\item Operating environment
+	\begin{itemize}
+		\setlength\itemsep{0mm}
+		\item Properties of the soil bed \cite{lotman_applicable_2009};\footnotemark[\getrefnumber{used}]
+		\begin{itemize}
+			\setlength\itemsep{0mm}
+			\item Density\footnotemark[\getrefnumber{used}]
+			\item Cohesion\footnotemark[\getrefnumber{used}]
+			\item Skin friction\footnotemark[\getrefnumber{used}]
+		\end{itemize}
+		\item Temperature
+		\item Salinity
+		\item Current
+		\item Medium through which maneuver (mixture of water and soil)
+	\end{itemize}
+	\item Configuration of the propulsion system:
+	\begin{itemize}
+		\setlength\itemsep{0mm}
+		\item Track variant\footnotemark[\getrefnumber{used}] \cite{lotman_applicable_2009}
+		\begin{itemize}
+			\item Length\footnotemark[\getrefnumber{c}]\footnotemark[\getrefnumber{used}]
+			\item Distance between grouser plates\footnotemark[\getrefnumber{c}]\footnotemark[\getrefnumber{used}]
+			\item Width of the track\footnotemark[\getrefnumber{c}]\footnotemark[\getrefnumber{used}]
+			\item Height of the grouser plate\footnotemark[\getrefnumber{c}]\footnotemark[\getrefnumber{used}]
+		\end{itemize}
+		\item Archimedes screw variant\footnotemark[\getrefnumber{used}] \cite{van_der_zee_prediction_2009}
+		\begin{itemize}
+			\setlength\itemsep{0mm}
+			\item Length\footnotemark[\getrefnumber{c}]\footnotemark[\getrefnumber{used}]
+			\item Diameter\footnotemark[\getrefnumber{c}]\footnotemark[\getrefnumber{used}]
+			\item \gls[first]{acr-SWR}\footnotemark[\getrefnumber{c}]\footnotemark[\getrefnumber{used}]
+			\item Number of helices\footnotemark[\getrefnumber{c}]\footnotemark[\getrefnumber{used}]
+			\item Pitch angle\footnotemark[\getrefnumber{c}]\footnotemark[\getrefnumber{used}]
+			\item Vane height\footnotemark[\getrefnumber{c}]\footnotemark[\getrefnumber{used}]
+			\item Front bulldozer angel\footnotemark[\getrefnumber{c}]\footnotemark[\getrefnumber{used}]
+			\item slip\footnotemark[\getrefnumber{used}]
+		\end{itemize}
+	\end{itemize}
+\end{itemize}
+
+Not all parameters shown above, have the same impact on the future state representation. Since calculations on a complex
+model require more processing power, only parameters with a substantial influence will be used. It is assumed that the
+biggest influences are drag-forces, due to movement in a fluidium and the interaction with the Archimedes screw in the
+silt layer. These will in all likelihood have a bigger impact than other operating parameters. Forces exerted on the
+crawler due to a current, floating lines, and actuators are --- for now --- deemed to be a magnitude smaller and can
+be ignored.
+
+\subsubsection{TRAVEL SPEED}\label{sec:travel speed}
+
+During travel between two points, it is preferred to minimize travel time. Which is usually achieved by moving at the
+fastest sustainable speed. The propulsion system which acts on the submerged soil bed is governed by a lot of
+interactions on the system as a whole. Which were listed in section \ref{sec:motion model}. The crawler is propelled by
+an Archimedes screw. A proven technology for land based vehicles. Especially in rough, impassable terrain. They have
+shown reliable operations, superior traction capabilities and they can be used as a buoyancy body. Typical working
+territories for Archimedes driven are dredge deposit sites and swamps \citet{lotman_deep_2011}.
+
+\begin{RoyalFigure}[!htb, label=fig:pos_ball_kalman]{ARCHIMEDES DRIVE TRAIN}
+	\includegraphics[width=\textwidth]{Archimedes_cross_section.png}
+\end{RoyalFigure}
 
 
 \section{CONTROLLER}\label{sec:controller}

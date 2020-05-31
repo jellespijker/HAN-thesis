@@ -66,3 +66,7 @@ UKF|Unscented Kalman Filter
 UT|Unscented Transformation
 ToF|Time of Flight
 DoA|Direction of arrival
+SWR|Submerged Weight Range
+SCM|Soil Contact Model
+DEM|Discrete Element Method
+OOP|Object-Orientated Programming
