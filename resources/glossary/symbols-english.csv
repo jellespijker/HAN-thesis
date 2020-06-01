@@ -250,6 +250,7 @@ x_h|x_h|\si{\tesla}|hard iron distortion along the x-axis
 y_m|y_m|\si{\tesla}|raw magnetometer value along the y-axis
 y_h|y_h|\si{\tesla}|hard iron distortion along the y-axis
 y_k|\vv{y}_k|\si{-}|measured values
+y_k_prime|\vv{y}_k^{'}|\si{-}|transformed measured values
 y_1|y_1|\si{\tesla}|y-index of greatest magnetic magnitude
 z_m|z_m|\si{\tesla}|raw magnetometer value along the z-axis
 z_1|z_1|\si{\meter}|height at point 1

@@ -4,8 +4,9 @@
 % \tikzstyle{NAME}=[PROPERTY LIST]
 
 % Node styles
-\tikzstyle{block}=[draw, fill={rgb,255: red,150; green,143; blue,133}, shape=rectangle, minimum height=3em, minimum width=6em, rounded corners=.15cm]
-
+\tikzstyle{block}=[draw, fill={rgb,255: red,191; green,191; blue,191}, shape=rectangle, minimum height=1cm, minimum width=3cm, rounded corners=.15cm]
+\tikzstyle{plus}=[fill={rgb,255: red,150; green,143; blue,133}, draw=black, shape=circle]
 
 % Edge styles
 \tikzstyle{arrow}=[tikzit category=arrows, ->]
+\tikzstyle{param}=[->, draw={rgb,255: red,150; green,143; blue,133}]

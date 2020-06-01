@@ -1,0 +1,27 @@
+\begin{tikzpicture}
+	\begin{pgfonlayer}{nodelayer}
+		\node [style=block] (0) at (0, 0) {digitize};
+		\node [style=block] (1) at (-7, 0) {Noise};
+		\node [style=none] (2) at (-5, 1) {};
+		\node [style=none] (3) at (-9, 1) {};
+		\node [style=none] (4) at (-9, 3) {mean};
+		\node [style=none] (5) at (-5, 3) {Std. dev.};
+		\node [style=none] (6) at (5, 0) {out};
+		\node [style=none] (7) at (-12, 0) {in};
+		\node [style=none] (8) at (0, 1) {};
+		\node [style=none] (9) at (0, 3) {bits};
+		\node [style=none] (10) at (-11.5, 0) {};
+		\node [style=none] (11) at (4.25, 0) {};
+		\node [style=none] (12) at (0, 2.75) {};
+		\node [style=none] (13) at (-5, 2.75) {};
+		\node [style=none] (14) at (-9, 2.75) {};
+	\end{pgfonlayer}
+	\begin{pgfonlayer}{edgelayer}
+		\draw [style=arrow] (1) to (0);
+		\draw [style=param] (14.center) to (3.center);
+		\draw [style=param] (13.center) to (2.center);
+		\draw [style=param] (12.center) to (8.center);
+		\draw [style=arrow] (10.center) to (1);
+		\draw [style=arrow] (0) to (11.center);
+	\end{pgfonlayer}
+\end{tikzpicture}
