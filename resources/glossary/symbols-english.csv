@@ -83,7 +83,7 @@ k_2|k_2|\si{-}|constant representing thermal losses to the outside
 K_HP|K_{HP}|\si{-}|Hagen-Poiseuille coefficient for laminar pipe flows
 K_TP|K_{TP}|\si{-}|friction torque vs pressure gain coefficient parameter
 kappa|\kappa|\si{\kelvin\per\watt}|heat capacity ratio
-L|L|\si{\watt\per\meter\squared}|thermal load on the body
+L|L|\si{\meter}|Distance between the crawlers screws
 L_alpha_epsilon|L_{\alpha, \epsilon}|\si{\decibel}|electromagnetic signal strength
 l_a|l_a|\si{\meter}|length of an Archimedes screw
 m|m|\si{\kg}|mass
@@ -106,6 +106,7 @@ n_a_l|n_{a,l}|\si{-}|neural activity of a the \ensuremath{l}th neuron
 n_x|\mathit{n}_x|\si{-}|number of elements in the state vector
 nu|\nu|\si{\squared\meter\per\second}|kinematic viscosity
 omega|\omega|\si{\radian\per\second}|angular velocity
+omega_func|\omega_t|\si{\radion\per\second}
 omega_t|\omega_t|\si{\radian\per\second}|true angular velocity
 omega_n|\omega_n|\si{\radian\per\second}|nominal angular velocity
 omega_th|\omega_{th}|\si{\radian\per\second}angular velocity threshold
@@ -154,6 +155,7 @@ q_x|q_x|\si{-}|imaginary x-axis of a quaternion
 q_y|q_y|\si{-}|imaginary y-axis of a quaternion
 q_z|q_z|\si{-}|imaginary z-axis of a quaternion
 r|r|\si{\meter}|radius
+R_t|R_t|\si{\meter}|radius from ICR ro COG of crawler
 r_a|r_a|\si{\meter}|radius of Archimedes screw
 r_0|r_0|\si{\meter}|the receptive field radius of the \ensuremath{k}th neuron
 R|R|\si{\watt\per\kelvin}|heat resistance due the conduction and convection
@@ -222,6 +224,8 @@ v_k|\vv{v}_k|\si{-}|measurement noise
 v_f_1|v_{f,1}|\si{\meter\per\second}|velocity of a fluid at point 1
 v_f_2|v_{f,2}|\si{\meter\per\second}|velocity of a fluid at point 2
 V_flow_fa|\dot{V}_{fa}|\si{\meter\cubic\per\second}|volume flow of fresh air
+v_L|v_L|\si{\meter\per\second}{translational velocity of left Archimedes screw}
+v_R|v_R|\si{\meter\per\second}{translational velocity of right Archimedes screw}
 varepsilon_c|\varepsilon_c|\si{-}|heating efficiency of a Carnot cycle
 varepsilon_eff|\varepsilon_{eff}|\si{-}|effective cooling efficiency
 varepsilon_th|\varepsilon_{th}|\si{-}|theoretical heating efficiency
@@ -280,5 +284,5 @@ Cp_i|Cp_i|\si{-}|critical point \textit{i}th in graph
 Cp|Cp|\si{-}|critical point in graph
 y|y|\si{\meter}|location along the y-axis
 y_l|y_l|\si{\meter}|a gls-monotonically increasing function of the difference between the next moving directions
-theta_b|theta_b|\si{\radian}|pitch of the dredge bot on the Euclidean $z$-axis
+theta_b|\theta_b|\si{\radian}|pitch of the dredge bot on the Euclidean $z$-axis
 I|I|\si{\kilo\gram\meter\squared}|moment of inertia

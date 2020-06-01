@@ -132,9 +132,9 @@ slow-chancing component \gls{sym-B_d} can be modelled, as shown in equation~\ref
 the parameters of the model \citet{wei_improved_2006} and \gls{sym-T} is the measured temperature of the
 \gls{gls-gyroscope} in \glsunit{sym-T} and \gls[first]{sym-T_prime}.
 
-	\begin{equation}\label{eq:model_bd}
-		\gls{sym-B_d} = a\gls{sym-T} + b\gls{sym-T_prime} + c
-	\end{equation}
+\begin{equation}\label{eq:model_bd}
+	\gls{sym-B_d} = a\gls{sym-T} + b\gls{sym-T_prime} + c
+\end{equation}
 
 Other sources of errors are the conversion from the generated analog signal to a digital representation. The
 \gls{acr-ADC} in a \gls{acr-MEMS} stores the obtained analog value as a discrete digital representation with a certain
@@ -240,15 +240,15 @@ correct heading \gls{sym-m_si} can be calculated, which is shown in equation~\re
 
 \subsubsection{PRESSURE SENSOR}\label{sec:pressure sensor}
 
- \citet{white_fluid_2011} describes a fluid pressure \gls{sym-p} as the normal shear stress on any plane through a fluid
- element at rest is a point property, which is taken positive for compression, by convention. Which can be described by
- equation~\ref{eq:depth}. Here \gls{sym-p} is the pressure at a certain depth, which is comprised of the specific weight
- of water \( \gls{sym-gamma_w}(\gls{sym-T}) \) as a function of temperature, and the total amount of water on top of
- that point \gls{sym-z}.
+\citet{white_fluid_2011} describes a fluid pressure \gls{sym-p} as the normal shear stress on any plane through a fluid
+element at rest is a point property, which is taken positive for compression, by convention. Which can be described by
+equation~\ref{eq:depth}. Here \gls{sym-p} is the pressure at a certain depth, which is comprised of the specific weight
+of water \( \gls{sym-gamma_w}(\gls{sym-T}) \) as a function of temperature, and the total amount of water on top of
+that point \gls{sym-z}.
 
-	\begin{equation} \label{eq:depth}
+\begin{equation} \label{eq:depth}
 	\gls{sym-p} = \gls{sym-p_a} - \gls{sym-gamma_w}(\gls{sym-T}) \gls{sym-z}
-	\end{equation}
+\end{equation}
 
 Since pressure is a function of \gls{sym-gamma_w} special consideration regarding the impact of soil disturbance, due to
 dredging activities, in water has to be made. Since the specific weight of the water column above the sensor changes
@@ -334,6 +334,8 @@ defined the work area and help avoid collisions.
 \subsubsection{ACOUSTIC SENSING}
 
 For a crawler to sense its environment using sound waves, it relies on \gls{acr-ToF} and \gls{acr-DoA} principles.
+
+TODO add text
 %
 % %\subsubsection{Single-beam sounders}
 %

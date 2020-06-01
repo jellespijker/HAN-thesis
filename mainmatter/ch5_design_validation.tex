@@ -139,6 +139,29 @@ simulation}.
 	\end{tikzpicture}
 \end{RoyalFigure}
 
+\subsubsection{ENCODER}
+
+\begin{RoyalFigure}[!htb, label=fig:encodersim]{SIGNAL TRANSFORM ENCODER}
+	\begin{tikzpicture}[auto, node distance=4cm,>=latex', align=center]
+		\node[block] (digitize) {Digitize};
+		\node[lbl] (bits) at ($(digitize.north)+(0, 1)$) {\tiny Bits};
+		\draw[-latex] (bits) -- (digitize);
+
+		\node[block, left of=digitize] (noise) {Noise};
+		\node[lbl] (mean) at ($(noise.north)+(0.5, 1)$) {\tiny Mean};
+		\draw[-latex] (mean) -- ($(noise.north)+(0.5, 0)$);
+		\node[lbl] (std dev) at ($(noise.north)+(-0.5, 1)$) {\tiny Std. dev.};
+		\draw[-latex] (std dev) -- ($(noise.north)+(-0.5, 0)$);
+
+		\node[input, left of=transform, xshift=2cm] (input) {};
+		\node[output, right of=digitize, xshift=-2cm] (output) {};
+
+		\draw[-latex] (input) -- (noise) node[midway] {\gls{sym-y_k}};
+		\draw[-latex] (noise) -- (digitize);
+		\draw[-latex] (digitize) -- (output) node[midway] {\gls{sym-y_k_prime}};
+	\end{tikzpicture}
+\end{RoyalFigure}
+
 \subsubsection{PRESSURE SENSOR}
 
 \begin{RoyalFigure}[!htb, label=fig:pressuresensorsim]{SIGNAL TRANSFORM PRESSURE SENSOR}

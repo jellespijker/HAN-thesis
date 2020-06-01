@@ -61,6 +61,51 @@ A design for an \gls{gls-Kalman-filter} is proposed, using a common array of sen
 discussed Section~\ref{chap:sensors} and the component selection was made in Section~\ref{sec:strategy decision}. The
 crawler is actuated by, changing the rotational speed of the individual \gls{gls-Archimedes-screw}s.
 
+\begin{RoyalFigure}[!htb, label=fig:kalman process]{PROPOSED KALMAN FILTER}
+	\begin{center}
+		\begin{tikzpicture}[auto, node distance=2cm,>=latex', align=center, inner sep=5mm, thick,scale=0.8, everynode/.style={scale=0.6}]
+		\node[block] (controller) {Controller};
+		\node[block, right of=controller, xshift=7.5cm] (actuator) {Actuator};
+		\node[block, right of=actuator, xshift=1cm] (process) {Process};
+		\node[block, below of=actuator] (current) {Current};
+		\node[block, below of=current] (encoder) {Encoder};
+		\node[block, below of=encoder] (gyro) {Gyroscope};
+		\node[block, below of=gyro] (acc) {Accelerometer};
+		\node[block, below of=acc] (mag) {Magnetometer};
+		\node[block, below of=mag](press) {Pressure \\ sensor};
+		\node[block, left of=current, xshift=-3cm] (slip predict) {Slip \\ Predict};
+		\node[block, left of=slip predict, xshift=-1cm, fill=RoyalLightGrey] (soil param) {Soil \\ Parameters};
+		\node[block, below of=soil param, fill=RoyalLightGrey] (geo param) {Geometry \\ Parameters};
+		\node[block, below of=slip predict, yshift=-8cm] (kalman) {Unscented \\ Kalman \\ filter};
+		\node[output, right of=process](output) {};
+		\node[blockdashedwhite, label=below:{\large \textbf{Measurement}},fit={(current) (acc) (mag) (press)} ] (measurement) {};
+		\node[blockdashedwhite, label=below:{\large \textbf{microcontroller}},fit={(controller) (kalman) (slip predict)} ] (microcontroller) {};
+
+		\draw[-latex] (controller) -- (actuator) node[midway,above,yshift=-5mm] {\gls{sym-u}};
+		\draw[-latex] (actuator) -- (process) node[midway,above,yshift=-5mm] {$ \gls{sym-tau} $, $ \gls{sym-omega} $ };
+		\draw (actuator.east) -| ($(current.east)+(0.5,0)$);
+		\draw[-latex] ($(current.east)+(0.5,0)$) -- (current.east);
+		\draw[-latex] ($(current.east)+(0.5,0)$) |- (encoder.east);
+		\draw[-latex] (process.east) -- (output);
+		\draw[-latex] (current.west) -- (slip predict.east)  node[midway,above,yshift=-5mm] { $I$ };
+		\draw[-latex] (soil param.east) -- (slip predict.west);
+		\draw (geo param.east) -| ($(slip predict.west)-(0.5,0)$);
+		\draw[-latex] (slip predict.south) -- (kalman.north) node[midway,above,xshift=-3mm] { $u_k^{\prime}$ };
+		\draw[-latex] (kalman.west) -| (controller.south) node[midway,above,yshift=-5mm,xshift=1.5cm] { $\gls{sym-x_k}$} ;
+		\draw[-latex] (press.west) -- (kalman.east)  node[midway,above,yshift=5mm] { $\gls{sym-y_k}$ };
+		\draw (encoder.west) -| ($(kalman.east)+(1,0)$);
+		\draw (gyro.west) -| ($(kalman.east)+(1,0)$);
+		\draw (acc.west) -| ($(kalman.east)+(1,0)$);
+		\draw (mag.west) -| ($(kalman.east)+(1,0)$);
+		\draw[-latex] ($(process.east)+(0.5,0)$) |- (gyro.east);
+		\draw[-latex] ($(process.east)+(0.5,0)$) |- (acc.east);
+		\draw[-latex] ($(process.east)+(0.5,0)$) |- (mag.east);
+		\draw[-latex] ($(process.east)+(0.5,0)$) |- (press.east);
+		\node[right of=process, xshift=1.5mm,yshift=0.5mm] (x) {$x$};
+		\end{tikzpicture}
+	\end{center}
+\end{RoyalFigure}
+
 Where the speed of an  \gls{gls-Archimedes-screw} driven crawler is a direct function of the pitch of its vanes. But
 this only applies if there is no horizontal soil failure under the screws. Such a phenomena is called slip. It consist
 of a period in time where the screws turn, but generate no forwarding force. Leading to an inaccurate estimation for the
@@ -77,48 +122,6 @@ described in Section~\ref{sec:basic Kalman filter} is limited to linear assumpti
 known as \gls[first]{acr-UT}. This technique picks a minimal set of sample points, also known as sigma points, around
 the mean. The sigma points are then propagated through the non-linear function, from which a new mean and covariance
 estimate are then formed.
-
-\begin{RoyalFigure}[!htb, label=fig:kalman process]{PROPOSED KALMAN FILTER}
-	\begin{center}
-		\begin{tikzpicture}[auto, node distance=2cm,>=latex', align=center, inner sep=5mm, thick,scale=0.8, everynode/.style={scale=0.6}]
-		\node[block] (controller) {Controller};
-		\node[block, right of=controller, xshift=7.5cm] (actuator) {Actuator};
-		\node[block, right of=actuator, xshift=1cm] (process) {Process};
-		\node[block, below of=actuator] (current) {Current};
-		\node[block, below of=current] (gyro) {Gyroscope};
-		\node[block, below of=gyro] (acc) {Accelerometer};
-		\node[block, below of=acc] (mag) {Magnetometer};
-		\node[block, below of=mag](press) {Pressure \\ sensor};
-		\node[block, left of=current, xshift=-3cm] (slip predict) {Slip \\ Predict};
-		\node[block, left of=slip predict, xshift=-1cm, fill=RoyalLightGrey] (soil param) {Soil \\ Parameters};
-		\node[block, below of=soil param, fill=RoyalLightGrey] (geo param) {Geometry \\ Parameters};
-		\node[block, below of=slip predict, yshift=-6cm] (kalman) {Unscented \\ Kalman \\ filter};
-		\node[output, right of=process](output) {};
-		\node[blockdashedwhite, label=below:{\large \textbf{Measurement}},fit={(current) (acc) (mag) (press)} ] (measurement) {};
-		\node[blockdashedwhite, label=below:{\large \textbf{microcontroller}},fit={(controller) (kalman) (slip predict)} ] (microcontroller) {};
-
-		\draw[-latex] (controller) -- (actuator) node[midway,above,yshift=-5mm] {\gls{sym-u}};
-		\draw[-latex] (actuator) -- (process) node[midway,above,yshift=-5mm] {$ \gls{sym-tau} $, $ \gls{sym-omega} $ };
-		\draw (actuator.east) -| ($(current.east)+(0.5,0)$);
-		\draw[-latex] ($(current.east)+(0.5,0)$) -- (current.east);
-		\draw[-latex] (process.east) -- (output);
-		\draw[-latex] (current.west) -- (slip predict.east)  node[midway,above,yshift=-5mm] { $I$ };
-		\draw[-latex] (soil param.east) -- (slip predict.west);
-		\draw (geo param.east) -| ($(slip predict.west)-(0.5,0)$);
-		\draw[-latex] (slip predict.south) -- (kalman.north) node[midway,above,xshift=-3mm] { $u_k^{\prime}$ };
-		\draw[-latex] (kalman.west) -| (controller.south) node[midway,above,yshift=-5mm,xshift=1.5cm] { $\gls{sym-x_k}$} ;
-		\draw[-latex] (press.west) -- (kalman.east)  node[midway,above,yshift=5mm] { $\gls{sym-y_k}$ };
-		\draw (gyro.west) -| ($(kalman.east)+(1,0)$);
-		\draw (acc.west) -| ($(kalman.east)+(1,0)$);
-		\draw (mag.west) -| ($(kalman.east)+(1,0)$);
-		\draw[-latex] ($(process.east)+(0.5,0)$) |- (gyro.east);
-		\draw[-latex] ($(process.east)+(0.5,0)$) |- (acc.east);
-		\draw[-latex] ($(process.east)+(0.5,0)$) |- (mag.east);
-		\draw[-latex] ($(process.east)+(0.5,0)$) |- (press.east);
-		\node[right of=process, xshift=1.5mm,yshift=0.5mm] (x) {$x$};
-		\end{tikzpicture}
-	\end{center}
-\end{RoyalFigure}
 
 \subsection{STATE REPRESENTATION}\label{sec:state representation}
 
@@ -181,17 +184,18 @@ means the the state representation should be in 3D Euler space, as is shown in f
 
 \subsubsection{QUATERNIONS}
 
-Because the \gls{acr-UKF} is run on a embedded device, with limited resources, all rotational translations are
+Because the \gls{acr-UKF} is executed on a embedded device, with limited resources, all rotational translations are
 calculated with the help of \gls{gls-quaternion}s. Which make use of the same concept as complex numbers, except of
 using one imaginary axis, there are three. Just as complex numbers are very useful in describing a rotation in a
 two-dimensional plane, \gls{gls-quaternion}s are highly efficient in a three-dimensional space. They are also immune to
 \gls{gls-gimbal-lock}ing. The exact workings are outside of the scope of this thesis, but for those readers which are
 interested, a good explanation is given by \citet{3blue1brown_quaternions_2018} and can be found
 at~\url{www.youtube.com/watch?v=d4EgbgTm0Bg}. A \gls{gls-quaternion}s is represented as a single column matrix with four
-rows, consisting  of a magnitude and three components for the axes \(\gls{sym-q} = \left[\gls{sym-q_s} ~\gls{sym-q_x}
-~\gls{sym-q_y}  ~\gls{sym-q_z} \right]^T \), Where the \gls{sym-q_s} is used to normalize the \gls{gls-quaternion}, this
-keeps the error from accumulating. It is important to note that \gls{gls-quaternion}s are \gls{gls-non-commutative},
-thus the order in which they are applied matters to the outcome of the rotation.
+rows, consisting  of a real valued magnitude and three imaginary components for the axes \(\gls{sym-q} =
+\left[\gls{sym-q_s} ~\gls{sym-q_x} ~\gls{sym-q_y}  ~\gls{sym-q_z} \right]^T \), Where the \gls{sym-q_s} is used to
+normalize the \gls{gls-quaternion}, this keeps the error from accumulating. It is important to note that
+\gls{gls-quaternion}s are \gls{gls-non-commutative}, thus the order in which they are applied matters to the outcome of
+the rotation.
 
 \subsection{MOTION MODEL}\label{sec:motion model}
 
@@ -278,7 +282,7 @@ territories for Archimedes driven are dredge deposit sites and swamps \citet{lot
 
 \subsubsection{PROPULSION SYSTEM MODEL}
 
-The propulsion system is modeled and shown in Figure~\ref{fig:propulsionsystemsimulinkmodel}. In this situation, an
+The propulsion system is modeled and shown in Figure~\ref{fig:propulsionsystemmodel}. In this situation, an
 electrical motor, drives a hydraulic pump. This electrical motor delivers a certain torque \gls{sym-tau}, where the
 hydraulic pump demands a certain torque. This torque difference \gls{sym-Delta_tau} divided by the sum of inertia's and
 integrated over time, translates to a certain rotational speed \gls{sym-omega}, with which this system turns. This
@@ -289,9 +293,9 @@ flows, and divided with the total mass of hydraulic oil, integrated over time, r
 hydraulic motor drives the Archimedes screws, which interact with the soil and generate a force which, which when total
 friction and resistance is overcome translate to a velocity.
 
-\begin{RoyalFigure}[!htb, label=fig:propulsionsystemsimulinkmodel]{DRIVE TRAIN BASED ON FIRST PRINCIPLE}
+\newpage
+\begin{RoyalFigure}[!htb, label=fig:propulsionsystemmodel]{DRIVE TRAIN BASED ON FIRST PRINCIPLE}
 	\begin{center}
-		\resizebox{1.05}{1.05}
 		\begin{tikzpicture}[auto, node distance=2.5cm,>=latex', align=center]
 		% Placing the blocks
 		\node [input, name=input] {};
@@ -406,9 +410,9 @@ friction and resistance is overcome translate to a velocity.
 		%\draw [->] (measurements) -| node[pos=0.99] {$-$}
 		%node [near end] {$y_m$} (sum);
 		\end{tikzpicture}
-		}
 	\end{center}
 \end{RoyalFigure}
+\newpage
 
 \paragraph{HYDRAULIC PUMP} is used to convert mechanical- to hydraulic energy is modeled after the, by
 \citet{mathworks_mechanical_hydraulic_2016}, described model. In order to make a model based on first principle, the
@@ -881,6 +885,68 @@ shaft angular velocity parameter. The Friction torque vs pressure gain coefficie
 % 	\end{array}
 % 	\end{equation}
 % \end{sBox}
+
+\subsection{STEERING MODEL}
+
+The kinematic model of the crawler is comparable with a skid-steering model. Meaning that the crawler turns around its
+axis by changing the translational velocity \gls{sym-v} of a single Archimedes screw, relative to the other. If both
+screws, move with the same velocity, the crawler will travel in a straight line. This is a challenge in its own right,
+as slipage of  a screw is bound to occur, resulting in a difference between the input signal, which is the rotational
+velocity \gls{sym-omega}, and the translational velocity of that screw. Assuming that the earlier described motion
+model, will compensate for slipage and other drive-train characteristics, a model can be described on a 2-dimensional
+space as a differential drive. Which is a very simple driving mechanism.
+
+\begin{RoyalFigure}[!htb, label=fig:difdrivekinetics]{DIFFERENTIAL DRIVE KINEMATICS~\cite{klancar_wheeled_2017}}
+	\includegraphics[height=5cm,trim=2 2 2 2,clip]{difdrivekinetics.png}
+\end{RoyalFigure}
+
+Considering Figure~\ref{fig:difdrivekinetics} it is possible to determine the rotation \gls{sym-psi} and tangential
+velocity \gls{sym-v} of the crawler on the instantaneous radius \gls{sym-R_t} with the center ICR. \gls{sym-L} is
+defined as the distance between the two screws and \gls{sym-v_L} and \gls{sym-V_r} are the translational velocities for
+the left and right screw. \gls{sym-omega} is the angle between the global coordinate frame \( (X_g, Y_g) \) and the
+moving frame attached to the center of mass of the craler \( (X_m, Y_m) \).
+
+\begin{equation}\label{eg:left}
+	\gls{sym-omega} = \frac{\gls{sym-v_L}}{\gls{sym-R_t} - \frac{\gls{sym-L}}{2}}
+\end{equation}
+
+\begin{equation}\label{eg:right}
+	\gls{sym-omega} = \frac{\gls{sym-v_R}}{\gls{sym-R_t} + \frac{\gls{sym-L}}{2}}
+\end{equation}
+
+\nodindent From where \gls{sym-omega} and \gls{sym-R_t} are expressed as follows:
+
+\begin{equation}\label{eq:omega_t}
+	\gls{sym-omega} = \frac{\gls{sym-v_R} - \gls{sym-v_L}}{\gls{sym-L}}
+\end{equation}
+
+\begin{equation}\label{eq:R_t}
+	\gls{sym-R_t} = \frac{\gls{sym-L}}{2}\frac{\gls{sym-v_r} + \gls{sym-v_l}}{\gls{sym-v_r} - \gls{sym-v_l}}
+\end{equation}
+
+\noindent The translational tangential velocity of the crawler \gls{sym-v} is then calculated as:
+
+\begin{equation}\label{eq:v_crawler}
+	\gls{sym-v} = \gls{sym-omega} \gls{sym-R_t} = \frac{\gls{sym-v_r} + \gls{sym-v_l}}{2}
+\end{equation}
+
+\noindent using the above established relations a crawler local coordinates can be expressed as:
+
+\begin{equation}\label{eq:local_frame}
+	\left[\begin{array}{c}
+		\dv{\gls{sym-x}}{t} \\
+		\dv{\gls{sym-y}}{t} \\
+		\dv{\gls{sym-psi}}{t}
+	\end{array}\right] = \left[\begin{array}{cc}
+		\frac{1}{2} & \frac{1}{2} \\
+		0 & 0 \\
+		-\frac{1}{\gls{sym-L}} & \frac{1}{\gls{sum-L}}
+	\end{array}\right] \left[\begin{array}{c}
+	  \gls{sym-v_L} \\
+		\gls{sym-v_R}
+	\end{array}\right]
+\end{equation}
+
 
 \section{CONTROLLER}\label{sec:controller}
 
