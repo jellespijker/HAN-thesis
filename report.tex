@@ -10,10 +10,10 @@
 %   businessunit: ihc|mti|medusa
 %   headingstyle: color|bw
 %   file glossary: resources/glossary|custom file
-%   showunits: (shows units in your eqations)
+%   showunits: (shows units in your equations)
 %   classification: none|confidential|secret (shows a watermark when confidential or secret are selected)
 %   status: concept|final
-\documentclass[english, businessunit=mti, status=final]{IHCreport}
+\documentclass[english, businessunit=mti, status=concept]{IHCreport}
 
 % === REPORT METADATA ===
 \title{THESIS}
@@ -69,6 +69,7 @@
  \begin{app}
   \import{appendices/}{appendix-I}
   \import{appendices/}{appendix-research_methods}
+  \import{appendices/}{appendix-pump}
   \import{appendices/}{appendix-python_kalman}
   \import{appendices/}{appendix-chrono_sensor}
  \end{app}

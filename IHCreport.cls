@@ -949,6 +949,7 @@ minimum height=3em, minimum width=6em,rounded corners=.15cm]
  }{%
   \edef\defnewentry{\noexpand\newglossaryentry{sym-\key}%
    {name={\expandonce\symbol},%
+    sort={\expandonce\key},%
     description={\expandonce\description},%
     unit={\expandonce\units},%
     first={\ensuremath{\expandonce\symbol}%
@@ -1045,12 +1046,16 @@ minimum height=3em, minimum width=6em,rounded corners=.15cm]
  \renewcommand*{\glsgroupskip}{}
 }
 
-
+\ifthenelse{\equal{\status}{concept}}{
+\renewcommand*{\printglossaries}{
+ \label{chap:glossaries} NOT PRINTED IN CONCEPT MODE}
+}{%
 \renewcommand*{\printglossaries}{
  \label{chap:glossaries}
  \printglossary[type=symbolslist,style=symbolsliststyle,title=\symbolslisttitle]
  \printglossary[type=main,style=ihclongstyle, title=\glostitle]
  \printglossary[type=\acronymtype,style=ihclongacrostyle, title=\acrtitle]
+}
 }
 
 % === MATH ===

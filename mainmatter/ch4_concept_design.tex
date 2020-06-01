@@ -164,7 +164,6 @@ the state vector can also contain the first and second derivatives of the pose v
 
 			\end{tikzpicture}}
 	\end{center}
-	\caption{State representation}\label{fig:staterepentation}
 \end{RoyalFigure}
 
 \subsubsection{2D OR 3D}
@@ -276,7 +275,7 @@ an Archimedes screw. A proven technology for land based vehicles. Especially in 
 shown reliable operations, superior traction capabilities and they can be used as a buoyancy body. Typical working
 territories for Archimedes driven are dredge deposit sites and swamps \citet{lotman_deep_2011}.
 
-\begin{RoyalFigure}[!htb, label=fig:pos_ball_kalman]{ARCHIMEDES DRIVE TRAIN}
+\begin{RoyalFigure}[!htb, label=fig:archimedes_drive_train]{ARCHIMEDES DRIVE TRAIN}
 	\includegraphics[width=\textwidth]{Archimedes_cross_section.png}
 \end{RoyalFigure}
 
@@ -331,7 +330,7 @@ friction and resistance is overcome translate to a velocity.
 		\node [block, right of=sum3, xshift=1cm] (deltaHmotor_Propulsion) {\( \int\frac{\gls{sym-Delta_tau}}{\gls{sym-I}} dt\)};
 		\node [block, below of=sum3] (Propulsion) {\( Propulsion \)};
 		\node [left of=Propulsion, xshift=-2cm] (formHmotor) { \footnotesize{ \(\arraycolsep=1.4pt\def\arraystretch{1} \left. \begin{array}{r}
-			\gls{sym-gamma_sw} = \gls{sym-g} (\gls{sym-rho_si} - \gls{sym-rho_w}) \\
+			\gls{sym-gamma_sw} = \gls{sym-g} (\gls{sym-rho_ds} - \gls{sym-rho_w}) \\
 			\gls{sym-F_sn} = \gls{sym-gamma_sw} \frac{(2\gls{sym-r_a})^2}{\gls{sym-d_a}}\sin(\gls{sym-theta_s}-\gls{sym-theta_s}\cos(\gls{sym-theta_s})) \\
 			\gls{sym-F_sn} = \gls{sym-p_sb} = \gls{sym-s_c} \gls{sym-c_sb} \gls{sym-N_c} + \gls{sym-s_q} \gls{sym-p_q} \gls{sym-N_q} + \gls{sym-s_gamma} \frac{1}{2} \gls{sym-gamma_sw} \gls{sym-w_a} \gls{sym-N_gamma} \\
 			\gls{sym-N_q} = \frac{1 + \sin \gls{sym-phi_s}}{1 - \sin \gls{sym-phi_s}} \exp(\pi \tan \gls{sym-phi_s}) \\
@@ -344,7 +343,7 @@ friction and resistance is overcome translate to a velocity.
 			\gls{sym-A_s} = \pi \gls{sym-r_a}^2(\gls{sym-theta_s} - \sin(\gls{sym-theta_s})\cos(\gls{sym-theta_s})) \\
 			\gls{sym-s_a} = \gls{sym-r_a} \gls{sym-theta_s} \\
 			\gls{sym-d_a} = \gls{sym-r_a}\left(1-\cos(\frac{\gls{sym-theta_s}}{2})\right) \\
-			\gls{sym-F_b} = g \gls{sym-V_sa} \left(\gls{sym-rho}_s - \gls{sym-rho}_w\right)
+			\gls{sym-F_b} = g \gls{sym-V_sa} \left(\gls{sym-rho_is} - \gls{sym-rho_w}\right)
 
 			\end{array} \right\} \)} };
 		\node [sum, below of=Propulsion, yshift=-0.5cm, align=center] (sum4) {\( + \) \\ \( - \)};
@@ -414,7 +413,7 @@ friction and resistance is overcome translate to a velocity.
 \end{RoyalFigure}
 \newpage
 
-\paragraph{HYDRAULIC PUMP} is used to convert mechanical- to hydraulic energy is modeled after the, by
+\paragraph{A HYDRAULIC PUMP} is used to convert mechanical- to hydraulic energy is modeled after the, by
 \citet{mathworks_mechanical_hydraulic_2016}, described model. In order to make a model based on first principle, the
 hydraulic pump, should accept an variable fluid speed \( \gls{sym-v_f}(\cdot) \) and angular velocity of the electro
 motor \gls{sym-omega}, whilst calculating a pressure gain \gls{sym-Delta_p} and needed torque \gls{sym-tau}. The flow
@@ -487,414 +486,425 @@ shaft angular velocity parameter. The Friction torque vs pressure gain coefficie
 	\gls{sym-tau_f}(\gls{sym-v_f}, \gls{sym-omega}) = \left(\gls{sym-tau_0} + \gls{sym-K_TP}|\gls{sym-Delta_p}(\gls{sym-v_f}, \gls{sym-omega})|\right) \text{tanh}\left(\frac{4 \gls{sym-omega}}{\gls{sym-omega_th}} \right)
 \end{equation}
 
-%
-% \paragraph{A hydraulic motor} is used to convert hydraulic- to mechanical energy and is modelled after the, by \citet{mathworks_hydraulic--mechanical_2016}, described model. It receives feedback from the fluid velocity $ v $ and the angular velocity of the propulsion system. The output of the model should be a generated torque $ \gls{sym-tau} $ and a required pressure $ p $. Since the workings of a hydraulic pump and motor share much similarities. But with some notable differences, were the leakage flow is subtracted from the ideal flow, when calculated for a pump, here the leakage flow should be added to the ideal flow.
-%
-% \begin{sBox}
-% 	\begin{equation}\label{eq:motor flowrate}
-% 		q = \gls{sym-Q_i} + \gls{sym-Q_l}
-% 	\end{equation}
-% \end{sBox}
-%
-% \noindent In order to calculate a pressure drop as an function of fluid and angular velocity over the outlets, equations \ref{eq:flow rate}, \ref{eq:motor flowrate}, \ref{eq:ideal flow rate} and \ref{eq:leak flow rate} can be combined and rewritten in to equation \ref{eq:dpp motor}.
-%
-% \begin{sBox}
-% 	\begin{equation}\label{eq:dpp motor}
-% 		\gls{sym-Delta_p}(v, \gls{sym-omega}) = \frac{v A_p - D \gls{sym-omega}}{ \gls{sym-K_HP}
-% 	\end{equation}
-% \end{sBox}
-%
-% \noindent In equation \ref{eq:dpp motor} the Hagen-Poiseuille coefficient for laminar pipe flows is calculated according to equation \ref{eq:hagen}
-% \begin{sBox}
-% 	\begin{equation}\label{eq:hagen}
-% 		\gls{sym-K_HP}= \frac{\gls{sym-mu_n}}{\gls{sym-rho} \gls{sym-mu}} \frac{\gls{sym-rho_n} \gls{sym-omega_n} D}{\gls{sym-Delta_p_n}} \left(\frac{1}{\gls{sym-eta_Vn}} - 1\right)
-% 	\end{equation}
-% \end{sBox}
-%
-% \noindent An other notable difference is that the net torque is lessened by the friction, as is shown in equation \ref{eq:torque}. Where the ideal torque $ \gls{sym-tau_i}(v,\gls{sym-omega}) $ and torque generated by friction $ \gls{sym-tau_f}(v,\gls{sym-omega}) $ are calculated according to equation \ref{ideal torque} and \ref{eq:torque friction}.
-% \begin{sBox}
-% 	\begin{equation}\label{eq:torque}
-% 		\gls{sym-tau}(v,\gls{sym-omega}) = \gls{sym-tau_i}(v,\gls{sym-omega}) - \gls{sym-tau_f}(v,\gls{sym-omega})
-% 	\end{equation}
-% \end{sBox}
-%
-% \subsubsection{Modelling an interaction with the soil bed}
-% At this stage it is needed to model all interactions of a propulsion systems with a soil bed. According to \citet{lotman_applicable_2009} the soil mechanics behind a moving process with Archimedes screws is similar to those of track propulsion. The type of soil interaction can be modeled according to the rules of soil mechanics. The paragraphs below are based on \citet{verruijt_soil_2007}. In the described model, the following simplifications are proposed: No \gls{dilatancy} behavior occurs, the displaced soil is completely replaced by the Archimedes screws. Thus, no build up of soil is created at the sides of a screw, due to a bulldozer effect.
-%
-% In order to generate a forward thrust, an Archimedes screw has to be (partial) submerged in the soil. The depth of submersion depends on the weight and buoyancy of the displaced volume or the soil bearing capacity. The distributed load $ p [N/m^2] $ representing the crawler, is applied at a certain depth $ \gls{sym-d_a} [m] $. Where the normal force working on the submerged surface of an Archimedes screw are in equilibrium with the weight and buoyancy of  a crawler.
-%
-% It is important to note that the material of a soil bed, determines how the sinkage depth is calculated. When the soil bed consists of silt-like material it is assumed that the soil bearing capacity goes to zero, because the cohesion $ \gls{sym-c_sb} $ will lessen, combined with a smaller difference between a specific in-situ weight of silt $ \gls{sym-rho_si} $ compared to water $ \gls{sym-rho_w} $, resulting in a small specific in-situ weight $ \gls{sym-gamma_sw} $. Setting all terms in the Brinch-Hansen equation \ref{eq:Brinch-Hansen} to zero. Which allow for a simplification of the sinkage depth calculation. Which does now, only consist of a downwards force, due to weight and a buoyancy force, due to the replaced soil.
-%
-% \begin{figure}[!htb]
-% 	\begin{center}
-% 		\begin{tikzpicture}
-% 		\tikzstyle{loosely dashdotted}= [dash pattern=on 3pt off 4pt on \the\pgflinewidth off 4pt,line width=0.05mm]
-% 		\def\h{1};
-% 		\def\r{2};
-% 		\def\f{1.05};
-% 		\draw (0,0) circle (\r);
-%
-% 		\draw [tudelft-orange](-4.5,\h*-1) -- (4.5,\h*-1);
-% 		\coordinate (x0) at (0,0);
-% 		\coordinate (x0r) at (\r,0);
-% 		\coordinate (x1) at ({((\r^2)-(\h^2))^(1/2)},{\h*-1});
-% 		\coordinate (x2) at ({-1*((\r^2)-(\h^2))^(1/2)},{\h*-1});
-% 		\coordinate (x3) at ($(x0)!0.25!(x1)$);
-% 		\coordinate (x4) at ($(x0)!1.1!(x1)$);
-% 		\coordinate (m0) at (0,\r);
-% 		\coordinate (m1) at (\r+0.5, \r);
-% 		\coordinate (m2) at (\r, 0);
-% 		\coordinate (m3) at (\r+0.5,0);
-% 		\coordinate (m4) at ({((\r^2)-(\h^2))^(1/2)},\h*-1);
-% 		\coordinate (m5) at (\r+0.5,\h*-1);
-% 		\coordinate (m6) at (0,\r*-1);
-% 		\coordinate (m7) at (\r+0.5,\r*-1);
-%
-% 		\draw (x0) -- (x1);
-%
-% 		\fill[pattern=crosshatch dots, pattern color=tudelft-orange] (-4.5,\h*-1) rectangle (4.5,-3);
-% 		\draw [tudelft-orange,fill=tudelft-orange!10,line width=0.25mm,rotate=-150] (x2) arc (0:120:\r) -- (x2);
-%
-% 		\draw [loosely dashdotted] ({\r*\f*-1},0) -- ({\r*\f},0);
-% 		\draw [loosely dashdotted] (0,{\r*\f*-1}) -- (0,{\r*\f});
-% 		\node (Soil) at (-3,-2.5) {Soil bed};
-% 		\node (Water) at (-3,1.5) {Water};
-% 		\node (normal) at (-1.5,-2.5) {$ \gls{sym-F_sn} [N/m^2] $};
-% 		\node (load) at (-0.75,-0.75) {$ \gls{sym-p_sb} [N/m^2] $};
-% 		\draw [{Latex[length=2mm,width=1mm]}-{Latex[length=2mm,width=1mm]}, rotate=-90,line width=0.05mm](x3) arc (60:0:\r/4);
-% 		\node (theta) at (0.75,-0.75) {$\gls{sym-theta_s}$};
-% 		\draw [line width=0.05mm](m4) -- (m5);
-% 		\draw [line width=0.05mm](m6) -- (m7);
-% 		\draw [{Latex[length=2mm,width=1mm]}-{Latex[length=2mm,width=1mm]},line width=0.05mm] ([shift={(-0.125,0)}]m5) --([shift={(-0.125,0)}]m7) node[midway, right] {$ \gls{sym-d_a}  $};
-%
-% 		\foreach \x in {210,215,...,265} \draw[-{Latex[length=2mm,width=1mm]}] (\x:{\r+(0.75*((\x-210)/60))+0.1}) -- (\x:\r);
-% 		\foreach \x in {210,215,...,265} \draw[-{Latex[length=2mm,width=1mm]}] (\x:{\r-(0.75*((\x-210)/60))-0.1}) -- (\x:\r);
-% 		\foreach \x in {330,325,...,270} \draw[-{Latex[length=2mm,width=1mm]}] (\x:{\r+(-0.75*((\x-330)/60))+0.1}) -- (\x:\r);
-% 		\foreach \x in {330,325,...,270} \draw[-{Latex[length=2mm,width=1mm]}] (\x:{\r-(-0.75*((\x-330)/60))-0.1}) -- (\x:\r);
-% 		\end{tikzpicture}
-% 		\caption{Normal force working on a cylinder in a sand-like material}\label{fig:F_n}
-% 	\end{center}
-% \end{figure}
-%
-% When the crawler operates in an environment with a sand-like soil bed, the load $ \gls{sym-p_sb} [N/m^2] $, shown in figure \ref{fig:bearing capacity}, can be set equal to the normal force $ \gls{sym-F_sn} [N/m^2] $ working on a certain point at a submerged cross section of an Archimedes screw, as is shown in figure \ref{fig:F_n}. For silt and sand calculations, a specific weight difference $ \gls{sym-gamma_sw} [N/m^3] $ between soil and water can be expressed as equation \ref{eq:submerged weight}, were $ \gls{sym-rho_si} [kg/m^3] $ is the in-situ density of the drained soil, $ \gls{sym-rho_w} [kg/m^3] $ of water and $ \gls{sym-g} $ the acceleration due to gravity.
-%
-% \begin{sBox}
-% 	\begin{equation}\label{eq:submerged weight}
-% 	\gls{sym-gamma_sw} = \gls{sym-g} (\gls{sym-rho_si} - \gls{sym-rho_w})
-% 	\end{equation}
-% \end{sBox}
-%
-% \citet{miedema_slurry_2016} shows that the normal forces working on a pipe from the inside can be calculated with equation \ref{eq:miedema_F_n_pipe}. He multiplies the density of undrained soil over a pipe length $ \gls{s:Delta_L} [m] $, where a fraction of the density between soil and water $ \gls{s:Re_sd} [-] = \frac{\gls{s:rho_soil}}{\gls{sym-rho_w}} - 1$ combined with a volumetric bed concentration fraction $ \gls{s:C_vb} [-] $, which combined can be describes as an in-situ specific weight difference $ \gls{sym-gamma_sw} $, found in equation \ref{eq:submerged weight}. This is multiplied with a term that describes the contact face, determined with a sinkage angle $ \gls{sym-theta_s} $ and a pipe diameter $ \gls{s:D_p} = 2 \gls{sym-r_a} $. This normal forces working on a pipe from inside-out can be translated to normal forces working on an Archimedes screw from outside in, as shown in figure \ref{fig:F_n} can be calculated with equation \ref{eq:normal}. Were equation \ref{eq:miedema_F_n_pipe} is rewritten, combining multiple terms in the in-situ specific weight and dividing the total normal force $ \gls{s:F_n} $ with the length of an Archimedes screw and its penetration depth.
-%
-% \begin{sBox}
-% 	\begin{equation}\label{eq:miedema_F_n_pipe}
-% 		\gls{s:F_n} = \gls{sym-rho_si} \gls{sym-g} \gls{s:Delta_L} \gls{s:Re_sd} \gls{s:C_vb} \frac{\gls{s:D_p}^2}{2}\sin(\gls{sym-theta_s}-\gls{sym-theta_s}\cos(\gls{sym-theta_s}))
-% 	\end{equation}
-% 	\begin{equation}\label{eq:normal}
-% 	\gls{sym-F_sn} = \gls{sym-gamma_sw} \frac{(2\gls{sym-r_a})^2}{\gls{sym-d_a}}\sin(\gls{sym-theta_s}-\gls{sym-theta_s}\cos(\gls{sym-theta_s}))
-% 	\end{equation}
-% \end{sBox}
-%
-%
-% \begin{figure}[!htb]
-% 	\begin{center}
-% 		\begin{tikzpicture}
-% 		\point{a}{0.3}{3};
-% 		\point{aa}{-0.1}{2.9};
-% 		\point{b}{5}{3};
-% 		\point{bb}{5}{2.7};
-% 		\point{c}{10}{3};
-% 		\point{cc}{10}{2.7};
-% 		\point{d}{14.7}{3};
-% 		\point{e}{2}{5};
-% 		\point{f}{7}{6};
-% 		\point{g}{13}{5};
-% 		\point{h}{2.5}{2.25};
-% 		\point{i}{12.5}{2.25};
-% 		\point{j}{7.5}{2.25};
-% 		\point{k}{5}{1.75};
-% 		\point{l}{10}{1.75};
-% 		\beam{3}{a}{d}[0][0];
-% 		\lineload{2}{a}{b}[1][1][0.125];
-% 		\lineload{2}{bb}{cc}[2][2][0.125];
-% 		\lineload{2}{c}{d}[1][1][0.125];
-% 		\snotation{1}{e}{$ \gls{sym-p_q} = \gamma \gls{sym-d_a} \left[N/m^2\right] $}[above];
-% 		\snotation{1}{f}{$ \gls{sym-p_sb} \left[N/m^2\right] $}[above];
-% 		\snotation{1}{g}{$ \gls{sym-p_q} = \gamma \gls{sym-d_a} \left[N/m^2\right] $}[above];
-% 		\snotation{1}{h}{$ \mathrm{I} $}[above];
-% 		\snotation{1}{i}{$ \mathrm{I} $}[above];
-% 		\snotation{1}{j}{$ \mathrm{III} $}[above];
-% 		\snotation{1}{k}{$ \mathrm{II} $}[above];
-% 		\snotation{1}{l}{$ \mathrm{II} $}[above];
-% 		\snotation{1}{aa}{$ \gls{sym-d_a} $};
-% 		\draw (0.3,3) -- (2.5,2) -- (5,3);
-% 		\draw (5,3) -- (7.5,2) -- (10,3);
-% 		\draw (10,3) -- (12.5,2) -- (14.7,3);
-% 		\draw (2.5,2) .. controls (4,1.5) and (6,1.5) .. (7.5,2);
-% 		\draw (7.5,2) .. controls (9,1.5) and (11,1.5) .. (12.5,2);
-% 		\draw [fill=tudelft-orange!10] (0.3,3) -- (0.3,3.3) -- (5,3.3) -- (5,3) -- cycle;
-% 		\draw [fill=tudelft-orange!10] (10,3) -- (10,3.3) -- (14.7,3.3) -- (14.7,3) -- cycle;
-% 		\end{tikzpicture}
-% 		\caption{Bearing capacity and stress zones as depicted by Prandtl}\label{fig:bearing capacity}
-% 	\end{center}
-% \end{figure}
-%
-% There are three situations which can occur; Firstly the soil bed has enough strength to carry a crawler. In this situation the speed of a crawler is a direct function of the pitch of the vanes. Secondly, the weight of a crawler is higher than the soil bed capacity and the Archimedes screws sink, partial, into the undrained soil, till there exist an equilibrium between load $ \gls{sym-p_sb} $ and the submerged weight of the soil $ \gls{sym-gamma_sw} $, as is illustrated in figure \ref{fig:bearing capacity}. The last case builds on the previous situation, only here are the Archimedes screws completely surrounded by soil.
-%
-% Figure \ref{fig:bearing capacity} shows the resulting situation of the bearing capacity and the stress zones underneath the loads $ \gls{sym-p_sb} $ and $ \gls{sym-p_q} $. \textbf{Zone I} is an area were the horizontal principle stress $ \sigma_h $ is greater than the vertical principle stress $ \sigma_v $. Whilst \textbf{zone II} is a transition zone between \textbf{I} and \textbf{III}. Where in \textbf{zone III} the vertical principle stress, which is equal to $ \gls{sym-p_sb} $, is greater than horizontal principle stress, as shown in equation \ref{eq:bigger v instead of h stress}.
-%
-% \begin{sBox}
-% 	\begin{equation}\label{eq:bigger v instead of h stress}
-% 	\gls{s:sigma_h} < \gls{s:sigma_v} = \gls{sym-p_sb}
-% 	\end{equation}
-% \end{sBox}
-%
-% \noindent A maximum allowable load of $ \gls{sym-p_sb} $ is calculated according to the method proposed by Brinch-Hansen. Which gives an indication when the soil bed starts to give way and deform. Where $ \gls{sym-p_sb} $ can be set equal to the normal forces acting at a certain point $ \gls{sym-F_sn} $, as show in equation \ref{eq:normal}.
-%
-% \begin{sBox}
-% 	\begin{equation}\label{eq:Brinch-Hansen}
-% 	\gls{sym-F_sn} = \gls{sym-p_sb} = \gls{sym-s_c} \gls{sym-c_sb} \gls{sym-N_c} + \gls{sym-s_q} \gls{sym-p_q} \gls{sym-N_q} + \gls{sym-s_gamma} \frac{1}{2} \gls{sym-gamma_sw} \gls{sym-w_a} \gls{sym-N_gamma}
-% 	\end{equation}
-% \end{sBox}
-%
-% \noindent Were $ \gls{sym-N_q}, \gls{sym-N_c} $ and $ \gls{sym-N_gamma} $ are dimensionless constants and are given by equations: \ref{eq:Nq}, \ref{eq:Nc} and \ref{eq:Ngamma}. In these equations the angle of internal friction $ \gls{sym-phi_s} $ and $ \gls{sym-c_sb} $ is the cohesion of the soil. Which both can be obtained through laboratory tests.
-%
-% \begin{sBox}
-% 	\begin{equation}\label{eq:Nq}
-% 	\gls{sym-N_q} = \frac{1 + \sin \gls{sym-phi_s}}{1 - \sin \gls{sym-phi_s}} \exp(\pi \tan \gls{sym-phi_s})
-% 	\end{equation}
-% 	\begin{equation}\label{eq:Nc}
-% 		\gls{sym-N_c} = (\gls{sym-N_q} - 1)\cot \gls{sym-phi_s}
-% 	\end{equation}
-% 	\begin{equation}\label{eq:Ngamma}
-% 		\gls{sym-N_gamma} = 2(\gls{sym-N_q} - 1)\tan \gls{sym-phi_s}
-% 	\end{equation}
-% \end{sBox}
-%
-% \noindent And the shape factors $ \gls{sym-s_q}, \gls{sym-s_c} $ and $ \gls{sym-s_gamma} $ are calculated using equations: \ref{eq:Sq}, \ref{eq:Sc} and \ref{eq:Sgamma}; Where $ \gls{sym-w_a}  [m]$ and $ \gls{sym-l_a} [m] $ are the dimensions of width and length.
-%
-% \begin{sBox}
-% 	\begin{equation}\label{eq:Sq}
-% 	\gls{sym-s_q} = 1 + \frac{\gls{sym-w_a}}{\gls{sym-l_a}} \sin \gls{sym-phi_s}
-% 	\end{equation}
-% 	\begin{equation}\label{eq:Sc}
-% 	\gls{sym-s_c} = 1 + 0.2 \frac{\gls{sym-w_a}}{\gls{sym-l_a}}
-% 	\end{equation}
-% 	\begin{equation}\label{eq:Sgamma}
-% 	\gls{sym-s_gamma} = 1 - 0.3 \frac{\gls{sym-w_a}}{\gls{sym-l_a}}
-% 	\end{equation}
-% \end{sBox}
-%
-% \noindent Since the width of the Archimedes screw is a function of the sinkage depth, an approximation is made
-%
-% When a load is placed on the soil, and the bearing capacity proofs to be insufficient; That load will sink into the soil bed increasing the depth $ \gls{sym-d_a} $. Because the sinkage depth increases, the bearing capacity will also increase; Until an equilibrium with the load, buoyancy and bearing capacity exists. This depth can be found through an iterative process. This is needed because the width $ \gls{sym-w_a} $ of an Archimedes screw changes as a function of the depth.
-%
-% \begin{figure}[!htb]
-% 	\begin{center}
-% 		\begin{tikzpicture}
-% 		\tikzstyle{loosely dashdotted}= [dash pattern=on 3pt off 4pt on \the\pgflinewidth off 4pt,line width=0.05mm]
-% 		\def\h{1};
-% 		\def\r{2};
-% 		\def\f{1.05};
-% 		\draw (0,0) circle (\r);
-%
-% 		\draw [tudelft-orange](-4.5,\h*-1) -- (4.5,\h*-1);
-% 		\coordinate (x0) at (0,0);
-% 		\coordinate (x0r) at (\r,0);
-% 		\coordinate (x1) at ({((\r^2)-(\h^2))^(1/2)},{\h*-1});
-% 		\coordinate (x2) at ({-1*((\r^2)-(\h^2))^(1/2)},{\h*-1});
-% 		\coordinate (x3) at ($(x0)!0.25!(x1)$);
-% 		\coordinate (x4) at ($(x0)!1.1!(x1)$);
-% 		\coordinate (m0) at (0,\r);
-% 		\coordinate (m1) at (\r+0.5, \r);
-% 		\coordinate (m2) at (\r, 0);
-% 		\coordinate (m3) at (\r+0.5,0);
-% 		\coordinate (m4) at ({((\r^2)-(\h^2))^(1/2)},\h*-1);
-% 		\coordinate (m5) at (\r+0.5,\h*-1);
-% 		\coordinate (m6) at (0,\r*-1);
-% 		\coordinate (m7) at (\r+0.5,\r*-1);
-%
-% 		\draw (x0) -- (x1);
-% 		\draw (x0) -- (x2);
-% 		\fill[pattern=crosshatch dots, pattern color=tudelft-orange] (-4.5,\h*-1) rectangle (4.5,-3);
-% 		\draw [tudelft-orange,fill=tudelft-orange!10,line width=0.25mm,rotate=-150] (x2) arc (0:120:\r) -- (x2);
-%
-% 		\draw [loosely dashdotted] ({\r*\f*-1},0) -- ({\r*\f},0);
-% 		\draw [loosely dashdotted] (0,{\r*\f*-1}) -- (0,{\r*\f});
-% 		\draw [{Latex[length=2mm,width=1mm]}-{Latex[length=2mm,width=1mm]}, rotate=-90,line width=0.05mm](x3) arc (60:0:\r/4);
-% 		\draw [{Latex[length=2mm,width=1mm]}-{Latex[length=2mm,width=1mm]}, rotate=-150,line width=0.05mm](x4) arc (120:0:\r*1.1);
-% 		\node (theta) at (0.75,-0.75) {$\gls{sym-theta_s}$};
-% 		\node (As) at (0.5,-1.30) {$A_s$};
-% 		\node (S) at (-1.3,-2) {$S$};
-% 		\node (Soil) at (-2.5,-2.5) {Soil bed};
-% 		\node (Water) at (-2.5,1.5) {Water};
-% 		\node (rhoS) at (3.5, -2.5) {$ \gls{sym-rho}_s $};
-% 		\node (rhoW) at (3.5, 1.5) {$ \gls{sym-rho}_w $};
-% 		\draw [line width=0.05mm](m0) -- (m1);
-% 		\draw [line width=0.05mm](m2) -- (m3);
-% 		\draw [line width=0.05mm](m4) -- (m5);
-% 		\draw [line width=0.05mm](m6) -- (m7);
-% 		\draw [{Latex[length=2mm,width=1mm]}-{Latex[length=2mm,width=1mm]},line width=0.05mm] ([shift={(-0.125,0)}]m1) --([shift={(-0.125,0)}]m3) node[midway, right] {$ \gls{sym-r_a} $};
-% 		\draw [{Latex[length=2mm,width=1mm]}-{Latex[length=2mm,width=1mm]},line width=0.05mm] ([shift={(-0.125,0)}]m3) --([shift={(-0.125,0)}]m5) node[midway, right] {$ h $};
-% 		\draw [{Latex[length=2mm,width=1mm]}-{Latex[length=2mm,width=1mm]},line width=0.05mm] ([shift={(-0.125,0)}]m5) --([shift={(-0.125,0)}]m7) node[midway, right] {$ \gls{sym-d_a}  $};
-%
-% 		\end{tikzpicture}
-% 	\end{center}
-% 	\caption{Displaced volume of a partial submerged cylinder}\label{fig:cylinder}
-% \end{figure}
-%
-% \noindent The displaced volume $ \gls{sym-V_sa} [m^3] $ of a surface area in the soil $ \gls{sym-A_s} [m^2] $ on a submerged cross section, show in figure \ref{fig:cylinder}, throughout the complete length $ \gls{sym-l_a} [m]$ of an Archimedes screw, as is shown in equation \ref{eq:volume}.
-%
-% \begin{sBox}
-% 	\begin{equation}\label{eq:volume}
-% 	\gls{sym-V_sa} = \gls{sym-A_s} \gls{sym-l_a}
-% 	\end{equation}
-% \end{sBox}
-%
-% \noindent Where the sink angle $ \gls{sym-theta_s} $ is related to the surface area in the soil $ \gls{sym-A_s} $ by equation \ref{eq:as}.
-%
-% \begin{sBox}
-% 	\begin{equation}\label{eq:as}
-% 	\gls{sym-A_s} = \pi \gls{sym-r_a}^2(\gls{sym-theta_s} - \sin(\gls{sym-theta_s})\cos(\gls{sym-theta_s}))
-% 	\end{equation}
-% \end{sBox}
-%
-% \noindent The total arc length in contact with the soil can be calculate by multiplying the radius $ \gls{sym-r_a} $ multiplied with the sink angle $ \gls{sym-theta_s} $, as is shown in equation \ref{eq:s}
-% \begin{sBox}
-% 	\begin{equation}\label{eq:s}
-% 	\gls{sym-s_a} = \gls{sym-r_a} \gls{sym-theta_s}
-% 	\end{equation}
-% \end{sBox}
-%
-% \noindent Where the sinkage depth \gls{sym-d_a} can be obtained with equation \ref{eq:d_a}. Where $ \gls{sym-r_a} [m] $ is the radius of an Archimedes screw.
-%
-% \begin{sBox}
-% 	\begin{equation}\label{eq:d_a}
-% 	\gls{sym-d_a} = \gls{sym-r_a}\left(1-\cos(\frac{\gls{sym-theta_s}}{2})\right)
-% 	\end{equation}
-% \end{sBox}
-%
-% With the above described equations \ref{eq:submerged weight} through \ref{eq:d_a}. A depth can be determine using a modified false position method, as described in algorithm \ref{alg:modified false position}. This depth is needed to determine the friction losses between an Archimedes screw and the soil.
-%
-% \begin{algorithm}[!htb]
-% 	\caption{Modified false position algorithm. Source \citet{chapra_numerical_2014}}\label{alg:modified false position}
-% 	\begin{algorithmic}[1]
-% 		\Procedure{ModFalsePosition}{$ x_1, x_u, es, i_{max}, x_r, iter, ea  $}
-% 		\State $ iter \gets 0 $
-% 		\State $ f_l \gets f(x_1) $
-% 		\State $ f_u \gets f(x_u) $
-% 		\While{$ true $}
-% 		\State $ x_{r,old} \gets x_r $
-% 		\State $ x_r \gets x_u - \frac{f_u (x_1 - x_u)}{f_l - f_u} $
-% 		\State $ iter \gets iter + 1 $
-% 		\If{$ x_r \neq 0 $}
-% 		\State $ ea \gets 100|\frac{x_r - x_{r,old}}{x_r}| $
-% 		\EndIf
-% 		\State $ test \gets f_l f_r $
-% 		\If{$ test < 0 $}
-% 		\State $ x_u \gets x_r $
-% 		\State $ f_u \gets f(x_u) $
-% 		\State $ i_u \gets 0 $
-% 		\State $ i_l \gets i_l + 1 $
-% 		\If{$i_l \geq 2 $}
-% 		\State $ f_l \gets \frac{f_l}{2} $
-% 		\EndIf
-% 		\ElsIf{$ test > 0 $}
-% 		\State $ x_1 \gets x_r $
-% 		\State $ f_l \gets f(x_1) $
-% 		\State $ i_l \gets 0 $
-% 		\State $ i_u \gets i_u + 1 $
-% 		\If{$ i-u \geq 2$}
-% 		\State $ f_u \gets \frac{f_u}{2} $
-% 		\EndIf
-% 		\Else
-% 		\State $ ea \gets 0 $
-% 		\EndIf
-% 		\If{ $ ea < es \bigvee iter \geq i_{max} $}
-% 		\State $ return $
-% 		\EndIf
-% 		\EndWhile
-% 		\State $ ModFalsePosition \gets x_r $
-% 		\EndProcedure
-% 	\end{algorithmic}
-% \end{algorithm}
-%
-% \citet{rajapakse_geotechnical_2011} describe that Kolk and van der Velde developed a method to determine skin friction considering cohesion as well as effective stress. Where \gls{s:f_ult} is the ultimate skin friction, \gls{s:alpha_sf} is a skin friction coefficient, obtained using the correlations provide by Kolk and Van der Velde. The parameter $ \gls{s:alpha_sf} $ is based on a ratio between both on cohesion $ \gls{sym-c_sb} $ and effective stress $ \gls{s:sigmaprime} $, a table is provide in appendix \ref{app:skin friction factor} to obtain $ \gls{s:alpha_sf} $.  \gls{s:c_u} is the undrained shear strength or cohesion properties of the soil.
-%
-% \begin{sBox}
-% 	\begin{equation}\label{eq:f_ult}
-% 		\gls{s:f_ult} = \gls{s:alpha_sf} \gls{s:c_u}
-% 	\end{equation}
-% \end{sBox}
-%
-% \noindent The total skin friction \gls{s:F_s} for a certain area is given by equation \ref{eq:total skin friction}. Where \gls{s:f_ult} is obtained with equation \ref{eq:f_ult} and  $ \gls{s:A_a} $, which can be determine by \ref{eq:total skin friction}.
-%
-% \begin{sBox}
-% 	\begin{equation}\label{eq:total skin friction}
-% 		\gls{s:F_s} = \gls{s:f_ult} \gls{s:A_a}
-% 	\end{equation}
-% \end{sBox}
-%
-% \noindent The effective stress $ \gls{s:sigmaprime} $ needed to determine  $ \gls{s:alpha_sf} $, can be found with equation \ref{eq:sigmaprime}. Here $ \gls{s:m_dbprime} $ is the buoyancy corrected weight of a crawler, which can be expressed as $ \gls{s:m_db} - \frac{\gls{s:F_bdb}}{\gls{s:g}} $. Where $ \gls{s:F_bdb} $ is given as the upwards force generated in water due to a volumetric displacement of that water compared to the air filled chambers in the crawler.
-% \begin{sBox}
-% 	\begin{equation}\label{eq:sigmaprime}
-% 		\gls{s:sigmaprime} = \frac{\gls{s:m_dbprime}}{2 \gls{s:A_a}}
-% 	\end{equation}
-% \end{sBox}
-%
-% \noindent The surface in contact with the soil $ \gls{s:A_a} $ is an arc length $ \gls{sym-s_a} $, calculated in equation \ref{eq:s}, multiplied with the length of an Archimedes screw.
-%
-% \begin{sBox}
-% 	\begin{equation}\label{eq:contact surface}
-% 		\gls{s:A_a} = \gls{sym-s_a} \gls{sym-l_a}
-% 	\end{equation}
-% \end{sBox}
-%
-% The maximum allowable thrust which can be generated, can be calculated by the soil characteristics and the geometry of the propulsion geometry. This thrust determines how fast a crawler moves and should overcome the drag-force through the water. A maximum allowable thrust, is the horizontal stress at which passive soil failure occurs. This can be determine with Rankine theory. Because movement occurs in undrained situation, the cohesion $ \gls{sym-c_sb} $ is equal to the undrained shear strength $ \gls{s:c_u} $ and the internal friction angle $ \gls{sym-phi_s} $ can be set equal to 0. In effect simplifying equation \ref{eq:horizontal stress} to \ref{eq:max horizontal stress}.
-%
-% \begin{sBox}
-% 	\begin{equation}\label{eq:horizontal stress}
-% 		\gls{s:sigma_h} = \gls{s:N_phi} \gls{s:sigma_v} + 2\gls{sym-c_sb}\sqrt{\gls{s:N_phi}}
-% 	\end{equation}
-% 	\begin{equation}
-% 		\gls{s:N_phi} = \frac{1 + \sin \gls{sym-phi_s}}{1 - \sin \gls{sym-phi_s}}
-% 	\end{equation}
-% 	\begin{equation}\label{eq:max horizontal stress}
-% 		\gls{s:sigma_h} = \gls{s:sigma_v} + 2\gls{s:c_u}
-% 	\end{equation}
-% \end{sBox}
-%
-% \todo{describe calculation with buoyancy}
-% An other factor that is depended on the penetration depth $ \gls{sym-d_a} $ is, a generated buoyancy. When these screws are submerged in the soil, a resulting buoyancy force will exists, as a result of the displaced soil. \citet{lotman_applicable_2009} describes the buoyancy force as depicted in equation \ref{eq:buoyancy force}. In this equation $ g [N/kg] $ is the gravitational constant and multiplied with the displaced volume $ \gls{sym-V_sa} [m^3] $ and specific weight difference between the soil and water, or in other words the specific weight difference $ \gls{sym-gamma_sw} $, found in equation \ref{eq:submerged weight}.
-%
-% \begin{sBox}
-% 	\begin{equation}\label{eq:buoyancy force}
-% 	\gls{sym-F_b} = \gls{sym-V_sa} \gls{sym-gamma_sw}
-% 	\end{equation}
-% \end{sBox}
-%
-% \subsubsection{Modelling a maximum speed during dredging}
-% During coverage travel, a bot has to move its dredge head at a certain velocity $ \vec{v} \left[\sfrac{m}{s}\right] $, this speed coupled with the submerged profile of this dredge head $ l_{au} \times d_{dr} $, where $ l_{au} [m] $ is the length of its auger and $ d_{dr} [m] $ is the desired dredge depth, which translates in an instantaneous volumetric flow $ \vec{v}_{au} $ when coupled with equation \ref{eq:augerflow}. Since the bot velocity is coupled with the minimum volumetric flow of the dredge system, the bottleneck in this system dictates the flow. This is either the serial pipes, flexible hoses and pump $ \dv{V_{pu}}{t} $ or the flow generated by the auger $ \dv{V_{au}}{t} $. This is illustrated in equation \ref{eq:speedasflowauger}. The flow of the current dredge systems is calculated by our senior dredge specialist as a volumetric flow of $ 140 \left[ \sfrac{m^3}{hr} \right] \Rightarrow \dv{V_{pu}}{t} = 0.039 \left[\sfrac{m^3}{s}\right]  $ at a depth of $ 15 [m] $ with an \emph{in situ} specific weight of $ 1400 \left[\sfrac{kg}{m^3}\right] $ and a transportation distance of $ 100 [m] $. With a selected pump type IHC 37.5-9-5-15 with three blades.
-%
-% \begin{sBox}
-% 	\begin{equation}\label{eq:speedasflowauger}
-% 	\begin{array}{lcl}
-% 		\vec{x}_{t} & = & min\left\{\vec{v}_{au}, \vec{v}_{pu}\right\}, \\[0.5em]
-% 		\vec{v}_{au} & = & \frac{1}{20 l_{au} d_{dr}} \left(d_{o} - d_{a}\right)^2 P_{au}\gls{sym-omega}, \\[0.5em]
-% 		\vec{v}_{pu} & = & \frac{1}{l_{au} d_{dr}} \dv{V_{pu}}{t}
-% 	\end{array}
-% 	\end{equation}
-% \end{sBox}
+\paragraph{A HYDRAULIC MOTOR} is used to convert hydraulic energy into mechanical energy. This actuator is modeled after
+a \citet{mathworks_mechanical_hydraulic_2016}, described model. It receives feedback from the fluid velocity
+\gls{sym-v_f} and the angular velocity \gls{sym-omega} of the propulsion system. It generates torque \gls{sym-tau} by
+converting pressure \gls{sym-p}. The workings of a hydraulic pump and motor share much similarities, with some notable
+differences related to the leakage flow. Were a pump subtracts the leakage flow it is added in this model. Since the
+efficiency is an inverse of the pump.
+
+\begin{equation}\label{eq:motor flowrate}
+	\gls{sym-Q} = \gls{sym-Q_i} + \gls{sym-Q_l}
+\end{equation}
+
+\noindent In order to calculate a pressure drop as an function of fluid and angular velocity over the outlets, equations
+\ref{eq:flow rate}, \ref{eq:motor flowrate}, \ref{eq:ideal flow rate} and \ref{eq:leak flow rate} can be combined and
+rewritten in to equation \ref{eq:dpp motor}.
+
+\begin{equation}\label{eq:dpp motor}
+	\gls{sym-Delta_p}(\gls{sym-v_f}, \gls{sym-omega}) = \frac{\gls{sym-v_f} \gls{sym-A_p} - D \gls{sym-omega}}{ \gls{sym-K_HP}}
+\end{equation}
+
+\noindent In equation \ref{eq:dpp motor} the Hagen-Poiseuille coefficient for laminar pipe flows is calculated according
+to equation \ref{eq:hagen}
+
+\begin{equation}\label{eq:hagen}
+	\gls{sym-K_HP}= \frac{\gls{sym-mu_n}}{\gls{sym-rho} \gls{sym-mu}} \frac{\gls{sym-rho_n} \gls{sym-omega_n} D}{\gls{sym-Delta_p_n}} \left(\frac{1}{\gls{sym-eta_Vn}} - 1\right)
+\end{equation}
+
+\noindent An other notable difference is that the net torque is lessened by the friction, as is shown in equation
+\ref{eq:torque}. Where the ideal torque \( \gls{sym-tau_i}(v,\gls{sym-omega}) \)and torque generated by friction \(
+\gls{sym-tau_f}(\gls{sym-v_f},\gls{sym-omega}) \) are calculated according to equation \ref{ideal torque} and \ref{eq:torque
+friction}.
+
+\begin{equation}\label{eq:torque}
+	\gls{sym-tau}(\gls{sym_v_f},\gls{sym-omega}) = \gls{sym-tau_i}(\gls{sym_v_f},\gls{sym-omega}) - \gls{sym-tau_f}(\gls{sym_v_f},\gls{sym-omega})
+\end{equation}
+
+\subsection{SOIL DYNAMIC MODEL}
+
+At this stage it is needed to model all interactions of a propulsion systems with a soil bed. According to
+\citet{lotman_applicable_2009} the soil mechanics behind a moving process with Archimedes screws is similar to those of
+track propulsion. The type of soil interaction can be modeled according to the rules of soil mechanics. The paragraphs
+below are based on \citet{verruijt_soil_2007}. In the described model, the following simplifications are proposed: No
+\gls{dilatancy} behavior occurs, the displaced soil is completely replaced by the Archimedes screws. Thus, no build up
+of soil is created at the sides of a screw, due to a bulldozer effect.
+
+In order to generate a forward thrust, an Archimedes screw has to be (partial) submerged in the soil. The depth of
+submersion depends on the weight and buoyancy of the displaced volume or the soil bearing capacity. The distributed load
+\gls{sym-p_sb} representing the crawler, is applied at a certain depth \gls{sym-d_a}. Where the normal force working on
+the submerged surface of an Archimedes screw are in equilibrium with the weight and buoyancy of a crawler.
+
+It is important to note that the material of a soil bed, determines how the sinkage depth is calculated. When the soil
+bed consists of silt-like material it is assumed that the soil bearing capacity goes to zero, because the cohesion
+\gls{sym-c_sb} will lessen, combined with a smaller difference between a specific in-situ weight of silt
+\gls{sym-rho_is} compared to water \gls{sym-rho_w}, resulting in a small specific in-situ weight \gls{sym-gamma_sw}.
+Setting all terms in the Brinch-Hansen equation~\ref{eq:Brinch-Hansen} to zero. Which allow for a simplification of the
+sinkage depth calculation. Which does now, only consist of a downwards force, due to weight and a buoyancy force, due to
+the replaced soil.
+
+\begin{RoyalFigure}[!htb, label=fig:F_n]{NORMAL FORCES WORKING ON PARTIAL SUBMERGED CYLINDER}
+	\begin{center}
+		\begin{tikzpicture}
+		\tikzstyle{loosely dashdotted}= [dash pattern=on 3pt off 4pt on \the\pgflinewidth off 4pt,line width=0.05mm]
+		\def\h{1};
+		\def\r{2};
+		\def\f{1.05};
+		\draw (0,0) circle (\r);
+
+		\draw [RoyalLightGrey](-4.5,\h*-1) -- (4.5,\h*-1);
+		\coordinate (x0) at (0,0);
+		\coordinate (x0r) at (\r,0);
+		\coordinate (x1) at ({((\r^2)-(\h^2))^(1/2)},{\h*-1});
+		\coordinate (x2) at ({-1*((\r^2)-(\h^2))^(1/2)},{\h*-1});
+		\coordinate (x3) at ($(x0)!0.25!(x1)$);
+		\coordinate (x4) at ($(x0)!1.1!(x1)$);
+		\coordinate (m0) at (0,\r);
+		\coordinate (m1) at (\r+0.5, \r);
+		\coordinate (m2) at (\r, 0);
+		\coordinate (m3) at (\r+0.5,0);
+		\coordinate (m4) at ({((\r^2)-(\h^2))^(1/2)},\h*-1);
+		\coordinate (m5) at (\r+0.5,\h*-1);
+		\coordinate (m6) at (0,\r*-1);
+		\coordinate (m7) at (\r+0.5,\r*-1);
+
+		\draw (x0) -- (x1);
+
+		\fill[pattern=crosshatch dots, pattern color=RoyalRed!25] (-4.5,\h*-1) rectangle (4.5,-3);
+		\draw [RoyalRed,fill=RoyalRed!10,line width=0.25mm,rotate=-150] (x2) arc (0:120:\r) -- (x2);
+
+		\draw [loosely dashdotted] ({\r*\f*-1},0) -- ({\r*\f},0);
+		\draw [loosely dashdotted] (0,{\r*\f*-1}) -- (0,{\r*\f});
+		\node (Soil) at (-3,-2.5) {Soil bed};
+		\node (Water) at (-3,1.5) {Water};
+		\node (normal) at (-1.5,-2.5) {\gls{sym-F_sn}};
+		\node (load) at (-0.75,-0.75) {\gls{sym-p_sb}};
+		\draw [{Latex[length=2mm,width=1mm]}-{Latex[length=2mm,width=1mm]}, rotate=-90,line width=0.05mm](x3) arc (60:0:\r/4);
+		\node (theta) at (0.75,-0.75) {\gls{sym-theta_s}};
+		\draw [line width=0.05mm](m4) -- (m5);
+		\draw [line width=0.05mm](m6) -- (m7);
+		\draw [{Latex[length=2mm,width=1mm]}-{Latex[length=2mm,width=1mm]},line width=0.05mm] ([shift={(-0.125,0)}]m5) --([shift={(-0.125,0)}]m7) node[midway, right] {\gls{sym-d_a}};
+
+		\foreach \x in {210,215,...,265} \draw[-{Latex[length=2mm,width=1mm]}] (\x:{\r+(0.75*((\x-210)/60))+0.1}) -- (\x:\r);
+		\foreach \x in {210,215,...,265} \draw[-{Latex[length=2mm,width=1mm]}] (\x:{\r-(0.75*((\x-210)/60))-0.1}) -- (\x:\r);
+		\foreach \x in {330,325,...,270} \draw[-{Latex[length=2mm,width=1mm]}] (\x:{\r+(-0.75*((\x-330)/60))+0.1}) -- (\x:\r);
+		\foreach \x in {330,325,...,270} \draw[-{Latex[length=2mm,width=1mm]}] (\x:{\r-(-0.75*((\x-330)/60))-0.1}) -- (\x:\r);
+		\end{tikzpicture}
+	\end{center}
+\end{RoyalFigure}
+
+When the crawler operates in an environment with a sand-like soil bed, the load \gls{sym-p_sb}, shown in
+Figure~\ref{fig:bearing_capacity}, can be set equal to the normal force \gls{sym-F_sn} working on a certain point at a
+submerged cross section of an Archimedes screw, as is shown in Figure~\ref{fig:F_n}. For silt and sand calculations, a
+specific weight difference \gls{sym-gamma_sw} between soil and water can be expressed as equation~\ref{eq:submerged
+weight}, were \gls{sym-rho_is} is the in-situ density of the drained soil, \gls{sym-rho_w} of water and \gls{sym-g} the
+acceleration due to gravity.
+
+\begin{equation}\label{eq:submerged weight}
+	\gls{sym-gamma_sw} = \gls{sym-g} (\gls{sym-rho_si} - \gls{sym-rho_w})
+\end{equation}
+
+\citet{miedema_slurry_2016} shows that the normal forces working on a pipe from the inside can be calculated with
+equation \ref{eq:miedema_F_n_pipe}. He multiplies the density of undrained soil over a pipe length \gls{s:Delta_L},
+where a fraction of the density between soil and water \( \gls{sym-Re_sd} = \frac{\gls{sym-rho_ds}}{\gls{sym-rho_w}} - 1
+\) combined with a volumetric bed concentration fraction \gls{sym-C_vb}, which combined can be describes as an in-situ
+specific weight difference \gls{sym-gamma_sw}, found in equation~\ref{eq:submerged weight}. This is multiplied with a
+term that describes the contact face, determined with a sinkage angle \gls{sym-theta_s} and a pipe diameter
+\gls{sym-d_p}. This normal forces working on a pipe from inside-out can be translated to normal forces working on an
+Archimedes screw from outside in, as shown in Figure~\ref{fig:F_n} can be calculated with equation~\ref{eq:normal}. Were
+equation~\ref{eq:miedema_F_n_pipe} is rewritten, combining multiple terms in the in-situ specific weight and dividing
+the total normal force \gls{sym-F_n} with the length of an Archimedes screw and its penetration depth.
+
+\begin{equation}\label{eq:miedema_F_n_pipe}
+		\gls{sym-F_n} = \gls{sym-rho_is} \gls{sym-g} \gls{s:Delta_L} \gls{sym-Re_sd} \gls{sym-C_vb} \frac{\gls{sym-d_p}^2}{2}\sin(\gls{sym-theta_s}-\gls{sym-theta_s}\cos(\gls{sym-theta_s}))
+\end{equation}
+
+\begin{equation}\label{eq:normal}
+	\gls{sym-F_sn} = \gls{sym-gamma_sw} \frac{(2\gls{sym-r_a})^2}{\gls{sym-d_a}}\sin(\gls{sym-theta_s}-\gls{sym-theta_s}\cos(\gls{sym-theta_s}))
+\end{equation}
+
+\begin{RoyalFigure}[!htb, label=fig:bearing_capacity]{PRANDTL BEARING CAPACITY AND STRESS ZONES}
+	\begin{center}
+		\begin{tikzpicture}
+		\point{a}{0.3}{3};
+		\point{aa}{-0.1}{2.9};
+		\point{b}{5}{3};
+		\point{bb}{5}{2.7};
+		\point{c}{10}{3};
+		\point{cc}{10}{2.7};
+		\point{d}{14.7}{3};
+		\point{e}{2}{5};
+		\point{f}{7}{6};
+		\point{g}{13}{5};
+		\point{h}{2.5}{2.25};
+		\point{i}{12.5}{2.25};
+		\point{j}{7.5}{2.25};
+		\point{k}{5}{1.75};
+		\point{l}{10}{1.75};
+		\beam{3}{a}{d}[0][0];
+		\lineload{2}{a}{b}[1][1][0.125];
+		\lineload{2}{bb}{cc}[2][2][0.125];
+		\lineload{2}{c}{d}[1][1][0.125];
+		\snotation{1}{e}{\( \gls{sym-p_q} = \gamma \gls{sym-d_a} \)}[above];
+		\snotation{1}{f}{\gls{sym-p_sb}}[above];
+		\snotation{1}{g}{\( \gls{sym-p_q} = \gamma \gls{sym-d_a} \)}[above];
+		\snotation{1}{h}{\( \mathrm{I} \)}[above];
+		\snotation{1}{i}{\( \mathrm{I} \)}[above];
+		\snotation{1}{j}{\( \mathrm{III} \)}[above];
+		\snotation{1}{k}{\( \mathrm{II} \)}[above];
+		\snotation{1}{l}{\( \mathrm{II} \)}[above];
+		\snotation{1}{aa}{\gls{sym-d_a}};
+		\draw (0.3,3) -- (2.5,2) -- (5,3);
+		\draw (5,3) -- (7.5,2) -- (10,3);
+		\draw (10,3) -- (12.5,2) -- (14.7,3);
+		\draw (2.5,2) .. controls (4,1.5) and (6,1.5) .. (7.5,2);
+		\draw (7.5,2) .. controls (9,1.5) and (11,1.5) .. (12.5,2);
+		\draw [fill=RoyalRed!20] (0.3,3) -- (0.3,3.3) -- (5,3.3) -- (5,3) -- cycle;
+		\draw [fill=RoyalRed!20] (10,3) -- (10,3.3) -- (14.7,3.3) -- (14.7,3) -- cycle;
+		\end{tikzpicture}
+	\end{center}
+\end{RoyalFigure}
+
+There are three situations which can occur; Firstly the soil bed has enough strength to carry a crawler. In this
+situation the speed of a crawler is a direct function of the pitch of the vanes. Secondly, the weight of a crawler is
+higher than the soil bed capacity and the Archimedes screws sink, partial, into the undrained soil, till there exist an
+equilibrium between load \gls{sym-p_sb} and the submerged weight of the soil \gls{sym-gamma_sw}, as is
+illustrated in Figure~\ref{fig:bearing_capacity}. The last case builds on the previous situation, only here are the
+Archimedes screws completely surrounded by soil.
+
+Figure~\ref{fig:bearing_capacity} shows the resulting situation of the bearing capacity and the stress zones underneath
+the loads \gls{sym-p_sb} and \gls{sym-p_q}. \textbf{Zone I} is an area were the horizontal principle stress
+\gls{sym-sigma_H} is greater than the vertical principle stress \gls{sym-sigma_V}. Whilst \textbf{zone II} is a
+transition zone between \textbf{I} and \textbf{III}. Where in \textbf{zone III} the vertical principle stress, which is
+equal to \gls{sym-p_sb}, is greater than horizontal principle stress, as shown in equation \ref{eq:bigger v instead of h stress}.
+
+\begin{equation}\label{eq:bigger v instead of h stress}
+	\gls{sym-sigma_H} < \gls{sym-sigma_V} = \gls{sym-p_sb}
+\end{equation}
+
+\noindent A maximum allowable load of \gls{sym-p_sb} is calculated according to the method proposed by
+Brinch-Hansen. Which gives an indication when the soil bed starts to give way and deform. Where \gls{sym-p_sb} can
+be set equal to the normal forces acting at a certain point \gls{sym-F_sn}, as show in equation~\ref{eq:normal}.
+
+\begin{equation}\label{eq:Brinch-Hansen}
+	\gls{sym-F_sn} = \gls{sym-p_sb} = \gls{sym-s_c} \gls{sym-c_sb} \gls{sym-N_c} + \gls{sym-s_q} \gls{sym-p_q} \gls{sym-N_q} + \gls{sym-s_gamma} \frac{1}{2} \gls{sym-gamma_sw} \gls{sym-w_a} \gls{sym-N_gamma}
+\end{equation}
+
+\noindent Were \gls{sym-N_q}, \gls{sym-N_c} and \gls{sym-N_gamma} are dimensionless constants and are given by
+equations:~\ref{eq:Nq},~\ref{eq:Nc} and~\ref{eq:Ngamma}. In these equations the angle of internal friction
+\gls{sym-phi_s} and \gls{sym-c_sb} is the cohesion of the soil. Which both can be obtained through laboratory tests.
+
+\begin{equation}\label{eq:Nq}
+	\gls{sym-N_q} = \frac{1 + \sin \gls{sym-phi_s}}{1 - \sin \gls{sym-phi_s}} \exp(\pi \tan \gls{sym-phi_s})
+\end{equation}
+
+\begin{equation}\label{eq:Nc}
+		\gls{sym-N_c} = (\gls{sym-N_q} - 1)\cot \gls{sym-phi_s}
+\end{equation}
+
+\begin{equation}\label{eq:Ngamma}
+		\gls{sym-N_gamma} = 2(\gls{sym-N_q} - 1)\tan \gls{sym-phi_s}
+\end{equation}
+
+\noindent And the shape factors \gls{sym-s_q}, \gls{sym-s_c} and \gls{sym-s_gamma} are calculated using
+equations:~\ref{eq:Sq},~\ref{eq:Sc} and~\ref{eq:Sgamma}; Where \gls{sym-w_a} and \gls{sym-l_a} are the dimensions of
+width and length.
+
+\begin{equation}\label{eq:Sq}
+	\gls{sym-s_q} = 1 + \frac{\gls{sym-w_a}}{\gls{sym-l_a}} \sin \gls{sym-phi_s}
+\end{equation}
+
+\begin{equation}\label{eq:Sc}
+	\gls{sym-s_c} = 1 + 0.2 \frac{\gls{sym-w_a}}{\gls{sym-l_a}}
+\end{equation}
+
+\begin{equation}\label{eq:Sgamma}
+	\gls{sym-s_gamma} = 1 - 0.3 \frac{\gls{sym-w_a}}{\gls{sym-l_a}}
+\end{equation}
+
+\noindent Since the width of the Archimedes screw is a function of the sinkage depth, an approximation is made When a
+load is placed on the soil, and the bearing capacity proofs to be insufficient; That load will sink into the soil bed
+increasing the depth \gls{sym-d_a}. Because the sinkage depth increases, the bearing capacity will also increase; Until
+an equilibrium with the load, buoyancy and bearing capacity exists. This depth can be found through an iterative
+process. This is needed because the width \gls{sym-w_a} of an Archimedes screw changes as a function of the depth.
+
+\begin{RoyalFigure}[!htb, label=fig:cylinder]{DISPLACED VOLUME OF A PARTIAL SUBMERGED CYLINDER}
+	\begin{center}
+		\begin{tikzpicture}
+		\tikzstyle{loosely dashdotted}= [dash pattern=on 3pt off 4pt on \the\pgflinewidth off 4pt,line width=0.05mm]
+		\def\h{1};
+		\def\r{2};
+		\def\f{1.05};
+		\draw (0,0) circle (\r);
+
+		\draw [RoyalLightGrey](-4.5,\h*-1) -- (4.5,\h*-1);
+		\coordinate (x0) at (0,0);
+		\coordinate (x0r) at (\r,0);
+		\coordinate (x1) at ({((\r^2)-(\h^2))^(1/2)},{\h*-1});
+		\coordinate (x2) at ({-1*((\r^2)-(\h^2))^(1/2)},{\h*-1});
+		\coordinate (x3) at ($(x0)!0.25!(x1)$);
+		\coordinate (x4) at ($(x0)!1.1!(x1)$);
+		\coordinate (m0) at (0,\r);
+		\coordinate (m1) at (\r+0.5, \r);
+		\coordinate (m2) at (\r, 0);
+		\coordinate (m3) at (\r+0.5,0);
+		\coordinate (m4) at ({((\r^2)-(\h^2))^(1/2)},\h*-1);
+		\coordinate (m5) at (\r+0.5,\h*-1);
+		\coordinate (m6) at (0,\r*-1);
+		\coordinate (m7) at (\r+0.5,\r*-1);
+
+		\draw (x0) -- (x1);
+		\draw (x0) -- (x2);
+		\fill[pattern=crosshatch dots, pattern color=RoyalRed!20] (-4.5,\h*-1) rectangle (4.5,-3);
+		\draw [RoyalRed,fill=RoyalRed!10,line width=0.25mm,rotate=-150] (x2) arc (0:120:\r) -- (x2);
+
+		\draw [loosely dashdotted] ({\r*\f*-1},0) -- ({\r*\f},0);
+		\draw [loosely dashdotted] (0,{\r*\f*-1}) -- (0,{\r*\f});
+		\draw [{Latex[length=2mm,width=1mm]}-{Latex[length=2mm,width=1mm]}, rotate=-90,line width=0.05mm](x3) arc (60:0:\r/4);
+		\draw [{Latex[length=2mm,width=1mm]}-{Latex[length=2mm,width=1mm]}, rotate=-150,line width=0.05mm](x4) arc (120:0:\r*1.1);
+		\node (theta) at (0.75,-0.75) {\gls{sym-theta_s}};
+		\node (As) at (0.5,-1.30) {\gls{sym-A_s}};
+		\node (S) at (-1.3,-2) {\gls{sum-s_a}};
+		\node (Soil) at (-2.5,-2.5) {Soil bed};
+		\node (Water) at (-2.5,1.5) {Water};
+		\node (rhoS) at (3.5, -2.5) {\gls{sym-rho_is}};
+		\node (rhoW) at (3.5, 1.5) {\gls{sym-rho_w}};
+		\draw [line width=0.05mm](m0) -- (m1);
+		\draw [line width=0.05mm](m2) -- (m3);
+		\draw [line width=0.05mm](m4) -- (m5);
+		\draw [line width=0.05mm](m6) -- (m7);
+		\draw [{Latex[length=2mm,width=1mm]}-{Latex[length=2mm,width=1mm]},line width=0.05mm] ([shift={(-0.125,0)}]m1) --([shift={(-0.125,0)}]m3) node[midway, right] {\gls{sym-r_a}};
+		\draw [{Latex[length=2mm,width=1mm]}-{Latex[length=2mm,width=1mm]},line width=0.05mm] ([shift={(-0.125,0)}]m3) --([shift={(-0.125,0)}]m5) node[midway, right] {\gls{sym-h}};
+		\draw [{Latex[length=2mm,width=1mm]}-{Latex[length=2mm,width=1mm]},line width=0.05mm] ([shift={(-0.125,0)}]m5) --([shift={(-0.125,0)}]m7) node[midway, right] {\gls{sym-d_a}};
+		\end{tikzpicture}
+	\end{center}
+\end{RoyalFigure}
+
+\noindent The displaced volume \gls{sym-V_sa}of a surface area in the soil \gls{sym-A_s} on a submerged cross section,
+show in Figure~\ref{fig:cylinder}, throughout the complete length \gls{sym-l_a} of an Archimedes screw, as is shown in
+equation~\ref{eq:volume}.
+
+\begin{equation}\label{eq:volume}
+	\gls{sym-V_sa} = \gls{sym-A_s} \gls{sym-l_a}
+\end{equation}
+
+\noindent Where the sink angle \gls{sym-theta_s} is related to the surface area in the soil \gls{sym-A_s} by
+equation~\ref{eq:as}.
+
+\begin{equation}\label{eq:as}
+	\gls{sym-A_s} = \pi \gls{sym-r_a}^2(\gls{sym-theta_s} - \sin(\gls{sym-theta_s})\cos(\gls{sym-theta_s}))
+\end{equation}
+
+\noindent The total arc length in contact with the soil can be calculate by multiplying the radius \gls{sym-r_a}
+multiplied with the sink angle \gls{sym-theta_s}, as is shown in equation~\ref{eq:s}
+
+\begin{equation}\label{eq:s}
+	\gls{sym-s_a} = \gls{sym-r_a} \gls{sym-theta_s}
+\end{equation}
+
+\noindent Where the sinkage depth \gls{sym-d_a} can be obtained with equation~\ref{eq:d_a}. Where \gls{sym-r_a} [m]
+is the radius of an Archimedes screw.
+
+\begin{equation}\label{eq:d_a}
+	\gls{sym-d_a} = \gls{sym-r_a}\left(1-\cos(\frac{\gls{sym-theta_s}}{2})\right)
+\end{equation}
+
+Because there are multiple interdependent variables in the equations~\ref{eq:submerged weight} through~\ref{eq:d_a}, the
+sinkage depth needs to be determined numerically. This sinkage depth is needed to determine friction losses between screw
+and soil.
+
+\citet{rajapakse_geotechnical_2011} describe that Kolk and van der Velde developed a method to determine skin friction
+considering cohesion as well as effective stress. Where \gls{sym-F_u} is the ultimate skin friction, \gls{sym-alpha_sf}
+is a skin friction coefficient, obtained using the correlations provide by Kolk and Van der Velde. The parameter
+\gls{sym-alpha_sf} is based on a ratio between both on cohesion \gls{sym-c_sb} and effective stress
+\gls{sym-sigma_prime}, a table is provide in appendix~\ref{app:skin friction factor} to obtain \gls{sym-alpha_sf}.
+\gls{sym-c_u} is the undrained shear strength or cohesion properties of the soil.
+
+\begin{equation}\label{eq:f_ult}
+	\gls{sym-F_u} = \gls{sym-alpha_sf} \gls{sym-c_u}
+\end{equation}
+
+\noindent The total skin friction \gls{sym-F_s} for a certain area is given by equation~\ref{eq:total skin friction}.
+Where \gls{sym-F_u} is obtained with equation~\ref{eq:f_ult} and  \gls{sym-A_a}, which can be determine by~
+\ref{eq:total skin friction}.
+
+\begin{equation}\label{eq:total skin friction}
+	\gls{sym-F_s}  = \gls{sym-F_u} \gls{sym-A_a}
+\end{equation}
+
+\noindent The effective stress \gls{sym-sigma_prime} needed to determine  \gls{sym-alpha_sf}, can be found with
+equation~\ref{eq:sigmaprime}. Here \gls{sym-m_cr_prime} is the buoyancy corrected weight of a crawler, which can be
+expressed as \( \gls{sym-m_cr} - \frac{\gls{sym-F_crb}}{\gls{sym-g}} \). Where \gls{sym-F_crb} is given as the upwards
+force generated in water due to a volumetric displacement of that water compared to the air filled chambers in the
+crawler.
+
+\begin{equation}\label{eq:sigmaprime}
+	\gls{sym-sigma_prime} = \frac{\gls{sym-m_cr_prime}}{2 \gls{sym-A_a} }
+\end{equation}
+
+\noindent The surface in contact with the soil \gls{sym-A_a} is an arc length \gls{sym-s_a}, calculated in
+equation~\ref{eq:s}, multiplied with the length of an Archimedes screw.
+
+\begin{equation}\label{eq:contact surface}
+	\gls{sym-A_a}  = \gls{sym-s_a} \gls{sym-l_a}
+\end{equation}
+
+The maximum allowable thrust which can be generated, can be calculated by the soil characteristics and the geometry of
+the propulsion geometry. This thrust determines how fast a crawler moves and should overcome the drag-force through the
+water. A maximum allowable thrust, is the horizontal stress at which passive soil failure occurs. This can be determine
+with Rankine theory. Because movement occurs in undrained situation, the cohesion \gls{sym-c_sb} is equal to the
+undrained shear strength \gls{sym-c_u} and the internal friction angle \gls{sym-phi_s} can be set equal to \( 0 \). In
+effect simplifying equation~\ref{eq:horizontal stress} to~\ref{eq:max horizontal stress}.
+
+
+\begin{equation}\label{eq:horizontal stress}
+	\gls{sym-sigma_H} = \gls{sym-N_phi} \gls{sym-sigma_V} + 2\gls{sym-c_sb}\sqrt{\gls{sym-N_phi}}
+\end{equation}
+
+\begin{equation}
+	\gls{sym-N_phi} = \frac{1 + \sin \gls{sym-phi_s}}{1 - \sin \gls{sym-phi_s}}
+\end{equation}
+
+\begin{equation}\label{eq:max horizontal stress}
+	\gls{sym-sigma_H} = \gls{sym-sigma_V} + 2\gls{sym-c_u}
+\end{equation}
+
+An other factor that is depended on the penetration depth \gls{sym-d_a} is, a generated buoyancy. When these screws are
+submerged in the soil, a resulting buoyancy force will exists, as a result of the displaced soil.
+\citet{lotman_applicable_2009} describes the buoyancy force as depicted in equation~\ref{eq:buoyancy force}. In this
+equation \gls{sym-g} is the gravitational constant and multiplied with the displaced volume \gls{sym-V_sa} and specific
+weight difference between the soil and water, or in other words the specific weight difference  \gls{sym-gamma_sw},
+found in equation~\ref{eq:submerged weight}.
+
+\begin{equation}\label{eq:buoyancy force}
+	\gls{sym-F_b} = \gls{sym-V_sa} \gls{sym-gamma_sw}
+\end{equation}
+
+\subsubsection{DREDGE SPEED}
+
+During coverage travel the maximum speed \(\max \gls{sym-v_k}\) is limited against the performance of the dredging
+system, see Note~\ref{assumption_dredge_speed}. When the crawler is in this state the \gls{gls-draghead} is lowered and
+the projected front of this head is seen as the entrance for the \gls{gls-dredgeline} system. This sytem transports the
+\gls{gls-slurry} to a \gls{gls-hopper} located above water. Transported \gls{gls-slurry} behave in reality as
+\gls{gls-Bingham-plastic}s. Difficult to get moving, but once transportation is in a steady-state the assumption for
+this paper is made that it behaves as regular Newtonian fluid.
+
+There are two possible bottlenecks in this dredging system as a whole, one is the throughput in the dredge mouth, due to
+its physical dimensions and transport performance of the auger, while the second is the hydraulic system. The throughput
+of the system is
+
+
+
 
 \subsection{STEERING MODEL}
 
 The kinematic model of the crawler is comparable with a skid-steering model. Meaning that the crawler turns around its
 axis by changing the translational velocity \gls{sym-v} of a single Archimedes screw, relative to the other. If both
 screws, move with the same velocity, the crawler will travel in a straight line. This is a challenge in its own right,
-as slipage of  a screw is bound to occur, resulting in a difference between the input signal, which is the rotational
-velocity \gls{sym-omega}, and the translational velocity of that screw. Assuming that the earlier described motion
-model, will compensate for slipage and other drive-train characteristics, a model can be described on a 2-dimensional
-space as a differential drive. Which is a very simple driving mechanism.
+as slippage of a screw is bound to occur, resulting in a difference between the input signal, which is the rotational
+velocity \gls{sym-omega}, and the translational velocity of that screw. Assuming that the earlier described motion and
+soil dynamic models, will compensate for occurring slippage and other drive-train characteristics, a model can be
+described on a 2-dimensional space as a differential drive. Which is a very simple driving mechanism.
 
 \begin{RoyalFigure}[!htb, label=fig:difdrivekinetics]{DIFFERENTIAL DRIVE KINEMATICS~\cite{klancar_wheeled_2017}}
 	\includegraphics[height=5cm,trim=2 2 2 2,clip]{difdrivekinetics.png}
@@ -904,7 +914,7 @@ Considering Figure~\ref{fig:difdrivekinetics} it is possible to determine the ro
 velocity \gls{sym-v} of the crawler on the instantaneous radius \gls{sym-R_t} with the center ICR. \gls{sym-L} is
 defined as the distance between the two screws and \gls{sym-v_L} and \gls{sym-V_r} are the translational velocities for
 the left and right screw. \gls{sym-omega} is the angle between the global coordinate frame \( (X_g, Y_g) \) and the
-moving frame attached to the center of mass of the craler \( (X_m, Y_m) \).
+moving frame attached to the center of mass of the crawler \( (X_m, Y_m) \).
 
 \begin{equation}\label{eg:left}
 	\gls{sym-omega} = \frac{\gls{sym-v_L}}{\gls{sym-R_t} - \frac{\gls{sym-L}}{2}}
@@ -971,7 +981,7 @@ delivered to the propulsion system.
 		\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=3.5cm,
 		semithick, every state/.style={minimum size=3cm, align=center}]
 
-		\node[initial,state,fill=tudelft-orange!10] (standstill) {Standstill};
+		\node[initial,state,fill=RoyalLightGrey!10] (standstill) {Standstill};
 		\node[state,fill=RoyalLightGrey] (coverage) [right of=standstill, yshift=3cm, xshift=2cm] {Coverage dredging};
 		\node[state,fill=RoyalLightGrey] (travel) [below of=coverage, xshift=-2cm, yshift=-2cm] {Travel};
 		\node[state,fill=RoyalLightGrey] (localized) [left of=travel, yshift=-2cm, xshift=-2cm] {Localized dredging};

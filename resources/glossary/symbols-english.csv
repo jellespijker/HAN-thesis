@@ -15,21 +15,25 @@ a_z|a_z|\si{\meter\per\second\squared}|acceleration along the z-axis
 alpha|\alpha|\si{-}|absorption coefficient
 alpha_e|\alpha_e|\si{\decibel\per\meter}|attenuation
 alpha_s|\alpha_s|\si{-}|sensitivity coefficient
+alpha_sf|\alpha_sf|\si{-}|skin friction coefficient
 b|b|\si{-}|coefficient as a function of spent time and sex of the subject
 B_d|B_d|\si{\radian\per\second}|slow chancing component of the signal; this is the gyroscope drift
 B_k|\mathbf{B}|\si{-}|a control-input model which is applied to a control vector
 beta|\beta|\si{-}|phase factor of a wave
 c|c|\si{-}|singel cell
-c_sb|c_{sb}|\si{\kilo\pascal}|cohesion of a soil bed
+c_sb|c_{sb}|\si{\pascal}|cohesion of a soil bed
+c_u|c_u|\si{\pascal}|undrained shear strength of soil
 c_p|c_p|\si{\joule\per\kilo\gram\per\kelvin}|specific heat at constant pressure
 c_v|c_v|\si{\joule\per\kilo\gram\per\kelvin}|specific heat at constant volume
+C_vb|C_{vb}|\si{-}|volumetric bed concentration
 Delta_d_1_2|\Delta d_{1,2}|\si{\meter}|distance between two points
 d_a|d_a|\si{\meter}|sinkage depth of a Archimedes screw
+d_p|d_p|\si{\meter}|pipe diameter
 d_x_i|d_i(x)|\si{\meter}|distance between x points and obstacle \textit{i}
 delta_s|\delta_s|\si{\meter}|range of a sensor-detector-range
 Delta_t|\Delta t|\si{\second}|time difference
 Delta_F|\Delta F|\si{\newton}|difference in force
-Delta_tau|\Delta \tau|\si{\newton\meter}
+Delta_tau|\Delta \tau|\si{\newton\meter}|torque difference
 Delta_p|\Delta p|\si{\pascal}|pressureloss
 Delta_p_n|\Delta p_n|\si{\pascal}|nominal pressureloss
 Delta_Q_c|\Delta Q_{c}|\si{\watt}|heat flow stored in a node
@@ -53,10 +57,14 @@ eta_mech_comp|\eta_{me,comp}|\si{-}|efficiency of a mechanical compressor
 eta_Vn|\eta_{V,n}|\si{-}|nominal Volumetric efficiency
 exp|e|\si{-}|Eulers number \ensuremath{2.7182818284}
 F|F|\si{\newton}|force
-F_b|F_b|\si{\newton}|buoyancy force of the submerged Archimedes screw
-F_sn|F_{sn}|\si{\newton}|specific normal force working on an Archimedes screw
+F_b|F_b|\si{\newton}|buoyancy force of a submerged Archimedes screw
+F_crb|F_{cr,b}|\si{\newton}|buoyancy force of a submerged crawler
+F_sn|F_{sn}|\si{\newton\per\kilo\gram}|specific normal force working on an Archimedes screw
+F_s|F_s|\si{\newton}|skin friction
+F_n|F_{n}|\si{\newton}|normal force working on an Archimedes screw
 F_k|\mathbf{F}|\si{-}|a state transition model which is applied to the previous state
 F_12|\mathcal{F}_{12}|\si{-}|view factor between geometries
+F_u|F_u|\si{\newton}|ultimate skin friction
 g|g|\si{\meter\per\squared\second}|standard gravity model
 G|G|\si{\watt\per\kelvin}|heat conductance
 G_T|G_T|\si{\watt\per\meter\squared}|total global solar radiation
@@ -66,6 +74,7 @@ gamma_sw|\gamma_{sw}|\si{\newton\per\cubic\meter}|specific weight of submerged s
 gamma_m|\gamma_m|\si{\newton\per\cubic\meter}|specific weight of diluted water during dredging
 gamma_EM|\gamma_e|\si{\meter}|propagation constant
 H|H|\si{\meter}|net head of a flow
+h|h|\si{\meter}|height difference between radius of screw and its submerged part
 H_1|H_1|\si{\meter}|net head of a flow at point 1
 H_2|H_2|\si{\meter}|net head of a flow at point 2
 h_c|h_c|\si{\watt\per\square\meter}|convection heat-transfer coefficient
@@ -89,6 +98,7 @@ l_a|l_a|\si{\meter}|length of an Archimedes screw
 m|m|\si{\kg}|mass
 m_f|m_f|\si{\kg}|mass
 m_cr|m_{cr}|\si{\kg}|mass of a crawler
+m_cr_prime|m_{cr}^{\prime}|\si{\kilo\gram}|total buoyancy corrected mass of a crawler
 m_n|m_n|\si{-}|number of neighbouring neurons
 M|M|\si{\watt\per\meter\squared}|metabolic heat production
 m_flux|\dot{m}|\si{\kilo\gram\per\second}|mass flux
@@ -99,6 +109,7 @@ mu|\mu|\si{\pascal\second}|dynamic viscosity
 mu_n|\mu_n|\si{\pascal\second}|nominal dynamic viscosity
 mu_e|\mu_e|\si{\henry\per\meter}|electromagnetism permeability
 N_c|N_c|\si{-}|dimensionless constant used in the Brinch-Hansen equation, related to the cohesion
+N_phi|N_{\phi}|\si{-}|dimensionless factor of the internal friction angle
 N_q|N_q|\si{-}|dimensionless constant used in the Brinch-Hansen equation, related to the load of the surrounding soil
 N_gamma|N_{\gamma}|\si{-}|dimensionless constant used in the Brinch-Hansen equation, related to the specific weight of the soil
 n_s|n_s|\si{\radian\per\second}|stochastic component of a signal
@@ -106,10 +117,10 @@ n_a_l|n_{a,l}|\si{-}|neural activity of a the \ensuremath{l}th neuron
 n_x|\mathit{n}_x|\si{-}|number of elements in the state vector
 nu|\nu|\si{\squared\meter\per\second}|kinematic viscosity
 omega|\omega|\si{\radian\per\second}|angular velocity
-omega_func|\omega_t|\si{\radion\per\second}
+omega_func|\omega_t|\si{\radian\per\second}
 omega_t|\omega_t|\si{\radian\per\second}|true angular velocity
 omega_n|\omega_n|\si{\radian\per\second}|nominal angular velocity
-omega_th|\omega_{th}|\si{\radian\per\second}angular velocity threshold
+omega_th|\omega_{th}|\si{\radian\per\second}|angular velocity threshold
 p|p|\si{\pascal}|pressure
 p_1|p_1|\si{\pascal}|pressure at point 1
 p_2|p_2|\si{\pascal}|pressure at point 2
@@ -162,10 +173,12 @@ R|R|\si{\watt\per\kelvin}|heat resistance due the conduction and convection
 R_k|\mathbf{R}|\si{-}|covariance matrix of state estimation uncertainty
 R_rad|R_{rad}|\si{\watt\per\kelvin\tothe{4}}|heat resistance due to radiation
 RH|RH|\si{\percent}|relative humidty
+Re_sd|Re_{sd}|\si{-}|relative submerged density
 rho|\rho|\si{\kilo\gram\per\cubic\meter}|density of a material
 rho_n|\rho_n|\si{\kilo\gram\per\cubic\meter}|nominal density of a material
 rho_s|\rho_s|\si{\kilo\gram\per\cubic\meter}|density of a slurry
-rho_is|\rho_{is}|\si{\kilo\gram\per\cubic\meter}|insitu density of soil
+rho_is|\rho_{is}|\si{\kilo\gram\per\cubic\meter}|in-situ density of soil
+rho_ds|\rho_{ds}|\si{\kilo\gram\per\cubic\meter}|density of drained soil
 rho_m|\rho_m|\si{\kilo\gram\per\cubic\meter}|density of a mixture
 rho_w|\rho_w|\si{\kilo\gram\per\cubic\meter}|density of water
 s|s|\si{\meter}|position
@@ -185,6 +198,9 @@ sigma_s|\sigma_{s}|\si{\meter}|deviation on position
 sigma_s_m|\sigma_{s,m}|\si{\meter}|deviation on measured position
 sigma_v|\sigma_{v}|\si{\meter\per\second}|deviation on velocity
 sigma_v_m|\sigma_{v,m}|\si{\meter\per\second}|deviation measured on velocity
+sigma_H|\sigma_H|\si{\pascal}|horizontal stress
+sigma_V|\sigma_V|\si{\pascal}|vertical stress
+sigma_prime|\sigma^{\prime}|\si{\pascal}|effective stress
 t|t|\si{\second}|time
 T|T|\si{\kelvin}|temperature
 T_1|T_1|\si{\kelvin}|temperature in node 1
@@ -216,6 +232,8 @@ v|v|\si{\cubic\meter\per\kilo\gram}|specific volume
 V|V|\si{\cubic\meter}|volume
 V_sa|V_{sa}|\si{\cubic\meter}|submerged volume of a Archimedes screw
 V_dot_s|\dot{V}_s|\si{\cubic\meter\per\second}|volumetric fluid flow
+V_dot_p|\dot{V}_p|\si{\cubic\meter\per\second}|volumetric fluid flow pump
+V_dot_a|\dot{V}_s|\si{\cubic\meter\per\second}|volumetric fluid flow through the auger
 v_z|v_z|\si{\meter\per\second}|velocity along the z-axis
 v_z_k|v_{z,k}|\si{\meter\per\second}|velocity along the z-axis at time \ensuremath{k}
 v_z_k-1|v_{z,k-1}|\si{\meter\per\second}|velocity along the z-axis at time \ensuremath{k - 1}
@@ -224,8 +242,8 @@ v_k|\vv{v}_k|\si{-}|measurement noise
 v_f_1|v_{f,1}|\si{\meter\per\second}|velocity of a fluid at point 1
 v_f_2|v_{f,2}|\si{\meter\per\second}|velocity of a fluid at point 2
 V_flow_fa|\dot{V}_{fa}|\si{\meter\cubic\per\second}|volume flow of fresh air
-v_L|v_L|\si{\meter\per\second}{translational velocity of left Archimedes screw}
-v_R|v_R|\si{\meter\per\second}{translational velocity of right Archimedes screw}
+v_L|v_L|\si{\meter\per\second}|translational velocity of left Archimedes screw
+v_R|v_R|\si{\meter\per\second}|translational velocity of right Archimedes screw
 varepsilon_c|\varepsilon_c|\si{-}|heating efficiency of a Carnot cycle
 varepsilon_eff|\varepsilon_{eff}|\si{-}|effective cooling efficiency
 varepsilon_th|\varepsilon_{th}|\si{-}|theoretical heating efficiency
@@ -254,7 +272,7 @@ x_h|x_h|\si{\tesla}|hard iron distortion along the x-axis
 y_m|y_m|\si{\tesla}|raw magnetometer value along the y-axis
 y_h|y_h|\si{\tesla}|hard iron distortion along the y-axis
 y_k|\vv{y}_k|\si{-}|measured values
-y_k_prime|\vv{y}_k^{'}|\si{-}|transformed measured values
+y_k_prime|\vv{y}_k^{\prime}|\si{-}|transformed measured values
 y_1|y_1|\si{\tesla}|y-index of greatest magnetic magnitude
 z_m|z_m|\si{\tesla}|raw magnetometer value along the z-axis
 z_1|z_1|\si{\meter}|height at point 1

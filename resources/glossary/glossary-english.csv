@@ -4,6 +4,7 @@ auger-dredge-head|auger dredge head|auger dredge heads|consists of two opposite-
 bandwidth|bandwidth|bandwidths|a difference between the upper and lower frequencies in a continuous set of frequencies
 bitstream|bitstream|bitstreams|a sequential binary sequence
 black-body|black body|black bodies|an idealized physical body that absorbs all incident electromagnetic radiation, regardless of frequency or angle of incidence
+Bingham-plastic|Bingham plastic|a viscoplastic material that behaves as a rigid body at low stresses but flows as a viscous fluid at high stress
 closed-system|closed system|closed systems|a physical system that doesn't exchange any matter with its surroundings, and isn't subject to any net force whose source is external to the system
 conduction|conduction|conduction's|a transfer of heat by microscopic collisions of particles and movement of electrons within a body
 convection|convection|convection's|an algorithm that uses a series of measurements observed over time, containing statistical noise and other inaccuracies, and produces estimates of unknown variables that tend to be more precise than those based on a single measurement alone, by using Bayesian inference and estimating a joint probability distribution over the variables for each time frame
@@ -74,3 +75,4 @@ electric-motor|electric motor|electric motors|an electrical machine that convert
 gimbal-lock|gimbal lock|gimbal locking|the loss of one degree of freedom in a three-dimensional space, three-gimbal mechanism that occurs when the axes of two of the three gimbals are driven into a parallel configuration, ``locking'' the system into rotation in a degenerate two-dimensional space
 non-commutative|non-commutative|non-commutative|a operation in which the order of the operands determine the results
 quaternion|quaternion|quaternions|a number system that extends the complex numbers, they are very useful in describing a rotatation involving three dimensions
+dilatancy|dilatancy|dilatancies|volume increase that may occur during shear
