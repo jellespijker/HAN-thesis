@@ -1,9 +1,9 @@
 % !TeX root = ../report.tex
 % !TeX spellcheck = en-US
 % !TeX encoding = UTF-8
-\section{COVERAGE PATH PLANNING}\label{chap:cpp}
+\section{COVERAGE PATH PLANNING}\label{sec:cpp}
 Two of the use cases described in the introduction dictate that the crawler has to cover the whole area preferably with
-an \gls{gls-optimal-path}. This type of path planning problem differs from the in Chapter~\ref{chap:cpp} described
+an \gls{gls-optimal-path}. This type of path planning problem differs from the in Chapter~\ref{sec:cpp} described
 problem. \citeauthor{choset_principles_2005} describes the task of determining a path that passes an effector (e.g., a
 robot, a detector, etc.) over all points in a free space as a~\gls{gls-coverage-path}
 problem~\cite{choset_principles_2005}, hence that this task is called a~\gls[first]{acr-CPP}. This type of task can be
@@ -749,14 +749,14 @@ advantage of this method is that can handle non stationary environments (i.e., d
 \citeauthor{yan_complete_2012} further states that if there are power and time limitations, the crawler should
 travel the path with the least revisited areas and the least turns of moving directions. Therefore, for a given current
 crawler location at time \( k \), denoted by \gls{sym-p_k}, the next crawler location at time \(k + 1\),
-\gls{sym-p_k+1} is obtained by equation~\ref{eq:nextauvloc}. Where \( c \) is a positive constant and \gls{sym-m_n} is
+\gls{sym-p_k_1} is obtained by equation~\ref{eq:nextauvloc}. Where \( c \) is a positive constant and \gls{sym-m_n} is
 the number of neighbouring neurons of the \gls{sym-p_k} neuron, that is all the possible locations of the current
 location \gls{sym-p_k}; variable \gls{sym-n_a_l} is the neural activity of the \( l \)th neuron, which is the same as in
 equation~\ref{eq:shunting}; \gls{sym-y_l} is a \gls{gls-monotonically} increasing function of the difference  between
 the next crawler moving directions, defined in equation~\ref{eq:movementfucntion}.
 
 \begin{equation}\label{eq:nextauvloc}
-	\gls{sym-p_k+1} \Longleftarrow x_{\gls{sym-p_k}} = \max\{\gls{sym-n_a_l} + c~\gls{sym-y_l}, l=1,2...,m\}
+	\gls{sym-p_k_1} \Longleftarrow x_{\gls{sym-p_k}} = \max\{\gls{sym-n_a_l} + c~\gls{sym-y_l}, l=1,2...,m\}
 \end{equation}
 
 Where \( \Delta \varPsi_l \in [0,\pi] \) is the turning angle between the current moving direction and the next moving
@@ -766,11 +766,9 @@ depending on the convention place on  \( \Delta \varPsi_l \). By defining it as 
 crawler has a full turning range. Thus \( \Delta \varPsi_l = \varPsi_l - \varPsi_c = |a \tan 2(y_{p_l} - y_{p_c},
 x_{p_l} - x_{p_c}) - a \tan 2(y_{p_c} - y_{p_p}, x_{p_c} - x_{p_p})| \)
 
-\begin{sBox}
-	\begin{equation}\label{eq:movementfucntion}
-		y_l = 1 - \frac{\Delta \varPsi_l}{\pi}
-	\end{equation}
-\end{sBox}
+\begin{equation}\label{eq:movementfucntion}
+	y_l = 1 - \frac{\Delta \varPsi_l}{\pi}
+\end{equation}
 
 According to \citet{yan_complete_2012} path planning in the vicinity of some unstructured obstacles may cause overlap,
 resulting in additional turns, which translates in a higher energy consumption and additional time
@@ -787,5 +785,4 @@ overlapping areas.
 \end{figure}
 
 Grid based neural networks methods lend themselves to be easily integrated with map building. \citet{yan_complete_2012}
-describes how the sensor model can be used to build an on-line map of the environment where the \gls{Demspter-Shafer
-theory} is used to filter out uncertainties of the sensor.
+describes how the sensor model can be used to build an on-line map of the environment where the \gls{gls-Dempster-shafer-theory} is used to filter out uncertainties of the sensor.

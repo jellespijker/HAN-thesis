@@ -1,7 +1,7 @@
 % !TeX root = ../report.tex
 % !TeX spellcheck = en-US
 % !TeX encoding = UTF-8
-\section{SENSORS}\label{chap:sensors}
+\section{SENSORS}\label{sec:sensors}
 
 In the following section a variety of sensor type, their workings and useful applications are presented. A selection is
 made for sensor types that can be used underwater, in an environment which is deprived of a~\gls{acr-GPS} coverage.
@@ -97,7 +97,7 @@ path. These sensor are expensive and a cheaper alternative is a \gls{gls-gyrosco
 that works because of a Coriolis effect coupled with vibrations, tuning fork which measures the displacement of two
 objects.
 
-\begin{RoyalFigure}[!htb]{GYROSCOPE USING CORIALIS EFFECT~\cite{leccadito_kalman_2013}}
+\begin{RoyalFigure}[!htb, label=fig:gyro]{GYROSCOPE USING CORIALIS EFFECT~\cite{leccadito_kalman_2013}}
 		\includegraphics[height=5cm,trim=2 2 2 2,clip]{gyroscope.pdf}
 \end{RoyalFigure}
 
@@ -300,9 +300,9 @@ strains that can be precisely sensed to give a calibrated measurement of the pre
 
 Pressure sensors that depend on deflection of a diaphragm have been used for centuries, the last few decades the elastic
 hysteresis, friction and drift effects have been reduced to \SI{\pm 0.1}{\percent}. This is mainly due to the use of a
-microprocessor, which applies memorized non-linearity corrections \cite{liptak_instrument_2003}.
+microprocessor, which applies memorized non-linearity corrections~\cite{liptak_instrument_2003}.
 
-Detection methods are usually capacitive \gllinearityessure-sensor}s, which are highly accurate (better than
+Detection methods are usually capacitive \gls{gls-pressure-sensor}s, which are highly accurate (better than
 \SI{0.1}{\percent}) and can cover a high pressure range, from nearly vacuum \SIrange{1e-1}{1e7}{\pascal}. These sensors
 rest on the principle, where a metal or silicon diaphragm serves as the pressure sensing element and is regarded as one
 electrode of a capacitor. The other electrode is stationary and usually consists of a deposited metal layer on a ceramic

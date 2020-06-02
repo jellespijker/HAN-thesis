@@ -1,78 +1,78 @@
 key|name|plural|description
+Dempster-shafer-theory|Dempster Shafer theory|Demspter Shafer theories|theory of belief functions, also referred to as evidence theory or Dempster–Shafer theory (DST), is a general framework for reasoning with uncertainty
 accelerometer|accelerometer|accelerometers|a device that measures proper acceleration
+acoustic-navigation|time of flight acoustic navigation|time of flight acoustic navigation's|triangulation of a position using the difference in send and receive time of signal, to calculate the distance from a source
+adjacency-graph|adjacency graph|adjacency graphs|a graph representing depicting all the nodes
+Archimedes-screw|Archimedes screw|Archimedes screws|a machine historically used for transferring water from a low-lying body of water into irrigation ditches. The same principle can also be used propel the screw in a medium
 auger-dredge-head|auger dredge head|auger dredge heads|consists of two opposite-thread spiral cutters on a horizontal tubular body. The soil is cut by the spiral cutters, and the pitch ensures that it is carried to the center of the auger, where the suction head is situated.
 bandwidth|bandwidth|bandwidths|a difference between the upper and lower frequencies in a continuous set of frequencies
+bathymetric-map|bathymetric map|bathymetric maps|submerged equivalent of an above-water topographic map
+Bingham-plastic|Bingham plastic|a viscoplastic material that behaves as a rigid body at low stresses but flows as a viscous fluid at high stress
 bitstream|bitstream|bitstreams|a sequential binary sequence
 black-body|black body|black bodies|an idealized physical body that absorbs all incident electromagnetic radiation, regardless of frequency or angle of incidence
-Bingham-plastic|Bingham plastic|a viscoplastic material that behaves as a rigid body at low stresses but flows as a viscous fluid at high stress
 closed-system|closed system|closed systems|a physical system that doesn't exchange any matter with its surroundings, and isn't subject to any net force whose source is external to the system
 conduction|conduction|conduction's|a transfer of heat by microscopic collisions of particles and movement of electrons within a body
 convection|convection|convection's|an algorithm that uses a series of measurements observed over time, containing statistical noise and other inaccuracies, and produces estimates of unknown variables that tend to be more precise than those based on a single measurement alone, by using Bayesian inference and estimating a joint probability distribution over the variables for each time frame
 cooling-load|cooling load|cooling loads|a rate at which sensible and latent heat must be removed from the space to maintain a constant space dry-bulb air temperature and humidity
 coriolis-effect|Coriolis effect|Coriolis effects|an inertial or fictitious force that acts on objects that are in motion within a frame of reference that rotates with respect to an inertial frame.
+coverage-path|coverage path|coverage paths|a sequence of steps which coveres a whole area by following a certain path
+critical-point|critical point|critical points|a value of average degree, which separates networks
+cusp-point|cusp point|cusp points|are points where its surface normal of the boundary of the free configuration space is non-smooth
 dead-reckoning|dead-reckoning|dead-reckonings|the process of calculating one's current position by using a previously determined position, or fix, and advancing that position based upon known or estimated speeds over elapsed time and course
+deadlock-state|deadlock state|dead lock states|a standstill situation, from which the algorithm has no means of escape
+dilatancy|dilatancy|dilatancies|volume increase that may occur during shear
 draghead|draghead|dragheads|a suction mouth which is dragged across a water body
 dredgeline|dredgeline|dredgelines|a pipeline which transports excavated slurry
 electric-field|electric field|electric fields|a vector field that associates to each point in space the Coulomb force that would be experienced per unit of electric charge, by an infinitesimal test charge at that point. Electric fields converge and diverge at electric charges and can be induced by time-varying magnetic fields
+electric-motor|electric motor|electric motors|an electrical machine that converts electrical energy into mechanical energy
 erosion|erosion|erosions|an action of surface processes (such as water flow or wind) that removes soil
+geophysical-navigation|geophysical navigation|geophysical navigation's|navigation using landmarks
+gimbal-lock|gimbal lock|gimbal locking|the loss of one degree of freedom in a three-dimensional space, three-gimbal mechanism that occurs when the axes of two of the three gimbals are driven into a parallel configuration, ``locking'' the system into rotation in a degenerate two-dimensional space
 graph|graph|graphs|a mathematical structure used to model pairwise relations between objects. A graph in this context is made up of vertices, nodes, or points which are connected by edges, arcs, or lines
 gyroscope|gyroscope|gyroscopes|a spinning wheel or disc in which the axis of rotation is free to assume any orientation by itself. When rotating, the orientation of this axis is unaffected by tilting or rotation of the mounting, according to the conservation of angular momentum. Because of this, gyroscopes are useful for measuring or maintaining orientation
+hard-iron|hard iron|hard irons|a constant additive disturbance in the magnetic field of the magnetometer
 heating-load|heating load|heating loads|a rate at which sensible and latent heat must be added to the space to maintain a constant space dry-bulb air temperature and humidity
+hessian|Hessian|Hessians|a square matrix of second-order partial derivatives of a scalar-valued function, or scalar field. It describes the local curvature of a function of many variables
 hopper|hopper|hoppers|a storage container or compartment
+hydraulic-motor|hydraulic motor|hydraulikc motors|a mechanical actuator that converts hydraulic pressure and flow into torque and angular displacement
+hydraulic-pump|hydraulic pump|hydraulic pumps|a mechanical source of power that converts mechanical power into hydraulic energy
 Kalman-filter|Kalman filter|Kalman filters|an algorithm that uses a series of measurements observed over time, containing statistical noise and other inaccuracies, and produces estimates of unknown variables that tend to be more precise than those based on a single measurement alone
+kalman-gain|Kalman gain|Kalman gains|the relative weight given to the measurements and current state estimate, and can be "tuned" to achieve particular performance. With a high gain, the filter places more weight on the most recent measurements, and thus follows them more responsively. With a low gain, the filter follows the model predictions more closely. At the extremes, a high gain close to one will result in a more jumpy estimated trajectory, while low gain close to zero will smooth out noise but decrease the responsiveness
 latent-heat|latent heat|latent heats|thermal energy released or absorbed by a body
 lora|LoRa|LoRa|a wireless technology that has been developed to enable low data rate communications to be made over long distances by sensors and actuators for M2M and Internet of Things, IoT applications
 lorentz-force|Lorentz force|Lorentz forces| the combination of electric and magnetic force on a point charge due to electromagnetic fields
 magnetic-field|magnetic field|magnetic fields|a magnetic effect of electric currents and magnetic materials. The magnetic field at any given point is specified by both a direction and a magnitude (or strength); as such it is a vector field
 magnetometer|magnetometer|magnetometers|a magnetometer is an instrument that measures magnetism, either magnetization of magnetic material like a ferromagnet, or the strength and, in some cases, direction of the magnetic field at a point in space
 maxwell|Maxwell's equation|Maxwell's equations|are a set of partial differential equations that, together with the Lorentz force law, form the foundation of classical electrodynamics, classical optics, and electric circuits
+monotonically|monotonically|monotonically|a function between ordered sets that preserves or reverses the given order
+morse-function|Morse function|Morse functions|a function for which all critical points are non-degenerate and all critical levels are different
 MTIpython|MTIpython|MTIpython’s|a Python package, used within IHC, to solve engineering problems in the disciplines: fluids, thermodynamics, mechanical and electrical
+narrow-cell|NARROW-cell|NARROW-cells|a cell is located in a narrow space, bound between multiple walls
 node|node|nodes|fundamental unit of which graphs are formed
+non-commutative|non-commutative|non-commutative|a operation in which the order of the operands determine the results
 odometry|odometry|odometries|the use of data from motion sensors to estimate change in position over time
+off-line|off-line|off-lines|algorithm which plans an optimal path ahead of time, thus which needs to know the environment a priori
+on-line|on-line|on-lines|an algorithm which has the ability to adapt when needed
 open-system|open system|open systems|a system that has external interactions. Such interactions can take the form of information, energy, or material transfers into or out of the system boundary
+optimal-path|optimal path|optimal paths|a sequence of steps which are optimized
 polarized-plane|polarized plane|polarized planes|is a confinement of the electric field vector or magnetic field vector to a given plane along the direction of propagation
 pressure-sensor|pressure sensor|pressure sensors|can be classified in terms of pressure ranges they measure, temperature ranges of operation, and most importantly the type of pressure they measure
 Python|Python|Pythons|an interpreted high-level programming language for general-purpose programming
+quaternion|quaternion|quaternions|a number system that extends the complex numbers, they are very useful in describing a rotation involving three dimensions
 radiation|radiation|radiations|an electromagnetic radiation generated by the thermal motion of charged particles in matter. All matter with a temperature greater than absolute zero emits thermal radiation
+reeb-graph|Reeb graph|Reeb graphs|a mathematical object reflecting the evolution of the level sets of a real-valued function on a manifold
 refrigerant|refrigerant|refrigerants|a substance or mixture, used in heat pumps to transport heat energy
 resistor|resistor|resistors|a passive two-terminal electrical component that implements electrical resistance as a circuit element
 Sankey diagram|Sankey diagram|Sankey diagrams|a specific type of flow diagram, in which the width of the arrows is shown proportionally to the flow quantity
 sedimentation|sedimentation|sedimentations|the opposite of erosion
 silt|silt|silts|a granular material of a size between sand and clay
 slurry|slurry|slurries|describe a mixture that consist of both solid and fluid phases
+soft-iron|soft iron|soft irons|a result of material that distorts the magnetic field of magnetometer, but does not necessarily generate its own magnetic field
 solvent|solvent|solvents|a substance that dissolves a solute, such as a chemically distinct liquid, solid or gas, resulting in a solution
 tooltip|tooltip|tooltips|a popup window, containing additional information. It appears when a mouse pointer hoovers over a designated area
 trapezoidal-rule|Trapezoidal rule|Trapezoidal rules|a technique for approximating the definite integral
-umbilical|umbilical|umbilicals|a electronic cable connecting an underwater vehicle
-word|word|words|a string of bits representing a value which is stored in memory
-hard-iron|hard iron|hard irons|a constant additive disturbance in the magnetic field of the magnetometer
-soft-iron|soft iron|soft irons|a result of material that distorts the magnetic field of magnetometer, but does not necessarily generate its own magnetic field
-acoustic-navigation|time of flight acoustic navigation|time of flight acoustic navigation's|triangulation of a position using the difference in send and receive time of signal, to calculate the distance from a source
-geophysical-navigation|geophysical navigation|geophysical navigation's|navigation using landmarks
-bathymetric-map|bathymetric map|bathymetric maps|submerged equivalent of an above-water topographic map
-off-line|off-line|off-lines|algorithm which plans an optimal path ahead of time, thus which needs to know the environment a priori
-quaternion|quaternion|quaternions|a number system that extends the complex numbers. They were first described by Irish mathematician William Rowan Hamilton in 1843 and applied to mechanics in three-dimensional space. A feature of quaternions is that multiplication of two quaternions is non-commutative. Hamilton defined a quaternion as the quotient of two directed lines in a three-dimensional space or equivalently as the quotient of two vectors
-kalman-gain|Kalman gain|Kalman gains|the relative weight given to the measurements and current state estimate, and can be "tuned" to achieve particular performance. With a high gain, the filter places more weight on the most recent measurements, and thus follows them more responsively. With a low gain, the filter follows the model predictions more closely. At the extremes, a high gain close to one will result in a more jumpy estimated trajectory, while low gain close to zero will smooth out noise but decrease the responsiveness
-optimal-path|optimal path|optimal paths|a sequence of steps which are optimized
-coverage-path|coverage path|coverage paths|a sequence of steps which coveres a whole area by following a certain path
-on-line|on-line|on-lines|an algorithm which has the ability to adapt when needed
-morse-function|Morse function|Morse functions|a function for which all critical points are non-degenerate and all critical levels are different
-critical-point|critical point|critical points|a value of average degree, which separates networks
-hessian|Hessian|Hessians|a square matrix of second-order partial derivatives of a scalar-valued function, or scalar field. It describes the local curvature of a function of many variables
 traveling-salesman-problem|traveling salesman|traveling salesmans|asks the following question: ``Given a list of cities and the distances between each pair of cities, what is the shortest possible route that visits each city exactly once and returns to the origin city?'' It is an NP-hard problem in combinatorial optimization, important in operations research and theoretical computer science
-adjacency-graph|adjacency graph|adjacency graphs|a graph representing depicting all the nodes
-reeb-graph|Reeb graph|Reeb graphs|a mathematical object reflecting the evolution of the level sets of a real-valued function on a manifold
+umbilical|umbilical|umbilicals|a electronic cable connecting an underwater vehicle
 vast-cell|VAST-cell|VAST-cells|a cell located in a vast open space
-narrow-cell|NARROW-cell|NARROW-cells|a cell is located in a narrow space, bound between multiple walls
-cusp-point|cusp point|cusp points|are points where its surface normal of the boundary of the free configuration space is non-smooth
 voronoi-diagram|Voronoi diagram|Voronoi diagrams|a partition of a plane into regions close to each of a given set of objects
-deadlock-state|deadlock state|dead lock states|a standstill situation, from which the algorithm has no means of escape
-monotonically|monotonically|monotonically|a function between ordered sets that preserves or reverses the given order
-Archimedes-screw|Archimedes screw|Archimedes screws|a machine historically used for transferring water from a low-lying body of water into irrigation ditches. The same principle can also be used propel the screw in a medium
-hydraulic-motor|hydraulic motor|hydraulikc motors|a mechanical actuator that converts hydraulic pressure and flow into torque and angular displacement
-hydraulic-pump|hydraulic pump|hydraulic pumps|a mechanical source of power that converts mechanical power into hydraulic energy
-electric-motor|electric motor|electric motors|an electrical machine that converts electrical energy into mechanical energy
-gimbal-lock|gimbal lock|gimbal locking|the loss of one degree of freedom in a three-dimensional space, three-gimbal mechanism that occurs when the axes of two of the three gimbals are driven into a parallel configuration, ``locking'' the system into rotation in a degenerate two-dimensional space
-non-commutative|non-commutative|non-commutative|a operation in which the order of the operands determine the results
-quaternion|quaternion|quaternions|a number system that extends the complex numbers, they are very useful in describing a rotatation involving three dimensions
-dilatancy|dilatancy|dilatancies|volume increase that may occur during shear
+word|word|words|a string of bits representing a value which is stored in memory

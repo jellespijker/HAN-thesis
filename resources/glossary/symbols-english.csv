@@ -1,306 +1,332 @@
 key|symbol|units|description
-a|a|\si{\meter\per\second\squared}|acceleration
-a_z_k|a_{z,k}|\si{\meter\per\second\squared}|acceleration along the z-axis at time \ensuremath{k}
-a_z_k-1|a_{z,k-1}|\si{\meter\per\second\squared}|acceleration along the z-axis at time \ensuremath{k - 1}
 A|A|\si{\meter\squared}|surface
 A_1|A_1|\si{\meter\squared}|surface of object 1
 A_2|A_2|\si{\meter\squared}|surface of object 2
 A_a|A_a|\si{\meter\squared}|working section of the screw conveyor
-A_s|A_s|\si{\meter\squared}|cross section area of in soil submerged volume
-A_p|A_p|\si{\meter\squared}|cross section of a pipe
 A_c|A_c|\si{\meter\squared}|collector sunlight exposed surface
-a_x|a_x|\si{\meter\per\second\squared}|acceleration along the x-axis
-a_y|a_y|\si{\meter\per\second\squared}|acceleration along the y-axis
-a_z|a_z|\si{\meter\per\second\squared}|acceleration along the z-axis
-alpha|\alpha|\si{-}|absorption coefficient
-alpha_e|\alpha_e|\si{\decibel\per\meter}|attenuation
-alpha_s|\alpha_s|\si{-}|sensitivity coefficient
-alpha_sf|\alpha_sf|\si{-}|skin friction coefficient
-b|b|\si{-}|coefficient as a function of spent time and sex of the subject
+A_p|A_p|\si{\meter\squared}|cross section of a pipe
+A_s|A_s|\si{\meter\squared}|cross section area of in soil submerged volume
 B_d|B_d|\si{\radian\per\second}|slow chancing component of the signal; this is the gyroscope drift
 B_k|\mathbf{B}|\si{-}|a control-input model which is applied to a control vector
-beta|\beta|\si{-}|phase factor of a wave
-c|c|\si{-}|singel cell
-c_sb|c_{sb}|\si{\pascal}|cohesion of a soil bed
-c_u|c_u|\si{\pascal}|undrained shear strength of soil
-c_p|c_p|\si{\joule\per\kilo\gram\per\kelvin}|specific heat at constant pressure
-c_v|c_v|\si{\joule\per\kilo\gram\per\kelvin}|specific heat at constant volume
-C_vb|C_{vb}|\si{-}|volumetric bed concentration
-Delta_d_1_2|\Delta d_{1,2}|\si{\meter}|distance between two points
-d_a|d_a|\si{\meter}|sinkage depth of a Archimedes screw
-d_p|d_p|\si{\meter}|pipe diameter
-d_x_i|d_i(x)|\si{\meter}|distance between x points and obstacle \textit{i}
-delta_s|\delta_s|\si{\meter}|range of a sensor-detector-range
-Delta_t|\Delta t|\si{\second}|time difference
-Delta_F|\Delta F|\si{\newton}|difference in force
-Delta_tau|\Delta \tau|\si{\newton\meter}|torque difference
-Delta_p|\Delta p|\si{\pascal}|pressureloss
-Delta_p_n|\Delta p_n|\si{\pascal}|nominal pressureloss
-Delta_Q_c|\Delta Q_{c}|\si{\watt}|heat flow stored in a node
-Delta_x|\Delta x|\si{\meter}|distance between nodes
-Delta_psi|\Delta \psi|\si{\radian}|difference in yaw of a crawler on the Euclidean z-axis between time \ensurmath{k} and \ensuremath{k+1}
-D_l_t-1|D_{l,t-1}|\si{-}|line segment at \ensuremath{t - 1}
-D_l_t|D_{l,t}|\si{-}|line segment at \ensuremath{t}
-D_l|D_{l,t}|\si{-}|list of line segments
-E_hat|\hat{E}|\si{\volt\per\meter}|amplitude of the electric field wave
-E_x|E_x|\si{\volt\per\meter}|Is defined mathematically as a vector field that associates to each point in space the (electrostatic or Coulomb) force per unit of charge exerted on an infinitesimal positive test charge at rest at that point.
-epsilon_1|\epsilon_1|\si{-}|emissivity property of material 1
-epsilon_2|\epsilon_2|\si{-}|emissivity property of material 2
-epsilon_e|\epsilon_e|\si{-}|permittivity
-epsilon_nees_mean|\bar{\epsilon}_{N}|\si{-}|mean NEES value
-epsilon_nees|\epsilon_{N,k}|\si{-}|NEES at time \ensuremath{k}
-eta_c|\eta_c|\si{-}|efficiency of an solar collector
-eta_eff_comp|\eta_{eff,comp}|\si{-}|efficiency of a compressor
-eta_is_comp|\eta_{is,comp}|\si{-}|efficiency of an isotropisch compressor
-eta_m|\eta_m|\si{-}|efficiency of a electrical engine
-eta_mech_comp|\eta_{me,comp}|\si{-}|efficiency of a mechanical compressor
-eta_Vn|\eta_{V,n}|\si{-}|nominal Volumetric efficiency
-exp|e|\si{-}|Eulers number \ensuremath{2.7182818284}
-F|F|\si{\newton}|force
-F_b|F_b|\si{\newton}|buoyancy force of a submerged Archimedes screw
-F_crb|F_{cr,b}|\si{\newton}|buoyancy force of a submerged crawler
-F_sn|F_{sn}|\si{\newton\per\kilo\gram}|specific normal force working on an Archimedes screw
-F_s|F_s|\si{\newton}|skin friction
-F_n|F_{n}|\si{\newton}|normal force working on an Archimedes screw
-F_k|\mathbf{F}|\si{-}|a state transition model which is applied to the previous state
-F_12|\mathcal{F}_{12}|\si{-}|view factor between geometries
-F_u|F_u|\si{\newton}|ultimate skin friction
-g|g|\si{\meter\per\squared\second}|standard gravity model
-G|G|\si{\watt\per\kelvin}|heat conductance
-G_T|G_T|\si{\watt\per\meter\squared}|total global solar radiation
-gamma|\gamma|\si{\newton\per\cubic\meter}|specific weight
-gamma_w|\gamma_w|\si{\newton\per\cubic\meter}|specific weight of water
-gamma_sw|\gamma_{sw}|\si{\newton\per\cubic\meter}|specific weight of submerged soil
-gamma_m|\gamma_m|\si{\newton\per\cubic\meter}|specific weight of diluted water during dredging
-gamma_EM|\gamma_e|\si{\meter}|propagation constant
-H|H|\si{\meter}|net head of a flow
-h|h|\si{\meter}|height difference between radius of screw and its submerged part
-H_1|H_1|\si{\meter}|net head of a flow at point 1
-H_2|H_2|\si{\meter}|net head of a flow at point 2
-h_c|h_c|\si{\watt\per\square\meter}|convection heat-transfer coefficient
-H_hat|\hat{H}|\si{\ampere}|amplitude of the magnetic field wave
-h_in|h_{in}|\si{\kilo\joule\per\kilo\gram\per\kelvin}|specific enthalpy at entry point
-h_out|h_{out}|\si{\kilo\joule\per\kilo\gram\per\kelvin}|specific enthalpy at exit point
-h_out_prime|h_{out}^{‘}|\si{\kilo\joule\per\kilo\gram\per\kelvin}|actual specific enthalpy at exit point
-H_y|H_y|\si{\ampere\per\meter}|is a vector field that describes the magnetic influence of electric charges in relative motion and magnetized materials
-H_k|\mathbf{H}|\si{-}|measurement sensitivity matrix defining the linear relationship between state of the dynamic system and measurements that can be made
-I_v|I_v|\si{\cubic\meter\per\hour}|flow rate of an auger
-imag|i|\si{-}|imaginary unit
-k|k|\si{\watt\per\meter\per\kelvin}|thermal conductivity
-k_1|k_1|\si{-}|constant representing thermal losses to the outside
-k_2|k_2|\si{-}|constant representing thermal losses to the outside
-K_HP|K_{HP}|\si{-}|Hagen-Poiseuille coefficient for laminar pipe flows
-K_TP|K_{TP}|\si{-}|friction torque vs pressure gain coefficient parameter
-kappa|\kappa|\si{\kelvin\per\watt}|heat capacity ratio
-L|L|\si{\meter}|Distance between the crawlers screws
-L_alpha_epsilon|L_{\alpha, \epsilon}|\si{\decibel}|electromagnetic signal strength
-l_a|l_a|\si{\meter}|length of an Archimedes screw
-m|m|\si{\kg}|mass
-m_f|m_f|\si{\kg}|mass
-m_cr|m_{cr}|\si{\kg}|mass of a crawler
-m_cr_prime|m_{cr}^{\prime}|\si{\kilo\gram}|total buoyancy corrected mass of a crawler
-m_n|m_n|\si{-}|number of neighbouring neurons
-M|M|\si{\watt\per\meter\squared}|metabolic heat production
-m_flux|\dot{m}|\si{\kilo\gram\per\second}|mass flux
-m_flux_rf|\dot{m}_{rf}|\si{\kilo\gram\per\second}|mass flux refrigerant
-M_mat|M_{mat}|\si{\kilo\gram\per\mole}|moleculair weight
-M_v|M_v|\si{\kilo\gram\per\mole}|moleculair weight of water vapor
-mu|\mu|\si{\pascal\second}|dynamic viscosity
-mu_n|\mu_n|\si{\pascal\second}|nominal dynamic viscosity
-mu_e|\mu_e|\si{\henry\per\meter}|electromagnetism permeability
-N_c|N_c|\si{-}|dimensionless constant used in the Brinch-Hansen equation, related to the cohesion
-N_phi|N_{\phi}|\si{-}|dimensionless factor of the internal friction angle
-N_q|N_q|\si{-}|dimensionless constant used in the Brinch-Hansen equation, related to the load of the surrounding soil
-N_gamma|N_{\gamma}|\si{-}|dimensionless constant used in the Brinch-Hansen equation, related to the specific weight of the soil
-n_s|n_s|\si{\radian\per\second}|stochastic component of a signal
-n_a_l|n_{a,l}|\si{-}|neural activity of a the \ensuremath{l}th neuron
-n_x|\mathit{n}_x|\si{-}|number of elements in the state vector
-nu|\nu|\si{\squared\meter\per\second}|kinematic viscosity
-omega|\omega|\si{\radian\per\second}|angular velocity
-omega_func|\omega_t|\si{\radian\per\second}
-omega_t|\omega_t|\si{\radian\per\second}|true angular velocity
-omega_n|\omega_n|\si{\radian\per\second}|nominal angular velocity
-omega_th|\omega_{th}|\si{\radian\per\second}|angular velocity threshold
-p|p|\si{\pascal}|pressure
-p_1|p_1|\si{\pascal}|pressure at point 1
-p_2|p_2|\si{\pascal}|pressure at point 2
-p_a|p_a|\si{\pascal}|atmospheric pressure
-p_sb|p_{sb}|\si{\pascal}|load working on a soil bed
-p_q|p_{q}|\si{\pascal}|pressure generated at a certain depth due to the soil on top of it
-P_e|P_e|\si{\kilo\watt}|electrical power
-p_k|\vv{p}_k|\si{\meter}|AUV location at time \ensurmath{k}
-p_k+1|\vv{p}_{k + 1}|\si{\meter}|AUV location at time \ensurmath{k + 1}
-P_eff|P_{eff}|\si{\kilo\watt}|effective needed power
-p_in|p_{in}|\si{\pascal}|pressure at entry point
-p_out|p_{out}|\si{\pascal}|pressure at exit point
-P_s|P_s|\si{\kilo\watt}|power at a shaft
-p_v|p_v|\si{\pascal}|pressure of water vapor in ambient air
-P_w|P_w|\si{\kilo\watt}|drive power
-P|P|\si{\watt}|power
-P_0|\mathbf{P}_0|\si{-}|initialization covariance matrix of state estimation uncertainty
-P_k|\mathbf{P}_k|\si{-}|covariance matrix of state estimation uncertainty
-P_k-1|\mathbf{P}_{k-1}|\si{-}|covariance matrix of a priori state estimation uncertainty
-phi_c|\phi_{c}|\si{\radian}|roll of the crawler on the Euclidean y-axis
-phi_imu|\phi_{IMU}|\si{\radian}|roll of the IMU on the Euclidean y-axis
-phi_s|\phi_{s}|\si{\radian}|angle of internal friction
-psi_c|\psi_{c}|\si{\radian}|yaw of the crawler bot on the Euclidean z-axis
-psi_imu|\psi_{IMU}|\si{\radian}|yaw of the IMU bot on the Euclidean z-axis
-psi|\psi|\si{\radian}|yaw of the crawler on the Euclidean z-axis
-Q|Q|\si{\meter\cubed\per\second}|volumetric fluid flow
-Q_1_2|Q_{1-2}|\si{\watt}|heat flow from node 1 to node 2
-Q_con|Q_{con}|\si{\watt}|heat flow at condensator
-q_e|q_e|\si{\watt}|space heat gain
-Q_H|Q_H|\si{\kilo\watt}|heat transferred at a high temperature
-Q_i|Q_i|\si{\meter\cubed\per\second}|ideal volumetric fluid flow
-Q_l|Q_l|\si{\meter\cubed\per\second}|volumetric fluid leakage flow
-Q_j|Q_j|\si{\watt}|heat flow out from a node
-Q_L|Q_L|\si{\kilo\watt}|heat transferred at a low temperature
-Q_n|\dot{Q}_{n}|\si{\watt}|useful energy
-Q_p|Q_p|\si{\watt}|heat generated by a person
-Q_rc|Q_{rc}|\si{\watt}|external heat
-q_rf|q_{rf}|\si{\joule\per\kilo\gram}|refrigerating effect of a refrigerant
-Q_wp|Q_{wp}|\si{\watt}|heat generated due to the water vapor production of a person
-q|\vv{q}|\si{-}|heat flow
-q_s|q_s|\si{-}|real component of a quaternion
-q_x|q_x|\si{-}|imaginary x-axis of a quaternion
-q_y|q_y|\si{-}|imaginary y-axis of a quaternion
-q_z|q_z|\si{-}|imaginary z-axis of a quaternion
-r|r|\si{\meter}|radius
-R_t|R_t|\si{\meter}|radius from ICR ro COG of crawler
-r_a|r_a|\si{\meter}|radius of Archimedes screw
-r_0|r_0|\si{\meter}|the receptive field radius of the \ensuremath{k}th neuron
-R|R|\si{\watt\per\kelvin}|heat resistance due the conduction and convection
-R_k|\mathbf{R}|\si{-}|covariance matrix of state estimation uncertainty
-R_rad|R_{rad}|\si{\watt\per\kelvin\tothe{4}}|heat resistance due to radiation
-RH|RH|\si{\percent}|relative humidty
-Re_sd|Re_{sd}|\si{-}|relative submerged density
-rho|\rho|\si{\kilo\gram\per\cubic\meter}|density of a material
-rho_n|\rho_n|\si{\kilo\gram\per\cubic\meter}|nominal density of a material
-rho_s|\rho_s|\si{\kilo\gram\per\cubic\meter}|density of a slurry
-rho_is|\rho_{is}|\si{\kilo\gram\per\cubic\meter}|in-situ density of soil
-rho_ds|\rho_{ds}|\si{\kilo\gram\per\cubic\meter}|density of drained soil
-rho_m|\rho_m|\si{\kilo\gram\per\cubic\meter}|density of a mixture
-rho_w|\rho_w|\si{\kilo\gram\per\cubic\meter}|density of water
-s|s|\si{\meter}|position
-s_a|s_a|\si{\meter}|soil contact arc length
-s_z|s_z|\si{\meter}|position along the z-axis
-s_z_k|s_{z,k}|\si{\meter}|position along the z-axis at time \ensuremath{k}
-s_z_m|s_{z,m}|\si{\meter}|measured position along the z-axis
-s_z_m_k|s_{z,m,k}|\si{\meter}|measured position along the z-axis at time \ensuremath{k}
-s_z_k+1|s_{z,k+1}|\si{\meter}|position along the z-axis at time \ensuremath{k + 1}
-s_z_k-1|s_{z,k-1}|\si{\meter}|position along the z-axis at time \ensuremath{k - 1}
-s_c|s_c|\si{-}|shape factor used in the Brinch-Hansen equation, related to the cohesion
-s_q|s_q|\si{-}|shape factor used in the Brinch-Hansen equation, related to the surrounding load of the soil
-s_gamma|s_{\gamma}|\si{\meter}|shape factor used in the Brinch-Hansen equation, related to the specific weight of the soil
-sigma_boltz|\sigma_c|\si{\square\meter\kilo\gram\per\square\second\per\kelvin}|Boltzmann constant \ensuremath{1.38064852\cdot10^{-23}}
-sigma_e|\sigma_e|\si{\siemens\per\meter}|Electrical conductivity
-sigma_s|\sigma_{s}|\si{\meter}|deviation on position
-sigma_s_m|\sigma_{s,m}|\si{\meter}|deviation on measured position
-sigma_v|\sigma_{v}|\si{\meter\per\second}|deviation on velocity
-sigma_v_m|\sigma_{v,m}|\si{\meter\per\second}|deviation measured on velocity
-sigma_H|\sigma_H|\si{\pascal}|horizontal stress
-sigma_V|\sigma_V|\si{\pascal}|vertical stress
-sigma_prime|\sigma^{\prime}|\si{\pascal}|effective stress
-t|t|\si{\second}|time
-T|T|\si{\kelvin}|temperature
-T_1|T_1|\si{\kelvin}|temperature in node 1
-T_2|T_2|\si{\kelvin}|temperature in node 2
-T_a|T_a|\si{\kelvin}|ambient environment temperature
-T_dp|T_{dp}|\si{\kelvin}|dew point temperature
-T_H|T_H|\si{\kelvin}|high temperature
-T_in|T_{in}|\si{\kelvin}|temperature of an ingoing flow
-T_inf|T_{\infty}|\si{\kelvin}|temperature of a free stream
-T_L|T_L|\si{\kelvin}|low temperature
-T_m|T_m|\si{\kelvin}|mean temperature of an absorber
-T_out|T_{out}|\si{\kelvin}|temperature of an outgoing flow
-T_sp|T_{sp}|\si{\kelvin}|temperature setpoint
-T_w|T_w|\si{\kelvin}|temperature of a wall
-T_prime|T^{\prime}|\si{\kelvin\per\second}|rate of temperature variation
-tau|\tau|\si{\newton\meter}|torque
-tau_i|\tau_i|\si{\newton\meter}|ideal torque
-tau_f|\tau_f|\si{\newton\meter}|torque due to friction
-tau_0|\tau_0|\si{\newton\meter}|initial torque
-theta|\theta|\si{\radian}|angle on the x-axis
-theta_c|\theta_{c}|\si{\radian}|pitch of the crawler on the Euclidean x-axis
-theta_imu|\theta_{IMU}|\si{\radian}|pitch of the IMU on the Euclidean x-axis
-theta_si|\theta_{si}|\si{\radian}|soft iron axis offset along the x-axis
-theta_s|\theta_{s}|\si{\radian}|sink angle of an Archimedes screw
-u|\vv{u}|\si{-}|unit vector
-u_k|\vv{u}_k|\si{-}|control inputs
-u_k-1|\vv{u}_{k-1}|\si{-}|control inputs from the previous component of the vector
-v|v|\si{\cubic\meter\per\kilo\gram}|specific volume
-V|V|\si{\cubic\meter}|volume
-V_sa|V_{sa}|\si{\cubic\meter}|submerged volume of a Archimedes screw
-V_dot_s|\dot{V}_s|\si{\cubic\meter\per\second}|volumetric fluid flow
-V_dot_p|\dot{V}_p|\si{\cubic\meter\per\second}|volumetric fluid flow pump
-V_dot_a|\dot{V}_s|\si{\cubic\meter\per\second}|volumetric fluid flow through the auger
-v_z|v_z|\si{\meter\per\second}|velocity along the z-axis
-v_z_k|v_{z,k}|\si{\meter\per\second}|velocity along the z-axis at time \ensuremath{k}
-v_z_k-1|v_{z,k-1}|\si{\meter\per\second}|velocity along the z-axis at time \ensuremath{k - 1}
-v_f|v_f|\si{\meter\per\second}|velocity of a fluid at a certain point
-v_k|\vv{v}_k|\si{-}|measurement noise
-v_f_1|v_{f,1}|\si{\meter\per\second}|velocity of a fluid at point 1
-v_f_2|v_{f,2}|\si{\meter\per\second}|velocity of a fluid at point 2
-V_flow_fa|\dot{V}_{fa}|\si{\meter\cubic\per\second}|volume flow of fresh air
-v_L|v_L|\si{\meter\per\second}|translational velocity of left Archimedes screw
-v_R|v_R|\si{\meter\per\second}|translational velocity of right Archimedes screw
-varepsilon_c|\varepsilon_c|\si{-}|heating efficiency of a Carnot cycle
-varepsilon_eff|\varepsilon_{eff}|\si{-}|effective cooling efficiency
-varepsilon_th|\varepsilon_{th}|\si{-}|theoretical heating efficiency
-varepsilon_w|\varepsilon_w|\si{-}|real heating efficiency
-W_c|W_c|\si{\kilo\watt}|added heat energy
-w_eff|w_{eff}|\si{\joule\per\kilo\gram}|specific effective work
-w_is|w_{is}|\si{\joule\per\kilo\gram}|specific isentropic work
-w_k|\vv{w}_k|\si{-}|process noise
-w_a|w_a|\si{\meter}|width of the Archimedes screw in contact with the soil
-x|x|\si{\meter}|location along the x-axis
-p_k|\vv{p}_k|\si{\meter}|pose components of the state vector \ensuremath{\vv{x}_k}
-p_k_dot|\vv{\dot{p}}_k|\si{\meter\per\second}|velocity components of the state vector \ensuremath{\vv{x}_k}
-p_kt+1|\vv{p}_{k+1}|\si{\meter}|pose components of the state vector \ensuremath{\vv{x}_{k+1}}
-x_k|\vv{x}_k|\si{-}|state vector describing the state of a system at the \textit{k}th component of \ensuremath{\vv{x}}
-x_k0|\vv{x}_0|\si{-}|state vector describing the initial state of a system at the \textit{k}th component of \ensuremath{\vv{x}}
-x_khat|\hat{x}_k|\si{-}|an estimation of the state vector \ensuremath{\vv{x}}
-x_ktilde|\tilde{x}_k|\si{-}|Error of the state of a system at the \textit{k}th component of \ensuremath{\vv{x}}
-x_kt+1|\vv{x}_{k+1}|\si{-}|a state estimate of \ensuremath{\vv{x}}, conditioned on all available measurements at time \ensuremath{t_k}
-x_kt+1hat|\hat{x}_{k+1}|\si{-}|a posteriori estimate of \ensuremath{\vv{x}}, conditioned on all available measurements at time \ensuremath{t_k}
-x_kt-1|\vv{x}_{k-1}|\si{-}|a priori state of \ensuremath{\vv{x}_k}, conditioned on all prior measurements, except the one at time \ensuremath{t_k}
-x_kt-1hat|\hat{x}_{k-1}|\si{-}|a priori estimate of \ensuremath{\vv{x}_k}, conditioned on all prior measurements, except the one at time \ensuremath{t_k}
-x_kg|\vv{x}_{g,k}|\si{-}|ground truth state, describing the real state of a system \textit{k}th component of \ensuremath{\vv{x}}
-x_w|x_w|\si{-}|humidity by mass
-x_m|x_m|\si{\tesla}|raw magnetometer value along the x-axis
-x_h|x_h|\si{\tesla}|hard iron distortion along the x-axis
-y_m|y_m|\si{\tesla}|raw magnetometer value along the y-axis
-y_h|y_h|\si{\tesla}|hard iron distortion along the y-axis
-y_k|\vv{y}_k|\si{-}|measured values
-y_k_prime|\vv{y}_k^{\prime}|\si{-}|transformed measured values
-y_1|y_1|\si{\tesla}|y-index of greatest magnetic magnitude
-z_m|z_m|\si{\tesla}|raw magnetometer value along the z-axis
-z_1|z_1|\si{\meter}|height at point 1
-z_2|z_2|\si{\meter}|height at point 2
-z|z|\si{\meter}|height
-z_epsilon|z_{\epsilon}|\si{\meter}|height error
-z_p|z_p|\si{\meter}|height of the pressure sensor with regards to the soil bed
-z_k|\vv{z}_k|\si{-}|measured values mapped to the state space
-m_vec|\vv{m}|\si{\tesla}|raw magnetometer vector
-m_hi|\vv{m}_{hi}|\si{\tesla}|hard iron adjusted vector
-m_si|\vv{m}_{si}|\si{\tesla}|soft iron adjusted vector
-r_si|r_{si}|\si{\tesla}|greatest magnitude of a point on the ellipse, and thus the vector of the A-axis
-q_si|q_{si}|\si{\tesla}|smallest magnitude of a point on the ellipse, and thus the vector of the B-axis
-Q_k|\mathbf{Q}_k|\si{-}|covariance matrix of process estimation uncertainty
-Kgain|\bar{\mathbf{K}}|\si{-}|Kalman gain matrix
-G_adj|\mathbf{G}|\si{-}|adjacency graph
-G_adj_1|\mathbf{G}_1|\si{-}|adjacency subgraph 1
-G_adj_2|\mathbf{G}_2|\si{-}|adjacency subgraph 2
 C|C|\si{-}|cost a function
-S|S|\si{-}|a movement in a graph
-nabla_m|\nabla_m|\si{\meter}|normal of a surface
+C_vb|C_{vb}|\si{-}|volumetric bed concentration
+Cp|Cp|\si{-}|critical point in graph
 Cp_0|Cp_0|\si{-}|critical point 0 in graph
 Cp_1|Cp_1|\si{-}|critical point 1 in graph
 Cp_2|Cp_2|\si{-}|critical point 2 in graph
 Cp_3|Cp_3|\si{-}|critical point 3 in graph
 Cp_i|Cp_i|\si{-}|critical point \textit{i}th in graph
-Cp|Cp|\si{-}|critical point in graph
-y|y|\si{\meter}|location along the y-axis
-y_l|y_l|\si{\meter}|a gls-monotonically increasing function of the difference between the next moving directions
-theta_b|\theta_b|\si{\radian}|pitch of the dredge bot on the Euclidean $z$-axis
+D_l|D_{l,t}|\si{-}|list of line segments
+D_l_t|D_{l,t}|\si{-}|line segment at \ensuremath{t}
+D_l_t-1|D_{l,t-1}|\si{-}|line segment at \ensuremath{t - 1}
+D_s|D_{s}|\si{\meter}|suction depth
+Delta_F|\Delta F|\si{\newton}|difference in force
+Delta_L|\Delta L|\si{\meter}|length of a pipe
+Delta_Q_c|\Delta Q_{c}|\si{\watt}|heat flow stored in a node
+Delta_d_1_2|\Delta d_{1,2}|\si{\meter}|distance between two points
+Delta_p|\Delta p|\si{\pascal}|pressureloss
+Delta_p_n|\Delta p_n|\si{\pascal}|nominal pressureloss
+Delta_psi|\Delta \psi|\si{\radian}|difference in yaw of a crawler on the Euclidean z-axis between time \ensuremath{k} and \ensuremath{k+1}
+Delta_t|\Delta t|\si{\second}|time difference
+Delta_tau|\Delta \tau|\si{\newton\meter}|torque difference
+Delta_x|\Delta x|\si{\meter}|distance between nodes
+E_hat|\hat{E}|\si{\volt\per\meter}|amplitude of the electric field wave
+E_x|E_x|\si{\volt\per\meter}|Is defined mathematically as a vector field that associates to each point in space the (electrostatic or Coulomb) force per unit of charge exerted on an infinitesimal positive test charge at rest at that point.
+F|F|\si{\newton}|force
+F_12|\mathcal{F}_{12}|\si{-}|view factor between geometries
+F_b|F_b|\si{\newton}|buoyancy force of a submerged Archimedes screw
+F_crb|F_{cr,b}|\si{\newton}|buoyancy force of a submerged crawler
+F_k|\mathbf{F}|\si{-}|a state transition model which is applied to the previous state
+F_n|F_{n}|\si{\newton}|normal force working on an Archimedes screw
+F_r|F_{r}|\si{-}|Froude number for a pipeline
+F_rxd|F_{rxd}|\si{-}|Froude number of the grains
+F_s|F_s|\si{\newton}|skin friction
+F_sn|F_{sn}|\si{\newton\per\kilo\gram}|specific normal force working on an Archimedes screw
+F_u|F_u|\si{\newton}|ultimate skin friction
+G|G|\si{\watt\per\kelvin}|heat conductance
+G_T|G_T|\si{\watt\per\meter\squared}|total global solar radiation
+G_adj|\mathbf{G}|\si{-}|adjacency graph
+G_adj_1|\mathbf{G}_1|\si{-}|adjacency subgraph 1
+G_adj_2|\mathbf{G}_2|\si{-}|adjacency subgraph 2
+H|H|\si{\meter}|net head of a flow
+H_1|H_1|\si{\meter}|net head of a flow at point 1
+H_2|H_2|\si{\meter}|net head of a flow at point 2
+H_hat|\hat{H}|\si{\ampere}|amplitude of the magnetic field wave
+H_k|\mathbf{H}|\si{-}|measurement sensitivity matrix defining the linear relationship between state of the dynamic system and measurements that can be made
+H_y|H_y|\si{\ampere\per\meter}|is a vector field that describes the magnetic influence of electric charges in relative motion and magnetized materials
 I|I|\si{\kilo\gram\meter\squared}|moment of inertia
+I_v|I_v|\si{\cubic\meter\per\hour}|flow rate of an auger
+K_HP|K_{HP}|\si{-}|Hagen-Poiseuille coefficient for laminar pipe flows
+K_TP|K_{TP}|\si{-}|friction torque vs pressure gain coefficient parameter
+Kgain|\bar{\mathbf{K}}|\si{-}|Kalman gain matrix
+L|L|\si{\meter}|Distance between the crawlers screws
+L_alpha_epsilon|L_{\alpha, \epsilon}|\si{\decibel}|electromagnetic signal strength
+L_s|L_{s}|\si{\meter}|length of suction line
+M|M|\si{\watt\per\meter\squared}|metabolic heat production
+M_mat|M_{mat}|\si{\kilo\gram\per\mole}|moleculair weight
+M_v|M_v|\si{\kilo\gram\per\mole}|moleculair weight of water vapor
+N_c|N_c|\si{-}|dimensionless constant used in the Brinch-Hansen equation, related to the cohesion
+N_gamma|N_{\gamma}|\si{-}|dimensionless constant used in the Brinch-Hansen equation, related to the specific weight of the soil
+N_phi|N_{\phi}|\si{-}|dimensionless factor of the internal friction angle
+N_q|N_q|\si{-}|dimensionless constant used in the Brinch-Hansen equation, related to the load of the surrounding soil
+P|P|\si{\watt}|power
+P_0|\mathbf{P}_0|\si{-}|initialization covariance matrix of state estimation uncertainty
+P_e|P_e|\si{\kilo\watt}|electrical power
+P_eff|P_{eff}|\si{\kilo\watt}|effective needed power
+P_k|\mathbf{P}_k|\si{-}|covariance matrix of state estimation uncertainty
+P_k-1|\mathbf{P}_{k-1}|\si{-}|covariance matrix of a priori state estimation uncertainty
+P_s|P_s|\si{\kilo\watt}|power at a shaft
+P_w|P_w|\si{\kilo\watt}|drive power
+Q|Q|\si{\meter\cubed\per\second}|volumetric fluid flow
+Q_1_2|Q_{1-2}|\si{\watt}|heat flow from node 1 to node 2
+Q_H|Q_H|\si{\kilo\watt}|heat transferred at a high temperature
+Q_L|Q_L|\si{\kilo\watt}|heat transferred at a low temperature
+Q_con|Q_{con}|\si{\watt}|heat flow at condensator
+Q_i|Q_i|\si{\meter\cubed\per\second}|ideal volumetric fluid flow
+Q_j|Q_j|\si{\watt}|heat flow out from a node
+Q_k|\mathbf{Q}_k|\si{-}|covariance matrix of process estimation uncertainty
+Q_l|Q_l|\si{\meter\cubed\per\second}|volumetric fluid leakage flow
+Q_n|\dot{Q}_{n}|\si{\watt}|useful energy
+Q_p|Q_p|\si{\watt}|heat generated by a person
+Q_rc|Q_{rc}|\si{\watt}|external heat
+Q_wp|Q_{wp}|\si{\watt}|heat generated due to the water vapor production of a person
+R|R|\si{\watt\per\kelvin}|heat resistance due the conduction and convection
+RH|RH|\si{\percent}|relative humidty
+R_k|\mathbf{R}|\si{-}|covariance matrix of state estimation uncertainty
+R_rad|R_{rad}|\si{\watt\per\kelvin\tothe{4}}|heat resistance due to radiation
+R_t|R_t|\si{\meter}|radius from ICR ro COG of crawler
+Re|Re|\si{-}|Reynolds Number
+Re_sd|Re_{sd}|\si{-}|relative submerged density
+S|S|\si{-}|a movement in a graph
+T|T|\si{\kelvin}|temperature
+T_1|T_1|\si{\kelvin}|temperature in node 1
+T_2|T_2|\si{\kelvin}|temperature in node 2
+T_H|T_H|\si{\kelvin}|high temperature
+T_L|T_L|\si{\kelvin}|low temperature
+T_a|T_a|\si{\kelvin}|ambient environment temperature
+T_dp|T_{dp}|\si{\kelvin}|dew point temperature
+T_in|T_{in}|\si{\kelvin}|temperature of an ingoing flow
+T_inf|T_{\infty}|\si{\kelvin}|temperature of a free stream
+T_m|T_m|\si{\kelvin}|mean temperature of an absorber
+T_out|T_{out}|\si{\kelvin}|temperature of an outgoing flow
+T_prime|T^{'}|\si{\kelvin\per\second}|rate of temperature variation
+T_sp|T_{sp}|\si{\kelvin}|temperature setpoint
+T_w|T_w|\si{\kelvin}|temperature of a wall
+V|V|\si{\cubic\meter}|volume
+V_dot_a|\dot{V}_s|\si{\cubic\meter\per\second}|volumetric fluid flow through the auger
+V_dot_p|\dot{V}_p|\si{\cubic\meter\per\second}|volumetric fluid flow pump
+V_dot_s|\dot{V}_s|\si{\cubic\meter\per\second}|volumetric fluid flow
+V_flow_fa|\dot{V}_{fa}|\si{\meter\cubic\per\second}|volume flow of fresh air
+V_sa|V_{sa}|\si{\cubic\meter}|submerged volume of a Archimedes screw
+W_c|W_c|\si{\kilo\watt}|added heat energy
+a|a|\si{\meter\per\second\squared}|acceleration
+a_x|a_x|\si{\meter\per\second\squared}|acceleration along the x-axis
+a_y|a_y|\si{\meter\per\second\squared}|acceleration along the y-axis
+a_z|a_z|\si{\meter\per\second\squared}|acceleration along the z-axis
+a_z_k|a_{z,k}|\si{\meter\per\second\squared}|acceleration along the z-axis at time \ensuremath{k}
+a_z_k-1|a_{z,k-1}|\si{\meter\per\second\squared}|acceleration along the z-axis at time \ensuremath{k - 1}
+alpha|\alpha|\si{-}|absorption coefficient
+alpha_e|\alpha_e|\si{\decibel\per\meter}|attenuation
+alpha_s|\alpha_s|\si{-}|sensitivity coefficient
+alpha_sf|\alpha_sf|\si{-}|skin friction coefficient
+b|b|\si{-}|coefficient as a function of spent time and sex of the subject
+beta|\beta|\si{-}|phase factor of a wave
+c|c|\si{-}|singel cell
+c_p|c_p|\si{\joule\per\kilo\gram\per\kelvin}|specific heat at constant pressure
+c_sb|c_{sb}|\si{\pascal}|cohesion of a soil bed
+c_t|c_{t}|\si{-}|volumetric concentration
+c_u|c_u|\si{\pascal}|undrained shear strength of soil
+c_v|c_v|\si{\joule\per\kilo\gram\per\kelvin}|specific heat at constant volume
+d_a|d_a|\si{\meter}|sinkage depth of a Archimedes screw
+d_p|d_p|\si{\meter}|pipe diameter
+d_pp|d_{pp}|\si{\meter}|volumetric flow
+d_ps|d_{ps}|\si{\meter}|volumetric flow
+d_x_i|d_i(x)|\si{\meter}|distance between x points and obstacle \textit{i}
+delta_s|\delta_s|\si{\meter}|range of a sensor-detector-range
+epsilon_1|\epsilon_1|\si{-}|emissivity property of material 1
+epsilon_2|\epsilon_2|\si{-}|emissivity property of material 2
+epsilon_b|\epsilon_{b}|\si{-}|resistance coefficient of the bends, valves, hoses and other obstructions
+epsilon_e|\epsilon_e|\si{-}|permittivity
+epsilon_nees|\epsilon_{N,k}|\si{-}|NEES at time \ensuremath{k}
+epsilon_nees_mean|\bar{\epsilon}_{N}|\si{-}|mean NEES value
+epsilon_s|\epsilon_{s}|\si{-}|resistance coefficient of the suction inlet
+eta_Vn|\eta_{V,n}|\si{-}|nominal Volumetric efficiency
+eta_c|\eta_c|\si{-}|efficiency of an solar collector
+eta_eff_comp|\eta_{eff,comp}|\si{-}|efficiency of a compressor
+eta_is_comp|\eta_{is,comp}|\si{-}|efficiency of an isotropisch compressor
+eta_m|\eta_m|\si{-}|efficiency of a electrical engine
+eta_mech_comp|\eta_{me,comp}|\si{-}|efficiency of a mechanical compressor
+exp|e|\si{-}|Eulers number \ensuremath{2.7182818284}
+g|g|\si{\meter\per\squared\second}|standard gravity model
+gamma|\gamma|\si{\newton\per\cubic\meter}|specific weight
+gamma_EM|\gamma_e|\si{\meter}|propagation constant
+gamma_m|\gamma_m|\si{\newton\per\cubic\meter}|specific weight of diluted water during dredging
+gamma_sw|\gamma_{sw}|\si{\newton\per\cubic\meter}|specific weight of submerged soil
+gamma_w|\gamma_w|\si{\newton\per\cubic\meter}|specific weight of water
+h|h|\si{\meter}|height difference between radius of screw and its submerged part
+h_a|h_{a}|\si{\meter}|height of water level above center line of a pump
+h_c|h_c|\si{\watt\per\square\meter}|convection heat-transfer coefficient
+h_in|h_{in}|\si{\kilo\joule\per\kilo\gram\per\kelvin}|specific enthalpy at entry point
+h_out|h_{out}|\si{\kilo\joule\per\kilo\gram\per\kelvin}|specific enthalpy at exit point
+h_out_prime|h_{out}^{'}|\si{\kilo\joule\per\kilo\gram\per\kelvin}|actual specific enthalpy at exit point
+imag|i|\si{-}|imaginary unit
+k|k|\si{\watt\per\meter\per\kelvin}|thermal conductivity
+k_1|k_1|\si{-}|constant representing thermal losses to the outside
+k_2|k_2|\si{-}|constant representing thermal losses to the outside
+kappa|\kappa|\si{\kelvin\per\watt}|heat capacity ratio
+l_a|l_a|\si{\meter}|length of an Archimedes screw
+lambda|\lambda|\si{-}|friction factor of a straight pipe
+m|m|\si{\kg}|mass
+m_cr|m_{cr}|\si{\kg}|mass of a crawler
+m_cr_prime|m_{cr}^{'}|\si{\kilo\gram}|total buoyancy corrected mass of a crawler
+m_f|m_f|\si{\kg}|mass
+m_flux|\dot{m}|\si{\kilo\gram\per\second}|mass flux
+m_flux_rf|\dot{m}_{rf}|\si{\kilo\gram\per\second}|mass flux refrigerant
+m_hi|\vv{m}_{hi}|\si{\tesla}|hard iron adjusted vector
+m_n|m_n|\si{-}|number of neighbouring neurons
+m_si|\vv{m}_{si}|\si{\tesla}|soft iron adjusted vector
+m_vec|\vv{m}|\si{\tesla}|raw magnetometer vector
+mu|\mu|\si{\pascal\second}|dynamic viscosity
+mu_e|\mu_e|\si{\henry\per\meter}|electromagnetism permeability
+mu_n|\mu_n|\si{\pascal\second}|nominal dynamic viscosity
+n_a_l|n_{a,l}|\si{-}|neural activity of a the \ensuremath{l}th neuron
+n_s|n_s|\si{\radian\per\second}|stochastic component of a signal
+n_x|\mathit{n}_x|\si{-}|number of elements in the state vector
+nabla_m|\nabla_m|\si{\meter}|normal of a surface
+nu|\nu|\si{\squared\meter\per\second}|kinematic viscosity
+omega|\omega|\si{\radian\per\second}|angular velocity
+omega_func|\omega_t|\si{\radian\per\second}|functional angular velocity
+omega_n|\omega_n|\si{\radian\per\second}|nominal angular velocity
+omega_t|\omega_t|\si{\radian\per\second}|true angular velocity
+omega_th|\omega_{th}|\si{\radian\per\second}|angular velocity threshold
+p|p|\si{\pascal}|pressure
+p_1|p_1|\si{\pascal}|pressure at point 1
+p_2|p_2|\si{\pascal}|pressure at point 2
+p_a|p_a|\si{\pascal}|atmospheric pressure
+p_atm|p_{atm}|\si{\pascal}|atmospheric pressure
+p_h|p_{h}|\si{\pascal}|head, i.e. the velocity required to accelerate the mixture in the pipe
+p_i|p_{i}|\si{\pascal}|pressureloss at the suction inlet
+p_in|p_{in}|\si{\pascal}|pressure at entry point
+p_k|\vv{p}_k|\si{\meter}|pose components of the state vector \ensuremath{\vv{x}_k}
+p_k_1|\vv{p}_{k + 1}|\si{\meter}|AUV location at time \ensuremath{k + 1}
+p_k_dot|\vv{\dot{p}}_k|\si{\meter\per\second}|velocity components of the state vector \ensuremath{\vv{x}_k}
+p_kt_1|\vv{p}_{k+1}|\si{\meter}|pose components of the state vector \ensuremath{\vv{x}_{k+1}}
+p_man|p_{man}|\si{\pascal}|manometric head of the dredge pump
+p_out|p_{out}|\si{\pascal}|pressure at exit point
+p_p|p_{p}|\si{\pascal}|absolute pressure at the outlet of the dredge pump
+p_q|p_{q}|\si{\pascal}|pressure generated at a certain depth due to the soil on top of it
+p_ro|p_{ro}|\si{\pascal}|resistance offered by bends, valves, hoses and other obstructions
+p_rp|p_{rp}|\si{\pascal}|resistance of the straightline pipe
+p_s|p_{s}|\si{\pascal}|absolute pressure at the entrance of impeller
+p_sb|p_{sb}|\si{\pascal}|load working on a soil bed
+p_sm|p_{sm}|\si{\pascal}|static head in the suction pipe
+p_ss|p_{ss}|\si{\pascal}|static pressure generated by surrounding water
+p_v|p_v|\si{\pascal}|pressure of water vapor in ambient air
+phi_c|\phi_{c}|\si{\radian}|roll of the crawler on the Euclidean y-axis
+phi_imu|\phi_{IMU}|\si{\radian}|roll of the IMU on the Euclidean y-axis
+phi_s|\phi_{s}|\si{\radian}|angle of internal friction
+psi|\psi|\si{\radian}|yaw of the crawler on the Euclidean z-axis
+psi_c|\psi_{c}|\si{\radian}|yaw of the crawler bot on the Euclidean z-axis
+psi_imu|\psi_{IMU}|\si{\radian}|yaw of the IMU bot on the Euclidean z-axis
+psi_m|\psi_{m}|\si{-}|Durand_Condolios mixture correction
+q|\vv{q}|\si{-}|heat flow
+q_e|q_e|\si{\watt}|space heat gain
+q_rf|q_{rf}|\si{\joule\per\kilo\gram}|refrigerating effect of a refrigerant
+q_s|q_s|\si{-}|real component of a quaternion
+q_si|q_{si}|\si{\tesla}|smallest magnitude of a point on the ellipse, and thus the vector of the B-axis
+q_x|q_x|\si{-}|imaginary x-axis of a quaternion
+q_y|q_y|\si{-}|imaginary y-axis of a quaternion
+q_z|q_z|\si{-}|imaginary z-axis of a quaternion
+r|r|\si{\meter}|radius
+r_0|r_0|\si{\meter}|the receptive field radius of the \ensuremath{k}th neuron
+r_a|r_a|\si{\meter}|radius of Archimedes screw
+r_si|r_{si}|\si{\tesla}|greatest magnitude of a point on the ellipse, and thus the vector of the A-axis
+rho|\rho|\si{\kilo\gram\per\cubic\meter}|density of a material
+rho_ds|\rho_{ds}|\si{\kilo\gram\per\cubic\meter}|density of drained soil
+rho_is|\rho_{is}|\si{\kilo\gram\per\cubic\meter}|in-situ density of soil
+rho_m|\rho_m|\si{\kilo\gram\per\cubic\meter}|density of a mixture
+rho_n|\rho_n|\si{\kilo\gram\per\cubic\meter}|nominal density of a material
+rho_s|\rho_s|\si{\kilo\gram\per\cubic\meter}|density of a slurry
+rho_w|\rho_w|\si{\kilo\gram\per\cubic\meter}|density of water
+s|s|\si{\meter}|position
+s_a|s_a|\si{\meter}|soil contact arc length
+s_c|s_c|\si{-}|shape factor used in the Brinch-Hansen equation, related to the cohesion
+s_gamma|s_{\gamma}|\si{\meter}|shape factor used in the Brinch-Hansen equation, related to the specific weight of the soil
+s_q|s_q|\si{-}|shape factor used in the Brinch-Hansen equation, related to the surrounding load of the soil
+s_z|s_z|\si{\meter}|position along the z-axis
+s_z_k|s_{z,k}|\si{\meter}|position along the z-axis at time \ensuremath{k}
+s_z_k+1|s_{z,k+1}|\si{\meter}|position along the z-axis at time \ensuremath{k + 1}
+s_z_k-1|s_{z,k-1}|\si{\meter}|position along the z-axis at time \ensuremath{k - 1}
+s_z_m|s_{z,m}|\si{\meter}|measured position along the z-axis
+s_z_m_k|s_{z,m,k}|\si{\meter}|measured position along the z-axis at time \ensuremath{k}
+sigma_H|\sigma_H|\si{\pascal}|horizontal stress
+sigma_V|\sigma_V|\si{\pascal}|vertical stress
+sigma_boltz|\sigma_c|\si{\square\meter\kilo\gram\per\square\second\per\kelvin}|Boltzmann constant \ensuremath{1.38064852\cdot10^{-23}}
+sigma_e|\sigma_e|\si{\siemens\per\meter}|Electrical conductivity
+sigma_prime|\sigma^{'}|\si{\pascal}|effective stress
+sigma_s|\sigma_{s}|\si{\meter}|deviation on position
+sigma_s_m|\sigma_{s,m}|\si{\meter}|deviation on measured position
+sigma_v|\sigma_{v}|\si{\meter\per\second}|deviation on velocity
+sigma_v_m|\sigma_{v,m}|\si{\meter\per\second}|deviation measured on velocity
+t|t|\si{\second}|time
+tau|\tau|\si{\newton\meter}|torque
+tau_0|\tau_0|\si{\newton\meter}|initial torque
+tau_f|\tau_f|\si{\newton\meter}|torque due to friction
+tau_i|\tau_i|\si{\newton\meter}|ideal torque
+theta|\theta|\si{\radian}|angle on the x-axis
+theta_b|\theta_b|\si{\radian}|pitch of the dredge bot on the Euclidean $z$-axis
+theta_c|\theta_{c}|\si{\radian}|pitch of the crawler on the Euclidean x-axis
+theta_imu|\theta_{IMU}|\si{\radian}|pitch of the IMU on the Euclidean x-axis
+theta_p|\theta_{p}|\si{\degree}|inclination of the pipeline
+theta_s|\theta_{s}|\si{\radian}|sink angle of an Archimedes screw
+theta_si|\theta_{si}|\si{\radian}|soft iron axis offset along the x-axis
+u|\vv{u}|\si{-}|unit vector
+u_k|\vv{u}_k|\si{-}|control inputs
+u_k-1|\vv{u}_{k-1}|\si{-}|control inputs from the previous component of the vector
+v|v|\si{\cubic\meter\per\kilo\gram}|specific volume
+v_L|v_L|\si{\meter\per\second}|translational velocity of left Archimedes screw
+v_R|v_R|\si{\meter\per\second}|translational velocity of right Archimedes screw
+v_f|v_f|\si{\meter\per\second}|velocity of a fluid at a certain point
+v_f_1|v_{f,1}|\si{\meter\per\second}|velocity of a fluid at point 1
+v_f_2|v_{f,2}|\si{\meter\per\second}|velocity of a fluid at point 2
+v_k|\vv{v}_k|\si{-}|measurement noise
+v_p|v_{p}|\si{\meter\per\second}|mixture velocity in discharge line
+v_s|v_{s}|\si{\meter\per\second}|mixture velocity in suction line
+v_z|v_z|\si{\meter\per\second}|velocity along the z-axis
+v_z_k|v_{z,k}|\si{\meter\per\second}|velocity along the z-axis at time \ensuremath{k}
+v_z_k-1|v_{z,k-1}|\si{\meter\per\second}|velocity along the z-axis at time \ensuremath{k - 1}
+varepsilon_c|\varepsilon_c|\si{-}|heating efficiency of a Carnot cycle
+varepsilon_eff|\varepsilon_{eff}|\si{-}|effective cooling efficiency
+varepsilon_th|\varepsilon_{th}|\si{-}|theoretical heating efficiency
+varepsilon_w|\varepsilon_w|\si{-}|real heating efficiency
+w_a|w_a|\si{\meter}|width of the Archimedes screw in contact with the soil
+w_eff|w_{eff}|\si{\joule\per\kilo\gram}|specific effective work
+w_is|w_{is}|\si{\joule\per\kilo\gram}|specific isentropic work
+w_k|\vv{w}_k|\si{-}|process noise
+x|x|\si{\meter}|location along the x-axis
+x_h|x_h|\si{\tesla}|hard iron distortion along the x-axis
+x_k|\vv{x}_k|\si{-}|state vector describing the state of a system at the \textit{k}th component of \ensuremath{\vv{x}}
+x_k0|\vv{x}_0|\si{-}|state vector describing the initial state of a system at the \textit{k}th component of \ensuremath{\vv{x}}
+x_kg|\vv{x}_{g,k}|\si{-}|ground truth state, describing the real state of a system \textit{k}th component of \ensuremath{\vv{x}}
+x_khat|\hat{x}_k|\si{-}|an estimation of the state vector \ensuremath{\vv{x}}
+x_kt+1|\vv{x}_{k+1}|\si{-}|a state estimate of \ensuremath{\vv{x}}, conditioned on all available measurements at time \ensuremath{t_k}
+x_kt+1hat|\hat{x}_{k+1}|\si{-}|a posteriori estimate of \ensuremath{\vv{x}}, conditioned on all available measurements at time \ensuremath{t_k}
+x_kt-1|\vv{x}_{k-1}|\si{-}|a priori state of \ensuremath{\vv{x}_k}, conditioned on all prior measurements, except the one at time \ensuremath{t_k}
+x_kt-1hat|\hat{x}_{k-1}|\si{-}|a priori estimate of \ensuremath{\vv{x}_k}, conditioned on all prior measurements, except the one at time \ensuremath{t_k}
+x_ktilde|\tilde{x}_k|\si{-}|Error of the state of a system at the \textit{k}th component of \ensuremath{\vv{x}}
+x_m|x_m|\si{\tesla}|raw magnetometer value along the x-axis
+x_w|x_w|\si{-}|humidity by mass
+y|y|\si{\meter}|location along the y-axis
+y_1|y_1|\si{\tesla}|y-index of greatest magnetic magnitude
+y_h|y_h|\si{\tesla}|hard iron distortion along the y-axis
+y_k|\vv{y}_k|\si{-}|measured values
+y_k_prime|\vv{y}_k^{'}|\si{-}|transformed measured values
+y_l|y_l|\si{\meter}|a gls-monotonically increasing function of the difference between the next moving directions
+y_m|y_m|\si{\tesla}|raw magnetometer value along the y-axis
+z|z|\si{\meter}|height
+z_1|z_1|\si{\meter}|height at point 1
+z_2|z_2|\si{\meter}|height at point 2
+z_epsilon|z_{\epsilon}|\si{\meter}|height error
+z_k|\vv{z}_k|\si{-}|measured values mapped to the state space
+z_m|z_m|\si{\tesla}|raw magnetometer value along the z-axis
+z_p|z_p|\si{\meter}|height of the pressure sensor with regards to the soil bed

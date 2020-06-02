@@ -51,7 +51,7 @@ simulation}.
 
 \subsubsection{ACCELEROMETER}
 
-\begin{RoyalFigure}[!htb, label=fig:accelerometersim]{SIGNAL TRANSFORM ACCELEROMETER}
+\begin{RoyalFigure}[htb, label=fig:accelerometersim]{SIGNAL TRANSFORM ACCELEROMETER}
 	\begin{tikzpicture}[auto, node distance=4cm,>=latex', align=center]
 		\node[block] (digitize) {Digitize};
 		\node[lbl] (bits) at ($(digitize.north)+(0, 1)$) {\tiny Bits};
@@ -74,7 +74,7 @@ simulation}.
 
 \subsubsection{GYROSCOPE}
 
-\begin{RoyalFigure}[!htb, label=fig:gyroscopesim]{SIGNAL TRANSFORM GYROSCOPE}
+\begin{RoyalFigure}[htb, label=fig:gyroscopesim]{SIGNAL TRANSFORM GYROSCOPE}
 	\begin{tikzpicture}[auto, node distance=4cm,>=latex', align=center]
 
 		\node[input] (input) {};
@@ -102,9 +102,9 @@ simulation}.
 
 		\node[output, right of=digitize, xshift=-2cm] (output) {};
 
-		\draw[--] (input) -- (s1) node[midway] {\gls{sym-y_k}};
+		\draw[] (input) -- (s1) node[midway] {\gls{sym-y_k}};
 		\draw[-latex] (s1) -- (noise);
-		\draw[--] (noise) -- (s2);
+		\draw[] (noise) -- (s2);
 		\draw[-latex] (s2) -- (digitize);
 		\draw[-latex] (digitize) -- (output) node[midway] {\gls{sym-y_k_prime}};
 
@@ -113,7 +113,7 @@ simulation}.
 
 \subsubsection{MAGNETOMETER}
 
-\begin{RoyalFigure}[!htb, label=fig:magnetometersim]{SIGNAL TRANSFORM MAGNETOMETER}
+\begin{RoyalFigure}[htb, label=fig:magnetometersim]{SIGNAL TRANSFORM MAGNETOMETER}
 	\begin{tikzpicture}[auto, node distance=4cm,>=latex', align=center]
 		\node[block] (digitize) {Digitize};
 		\node[lbl] (bits) at ($(digitize.north)+(0, 1)$) {\tiny Bits};
@@ -141,7 +141,7 @@ simulation}.
 
 \subsubsection{ENCODER}
 
-\begin{RoyalFigure}[!htb, label=fig:encodersim]{SIGNAL TRANSFORM ENCODER}
+\begin{RoyalFigure}[htb, label=fig:encodersim]{SIGNAL TRANSFORM ENCODER}
 	\begin{tikzpicture}[auto, node distance=4cm,>=latex', align=center]
 		\node[block] (digitize) {Digitize};
 		\node[lbl] (bits) at ($(digitize.north)+(0, 1)$) {\tiny Bits};
@@ -164,7 +164,7 @@ simulation}.
 
 \subsubsection{PRESSURE SENSOR}
 
-\begin{RoyalFigure}[!htb, label=fig:pressuresensorsim]{SIGNAL TRANSFORM PRESSURE SENSOR}
+\begin{RoyalFigure}[htb, label=fig:pressuresensorsim]{SIGNAL TRANSFORM PRESSURE SENSOR}
 	\begin{tikzpicture}[auto, node distance=4cm,>=latex', align=center]
 		\node[block] (digitize) {Digitize};
 		\node[lbl] (bits) at ($(digitize.north)+(0, 1)$) {\tiny Bits};
@@ -198,14 +198,12 @@ planning algorithms can be executed without unacceptable drift of a crawler duri
 
 \section{RESULTS}\label{sec:results}
 
-
-\begin{RoyalFigure}[!htb, label=fig:coverage_wo_kalman]{CPP WITH/WITHOUT KALMAN FILTERING}
-	\center
+\begin{RoyalFigure}[htb, label=fig:coverage_wo_kalman]{CPP WITH/WITHOUT KALMAN FILTERING}
 	\includegraphics[width=0.333\textwidth,trim=10 10 10 10,clip]{analytic_path.png}
 	\includegraphics[width=0.333\textwidth,trim=10 10 10 10,clip]{normal_path.png}
 	\includegraphics[width=0.333\textwidth,trim=10 10 10 10,clip]{optimal_path.png}
 \end{RoyalFigure}
 
-\begin{RoyalFigure}[!htb, label=fig:NEES_kalman]{NEES OF THE CONTROLLER}
+\begin{RoyalFigure}[htb, label=fig:NEES_kalman]{NEES OF THE CONTROLLER}
 	\includegraphics[width=\textwidth,trim=10 10 10 10,clip]{NEES_compared.png}
 \end{RoyalFigure}
