@@ -1,3 +1,6 @@
 [submodule "resources/chrono_sensor"]
 	path = resources/chrono_sensor
 	url = https://github.com/jellespijker/chrono_sensor.git
+[submodule "resources/AODbearingcap"]
+	path = resources/AODbearingcap
+	url = https://github.com/jellespijker/AODbearingcap.git
