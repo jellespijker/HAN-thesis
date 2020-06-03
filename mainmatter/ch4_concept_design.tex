@@ -879,34 +879,115 @@ found in equation~\ref{eq:submerged weight}.
 \subsection{DREDGE MODEL}
 
 During coverage travel the maximum speed \(\max \gls{sym-v_k}\) is limited against the performance of the dredging
-system, see Note~\ref{assumption_dredge_speed}. When the crawler is in this state the \gls{gls-draghead} is lowered and
-the projected front of this head is seen as the entrance for the \gls{gls-dredgeline} system. This sytem transports the
-\gls{gls-slurry} to a \gls{gls-hopper} located above water. Transported \gls{gls-slurry} behave in reality as
-\gls{gls-Bingham-plastic}s. Difficult to get moving, but once transportation is in a steady-state the assumption for
-this paper is made that it behaves as regular Newtonian fluid.
+system, see Note~\ref{assumption_dredge_speed}. When the crawler is in this state, the \gls{gls-draghead} is lowered and
+the projected front of this head is seen as the entrance for the \gls{gls-dredgeline} system. The travel velocity can be
+expressed as equation~\ref{eq:dredge_speed_v}. Where \gls{sym-Q} is the volumetric flow of the system and \gls{sym-h_dh}
+and \gls{sym-w_dh} are the height and width of the entrance, as shown in Figure~\ref{fig:dredge_head}.
 
-There are two possible bottlenecks in this dredging system as a whole, one is the throughput in the dredge mouth, due to
-its physical dimensions and transport performance of the auger, while the second is the hydraulic system. The throughput
-of the system is
+\begin{equation}\label{eq:dredge_speed_v}
+	\gls{sym-v_k} = \frac{\gls{sym-Q}}{\gls{sym-h_dh} \gls{sym-w_dh}}
+\end{equation}
 
-\import{resources/equations/}{v_s}
-\import{resources/equations/}{v_p}
-\import{resources/equations/}{p_s}
-\import{resources/equations/}{p_v}
-\import{resources/equations/}{p_i}
-\import{resources/equations/}{p_ro}
-\import{resources/equations/}{p_sm}
-\import{resources/equations/}{p_rp}
-\import{resources/equations/}{labda}
-\import{resources/equations/}{Re}
-\import{resources/equations/}{psi}
-\import{resources/equations/}{c_t}
-\import{resources/equations/}{F_r}
-\import{resources/equations/}{p_p}
-\import{resources/equations/}{p_man}
+The volumetric flow \gls{sym-Q} is dependent on the pressure loss of a system, due to friction and other effects and the
+pressure gain, provided by pumps or potential height differences. Both are flow depend. The pressure loss for a system
+is calculated for both suction line, connected to the dredge head and discharge hose, positioned after the submerged
+pump at the pressure side. Equation~\ref{eq:fluid_velocity} is the velocity \gls{sym-v_f} in both pipes. It can be
+calculated by dividing the flow \gls{sym-Q} with the cross section, obtained from the pipe diamter \gls{sym-d_p}. The
+velocity is used to determine the pressure required to accelerate the mixture to the velocity. As shown in
+equation~\ref{eq:kinematic_head}.
 
+\begin{equation}\label{eq:fluid_velocity}
+	\gls{sym-v_f} = \frac{\gls{sym-Q}}{\frac{\pi}{4} \gls{sym-d_p}^2}
+\end{equation}
 
+\begin{equation}\label{eq:kinematic_head}
+	\gls{sym-p_v} = \frac{1}{2} \gls{sym-rho_m} \gls{sym-v_f}^2
+\end{equation}
 
+\noindent The loss of pressure at the suction inlet \gls{sym-p_i} can be determined with equation~\ref{eq:loss_inlet}.
+Which are governed by the shape, size and gridding of the suction mouth~\cite{van_den_berg_ihc_2013}.
+\citet{van_den_berg_ihc_2013} states that on a properly constructed suction mouth the resistance coefficient
+\gls{sym-epsilon_s} is approximately \( 0.4 \). The pressure loss is a direct result from the kinematic behavior of a
+mixture, with a density \gls{sym-rho_m}, entering the system. The same goes for equation~\ref{eq:appendages_loss}, which
+describe the loss due to obstructions and appendages \gls{sym-p_ro}. The resistance coefficient \gls{sym-epsilon_b} is
+usually obtained from empirical obtained values.
+
+\begin{equation}\label{eq:loss_inlet}
+	\gls{sym-p_i} = \gls{sym-epsilon_s} \frac{1}{2} \gls{sym-rho_m} \gls{sym-v_f}^2
+\end{equation}
+
+\begin{equation}\label{eq:appendages_loss}
+	\gls{sym-p_ro} = \gls{sym-epsilon_b} \frac{1}{2} \gls{sym-rho_m} \gls{sym-v_f}^2
+\end{equation}
+
+\noindent The pressure loss as a result of the height difference \gls{sym-Delta_z}, also know as the static head
+\gls{sym-p_sm}, is calculated with equation~\ref{eq:static_head}.
+
+\begin{equation}\label{eq:static_head}
+	\gls{sym-p_sm} = \gls{sym-rho_m} \gls{sym-g} \gls{sym-Delta-z}
+\end{equation}
+
+When a fluid is transported through a pipe it is subject to external and internal shear as a result of its velocity and
+surrounding body. Which results in a pressure loss \gls{sym-p_rp} for each meter of pipe. Both
+\citet{van_den_berg_ihc_2013} and \citet{miedema_slurry_2016} make use of the Durand-Condolois formula in
+\gls{gls-slurry} transportation systems. The friction factor \gls{sym-lambda} per meter can be estimated with
+equation~\ref{eq:jufin_friction_factor} which was established with the Jufin-Lopatin frictional-head-loss model and is a
+calculated with the Reynolds number \gls{sym-Re}, which is a direct result of the velocity and the kinematic viscosity
+\gls{sym-mu} of fluid moving through a pipe. The pressure loss is calculated for water \gls{sym-rho_w} and modified
+according the Durand-Condolis correction factor \gls{sym-psi_m}, calculated in equation~\ref{eq:corr_Durand_Condolios}.
+
+\begin{equation}\label{eq:loss_due_length}
+	\gls{sym-p_rp} = \gls{sym-lambda} \frac{\gls{sym-Delta_L}}{\gls{sym-d_p}} \gls{sym-rho_w} \gls{sym-v_f}^2 \gls{sym-psi}
+\end{equation}
+
+\begin{equation}\label{eq:jufin_friction_factor}
+	\gls{sym-lambda} =  0.31 \left(\log \gls{sym-Re} - 1\right)^{-2}
+\end{equation}
+
+\begin{equation}\label{eq:reynoldsnumber}
+	\gls{sym-Re} = \frac{\gls{sym-v_f} \gls{sym-d_p}}{\gls{sym-mu}}
+\end{equation}
+
+\noindent The Durand-Condolis correction factor (eq.~\ref{eq:corr_Durand_Condolios}) is an emperical model for inclining
+\gls{sym-theat} pipes. Which was fitted against the volumetric concentration \gls{sym-c_t} (eq.~\ref{eq:c_t}) and the
+Froude number \gls{sym-F_r} for water as well as the Froude number for the grains \gls{sym-F_rxd}. Which can be assumed
+as \( 0.501 \) for a moderatly fine sand \(d_m \SI{0.236}{\milli\meter} \).
+
+\begin{equation}\label{eq:corr_Durand_Condolios}
+	\gls{sym-psi_m} = 1 + 180 \gls{sym-c_t} \gls{sym-F_r} \gls{sym-F_rxd} \cos \gls{sym-theta}
+\end{equation}
+
+\begin{equation}\label{eq:volumetric_conetration_solid}
+	\gls{sym-c_t} = \frac{\gls{sym-rho_m} - \gls{sym-rho_w}}{\gls{sym-rho} - \gls{sym-rho_w}}
+\end{equation}
+
+Using the above established pressure losses equations, the loss at the suction side \gls{sym-p_s} can be calculated with
+equation~\ref{eq:pressure_suction}. This represent the pressure at the entrance of the submerged pump. While the loss at
+the pressure side \gls{sym-p_p} is calculated with equation \ref{eq:pressure_press}. Subtracting the suction side loss
+from the pressure side, as shown in equation~\ref{eq:man_pressure}, gives the manometric head \gls{sym-p_man} of the
+system.
+
+\begin{equation}\label{eq:pressure_suction}
+	\gls{sym-p_s} = \gls{sym-p_atm} + \gls{sym-p_ss} - \gls{sym-p_v} - \gls{sym-p_i} - \gls{sym-p_ro} - \gls{sym-p_sm} - \gls{sym-p_rp}
+\end{equation}
+
+\begin{equation}\label{eq:pressure_press}
+	\gls{sym-p_p} = \gls{sym-p_v} + \gls{sym-p_ro} - \gls{sym-p_sm} - \gls{sym-p_rp} + \gls{sym-atm}
+\end{equation}
+
+\begin{equation}\label{eq:man_pressure}
+	\gls{sym-p_man} = \gls{sym-p_p} - \gls{sym-p_s}
+\end{equation}
+
+Figure~\ref{fig:Q_h} plots the pressure loss of the system \gls{sym-p_man} at various flows \gls{sym-Q}, against the
+pump characteristic. The datasheet for the used pump can be found in Appendix~\ref{app:pump}. The Q-h plot shows that
+the operating point will lay somewhere around \SI{140}{\cubic\meter\per\hour}. Which results in a dredging velocity
+\gls{sym-v_k} of \SI{0.043}{\meter\per\second}, which can also be expressed as \SI{155}{\meter\per\hour}. This means
+that a surface of of roughly \SI{466}{\meter\squared} can be excavated with a depth of \SI{300}{\milli\meter}.
+
+\begin{RoyalFigure}[htb, label=fig:Q_h]{PRESSURE VS FLOW}
+	\includegraphics[width=0.66\textwidth,trim=2 2 2 2,clip]{q_h.png}
+\end{RoyalFigure}
 
 \subsection{STEERING MODEL}
 

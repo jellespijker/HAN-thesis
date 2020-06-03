@@ -1,8 +1,10 @@
 # %%
 import pandas as pd
-from sympy import init_printing, symbols, latex, pi, Rational, log, cos, sqrt
+import numpy as np
+from math import pi as pi, log, cos
+from sympy import init_printing, symbols, latex, Rational, log as _log, cos as _cos, sqrt, pi as _pi
 
-init_printing()
+#init_printing()
 
 # %% symbols
 
@@ -74,7 +76,7 @@ add_symbol(sym, F_rxd, '-', 'Froude number of the grains')
 add_symbol(sym, theta, '\\degree', 'inclination of the pipeline')
 add_symbol(sym, H, '\\meter', 'vertical distance between center of the pump and the elevation of the pipeline')
 
-store_glossary(sym)
+#store_glossary(sym)
 
 # %% equations
 
@@ -113,7 +115,7 @@ def export_latex(expr, name):
 
 
 def _v(Q, D):
-    return Q / (pi / 4 * D ** 2)
+    return Q / (np.pi / 4 * D ** 2)
 
 
 eq['v_s'] = export_latex(_v(Q, D_s), v_s)
@@ -132,11 +134,11 @@ def _p_ss(rho_w, g, S):
 
 
 def _p_v(rho_m, v_s):
-    return Rational(1, 2) * rho_m * v_s ** 2  # / 1000
+    return 1/2 * rho_m * v_s ** 2  # / 1000
 
 
 def _p_i_ro(eps, rho, v_s):
-    return eps * Rational(1, 2) * rho * v_s ** 2  # / 1000
+    return eps * 1/2 * rho * v_s ** 2  # / 1000
 
 
 def _p_sm(rho_m, g, S, a, C):
@@ -144,11 +146,11 @@ def _p_sm(rho_m, g, S, a, C):
 
 
 def _p_rp(labda, L, D_s, rho_w, v_s, psi):
-    return labda * L / D_s * Rational(1, 2) * rho_w * v_s ** 2 * psi  # / 1000 
+    return labda * L / D_s * 1/2 * rho_w * v_s ** 2 * psi  # / 1000 
 
 
 def _labda(Re):
-    return 0.31 * (log(Re) - 1) ** -2
+    return 0.31 * (np.log(Re) - 1) ** -2
 
 
 def _Re(v_s, D_s, mu):
@@ -156,7 +158,7 @@ def _Re(v_s, D_s, mu):
 
 
 def _psi(c_t, F_r, F_rxd, theta):
-    return 1 + 180 * c_t * F_r**-3 * F_rxd**1.5 * cos(theta)
+    return 1 + 180 * c_t * F_r**-3 * F_rxd**1.5 * np.cos(theta)
 
 
 def _c_t(rho_m, rho_w, rho_s):
@@ -164,43 +166,145 @@ def _c_t(rho_m, rho_w, rho_s):
 
 
 def _F_r(v_s, g, D_s):
-    return v_s / sqrt(g * D_s)
+    return v_s / (g * D_s)**-2
 
 
 def _p_p(rho_m, v_s, v_p):
-    return Rational(1, 2) * rho_m * v_s ** 2  # / 1000
+    return 1/2 * rho_m * v_s ** 2  # / 1000
 
 
 def _p_man(p_p, p_s):
     return p_p - p_s
 
 
-eq['p_s'] = export_latex(_sum_p(p_atm, p_ss, -p_v, -p_i, -p_ro, -p_sm, -p_rp), p_s)
+# eq['p_s'] = export_latex(_sum_p(p_atm, p_ss, -p_v, -p_i, -p_ro, -p_sm, -p_rp), p_s)
+# 
+# eq['p_ss'] = export_latex(_p_ss(rho_w, g, S), p_ss)
+# 
+# eq['p_v'] = export_latex(_p_v(rho_m, v_s), p_v)
+# 
+# eq['p_i'] = export_latex(_p_i_ro(epsilon_s, rho_m, v_s), p_i)
+# 
+# eq['p_ro'] = export_latex(_p_i_ro(epsilon_b, rho_m, v_s), p_ro)
+# 
+# eq['p_sm'] = export_latex(_p_sm(rho_m, g, S, a, C), p_sm)
+# 
+# eq['p_rp'] = export_latex(_p_rp(labda, L, D_s, rho_w, v_s, psi), p_rp)
+# 
+# eq['labda'] = export_latex(_labda(Re), labda)
+# 
+# eq['Re'] = export_latex(_Re(v_s, D_s, mu), Re)
+# 
+# eq['psi'] = export_latex(_psi(c_t, F_r, F_rxd, theta), psi)
+# 
+# eq['c_t'] = export_latex(_c_t(rho_m, rho_w, rho_s), c_t)
+# 
+# eq['F_r'] = export_latex(_F_r(v_s, g, D_s), F_r)
+# 
+# eq['p_p'] = export_latex(_p_p(rho_m, v_s, v_p), p_p)
+# 
+# eq['p_man'] = export_latex(_p_man(p_p, p_s), p_man)
 
-eq['p_ss'] = export_latex(_p_ss(rho_w, g, S), p_ss)
+#save_to_tex(eq)
 
-eq['p_v'] = export_latex(_p_v(rho_m, v_s), p_v)
+#%% Q_h graph
 
-eq['p_i'] = export_latex(_p_i_ro(epsilon_s, rho_m, v_s), p_i)
+from pint import UnitRegistry
+import matplotlib.pyplot as plt
+import seaborn as sns
+import pandas as pd
 
-eq['p_ro'] = export_latex(_p_i_ro(epsilon_b, rho_m, v_s), p_ro)
+u = UnitRegistry()
+u.setup_matplotlib()
 
-eq['p_sm'] = export_latex(_p_sm(rho_m, g, S, a, C), p_sm)
+p_atm = (1. * u.atmosphere).to('Pa')
 
-eq['p_rp'] = export_latex(_p_rp(labda, L, D_s, rho_w, v_s, psi), p_rp)
+L_p = 200. * u.m
+L_s = 10. * u.m
+L_a = 7. * u.m
+theta = 10. * u.deg
+S = 30. * u.m
+H = 32. * u.m
+a = S - L_a * np.sin(theta.to('rad').m)
 
-eq['labda'] = export_latex(_labda(Re), labda)
+D_s = 100. * u.mm
+D_p = 150. * u.mm
 
-eq['Re'] = export_latex(_Re(v_s, D_s, mu), Re)
+epsilon_b = 0.4
+epsilon_s = 0.4
 
-eq['psi'] = export_latex(_psi(c_t, F_r, F_rxd, theta), psi)
+rho_w = 999. * u.kg / u.m ** 3
+rho_m = 1400. * u.kg / u.m ** 3
+rho_s = 2650. * u.kg / u.m ** 3
+mu = 1.17e-6 * u.m ** 2 / u.s
 
-eq['c_t'] = export_latex(_c_t(rho_m, rho_w, rho_s), c_t)
+C = 1.
+F_rxd = 0.501
 
-eq['F_r'] = export_latex(_F_r(v_s, g, D_s), F_r)
+g = (1. * u.g0).to_base_units()
 
-eq['p_p'] = export_latex(_p_p(rho_m, v_s, v_p), p_p)
+Q = np.linspace(0.02, 0.14, 100) * u.m ** 3 / u.s
+v_s = _v(Q, D_s)
+v_p = _v(Q, D_p)
 
-eq['p_man'] = export_latex(_p_man(p_p, p_s), p_man)
+#%% Suction Side
+F_r = _F_r(v_s.to('m/s').m, g.to('m/s**2').m, D_s.to('m').m)
 
-save_to_tex(eq)
+c_t = _c_t(rho_m, rho_w, rho_s)
+
+psi = _psi(c_t, F_r, F_rxd, theta.to('rad'))
+
+Re = _Re(v_s, D_s, mu)
+
+labda = _labda(Re)
+
+p_rp = _p_rp(labda, L_s, D_s, rho_w, v_s, psi)
+
+p_sm = _p_sm(rho_m, g, S, a, C)
+
+p_ro = _p_i_ro(epsilon_b, rho_m, v_s)
+
+p_i = _p_i_ro(epsilon_s, rho_m, v_s)
+
+p_v = _p_v(rho_m, v_s)
+
+p_ss = _p_ss(rho_w, g, S)
+
+p_s = p_atm + p_ss - p_v - p_i - p_ro - p_sm - p_rp
+
+#%% pressure side
+
+p_v = 1/2 * rho_m * (v_p - v_s)**2
+
+p_sm = rho_m * g * (H + a)
+
+p_ro = epsilon_b * rho_m * v_p**2
+
+F_r = v_p.to('m/s').m / (g.to('m/s**2').m * D_p.to('m').m)**-2
+
+psi = 1 + 180 * c_t * F_r * F_rxd * np.cos(theta)
+
+Re = v_p * D_p / mu
+
+labda = _labda(Re)
+
+p_rp = labda * L_p / D_p * 1/2 * rho_w * v_p**2 * psi
+
+p_p = p_v + p_rp + p_ro + p_sm + p_atm
+
+p_man = p_p - p_s
+
+#%%
+
+# df_l = pd.DataFrame(dict(zip(['Q [m^3/s]', 'p [Pa]', 'system'], [Q.to('m**3/s').m, p_s.to('Pa').m, ['pipe'] * len(p_s)])))
+# df_p = pd.DataFrame({'Q [m^3/s]': [0.03, 0.085, 0.165],
+#                      'p [Pa]': [518e3, 475e3, 270e3],
+#                      'system': ['TT15-55 pump'] * 3})
+# 
+# df = pd.concat([df_p, df_l])
+# sns.set()
+# sns.set(style="whitegrid")
+# sns.set_context("paper")
+# pal = sns.color_palette("Reds", n_colors=2)
+# sns.lineplot(x='Q [m^3/s]', y='p [Pa]', data=df_l, hue='system')
+

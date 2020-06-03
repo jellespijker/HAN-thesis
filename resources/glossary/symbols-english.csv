@@ -30,6 +30,7 @@ Delta_psi|\Delta \psi|\si{\radian}|difference in yaw of a crawler on the Euclide
 Delta_t|\Delta t|\si{\second}|time difference
 Delta_tau|\Delta \tau|\si{\newton\meter}|torque difference
 Delta_x|\Delta x|\si{\meter}|distance between nodes
+Delta_z|\Delta z|\si{\meter}|height difference
 E_hat|\hat{E}|\si{\volt\per\meter}|amplitude of the electric field wave
 E_x|E_x|\si{\volt\per\meter}|Is defined mathematically as a vector field that associates to each point in space the (electrostatic or Coulomb) force per unit of charge exerted on an infinitesimal positive test charge at rest at that point.
 F|F|\si{\newton}|force
@@ -164,6 +165,7 @@ gamma_m|\gamma_m|\si{\newton\per\cubic\meter}|specific weight of diluted water d
 gamma_sw|\gamma_{sw}|\si{\newton\per\cubic\meter}|specific weight of submerged soil
 gamma_w|\gamma_w|\si{\newton\per\cubic\meter}|specific weight of water
 h|h|\si{\meter}|height difference between radius of screw and its submerged part
+h_dh|h_{dh}|\si{\meter}|height of a dredge head
 h_a|h_{a}|\si{\meter}|height of water level above center line of a pump
 h_c|h_c|\si{\watt\per\square\meter}|convection heat-transfer coefficient
 h_in|h_{in}|\si{\kilo\joule\per\kilo\gram\per\kelvin}|specific enthalpy at entry point
@@ -303,6 +305,7 @@ w_a|w_a|\si{\meter}|width of the Archimedes screw in contact with the soil
 w_eff|w_{eff}|\si{\joule\per\kilo\gram}|specific effective work
 w_is|w_{is}|\si{\joule\per\kilo\gram}|specific isentropic work
 w_k|\vv{w}_k|\si{-}|process noise
+w_dh|w_{dh}|\si{\meter}| width of a dredge head
 x|x|\si{\meter}|location along the x-axis
 x_h|x_h|\si{\tesla}|hard iron distortion along the x-axis
 x_k|\vv{x}_k|\si{-}|state vector describing the state of a system at the \textit{k}th component of \ensuremath{\vv{x}}
