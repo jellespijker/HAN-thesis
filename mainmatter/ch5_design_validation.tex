@@ -3,15 +3,23 @@
 % !TeX encoding = UTF-8
 \chapter{DESIGN VALIDATION}\label{chap:design validation}
 
-It is important to validate the performance of the proposed controller, this could either be done in a field test,
-full-scale or scaled down, or in a virtual simulation environment. Provided that the simulated environment is an
-accurate representation of the physical world. The crawler which was available at the beginning of the project was
-unfortunately halfway the project, disassembled and no longer a viable method to verify the proposed controller. Roughly
-around the same time, the working environment and contract of of the author changed as well. This forced validation to
-be performed in a simulation. This chapter will described the simulation setup and used methods in
-Section~\ref{sec:simulation}. The  results are discussed in Section~\ref{sec:results}.
+The actual implementation of the controller framework, as set out in Section~\ref{sec:controller}, is dubbed
+``ohCaptain''. The source code is provided in Appendix~\ref{app:ohcaptain source code}. The code repository can be found
+at \url{https://github.com/jellespijker/ohCaptain}. This includes build scripts and device-tree overlays for an arm
+embedded \gls{acr-SBC} of the \gls{acr-BBB} variant.
+
+It is important to validate the performance of the proposed controller. In particular the localization under
+uncertainty challenge. This could either be done in a field test with the actual crawler, or in a virtual simulation
+environment. Provided that the simulated environment is an accurate representation of the physical world. The crawler
+which was available at the beginning of this project, was for various unrelated reasons disassembled, before any actual
+testing could be performed. Roughly around the same time, the working environment and contract of of the author changed
+as well. This forced validation to be performed in a simulation.
+
+\noindent This chapter describes the simulation setup in Section~\ref{sec:simulation}. The final results are discussed
+in Section~\ref{sec:results}.
 
 \section{SIMULATION}\label{sec:simulation}
+
 In order to tell something meaningful about performance of a controller, it has to be subject to the same physical
 processes, as it would in real-life, albeit in virtual form. Section\ref{sec:motion model} lists assumed forces
 and processes acting upon on a crawler and states that drive-train characteristic and soil dynamics play a huge part in
@@ -43,8 +51,8 @@ bodies. A custom model for different models of a drive-train, body, wheels/track
 connected as needed. Were the behavior of that individual model can be thought of as black box. As long as the interface
 with the components it connects to are maintained. Section~\ref{sec:simulation model} describes the modeling of the
 drive train in detail. The support of realistic sensor characteristic are not yet implemented in Project Chrono, since a
-big part of the validation is measuring the performance of a Kalman Filter. An extension for Project Chrono was written,
-which allows for the modeling of sensor behavior. This is extension is described in Section~\ref{sec:sensor
+big part of the validation is measuring the performance of a Kalman Filter. An extension for Project Chrono had to be
+written, which allows for the modeling of sensor behavior. This is extension is described in Section~\ref{sec:sensor
 simulation}.
 
 \subsection{SENSOR SIMULATION}\label{sec:sensor simulation}
