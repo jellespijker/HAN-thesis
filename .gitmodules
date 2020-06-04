@@ -4,3 +4,6 @@
 [submodule "resources/AODbearingcap"]
 	path = resources/AODbearingcap
 	url = https://github.com/jellespijker/AODbearingcap.git
+[submodule "resources/ohCaptain"]
+	path = resources/ohCaptain
+	url = https://github.com/jellespijker/ohCaptain.git
