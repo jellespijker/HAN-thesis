@@ -21,31 +21,7 @@
 
 \section{PERIPHERALS}\label{sec:peripherals}
 
-\subsection{COMMUNICATION}\label{sec:communication}
-
-\subsubsection{WIRELESS}\label{sec:wireless}
-
-\subsubsection{UMBILICAL}\label{sec:umbilical}
-
-
-\subsection{LOCALIZATION}\label{sec:localization}
-
-\subsubsection{IMU SENSOR}\label{sec:imu sensor}
-
-\subsubsection{DEPTH SENSOR}\label{sec:depth sensor}
-% pressure sensor environment
-
-\subsubsection{SATELLITE DRONES}\label{sec:Cooperative localization}
-
-% Use GIB text and image compare with kleunen echoes from the deep
-
-\subsection{PROPULSION SENSORS}\label{sec:propulsion sensors}
-% torque measurement with the use of a current sensor
-% rotational measurement
-
-\subsection{PRODUCTION SENSORS}\label{sec:production sensors}
-% Pressure sensor
-% flow sensor
+% describe IMU, pressure sensor height, torque (with pressure sensor), encoder and sonar
 
 \section{KALMAN FILTER DESIGN}
 
@@ -949,9 +925,10 @@ according the Durand-Condolis correction factor \gls{sym-psi_m}, calculated in e
 \end{equation}
 
 \noindent The Durand-Condolis correction factor (eq.~\ref{eq:corr_Durand_Condolios}) is an emperical model for inclining
-\gls{sym-theat} pipes. Which was fitted against the volumetric concentration \gls{sym-c_t} (eq.~\ref{eq:c_t}) and the
-Froude number \gls{sym-F_r} for water as well as the Froude number for the grains \gls{sym-F_rxd}. Which can be assumed
-as \( 0.501 \) for a moderatly fine sand \(d_m \SI{0.236}{\milli\meter} \).
+\gls{sym-theat} pipes. Which was fitted against the volumetric concentration \gls{sym-c_t}
+(eq.~\ref{eq:volumetric_conetration_solid}) and the Froude number \gls{sym-F_r} for water as well as the Froude number
+for the grains \gls{sym-F_rxd}. Which can be assumed as \( 0.501 \) for a moderatly fine sand \(d_m
+\SI{0.236}{\milli\meter} \).
 
 \begin{equation}\label{eq:corr_Durand_Condolios}
 	\gls{sym-psi_m} = 1 + 180 \gls{sym-c_t} \gls{sym-F_r} \gls{sym-F_rxd} \cos \gls{sym-theta}
@@ -1017,7 +994,7 @@ moving frame attached to the center of mass of the crawler \( (X_m, Y_m) \).
 	\gls{sym-omega} = \frac{\gls{sym-v_R}}{\gls{sym-R_t} + \frac{\gls{sym-L}}{2}}
 \end{equation}
 
-\nodindent From where \gls{sym-omega} and \gls{sym-R_t} are expressed as follows:
+\noindent From where \gls{sym-omega} and \gls{sym-R_t} are expressed as follows:
 
 \begin{equation}\label{eq:omega_t}
 	\gls{sym-omega} = \frac{\gls{sym-v_R} - \gls{sym-v_L}}{\gls{sym-L}}
@@ -1053,22 +1030,105 @@ moving frame attached to the center of mass of the crawler \( (X_m, Y_m) \).
 
 \section{CONTROLLER}\label{sec:controller}
 
-\subsection{THE WORLD}
+\gls{comp-MTI} recognizes the potential of autonomous operating vehicles and explores their usability with numerous
+pilots. The crawler for this project is just a single pilot within the whole of \gls{comp-IHC}. Automation and control
+of these vessel was traditionally done with \gls[first]{acr-PLC} units.  Recent strides in performance of
+micro-technology and the makers community, opens up possible usage of alternative devices for control units.
+\gls[first]{acr-SBC} such as the Raspberry Pi and Beaglebone are viable options, which cost a magnitude less then
+regular \gls{acr-PLC} units. These devices have evolved over the years and are now sufficiently powerful that they can
+run standard operating systems and main-stream workloads. Many such boards may be linked together, to create small
+low-clusters that replicate features of large data centers~\cite{johnston_commodity_2018}.  Introduction of these
+devices has trickled down into established industries. Introduced by tinkering employees and the academic world. The
+industry is now in phase with a wide adaption and embrace of these devices in various applications. Taking into account
+that these pilots, including the crawler, are all prototypes, with limited budgets and a need for rapid development it
+is opted to develop control software which runs on a \gls{acr-SBC} and is  setup in a flexible modular and fast language
+such as C++.
 
-\subsection{A VESSEL}
+An autonomous controller has to be able to perform multiple tasks; Such as gathering information, interpret that
+information, decide how to act on it control its actuators and communicate with the outside world. All these processes
+need to be executed at the same time, with different time intervals and different logical strategies. A common software
+pattern called the actor-model fulfill this needs. This is a conceptual design pattern that deals with concurrent
+computations. It defines rules how system components should behave and interact. Actors are primitive unit, they
+receives messages from other actors and act upon them. Either by changing its internal state (performing a task), spawn
+a new actor or relay the message. These messages are send asynchronous and stored in an actors mailbox until they are
+processed by the actor. All actors for a vessel either run on a single \gls{acr-SBC}, or on a cluster of \gls{acr-SBC}.
+This allows actors responsible for computational heavy or complex task to run truly asynchronous. Further use-cases are
+are acting as redundancy safe-guard for actors responsible with critical tasks.
 
-\subsection{THE CAPTAIN}
+In our case a single actor might be a~\gls[first]{acr-PID} controller for an Archimedes screw, a sensor reader, or a
+path generator. Communication between the actors on a single vessel, or between actors on multiple vessel should be done
+with a language neutral platform, which is optimized for speed. Google has developed a method of serializing structured
+data known as ProtoBuf. There method allows for both internal and external communication. The Protobuf method is an
+industry standard. It has a code generator for multiple languages, such as C++, C, Python, Java, Go, Ruby, Rust and
+Scala. Using the Protobuf communication method allows for creation of extensions to the controller framework. Such as a
+\gls[first]{acr-GUI} for a wall operator written in Python. But the most obvious implementation is inter-vessel
+communication in a cooperative swarm of autonomous vehicles with a common goal.
 
-\subsection{THE NAVIGATOR}
+\begin{RoyalNote}[label=Kernel_req]{KERNEL REQUIREMENTS}
+	Because the proposed controller is designed to work on a embedded Linux device running a kernel compiled with the
+	preemptible real-time flags. It will use multiple background processes, responsible for specific tasks, all with their
+	own priority. These tasks mostly run in infinite loops such as: polling sensors, computing location, controlling
+	actuators etcetera. Under Linux, user-space programs have always been preemptible. The kernel interrupts user-space
+	programs to switch to other threads, using regular clock ticks. This means that an infinite loop in an user-space
+	program cannot block the system. The kernel itself is not preemptible by default. This could result in kernel specific
+	operations blocking the crawler control responsiveness. These kernel operations might not be relevant for controlling
+	the state of the crawler, but they might block a crucial control process from being executed. Such as stopping movement
+	before it runs into an obstacle. Applying the RT\_PREEMPT patch to the Linux kernel allows interruption of kernel-space
+	processes. This patch further ensure that clock ticks are deterministic, meaning that the occur with less deviating time
+	intervals then those of an unpatched kernel. Allowing for better estimations in the state vector of the Kalman filter
+	during the prediction phase.
+\end{RoyalNote}
+
+This controller framework is primarily intended for maritime operations, this is reflected in the naming scheme used to
+indicate the different types of actors used. These are ``The Captain'': responsible for execution of the vessels main
+objective,  ``A First mate'': these act as orchestrators on the vessel, ``A Navigator'': responsible for course
+plotting, ``A Boatswain'': responsible for low-level tasks, such as sensor read out or control of an actuator. The above
+mentioned actors adhere to the polymorphism design pattern. The actors for a single vessel are all coupled with a
+individual captain. All communicated between them is encrypted and the only act upon other actors who belong to the same
+captain.
+
+The actual logic for the actor is written in a concrete class which inherit from theses virtual base classes. A specific
+physical \gls{acr-IMU} sensor has its logical written in a concrete class which inherits from a virtual ``A Boatswain''
+class. If an other prototype such as an autonomous operating catamaran, wants to make use of that same type of sensor it
+can reuse that concrete class.
+
+There are two additional base classes in the controller framework. ``The world'' is a class which stores collected and
+known information regarding the physical environment and the state of the vessel herein. This is mainly used by ``The
+Captain'' to decide what to do next and ``The Navigator'' which uses it for plotting a course or mapping known
+locations. The other base class is ``The Vessel'' this class represent the hierarchy of physical components, coupled
+with actor types. The main execution loop runs in this class and reference to all existing actors are to be found in
+this container.
+
+\begin{RoyalFigure}[htb, label=fig:actors]{ACTORS}
+	\includegraphics[width=\textwidth]{actors.png}
+\end{RoyalFigure}
+
+\subsection{THE CAPTAIN}\label{seq:the captain}
+
+The captain is an actor whom is responsible for the overall strategy. He receives his objective from a human controller
+or a captain from an other vessel. The captain is implemented as a Singleton design pattern, meaning that the
+instantiation of this class is limited to one ``single'' instance. He is responsible for spawning the individual crew
+member actors at start-up. Were a randomly generated hash key is transferred to the newborn actors, which is used to
+encrypted all communication between actors belonging to this captain. This acts as safety layer, with the intention that
+only a captain for that vessel can change its state and act upon external commands which are interpreted according to
+the captain logic and can filter out unwanted and/or malicious messages.
 
 
-\subsection{A BOATSWAIN}
-The boatswain is responsible for execution of the different tasks. A crawler has four states of operation, namely:
-normal travel, dredging coverage travel, stationary dredging and standstill. These, and their transitions are depicted
-in diagram \ref{fig:stateoperating}. These state dictate the maximum travel speed \gls{sym-x_k}. During normal travel, a
-crawler moves from a start location to its goal, its traveling speed limited by the  maximum allowable power
-delivered to the propulsion system.
 
+
+ His internal state is changed, based upon message which he recieves
+from the world and vessel actors. He relays his command to a first mate actor, which acts as the vessel orchestration
+node.
+
+\subsection{A WORLD}\label{seq:a world}
+
+\subsection{A VESSEL}\label{seq:a vessel}
+
+
+
+\subsection{A FIRST MATE}\label{seq:first mate}
+
+A First mate actor, answers only to his designated captain, limiting outside interference.
 \begin{RoyalFigure}[!htb, label=fig:stateoperating]{STATE OPERATIONS}
 	\resizebox{9cm}{!}{
 		\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=3.5cm,
@@ -1096,6 +1156,21 @@ delivered to the propulsion system.
 		\path (standstill) edge (exit);
 		\end{tikzpicture}}
 \end{RoyalFigure}
+
+\subsection{A NAVIGATOR}\label{seq:a navigator}
+
+
+\subsection{A BOATSWAIN}\label{seq:a boatswain}
+
+
+
+The boatswain is responsible for execution of the different tasks. A crawler has four states of operation, namely:
+normal travel, dredging coverage travel, stationary dredging and standstill. These, and their transitions are depicted
+in diagram \ref{fig:stateoperating}. These state dictate the maximum travel speed \gls{sym-x_k}. During normal travel, a
+crawler moves from a start location to its goal, its traveling speed limited by the  maximum allowable power
+delivered to the propulsion system.
+
+\subsection{OPERATING STATES}
 
 \subsubsection{COVERAGE DREDGING}
 
