@@ -817,10 +817,12 @@ minimum height=3em, minimum width=6em,rounded corners=.15cm]
 \input{resources/customunits.def}
 
 % === GLOSSARY ===
-\usepackage[acronym,xindy]{glossaries}
+%\usepackage[acronym,xindy]{glossaries}
+\usepackage[automake,acronym,xindy,docdef=atom]{glossaries-extra}
 \usepackage{datatool}
 \glsdisablehyper
-\usepackage{pdfcomment}
+\usepackage[dvipdfmx]{pdfcomment}
+%\usepackage[dvipdfmx]{pdfcomment}
 \usepackage{letltxmacro}
 
 \glsaddkey{unit}{\glsentrytext{\glslabel}}{\glsentryunit}{\GLsentryunit}{\glsunit}{\Glsunit}{\GLSunit}
