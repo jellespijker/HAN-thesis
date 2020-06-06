@@ -3,21 +3,48 @@
 % !TeX encoding = UTF-8
 \chapter{CONTROLLER DESIGN}\label{chap:controller design}
 
+A controller that is capable of making complex decisions in a changing environment, requires different levels of
+abstraction. At the highest level it should be able to form a plan based upon a predefined strategy. A dredging crawler
+should be able cover a certain area removing a specified amount of soil, until reaching the specified depth. Because the
+geometry of the environment in which it operates, is unknown from the beginning, it should be able to adjust and change
+its operating parameters accordingly. Section~\ref{sec:strategy decision} will assess the researched \gls{acr-CPP}
+algorithms and decide which one is best suited for the crawler. In order to adopt and change its behavior to best suit
+the surroundings surrounding it needs to be aware of it and have means of manipulation at its disposal.
+Section~\ref{sec:peripherals} will discuss these required peripherals determine the required types.
 
-\section{CRAWLER}
-% Describe the current working of the crawler Use diagram and crawler pictures
-
-% Describe the choices that we need to make
-
-% Strategy
-
-% Peripherals
+Discussion on a accurate model for a Kalman filter can takes place in Section~\ref{sec:kalman design}. This also covers
+a discussion on the state representation for a crawler, the motion model and crawler specific models, such as soil
+dynamics, dredging and steering. Section~\ref{sec:controller} describes how a controller framework for autonomous
+maritime vessels should behave, discussing the design patterns.
 
 \section{STRATEGY DECISION}\label{sec:strategy decision}
-%describe the decision matrix with uncertainties
-\import{resources/}{strategy_decision_matrix}
 
-%plot and motivate the choice
+Researching different \gls{acr-CPP} algorithms in Section~\ref{sec:coverageunderuncertainty} showed that a divide can be
+seen between \gls{gls-on-line} and \gls{gls-off-line} algorithms. The latter of these are deemed unsuitable, due to a
+changing environment. This reduces viable candidate algorithms to the following short-list:
+
+\begin{itemize}
+	\setlength\itemsep{0mm}
+	\item \gls[first]{acr-onBCD}
+	\item \gls[first]{acr-BCD-GVD}
+	\item \gls[first]{acr-topBCD}
+	\item \gls[first]{acr-onSD2}
+	\item \gls[first]{acr-onSD2NN}
+	\item \gls[first]{acr-STC}
+	\item \gls[first]{acr-NN}
+\end{itemize}
+
+The options presented above are judged against different criteria of assorted relevance, refelected in a weight factor.
+Ranging from \( 1 \) nice to have, to \(  3 \) really fucking useful. Each algorithm is awarded points for each
+criteria, which range between \( 1 \) and \( 5 \), the higher the better it fulfils that criteria. Quatifying the axact
+performance is impossible at this stage. This introduces a level of uncertainty, which is taken into account in the
+decision. The total sum for each algorithm is then calculated with the propagation of those uncertainties. The table
+below shows that all three BCD algorithm easily outweigh the others for our application. Were \gls{acr-BCD-GVD}, has the
+highest score but it brings with it a greater uncertainty compared against \gls{acr-topBCD}. It is good practice in
+agile developement, to ``make it work first'' and ``refine it later''. By choosing \gls{acr-topBCD} as the best strategy
+decision the implied risk due to uncertainties is reduced.
+
+\import{resources/}{strategy_decision_matrix}
 
 \section{PERIPHERALS}\label{sec:peripherals}
 

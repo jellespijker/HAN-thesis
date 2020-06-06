@@ -77,3 +77,10 @@ GUI|Graphical User Interface
 BBB|Beagle Bone Black
 Rpi|Raspberry pi
 YAML|YAML Ain't Markup Language
+onBCD|online Morse-based Boustrophedon Cellular Decomposition
+BCD-GVD|Morse-based Cellular Decomposition with Voronoi Diagram
+topBCD|topological Boustrophedeon Cellular Decomposition
+onSD2|on-line Slice Decomposition II
+onSD2NN|on-line Slice Decomposition II with Neural Network
+STC|grid based Spanning Tree Coverage
+NN|Neural Network based Coverage in Grid maps
