@@ -3,6 +3,7 @@
 % !TeX encoding = UTF-8
 \chapter{CONTROLLER DESIGN}\label{chap:controller design}
 
+
 A controller that is capable of making complex decisions in a changing environment, requires different levels of
 abstraction. At the highest level it should be able to form a plan based upon a predefined strategy. A dredging crawler
 should be able cover a certain area removing a specified amount of soil, until reaching the specified depth. Because the
@@ -47,6 +48,20 @@ decision the implied risk due to uncertainties is reduced.
 \import{resources/}{strategy_decision_matrix}
 
 \section{PERIPHERALS}\label{sec:peripherals}
+
+The crawler is comprised of various components which are listed in Appendix~\ref{app:crawlerpartlist}. This section will
+only focus on components which are required for autonomous operations. The two drivetrains consists of an electric
+motor, with an attached gearbox, coupled to a hydraulic motor and a hydraulic system which drives a hydraulic pump. The
+shaft of the hydraulic motor is attached to a flexibel coupling and connected with an Archimedes screw by a rigid flange
+connection. This drivetrain is discussed in detail in Section \ref{sec:motion model}. The crawler is able to turn if both drivetrains operate at different velocities, which is discussed in Section~\ref{seq:steering model}. The control vector \gls{sym}
+
+% pressure torque
+% encoder
+% gyroscope
+% accelerometer
+% magnetometer
+% pressure sensor
+
 
 % describe IMU, pressure sensor height, torque (with pressure sensor), encoder and sonar
 
@@ -993,7 +1008,7 @@ that a surface of of roughly \SI{466}{\meter\squared} can be excavated with a de
 	\includegraphics[width=0.66\textwidth,trim=2 2 2 2,clip]{q_h.png}
 \end{RoyalFigure}
 
-\subsection{STEERING MODEL}
+\subsection{STEERING MODEL}\label{seq:steering model}
 
 The kinematic model of the crawler is comparable with a skid-steering model. Meaning that the crawler turns around its
 axis by changing the translational velocity \gls{sym-v} of a single Archimedes screw, relative to the other. If both

@@ -1,0 +1,2484 @@
+".text.tex.latex": {
+	snippet: [
+		{
+			displayText: "\\sym-A"
+			snippet: "\\\\gls{sym-A}"
+			description: "surface"
+		}
+		{
+			displayText: "\\sym-A_1"
+			snippet: "\\\\gls{sym-A_1}"
+			description: "surface of object 1"
+		}
+		{
+			displayText: "\\sym-A_2"
+			snippet: "\\\\gls{sym-A_2}"
+			description: "surface of object 2"
+		}
+		{
+			displayText: "\\sym-A_a"
+			snippet: "\\\\gls{sym-A_a}"
+			description: "working section of the screw conveyor"
+		}
+		{
+			displayText: "\\sym-A_c"
+			snippet: "\\\\gls{sym-A_c}"
+			description: "collector sunlight exposed surface"
+		}
+		{
+			displayText: "\\sym-A_p"
+			snippet: "\\\\gls{sym-A_p}"
+			description: "cross section of a pipe"
+		}
+		{
+			displayText: "\\sym-A_s"
+			snippet: "\\\\gls{sym-A_s}"
+			description: "cross section area of in soil submerged volume"
+		}
+		{
+			displayText: "\\sym-B_d"
+			snippet: "\\\\gls{sym-B_d}"
+			description: "slow chancing component of the signal; this is the gyroscope drift"
+		}
+		{
+			displayText: "\\sym-B_k"
+			snippet: "\\\\gls{sym-B_k}"
+			description: "a control-input model which is applied to a control vector"
+		}
+		{
+			displayText: "\\sym-C"
+			snippet: "\\\\gls{sym-C}"
+			description: "cost a function"
+		}
+		{
+			displayText: "\\sym-C_vb"
+			snippet: "\\\\gls{sym-C_vb}"
+			description: "volumetric bed concentration"
+		}
+		{
+			displayText: "\\sym-Cp"
+			snippet: "\\\\gls{sym-Cp}"
+			description: "critical point in graph"
+		}
+		{
+			displayText: "\\sym-Cp_0"
+			snippet: "\\\\gls{sym-Cp_0}"
+			description: "critical point 0 in graph"
+		}
+		{
+			displayText: "\\sym-Cp_1"
+			snippet: "\\\\gls{sym-Cp_1}"
+			description: "critical point 1 in graph"
+		}
+		{
+			displayText: "\\sym-Cp_2"
+			snippet: "\\\\gls{sym-Cp_2}"
+			description: "critical point 2 in graph"
+		}
+		{
+			displayText: "\\sym-Cp_3"
+			snippet: "\\\\gls{sym-Cp_3}"
+			description: "critical point 3 in graph"
+		}
+		{
+			displayText: "\\sym-Cp_i"
+			snippet: "\\\\gls{sym-Cp_i}"
+			description: "critical point \\textit{i}th in graph"
+		}
+		{
+			displayText: "\\sym-D_l"
+			snippet: "\\\\gls{sym-D_l}"
+			description: "list of line segments"
+		}
+		{
+			displayText: "\\sym-D_l_t"
+			snippet: "\\\\gls{sym-D_l_t}"
+			description: "line segment at \\ensuremath{t}"
+		}
+		{
+			displayText: "\\sym-D_l_t-1"
+			snippet: "\\\\gls{sym-D_l_t-1}"
+			description: "line segment at \\ensuremath{t - 1}"
+		}
+		{
+			displayText: "\\sym-D_s"
+			snippet: "\\\\gls{sym-D_s}"
+			description: "suction depth"
+		}
+		{
+			displayText: "\\sym-Delta_F"
+			snippet: "\\\\gls{sym-Delta_F}"
+			description: "difference in force"
+		}
+		{
+			displayText: "\\sym-Delta_L"
+			snippet: "\\\\gls{sym-Delta_L}"
+			description: "length of a pipe"
+		}
+		{
+			displayText: "\\sym-Delta_Q_c"
+			snippet: "\\\\gls{sym-Delta_Q_c}"
+			description: "heat flow stored in a node"
+		}
+		{
+			displayText: "\\sym-Delta_d_1_2"
+			snippet: "\\\\gls{sym-Delta_d_1_2}"
+			description: "distance between two points"
+		}
+		{
+			displayText: "\\sym-Delta_p"
+			snippet: "\\\\gls{sym-Delta_p}"
+			description: "pressureloss"
+		}
+		{
+			displayText: "\\sym-Delta_p_n"
+			snippet: "\\\\gls{sym-Delta_p_n}"
+			description: "nominal pressureloss"
+		}
+		{
+			displayText: "\\sym-Delta_psi"
+			snippet: "\\\\gls{sym-Delta_psi}"
+			description: "difference in yaw of a crawler on the Euclidean z-axis between time \\ensuremath{k} and \\ensuremath{k+1}"
+		}
+		{
+			displayText: "\\sym-Delta_t"
+			snippet: "\\\\gls{sym-Delta_t}"
+			description: "time difference"
+		}
+		{
+			displayText: "\\sym-Delta_tau"
+			snippet: "\\\\gls{sym-Delta_tau}"
+			description: "torque difference"
+		}
+		{
+			displayText: "\\sym-Delta_x"
+			snippet: "\\\\gls{sym-Delta_x}"
+			description: "distance between nodes"
+		}
+		{
+			displayText: "\\sym-Delta_z"
+			snippet: "\\\\gls{sym-Delta_z}"
+			description: "height difference"
+		}
+		{
+			displayText: "\\sym-E_hat"
+			snippet: "\\\\gls{sym-E_hat}"
+			description: "amplitude of the electric field wave"
+		}
+		{
+			displayText: "\\sym-E_x"
+			snippet: "\\\\gls{sym-E_x}"
+			description: "Is defined mathematically as a vector field that associates to each point in space the (electrostatic or Coulomb) force per unit of charge exerted on an infinitesimal positive test charge at rest at that point."
+		}
+		{
+			displayText: "\\sym-F"
+			snippet: "\\\\gls{sym-F}"
+			description: "force"
+		}
+		{
+			displayText: "\\sym-F_12"
+			snippet: "\\\\gls{sym-F_12}"
+			description: "view factor between geometries"
+		}
+		{
+			displayText: "\\sym-F_b"
+			snippet: "\\\\gls{sym-F_b}"
+			description: "buoyancy force of a submerged Archimedes screw"
+		}
+		{
+			displayText: "\\sym-F_crb"
+			snippet: "\\\\gls{sym-F_crb}"
+			description: "buoyancy force of a submerged crawler"
+		}
+		{
+			displayText: "\\sym-F_k"
+			snippet: "\\\\gls{sym-F_k}"
+			description: "a state transition model which is applied to the previous state"
+		}
+		{
+			displayText: "\\sym-F_n"
+			snippet: "\\\\gls{sym-F_n}"
+			description: "normal force working on an Archimedes screw"
+		}
+		{
+			displayText: "\\sym-F_r"
+			snippet: "\\\\gls{sym-F_r}"
+			description: "Froude number for a pipeline"
+		}
+		{
+			displayText: "\\sym-F_rxd"
+			snippet: "\\\\gls{sym-F_rxd}"
+			description: "Froude number of the grains"
+		}
+		{
+			displayText: "\\sym-F_s"
+			snippet: "\\\\gls{sym-F_s}"
+			description: "skin friction"
+		}
+		{
+			displayText: "\\sym-F_sn"
+			snippet: "\\\\gls{sym-F_sn}"
+			description: "specific normal force working on an Archimedes screw"
+		}
+		{
+			displayText: "\\sym-F_u"
+			snippet: "\\\\gls{sym-F_u}"
+			description: "ultimate skin friction"
+		}
+		{
+			displayText: "\\sym-G"
+			snippet: "\\\\gls{sym-G}"
+			description: "heat conductance"
+		}
+		{
+			displayText: "\\sym-G_T"
+			snippet: "\\\\gls{sym-G_T}"
+			description: "total global solar radiation"
+		}
+		{
+			displayText: "\\sym-G_adj"
+			snippet: "\\\\gls{sym-G_adj}"
+			description: "adjacency graph"
+		}
+		{
+			displayText: "\\sym-G_adj_1"
+			snippet: "\\\\gls{sym-G_adj_1}"
+			description: "adjacency subgraph 1"
+		}
+		{
+			displayText: "\\sym-G_adj_2"
+			snippet: "\\\\gls{sym-G_adj_2}"
+			description: "adjacency subgraph 2"
+		}
+		{
+			displayText: "\\sym-H"
+			snippet: "\\\\gls{sym-H}"
+			description: "net head of a flow"
+		}
+		{
+			displayText: "\\sym-H_1"
+			snippet: "\\\\gls{sym-H_1}"
+			description: "net head of a flow at point 1"
+		}
+		{
+			displayText: "\\sym-H_2"
+			snippet: "\\\\gls{sym-H_2}"
+			description: "net head of a flow at point 2"
+		}
+		{
+			displayText: "\\sym-H_hat"
+			snippet: "\\\\gls{sym-H_hat}"
+			description: "amplitude of the magnetic field wave"
+		}
+		{
+			displayText: "\\sym-H_k"
+			snippet: "\\\\gls{sym-H_k}"
+			description: "measurement sensitivity matrix defining the linear relationship between state of the dynamic system and measurements that can be made"
+		}
+		{
+			displayText: "\\sym-H_y"
+			snippet: "\\\\gls{sym-H_y}"
+			description: "is a vector field that describes the magnetic influence of electric charges in relative motion and magnetized materials"
+		}
+		{
+			displayText: "\\sym-I"
+			snippet: "\\\\gls{sym-I}"
+			description: "moment of inertia"
+		}
+		{
+			displayText: "\\sym-I_v"
+			snippet: "\\\\gls{sym-I_v}"
+			description: "flow rate of an auger"
+		}
+		{
+			displayText: "\\sym-K_HP"
+			snippet: "\\\\gls{sym-K_HP}"
+			description: "Hagen-Poiseuille coefficient for laminar pipe flows"
+		}
+		{
+			displayText: "\\sym-K_TP"
+			snippet: "\\\\gls{sym-K_TP}"
+			description: "friction torque vs pressure gain coefficient parameter"
+		}
+		{
+			displayText: "\\sym-Kgain"
+			snippet: "\\\\gls{sym-Kgain}"
+			description: "Kalman gain matrix"
+		}
+		{
+			displayText: "\\sym-L"
+			snippet: "\\\\gls{sym-L}"
+			description: "Distance between the crawlers screws"
+		}
+		{
+			displayText: "\\sym-L_alpha_epsilon"
+			snippet: "\\\\gls{sym-L_alpha_epsilon}"
+			description: "electromagnetic signal strength"
+		}
+		{
+			displayText: "\\sym-L_s"
+			snippet: "\\\\gls{sym-L_s}"
+			description: "length of suction line"
+		}
+		{
+			displayText: "\\sym-M"
+			snippet: "\\\\gls{sym-M}"
+			description: "metabolic heat production"
+		}
+		{
+			displayText: "\\sym-M_mat"
+			snippet: "\\\\gls{sym-M_mat}"
+			description: "moleculair weight"
+		}
+		{
+			displayText: "\\sym-M_v"
+			snippet: "\\\\gls{sym-M_v}"
+			description: "moleculair weight of water vapor"
+		}
+		{
+			displayText: "\\sym-N_c"
+			snippet: "\\\\gls{sym-N_c}"
+			description: "dimensionless constant used in the Brinch-Hansen equation, related to the cohesion"
+		}
+		{
+			displayText: "\\sym-N_gamma"
+			snippet: "\\\\gls{sym-N_gamma}"
+			description: "dimensionless constant used in the Brinch-Hansen equation, related to the specific weight of the soil"
+		}
+		{
+			displayText: "\\sym-N_phi"
+			snippet: "\\\\gls{sym-N_phi}"
+			description: "dimensionless factor of the internal friction angle"
+		}
+		{
+			displayText: "\\sym-N_q"
+			snippet: "\\\\gls{sym-N_q}"
+			description: "dimensionless constant used in the Brinch-Hansen equation, related to the load of the surrounding soil"
+		}
+		{
+			displayText: "\\sym-P"
+			snippet: "\\\\gls{sym-P}"
+			description: "power"
+		}
+		{
+			displayText: "\\sym-P_0"
+			snippet: "\\\\gls{sym-P_0}"
+			description: "initialization covariance matrix of state estimation uncertainty"
+		}
+		{
+			displayText: "\\sym-P_e"
+			snippet: "\\\\gls{sym-P_e}"
+			description: "electrical power"
+		}
+		{
+			displayText: "\\sym-P_eff"
+			snippet: "\\\\gls{sym-P_eff}"
+			description: "effective needed power"
+		}
+		{
+			displayText: "\\sym-P_k"
+			snippet: "\\\\gls{sym-P_k}"
+			description: "covariance matrix of state estimation uncertainty"
+		}
+		{
+			displayText: "\\sym-P_k-1"
+			snippet: "\\\\gls{sym-P_k-1}"
+			description: "covariance matrix of a priori state estimation uncertainty"
+		}
+		{
+			displayText: "\\sym-P_s"
+			snippet: "\\\\gls{sym-P_s}"
+			description: "power at a shaft"
+		}
+		{
+			displayText: "\\sym-P_w"
+			snippet: "\\\\gls{sym-P_w}"
+			description: "drive power"
+		}
+		{
+			displayText: "\\sym-Q"
+			snippet: "\\\\gls{sym-Q}"
+			description: "volumetric fluid flow"
+		}
+		{
+			displayText: "\\sym-Q_1_2"
+			snippet: "\\\\gls{sym-Q_1_2}"
+			description: "heat flow from node 1 to node 2"
+		}
+		{
+			displayText: "\\sym-Q_H"
+			snippet: "\\\\gls{sym-Q_H}"
+			description: "heat transferred at a high temperature"
+		}
+		{
+			displayText: "\\sym-Q_L"
+			snippet: "\\\\gls{sym-Q_L}"
+			description: "heat transferred at a low temperature"
+		}
+		{
+			displayText: "\\sym-Q_con"
+			snippet: "\\\\gls{sym-Q_con}"
+			description: "heat flow at condensator"
+		}
+		{
+			displayText: "\\sym-Q_i"
+			snippet: "\\\\gls{sym-Q_i}"
+			description: "ideal volumetric fluid flow"
+		}
+		{
+			displayText: "\\sym-Q_j"
+			snippet: "\\\\gls{sym-Q_j}"
+			description: "heat flow out from a node"
+		}
+		{
+			displayText: "\\sym-Q_k"
+			snippet: "\\\\gls{sym-Q_k}"
+			description: "covariance matrix of process estimation uncertainty"
+		}
+		{
+			displayText: "\\sym-Q_l"
+			snippet: "\\\\gls{sym-Q_l}"
+			description: "volumetric fluid leakage flow"
+		}
+		{
+			displayText: "\\sym-Q_n"
+			snippet: "\\\\gls{sym-Q_n}"
+			description: "useful energy"
+		}
+		{
+			displayText: "\\sym-Q_p"
+			snippet: "\\\\gls{sym-Q_p}"
+			description: "heat generated by a person"
+		}
+		{
+			displayText: "\\sym-Q_rc"
+			snippet: "\\\\gls{sym-Q_rc}"
+			description: "external heat"
+		}
+		{
+			displayText: "\\sym-Q_wp"
+			snippet: "\\\\gls{sym-Q_wp}"
+			description: "heat generated due to the water vapor production of a person"
+		}
+		{
+			displayText: "\\sym-R"
+			snippet: "\\\\gls{sym-R}"
+			description: "heat resistance due the conduction and convection"
+		}
+		{
+			displayText: "\\sym-RH"
+			snippet: "\\\\gls{sym-RH}"
+			description: "relative humidty"
+		}
+		{
+			displayText: "\\sym-R_k"
+			snippet: "\\\\gls{sym-R_k}"
+			description: "covariance matrix of state estimation uncertainty"
+		}
+		{
+			displayText: "\\sym-R_rad"
+			snippet: "\\\\gls{sym-R_rad}"
+			description: "heat resistance due to radiation"
+		}
+		{
+			displayText: "\\sym-R_t"
+			snippet: "\\\\gls{sym-R_t}"
+			description: "radius from ICR ro COG of crawler"
+		}
+		{
+			displayText: "\\sym-Re"
+			snippet: "\\\\gls{sym-Re}"
+			description: "Reynolds Number"
+		}
+		{
+			displayText: "\\sym-Re_sd"
+			snippet: "\\\\gls{sym-Re_sd}"
+			description: "relative submerged density"
+		}
+		{
+			displayText: "\\sym-S"
+			snippet: "\\\\gls{sym-S}"
+			description: "a movement in a graph"
+		}
+		{
+			displayText: "\\sym-T"
+			snippet: "\\\\gls{sym-T}"
+			description: "temperature"
+		}
+		{
+			displayText: "\\sym-T_1"
+			snippet: "\\\\gls{sym-T_1}"
+			description: "temperature in node 1"
+		}
+		{
+			displayText: "\\sym-T_2"
+			snippet: "\\\\gls{sym-T_2}"
+			description: "temperature in node 2"
+		}
+		{
+			displayText: "\\sym-T_H"
+			snippet: "\\\\gls{sym-T_H}"
+			description: "high temperature"
+		}
+		{
+			displayText: "\\sym-T_L"
+			snippet: "\\\\gls{sym-T_L}"
+			description: "low temperature"
+		}
+		{
+			displayText: "\\sym-T_a"
+			snippet: "\\\\gls{sym-T_a}"
+			description: "ambient environment temperature"
+		}
+		{
+			displayText: "\\sym-T_dp"
+			snippet: "\\\\gls{sym-T_dp}"
+			description: "dew point temperature"
+		}
+		{
+			displayText: "\\sym-T_in"
+			snippet: "\\\\gls{sym-T_in}"
+			description: "temperature of an ingoing flow"
+		}
+		{
+			displayText: "\\sym-T_inf"
+			snippet: "\\\\gls{sym-T_inf}"
+			description: "temperature of a free stream"
+		}
+		{
+			displayText: "\\sym-T_m"
+			snippet: "\\\\gls{sym-T_m}"
+			description: "mean temperature of an absorber"
+		}
+		{
+			displayText: "\\sym-T_out"
+			snippet: "\\\\gls{sym-T_out}"
+			description: "temperature of an outgoing flow"
+		}
+		{
+			displayText: "\\sym-T_prime"
+			snippet: "\\\\gls{sym-T_prime}"
+			description: "rate of temperature variation"
+		}
+		{
+			displayText: "\\sym-T_sp"
+			snippet: "\\\\gls{sym-T_sp}"
+			description: "temperature setpoint"
+		}
+		{
+			displayText: "\\sym-T_w"
+			snippet: "\\\\gls{sym-T_w}"
+			description: "temperature of a wall"
+		}
+		{
+			displayText: "\\sym-V"
+			snippet: "\\\\gls{sym-V}"
+			description: "volume"
+		}
+		{
+			displayText: "\\sym-V_dot_a"
+			snippet: "\\\\gls{sym-V_dot_a}"
+			description: "volumetric fluid flow through the auger"
+		}
+		{
+			displayText: "\\sym-V_dot_p"
+			snippet: "\\\\gls{sym-V_dot_p}"
+			description: "volumetric fluid flow pump"
+		}
+		{
+			displayText: "\\sym-V_dot_s"
+			snippet: "\\\\gls{sym-V_dot_s}"
+			description: "volumetric fluid flow"
+		}
+		{
+			displayText: "\\sym-V_flow_fa"
+			snippet: "\\\\gls{sym-V_flow_fa}"
+			description: "volume flow of fresh air"
+		}
+		{
+			displayText: "\\sym-V_sa"
+			snippet: "\\\\gls{sym-V_sa}"
+			description: "submerged volume of a Archimedes screw"
+		}
+		{
+			displayText: "\\sym-W_c"
+			snippet: "\\\\gls{sym-W_c}"
+			description: "added heat energy"
+		}
+		{
+			displayText: "\\sym-a"
+			snippet: "\\\\gls{sym-a}"
+			description: "acceleration"
+		}
+		{
+			displayText: "\\sym-a_x"
+			snippet: "\\\\gls{sym-a_x}"
+			description: "acceleration along the x-axis"
+		}
+		{
+			displayText: "\\sym-a_y"
+			snippet: "\\\\gls{sym-a_y}"
+			description: "acceleration along the y-axis"
+		}
+		{
+			displayText: "\\sym-a_z"
+			snippet: "\\\\gls{sym-a_z}"
+			description: "acceleration along the z-axis"
+		}
+		{
+			displayText: "\\sym-a_z_k"
+			snippet: "\\\\gls{sym-a_z_k}"
+			description: "acceleration along the z-axis at time \\ensuremath{k}"
+		}
+		{
+			displayText: "\\sym-a_z_k-1"
+			snippet: "\\\\gls{sym-a_z_k-1}"
+			description: "acceleration along the z-axis at time \\ensuremath{k - 1}"
+		}
+		{
+			displayText: "\\sym-alpha"
+			snippet: "\\\\gls{sym-alpha}"
+			description: "absorption coefficient"
+		}
+		{
+			displayText: "\\sym-alpha_e"
+			snippet: "\\\\gls{sym-alpha_e}"
+			description: "attenuation"
+		}
+		{
+			displayText: "\\sym-alpha_s"
+			snippet: "\\\\gls{sym-alpha_s}"
+			description: "sensitivity coefficient"
+		}
+		{
+			displayText: "\\sym-alpha_sf"
+			snippet: "\\\\gls{sym-alpha_sf}"
+			description: "skin friction coefficient"
+		}
+		{
+			displayText: "\\sym-b"
+			snippet: "\\\\gls{sym-b}"
+			description: "coefficient as a function of spent time and sex of the subject"
+		}
+		{
+			displayText: "\\sym-beta"
+			snippet: "\\\\gls{sym-beta}"
+			description: "phase factor of a wave"
+		}
+		{
+			displayText: "\\sym-c"
+			snippet: "\\\\gls{sym-c}"
+			description: "singel cell"
+		}
+		{
+			displayText: "\\sym-c_p"
+			snippet: "\\\\gls{sym-c_p}"
+			description: "specific heat at constant pressure"
+		}
+		{
+			displayText: "\\sym-c_sb"
+			snippet: "\\\\gls{sym-c_sb}"
+			description: "cohesion of a soil bed"
+		}
+		{
+			displayText: "\\sym-c_t"
+			snippet: "\\\\gls{sym-c_t}"
+			description: "volumetric concentration"
+		}
+		{
+			displayText: "\\sym-c_u"
+			snippet: "\\\\gls{sym-c_u}"
+			description: "undrained shear strength of soil"
+		}
+		{
+			displayText: "\\sym-c_v"
+			snippet: "\\\\gls{sym-c_v}"
+			description: "specific heat at constant volume"
+		}
+		{
+			displayText: "\\sym-d_a"
+			snippet: "\\\\gls{sym-d_a}"
+			description: "sinkage depth of a Archimedes screw"
+		}
+		{
+			displayText: "\\sym-d_p"
+			snippet: "\\\\gls{sym-d_p}"
+			description: "pipe diameter"
+		}
+		{
+			displayText: "\\sym-d_pp"
+			snippet: "\\\\gls{sym-d_pp}"
+			description: "volumetric flow"
+		}
+		{
+			displayText: "\\sym-d_ps"
+			snippet: "\\\\gls{sym-d_ps}"
+			description: "volumetric flow"
+		}
+		{
+			displayText: "\\sym-d_x_i"
+			snippet: "\\\\gls{sym-d_x_i}"
+			description: "distance between x points and obstacle \\textit{i}"
+		}
+		{
+			displayText: "\\sym-delta_s"
+			snippet: "\\\\gls{sym-delta_s}"
+			description: "range of a sensor-detector-range"
+		}
+		{
+			displayText: "\\sym-epsilon_1"
+			snippet: "\\\\gls{sym-epsilon_1}"
+			description: "emissivity property of material 1"
+		}
+		{
+			displayText: "\\sym-epsilon_2"
+			snippet: "\\\\gls{sym-epsilon_2}"
+			description: "emissivity property of material 2"
+		}
+		{
+			displayText: "\\sym-epsilon_b"
+			snippet: "\\\\gls{sym-epsilon_b}"
+			description: "resistance coefficient of the bends, valves, hoses and other obstructions"
+		}
+		{
+			displayText: "\\sym-epsilon_e"
+			snippet: "\\\\gls{sym-epsilon_e}"
+			description: "permittivity"
+		}
+		{
+			displayText: "\\sym-epsilon_nees"
+			snippet: "\\\\gls{sym-epsilon_nees}"
+			description: "NEES at time \\ensuremath{k}"
+		}
+		{
+			displayText: "\\sym-epsilon_nees_mean"
+			snippet: "\\\\gls{sym-epsilon_nees_mean}"
+			description: "mean NEES value"
+		}
+		{
+			displayText: "\\sym-epsilon_s"
+			snippet: "\\\\gls{sym-epsilon_s}"
+			description: "resistance coefficient of the suction inlet"
+		}
+		{
+			displayText: "\\sym-eta_Vn"
+			snippet: "\\\\gls{sym-eta_Vn}"
+			description: "nominal Volumetric efficiency"
+		}
+		{
+			displayText: "\\sym-eta_c"
+			snippet: "\\\\gls{sym-eta_c}"
+			description: "efficiency of an solar collector"
+		}
+		{
+			displayText: "\\sym-eta_eff_comp"
+			snippet: "\\\\gls{sym-eta_eff_comp}"
+			description: "efficiency of a compressor"
+		}
+		{
+			displayText: "\\sym-eta_is_comp"
+			snippet: "\\\\gls{sym-eta_is_comp}"
+			description: "efficiency of an isotropisch compressor"
+		}
+		{
+			displayText: "\\sym-eta_m"
+			snippet: "\\\\gls{sym-eta_m}"
+			description: "efficiency of a electrical engine"
+		}
+		{
+			displayText: "\\sym-eta_mech_comp"
+			snippet: "\\\\gls{sym-eta_mech_comp}"
+			description: "efficiency of a mechanical compressor"
+		}
+		{
+			displayText: "\\sym-exp"
+			snippet: "\\\\gls{sym-exp}"
+			description: "Eulers number \\ensuremath{2.7182818284}"
+		}
+		{
+			displayText: "\\sym-g"
+			snippet: "\\\\gls{sym-g}"
+			description: "standard gravity model"
+		}
+		{
+			displayText: "\\sym-gamma"
+			snippet: "\\\\gls{sym-gamma}"
+			description: "specific weight"
+		}
+		{
+			displayText: "\\sym-gamma_EM"
+			snippet: "\\\\gls{sym-gamma_EM}"
+			description: "propagation constant"
+		}
+		{
+			displayText: "\\sym-gamma_m"
+			snippet: "\\\\gls{sym-gamma_m}"
+			description: "specific weight of diluted water during dredging"
+		}
+		{
+			displayText: "\\sym-gamma_sw"
+			snippet: "\\\\gls{sym-gamma_sw}"
+			description: "specific weight of submerged soil"
+		}
+		{
+			displayText: "\\sym-gamma_w"
+			snippet: "\\\\gls{sym-gamma_w}"
+			description: "specific weight of water"
+		}
+		{
+			displayText: "\\sym-h"
+			snippet: "\\\\gls{sym-h}"
+			description: "height difference between radius of screw and its submerged part"
+		}
+		{
+			displayText: "\\sym-h_dh"
+			snippet: "\\\\gls{sym-h_dh}"
+			description: "height of a dredge head"
+		}
+		{
+			displayText: "\\sym-h_a"
+			snippet: "\\\\gls{sym-h_a}"
+			description: "height of water level above center line of a pump"
+		}
+		{
+			displayText: "\\sym-h_c"
+			snippet: "\\\\gls{sym-h_c}"
+			description: "convection heat-transfer coefficient"
+		}
+		{
+			displayText: "\\sym-h_in"
+			snippet: "\\\\gls{sym-h_in}"
+			description: "specific enthalpy at entry point"
+		}
+		{
+			displayText: "\\sym-h_out"
+			snippet: "\\\\gls{sym-h_out}"
+			description: "specific enthalpy at exit point"
+		}
+		{
+			displayText: "\\sym-h_out_prime"
+			snippet: "\\\\gls{sym-h_out_prime}"
+			description: "actual specific enthalpy at exit point"
+		}
+		{
+			displayText: "\\sym-imag"
+			snippet: "\\\\gls{sym-imag}"
+			description: "imaginary unit"
+		}
+		{
+			displayText: "\\sym-k"
+			snippet: "\\\\gls{sym-k}"
+			description: "thermal conductivity"
+		}
+		{
+			displayText: "\\sym-k_1"
+			snippet: "\\\\gls{sym-k_1}"
+			description: "constant representing thermal losses to the outside"
+		}
+		{
+			displayText: "\\sym-k_2"
+			snippet: "\\\\gls{sym-k_2}"
+			description: "constant representing thermal losses to the outside"
+		}
+		{
+			displayText: "\\sym-kappa"
+			snippet: "\\\\gls{sym-kappa}"
+			description: "heat capacity ratio"
+		}
+		{
+			displayText: "\\sym-l_a"
+			snippet: "\\\\gls{sym-l_a}"
+			description: "length of an Archimedes screw"
+		}
+		{
+			displayText: "\\sym-lambda"
+			snippet: "\\\\gls{sym-lambda}"
+			description: "friction factor of a straight pipe"
+		}
+		{
+			displayText: "\\sym-m"
+			snippet: "\\\\gls{sym-m}"
+			description: "mass"
+		}
+		{
+			displayText: "\\sym-m_cr"
+			snippet: "\\\\gls{sym-m_cr}"
+			description: "mass of a crawler"
+		}
+		{
+			displayText: "\\sym-m_cr_prime"
+			snippet: "\\\\gls{sym-m_cr_prime}"
+			description: "total buoyancy corrected mass of a crawler"
+		}
+		{
+			displayText: "\\sym-m_f"
+			snippet: "\\\\gls{sym-m_f}"
+			description: "mass"
+		}
+		{
+			displayText: "\\sym-m_flux"
+			snippet: "\\\\gls{sym-m_flux}"
+			description: "mass flux"
+		}
+		{
+			displayText: "\\sym-m_flux_rf"
+			snippet: "\\\\gls{sym-m_flux_rf}"
+			description: "mass flux refrigerant"
+		}
+		{
+			displayText: "\\sym-m_hi"
+			snippet: "\\\\gls{sym-m_hi}"
+			description: "hard iron adjusted vector"
+		}
+		{
+			displayText: "\\sym-m_n"
+			snippet: "\\\\gls{sym-m_n}"
+			description: "number of neighbouring neurons"
+		}
+		{
+			displayText: "\\sym-m_si"
+			snippet: "\\\\gls{sym-m_si}"
+			description: "soft iron adjusted vector"
+		}
+		{
+			displayText: "\\sym-m_vec"
+			snippet: "\\\\gls{sym-m_vec}"
+			description: "raw magnetometer vector"
+		}
+		{
+			displayText: "\\sym-mu"
+			snippet: "\\\\gls{sym-mu}"
+			description: "dynamic viscosity"
+		}
+		{
+			displayText: "\\sym-mu_e"
+			snippet: "\\\\gls{sym-mu_e}"
+			description: "electromagnetism permeability"
+		}
+		{
+			displayText: "\\sym-mu_n"
+			snippet: "\\\\gls{sym-mu_n}"
+			description: "nominal dynamic viscosity"
+		}
+		{
+			displayText: "\\sym-n_a_l"
+			snippet: "\\\\gls{sym-n_a_l}"
+			description: "neural activity of a the \\ensuremath{l}th neuron"
+		}
+		{
+			displayText: "\\sym-n_s"
+			snippet: "\\\\gls{sym-n_s}"
+			description: "stochastic component of a signal"
+		}
+		{
+			displayText: "\\sym-n_x"
+			snippet: "\\\\gls{sym-n_x}"
+			description: "number of elements in the state vector"
+		}
+		{
+			displayText: "\\sym-nabla_m"
+			snippet: "\\\\gls{sym-nabla_m}"
+			description: "normal of a surface"
+		}
+		{
+			displayText: "\\sym-nu"
+			snippet: "\\\\gls{sym-nu}"
+			description: "kinematic viscosity"
+		}
+		{
+			displayText: "\\sym-omega"
+			snippet: "\\\\gls{sym-omega}"
+			description: "angular velocity"
+		}
+		{
+			displayText: "\\sym-omega_func"
+			snippet: "\\\\gls{sym-omega_func}"
+			description: "functional angular velocity"
+		}
+		{
+			displayText: "\\sym-omega_n"
+			snippet: "\\\\gls{sym-omega_n}"
+			description: "nominal angular velocity"
+		}
+		{
+			displayText: "\\sym-omega_t"
+			snippet: "\\\\gls{sym-omega_t}"
+			description: "true angular velocity"
+		}
+		{
+			displayText: "\\sym-omega_th"
+			snippet: "\\\\gls{sym-omega_th}"
+			description: "angular velocity threshold"
+		}
+		{
+			displayText: "\\sym-p"
+			snippet: "\\\\gls{sym-p}"
+			description: "pressure"
+		}
+		{
+			displayText: "\\sym-p_1"
+			snippet: "\\\\gls{sym-p_1}"
+			description: "pressure at point 1"
+		}
+		{
+			displayText: "\\sym-p_2"
+			snippet: "\\\\gls{sym-p_2}"
+			description: "pressure at point 2"
+		}
+		{
+			displayText: "\\sym-p_a"
+			snippet: "\\\\gls{sym-p_a}"
+			description: "atmospheric pressure"
+		}
+		{
+			displayText: "\\sym-p_atm"
+			snippet: "\\\\gls{sym-p_atm}"
+			description: "atmospheric pressure"
+		}
+		{
+			displayText: "\\sym-p_h"
+			snippet: "\\\\gls{sym-p_h}"
+			description: "head, i.e. the velocity required to accelerate the mixture in the pipe"
+		}
+		{
+			displayText: "\\sym-p_i"
+			snippet: "\\\\gls{sym-p_i}"
+			description: "pressureloss at the suction inlet"
+		}
+		{
+			displayText: "\\sym-p_in"
+			snippet: "\\\\gls{sym-p_in}"
+			description: "pressure at entry point"
+		}
+		{
+			displayText: "\\sym-p_k"
+			snippet: "\\\\gls{sym-p_k}"
+			description: "pose components of the state vector \\ensuremath{\\vv{x}_k}"
+		}
+		{
+			displayText: "\\sym-p_k_1"
+			snippet: "\\\\gls{sym-p_k_1}"
+			description: "AUV location at time \\ensuremath{k + 1}"
+		}
+		{
+			displayText: "\\sym-p_k_dot"
+			snippet: "\\\\gls{sym-p_k_dot}"
+			description: "velocity components of the state vector \\ensuremath{\\vv{x}_k}"
+		}
+		{
+			displayText: "\\sym-p_kt_1"
+			snippet: "\\\\gls{sym-p_kt_1}"
+			description: "pose components of the state vector \\ensuremath{\\vv{x}_{k+1}}"
+		}
+		{
+			displayText: "\\sym-p_man"
+			snippet: "\\\\gls{sym-p_man}"
+			description: "manometric head of the dredge pump"
+		}
+		{
+			displayText: "\\sym-p_out"
+			snippet: "\\\\gls{sym-p_out}"
+			description: "pressure at exit point"
+		}
+		{
+			displayText: "\\sym-p_p"
+			snippet: "\\\\gls{sym-p_p}"
+			description: "absolute pressure at the outlet of the dredge pump"
+		}
+		{
+			displayText: "\\sym-p_q"
+			snippet: "\\\\gls{sym-p_q}"
+			description: "pressure generated at a certain depth due to the soil on top of it"
+		}
+		{
+			displayText: "\\sym-p_ro"
+			snippet: "\\\\gls{sym-p_ro}"
+			description: "resistance offered by bends, valves, hoses and other obstructions"
+		}
+		{
+			displayText: "\\sym-p_rp"
+			snippet: "\\\\gls{sym-p_rp}"
+			description: "resistance of the straightline pipe"
+		}
+		{
+			displayText: "\\sym-p_s"
+			snippet: "\\\\gls{sym-p_s}"
+			description: "absolute pressure at the entrance of impeller"
+		}
+		{
+			displayText: "\\sym-p_sb"
+			snippet: "\\\\gls{sym-p_sb}"
+			description: "load working on a soil bed"
+		}
+		{
+			displayText: "\\sym-p_sm"
+			snippet: "\\\\gls{sym-p_sm}"
+			description: "static head in the suction pipe"
+		}
+		{
+			displayText: "\\sym-p_ss"
+			snippet: "\\\\gls{sym-p_ss}"
+			description: "static pressure generated by surrounding water"
+		}
+		{
+			displayText: "\\sym-p_v"
+			snippet: "\\\\gls{sym-p_v}"
+			description: "pressure of water vapor in ambient air"
+		}
+		{
+			displayText: "\\sym-phi_c"
+			snippet: "\\\\gls{sym-phi_c}"
+			description: "roll of the crawler on the Euclidean y-axis"
+		}
+		{
+			displayText: "\\sym-phi_imu"
+			snippet: "\\\\gls{sym-phi_imu}"
+			description: "roll of the IMU on the Euclidean y-axis"
+		}
+		{
+			displayText: "\\sym-phi_s"
+			snippet: "\\\\gls{sym-phi_s}"
+			description: "angle of internal friction"
+		}
+		{
+			displayText: "\\sym-psi"
+			snippet: "\\\\gls{sym-psi}"
+			description: "yaw of the crawler on the Euclidean z-axis"
+		}
+		{
+			displayText: "\\sym-psi_c"
+			snippet: "\\\\gls{sym-psi_c}"
+			description: "yaw of the crawler bot on the Euclidean z-axis"
+		}
+		{
+			displayText: "\\sym-psi_imu"
+			snippet: "\\\\gls{sym-psi_imu}"
+			description: "yaw of the IMU bot on the Euclidean z-axis"
+		}
+		{
+			displayText: "\\sym-psi_m"
+			snippet: "\\\\gls{sym-psi_m}"
+			description: "Durand_Condolios mixture correction"
+		}
+		{
+			displayText: "\\sym-q"
+			snippet: "\\\\gls{sym-q}"
+			description: "heat flow"
+		}
+		{
+			displayText: "\\sym-q_e"
+			snippet: "\\\\gls{sym-q_e}"
+			description: "space heat gain"
+		}
+		{
+			displayText: "\\sym-q_rf"
+			snippet: "\\\\gls{sym-q_rf}"
+			description: "refrigerating effect of a refrigerant"
+		}
+		{
+			displayText: "\\sym-q_s"
+			snippet: "\\\\gls{sym-q_s}"
+			description: "real component of a quaternion"
+		}
+		{
+			displayText: "\\sym-q_si"
+			snippet: "\\\\gls{sym-q_si}"
+			description: "smallest magnitude of a point on the ellipse, and thus the vector of the B-axis"
+		}
+		{
+			displayText: "\\sym-q_x"
+			snippet: "\\\\gls{sym-q_x}"
+			description: "imaginary x-axis of a quaternion"
+		}
+		{
+			displayText: "\\sym-q_y"
+			snippet: "\\\\gls{sym-q_y}"
+			description: "imaginary y-axis of a quaternion"
+		}
+		{
+			displayText: "\\sym-q_z"
+			snippet: "\\\\gls{sym-q_z}"
+			description: "imaginary z-axis of a quaternion"
+		}
+		{
+			displayText: "\\sym-r"
+			snippet: "\\\\gls{sym-r}"
+			description: "radius"
+		}
+		{
+			displayText: "\\sym-r_0"
+			snippet: "\\\\gls{sym-r_0}"
+			description: "the receptive field radius of the \\ensuremath{k}th neuron"
+		}
+		{
+			displayText: "\\sym-r_a"
+			snippet: "\\\\gls{sym-r_a}"
+			description: "radius of Archimedes screw"
+		}
+		{
+			displayText: "\\sym-r_si"
+			snippet: "\\\\gls{sym-r_si}"
+			description: "greatest magnitude of a point on the ellipse, and thus the vector of the A-axis"
+		}
+		{
+			displayText: "\\sym-rho"
+			snippet: "\\\\gls{sym-rho}"
+			description: "density of a material"
+		}
+		{
+			displayText: "\\sym-rho_ds"
+			snippet: "\\\\gls{sym-rho_ds}"
+			description: "density of drained soil"
+		}
+		{
+			displayText: "\\sym-rho_is"
+			snippet: "\\\\gls{sym-rho_is}"
+			description: "in-situ density of soil"
+		}
+		{
+			displayText: "\\sym-rho_m"
+			snippet: "\\\\gls{sym-rho_m}"
+			description: "density of a mixture"
+		}
+		{
+			displayText: "\\sym-rho_n"
+			snippet: "\\\\gls{sym-rho_n}"
+			description: "nominal density of a material"
+		}
+		{
+			displayText: "\\sym-rho_s"
+			snippet: "\\\\gls{sym-rho_s}"
+			description: "density of a slurry"
+		}
+		{
+			displayText: "\\sym-rho_w"
+			snippet: "\\\\gls{sym-rho_w}"
+			description: "density of water"
+		}
+		{
+			displayText: "\\sym-s"
+			snippet: "\\\\gls{sym-s}"
+			description: "position"
+		}
+		{
+			displayText: "\\sym-s_a"
+			snippet: "\\\\gls{sym-s_a}"
+			description: "soil contact arc length"
+		}
+		{
+			displayText: "\\sym-s_c"
+			snippet: "\\\\gls{sym-s_c}"
+			description: "shape factor used in the Brinch-Hansen equation, related to the cohesion"
+		}
+		{
+			displayText: "\\sym-s_gamma"
+			snippet: "\\\\gls{sym-s_gamma}"
+			description: "shape factor used in the Brinch-Hansen equation, related to the specific weight of the soil"
+		}
+		{
+			displayText: "\\sym-s_q"
+			snippet: "\\\\gls{sym-s_q}"
+			description: "shape factor used in the Brinch-Hansen equation, related to the surrounding load of the soil"
+		}
+		{
+			displayText: "\\sym-s_z"
+			snippet: "\\\\gls{sym-s_z}"
+			description: "position along the z-axis"
+		}
+		{
+			displayText: "\\sym-s_z_k"
+			snippet: "\\\\gls{sym-s_z_k}"
+			description: "position along the z-axis at time \\ensuremath{k}"
+		}
+		{
+			displayText: "\\sym-s_z_k+1"
+			snippet: "\\\\gls{sym-s_z_k+1}"
+			description: "position along the z-axis at time \\ensuremath{k + 1}"
+		}
+		{
+			displayText: "\\sym-s_z_k-1"
+			snippet: "\\\\gls{sym-s_z_k-1}"
+			description: "position along the z-axis at time \\ensuremath{k - 1}"
+		}
+		{
+			displayText: "\\sym-s_z_m"
+			snippet: "\\\\gls{sym-s_z_m}"
+			description: "measured position along the z-axis"
+		}
+		{
+			displayText: "\\sym-s_z_m_k"
+			snippet: "\\\\gls{sym-s_z_m_k}"
+			description: "measured position along the z-axis at time \\ensuremath{k}"
+		}
+		{
+			displayText: "\\sym-sigma_H"
+			snippet: "\\\\gls{sym-sigma_H}"
+			description: "horizontal stress"
+		}
+		{
+			displayText: "\\sym-sigma_V"
+			snippet: "\\\\gls{sym-sigma_V}"
+			description: "vertical stress"
+		}
+		{
+			displayText: "\\sym-sigma_boltz"
+			snippet: "\\\\gls{sym-sigma_boltz}"
+			description: "Boltzmann constant \\ensuremath{1.38064852\\cdot10^{-23}}"
+		}
+		{
+			displayText: "\\sym-sigma_e"
+			snippet: "\\\\gls{sym-sigma_e}"
+			description: "Electrical conductivity"
+		}
+		{
+			displayText: "\\sym-sigma_prime"
+			snippet: "\\\\gls{sym-sigma_prime}"
+			description: "effective stress"
+		}
+		{
+			displayText: "\\sym-sigma_s"
+			snippet: "\\\\gls{sym-sigma_s}"
+			description: "deviation on position"
+		}
+		{
+			displayText: "\\sym-sigma_s_m"
+			snippet: "\\\\gls{sym-sigma_s_m}"
+			description: "deviation on measured position"
+		}
+		{
+			displayText: "\\sym-sigma_v"
+			snippet: "\\\\gls{sym-sigma_v}"
+			description: "deviation on velocity"
+		}
+		{
+			displayText: "\\sym-sigma_v_m"
+			snippet: "\\\\gls{sym-sigma_v_m}"
+			description: "deviation measured on velocity"
+		}
+		{
+			displayText: "\\sym-t"
+			snippet: "\\\\gls{sym-t}"
+			description: "time"
+		}
+		{
+			displayText: "\\sym-tau"
+			snippet: "\\\\gls{sym-tau}"
+			description: "torque"
+		}
+		{
+			displayText: "\\sym-tau_0"
+			snippet: "\\\\gls{sym-tau_0}"
+			description: "initial torque"
+		}
+		{
+			displayText: "\\sym-tau_f"
+			snippet: "\\\\gls{sym-tau_f}"
+			description: "torque due to friction"
+		}
+		{
+			displayText: "\\sym-tau_i"
+			snippet: "\\\\gls{sym-tau_i}"
+			description: "ideal torque"
+		}
+		{
+			displayText: "\\sym-theta"
+			snippet: "\\\\gls{sym-theta}"
+			description: "angle on the x-axis"
+		}
+		{
+			displayText: "\\sym-theta_b"
+			snippet: "\\\\gls{sym-theta_b}"
+			description: "pitch of the dredge bot on the Euclidean $z$-axis"
+		}
+		{
+			displayText: "\\sym-theta_c"
+			snippet: "\\\\gls{sym-theta_c}"
+			description: "pitch of the crawler on the Euclidean x-axis"
+		}
+		{
+			displayText: "\\sym-theta_imu"
+			snippet: "\\\\gls{sym-theta_imu}"
+			description: "pitch of the IMU on the Euclidean x-axis"
+		}
+		{
+			displayText: "\\sym-theta_p"
+			snippet: "\\\\gls{sym-theta_p}"
+			description: "inclination of the pipeline"
+		}
+		{
+			displayText: "\\sym-theta_s"
+			snippet: "\\\\gls{sym-theta_s}"
+			description: "sink angle of an Archimedes screw"
+		}
+		{
+			displayText: "\\sym-theta_si"
+			snippet: "\\\\gls{sym-theta_si}"
+			description: "soft iron axis offset along the x-axis"
+		}
+		{
+			displayText: "\\sym-u"
+			snippet: "\\\\gls{sym-u}"
+			description: "unit vector"
+		}
+		{
+			displayText: "\\sym-u_k"
+			snippet: "\\\\gls{sym-u_k}"
+			description: "control inputs"
+		}
+		{
+			displayText: "\\sym-u_k-1"
+			snippet: "\\\\gls{sym-u_k-1}"
+			description: "control inputs from the previous component of the vector"
+		}
+		{
+			displayText: "\\sym-v"
+			snippet: "\\\\gls{sym-v}"
+			description: "specific volume"
+		}
+		{
+			displayText: "\\sym-v_L"
+			snippet: "\\\\gls{sym-v_L}"
+			description: "translational velocity of left Archimedes screw"
+		}
+		{
+			displayText: "\\sym-v_R"
+			snippet: "\\\\gls{sym-v_R}"
+			description: "translational velocity of right Archimedes screw"
+		}
+		{
+			displayText: "\\sym-v_f"
+			snippet: "\\\\gls{sym-v_f}"
+			description: "velocity of a fluid at a certain point"
+		}
+		{
+			displayText: "\\sym-v_f_1"
+			snippet: "\\\\gls{sym-v_f_1}"
+			description: "velocity of a fluid at point 1"
+		}
+		{
+			displayText: "\\sym-v_f_2"
+			snippet: "\\\\gls{sym-v_f_2}"
+			description: "velocity of a fluid at point 2"
+		}
+		{
+			displayText: "\\sym-v_k"
+			snippet: "\\\\gls{sym-v_k}"
+			description: "measurement noise"
+		}
+		{
+			displayText: "\\sym-v_p"
+			snippet: "\\\\gls{sym-v_p}"
+			description: "mixture velocity in discharge line"
+		}
+		{
+			displayText: "\\sym-v_s"
+			snippet: "\\\\gls{sym-v_s}"
+			description: "mixture velocity in suction line"
+		}
+		{
+			displayText: "\\sym-v_z"
+			snippet: "\\\\gls{sym-v_z}"
+			description: "velocity along the z-axis"
+		}
+		{
+			displayText: "\\sym-v_z_k"
+			snippet: "\\\\gls{sym-v_z_k}"
+			description: "velocity along the z-axis at time \\ensuremath{k}"
+		}
+		{
+			displayText: "\\sym-v_z_k-1"
+			snippet: "\\\\gls{sym-v_z_k-1}"
+			description: "velocity along the z-axis at time \\ensuremath{k - 1}"
+		}
+		{
+			displayText: "\\sym-varepsilon_c"
+			snippet: "\\\\gls{sym-varepsilon_c}"
+			description: "heating efficiency of a Carnot cycle"
+		}
+		{
+			displayText: "\\sym-varepsilon_eff"
+			snippet: "\\\\gls{sym-varepsilon_eff}"
+			description: "effective cooling efficiency"
+		}
+		{
+			displayText: "\\sym-varepsilon_th"
+			snippet: "\\\\gls{sym-varepsilon_th}"
+			description: "theoretical heating efficiency"
+		}
+		{
+			displayText: "\\sym-varepsilon_w"
+			snippet: "\\\\gls{sym-varepsilon_w}"
+			description: "real heating efficiency"
+		}
+		{
+			displayText: "\\sym-w_a"
+			snippet: "\\\\gls{sym-w_a}"
+			description: "width of the Archimedes screw in contact with the soil"
+		}
+		{
+			displayText: "\\sym-w_eff"
+			snippet: "\\\\gls{sym-w_eff}"
+			description: "specific effective work"
+		}
+		{
+			displayText: "\\sym-w_is"
+			snippet: "\\\\gls{sym-w_is}"
+			description: "specific isentropic work"
+		}
+		{
+			displayText: "\\sym-w_k"
+			snippet: "\\\\gls{sym-w_k}"
+			description: "process noise"
+		}
+		{
+			displayText: "\\sym-w_dh"
+			snippet: "\\\\gls{sym-w_dh}"
+			description: " width of a dredge head"
+		}
+		{
+			displayText: "\\sym-x"
+			snippet: "\\\\gls{sym-x}"
+			description: "location along the x-axis"
+		}
+		{
+			displayText: "\\sym-x_h"
+			snippet: "\\\\gls{sym-x_h}"
+			description: "hard iron distortion along the x-axis"
+		}
+		{
+			displayText: "\\sym-x_k"
+			snippet: "\\\\gls{sym-x_k}"
+			description: "state vector describing the state of a system at the \\textit{k}th component of \\ensuremath{\\vv{x}}"
+		}
+		{
+			displayText: "\\sym-x_k0"
+			snippet: "\\\\gls{sym-x_k0}"
+			description: "state vector describing the initial state of a system at the \\textit{k}th component of \\ensuremath{\\vv{x}}"
+		}
+		{
+			displayText: "\\sym-x_kg"
+			snippet: "\\\\gls{sym-x_kg}"
+			description: "ground truth state, describing the real state of a system \\textit{k}th component of \\ensuremath{\\vv{x}}"
+		}
+		{
+			displayText: "\\sym-x_khat"
+			snippet: "\\\\gls{sym-x_khat}"
+			description: "an estimation of the state vector \\ensuremath{\\vv{x}}"
+		}
+		{
+			displayText: "\\sym-x_kt+1"
+			snippet: "\\\\gls{sym-x_kt+1}"
+			description: "a state estimate of \\ensuremath{\\vv{x}}, conditioned on all available measurements at time \\ensuremath{t_k}"
+		}
+		{
+			displayText: "\\sym-x_kt+1hat"
+			snippet: "\\\\gls{sym-x_kt+1hat}"
+			description: "a posteriori estimate of \\ensuremath{\\vv{x}}, conditioned on all available measurements at time \\ensuremath{t_k}"
+		}
+		{
+			displayText: "\\sym-x_kt-1"
+			snippet: "\\\\gls{sym-x_kt-1}"
+			description: "a priori state of \\ensuremath{\\vv{x}_k}, conditioned on all prior measurements, except the one at time \\ensuremath{t_k}"
+		}
+		{
+			displayText: "\\sym-x_kt-1hat"
+			snippet: "\\\\gls{sym-x_kt-1hat}"
+			description: "a priori estimate of \\ensuremath{\\vv{x}_k}, conditioned on all prior measurements, except the one at time \\ensuremath{t_k}"
+		}
+		{
+			displayText: "\\sym-x_ktilde"
+			snippet: "\\\\gls{sym-x_ktilde}"
+			description: "Error of the state of a system at the \\textit{k}th component of \\ensuremath{\\vv{x}}"
+		}
+		{
+			displayText: "\\sym-x_m"
+			snippet: "\\\\gls{sym-x_m}"
+			description: "raw magnetometer value along the x-axis"
+		}
+		{
+			displayText: "\\sym-x_w"
+			snippet: "\\\\gls{sym-x_w}"
+			description: "humidity by mass"
+		}
+		{
+			displayText: "\\sym-y"
+			snippet: "\\\\gls{sym-y}"
+			description: "location along the y-axis"
+		}
+		{
+			displayText: "\\sym-y_1"
+			snippet: "\\\\gls{sym-y_1}"
+			description: "y-index of greatest magnetic magnitude"
+		}
+		{
+			displayText: "\\sym-y_h"
+			snippet: "\\\\gls{sym-y_h}"
+			description: "hard iron distortion along the y-axis"
+		}
+		{
+			displayText: "\\sym-y_k"
+			snippet: "\\\\gls{sym-y_k}"
+			description: "measured values"
+		}
+		{
+			displayText: "\\sym-y_k_prime"
+			snippet: "\\\\gls{sym-y_k_prime}"
+			description: "transformed measured values"
+		}
+		{
+			displayText: "\\sym-y_l"
+			snippet: "\\\\gls{sym-y_l}"
+			description: "a gls-monotonically increasing function of the difference between the next moving directions"
+		}
+		{
+			displayText: "\\sym-y_m"
+			snippet: "\\\\gls{sym-y_m}"
+			description: "raw magnetometer value along the y-axis"
+		}
+		{
+			displayText: "\\sym-z"
+			snippet: "\\\\gls{sym-z}"
+			description: "height"
+		}
+		{
+			displayText: "\\sym-z_1"
+			snippet: "\\\\gls{sym-z_1}"
+			description: "height at point 1"
+		}
+		{
+			displayText: "\\sym-z_2"
+			snippet: "\\\\gls{sym-z_2}"
+			description: "height at point 2"
+		}
+		{
+			displayText: "\\sym-z_epsilon"
+			snippet: "\\\\gls{sym-z_epsilon}"
+			description: "height error"
+		}
+		{
+			displayText: "\\sym-z_k"
+			snippet: "\\\\gls{sym-z_k}"
+			description: "measured values mapped to the state space"
+		}
+		{
+			displayText: "\\sym-z_m"
+			snippet: "\\\\gls{sym-z_m}"
+			description: "raw magnetometer value along the z-axis"
+		}
+		{
+			displayText: "\\sym-z_p"
+			snippet: "\\\\gls{sym-z_p}"
+			description: "height of the pressure sensor with regards to the soil bed"
+		}
+		{
+			displayText: "\\gls-Dempster-shafer-theory"
+			snippet: "\\\\gls{sym-Dempster-shafer-theory}"
+			description: "theory of belief functions, also referred to as evidence theory or Dempster–Shafer theory (DST), is a general framework for reasoning with uncertainty"
+		}
+		{
+			displayText: "\\gls-accelerometer"
+			snippet: "\\\\gls{sym-accelerometer}"
+			description: "a device that measures proper acceleration"
+		}
+		{
+			displayText: "\\gls-acoustic-navigation"
+			snippet: "\\\\gls{sym-acoustic-navigation}"
+			description: "triangulation of a position using the difference in send and receive time of signal, to calculate the distance from a source"
+		}
+		{
+			displayText: "\\gls-adjacency-graph"
+			snippet: "\\\\gls{sym-adjacency-graph}"
+			description: "a graph representing depicting all the nodes"
+		}
+		{
+			displayText: "\\gls-Archimedes-screw"
+			snippet: "\\\\gls{sym-Archimedes-screw}"
+			description: "a machine historically used for transferring water from a low-lying body of water into irrigation ditches. The same principle can also be used propel the screw in a medium"
+		}
+		{
+			displayText: "\\gls-auger-dredge-head"
+			snippet: "\\\\gls{sym-auger-dredge-head}"
+			description: "consists of two opposite-thread spiral cutters on a horizontal tubular body. The soil is cut by the spiral cutters, and the pitch ensures that it is carried to the center of the auger, where the suction head is situated."
+		}
+		{
+			displayText: "\\gls-bandwidth"
+			snippet: "\\\\gls{sym-bandwidth}"
+			description: "a difference between the upper and lower frequencies in a continuous set of frequencies"
+		}
+		{
+			displayText: "\\gls-bathymetric-map"
+			snippet: "\\\\gls{sym-bathymetric-map}"
+			description: "submerged equivalent of an above-water topographic map"
+		}
+		{
+			displayText: "\\gls-Bingham-plastic"
+			snippet: "\\\\gls{sym-Bingham-plastic}"
+			description: "a viscoplastic material that behaves as a rigid body at low stresses but flows as a viscous fluid at high stress"
+		}
+		{
+			displayText: "\\gls-bitstream"
+			snippet: "\\\\gls{sym-bitstream}"
+			description: "a sequential binary sequence"
+		}
+		{
+			displayText: "\\gls-black-body"
+			snippet: "\\\\gls{sym-black-body}"
+			description: "an idealized physical body that absorbs all incident electromagnetic radiation, regardless of frequency or angle of incidence"
+		}
+		{
+			displayText: "\\gls-closed-system"
+			snippet: "\\\\gls{sym-closed-system}"
+			description: "a physical system that doesn't exchange any matter with its surroundings, and isn't subject to any net force whose source is external to the system"
+		}
+		{
+			displayText: "\\gls-conduction"
+			snippet: "\\\\gls{sym-conduction}"
+			description: "a transfer of heat by microscopic collisions of particles and movement of electrons within a body"
+		}
+		{
+			displayText: "\\gls-convection"
+			snippet: "\\\\gls{sym-convection}"
+			description: "an algorithm that uses a series of measurements observed over time, containing statistical noise and other inaccuracies, and produces estimates of unknown variables that tend to be more precise than those based on a single measurement alone, by using Bayesian inference and estimating a joint probability distribution over the variables for each time frame"
+		}
+		{
+			displayText: "\\gls-cooling-load"
+			snippet: "\\\\gls{sym-cooling-load}"
+			description: "a rate at which sensible and latent heat must be removed from the space to maintain a constant space dry-bulb air temperature and humidity"
+		}
+		{
+			displayText: "\\gls-coriolis-effect"
+			snippet: "\\\\gls{sym-coriolis-effect}"
+			description: "an inertial or fictitious force that acts on objects that are in motion within a frame of reference that rotates with respect to an inertial frame."
+		}
+		{
+			displayText: "\\gls-coverage-path"
+			snippet: "\\\\gls{sym-coverage-path}"
+			description: "a sequence of steps which coveres a whole area by following a certain path"
+		}
+		{
+			displayText: "\\gls-critical-point"
+			snippet: "\\\\gls{sym-critical-point}"
+			description: "a value of average degree, which separates networks"
+		}
+		{
+			displayText: "\\gls-cusp-point"
+			snippet: "\\\\gls{sym-cusp-point}"
+			description: "are points where its surface normal of the boundary of the free configuration space is non-smooth"
+		}
+		{
+			displayText: "\\gls-dead-reckoning"
+			snippet: "\\\\gls{sym-dead-reckoning}"
+			description: "the process of calculating one's current position by using a previously determined position, or fix, and advancing that position based upon known or estimated speeds over elapsed time and course"
+		}
+		{
+			displayText: "\\gls-deadlock-state"
+			snippet: "\\\\gls{sym-deadlock-state}"
+			description: "a standstill situation, from which the algorithm has no means of escape"
+		}
+		{
+			displayText: "\\gls-dilatancy"
+			snippet: "\\\\gls{sym-dilatancy}"
+			description: "volume increase that may occur during shear"
+		}
+		{
+			displayText: "\\gls-draghead"
+			snippet: "\\\\gls{sym-draghead}"
+			description: "a suction mouth which is dragged across a water body"
+		}
+		{
+			displayText: "\\gls-dredgeline"
+			snippet: "\\\\gls{sym-dredgeline}"
+			description: "a pipeline which transports excavated slurry"
+		}
+		{
+			displayText: "\\gls-electric-field"
+			snippet: "\\\\gls{sym-electric-field}"
+			description: "a vector field that associates to each point in space the Coulomb force that would be experienced per unit of electric charge, by an infinitesimal test charge at that point. Electric fields converge and diverge at electric charges and can be induced by time-varying magnetic fields"
+		}
+		{
+			displayText: "\\gls-electric-motor"
+			snippet: "\\\\gls{sym-electric-motor}"
+			description: "an electrical machine that converts electrical energy into mechanical energy"
+		}
+		{
+			displayText: "\\gls-erosion"
+			snippet: "\\\\gls{sym-erosion}"
+			description: "an action of surface processes (such as water flow or wind) that removes soil"
+		}
+		{
+			displayText: "\\gls-geophysical-navigation"
+			snippet: "\\\\gls{sym-geophysical-navigation}"
+			description: "navigation using landmarks"
+		}
+		{
+			displayText: "\\gls-gimbal-lock"
+			snippet: "\\\\gls{sym-gimbal-lock}"
+			description: "the loss of one degree of freedom in a three-dimensional space, three-gimbal mechanism that occurs when the axes of two of the three gimbals are driven into a parallel configuration, ``locking'' the system into rotation in a degenerate two-dimensional space"
+		}
+		{
+			displayText: "\\gls-graph"
+			snippet: "\\\\gls{sym-graph}"
+			description: "a mathematical structure used to model pairwise relations between objects. A graph in this context is made up of vertices, nodes, or points which are connected by edges, arcs, or lines"
+		}
+		{
+			displayText: "\\gls-gyroscope"
+			snippet: "\\\\gls{sym-gyroscope}"
+			description: "a spinning wheel or disc in which the axis of rotation is free to assume any orientation by itself. When rotating, the orientation of this axis is unaffected by tilting or rotation of the mounting, according to the conservation of angular momentum. Because of this, gyroscopes are useful for measuring or maintaining orientation"
+		}
+		{
+			displayText: "\\gls-hard-iron"
+			snippet: "\\\\gls{sym-hard-iron}"
+			description: "a constant additive disturbance in the magnetic field of the magnetometer"
+		}
+		{
+			displayText: "\\gls-heating-load"
+			snippet: "\\\\gls{sym-heating-load}"
+			description: "a rate at which sensible and latent heat must be added to the space to maintain a constant space dry-bulb air temperature and humidity"
+		}
+		{
+			displayText: "\\gls-hessian"
+			snippet: "\\\\gls{sym-hessian}"
+			description: "a square matrix of second-order partial derivatives of a scalar-valued function, or scalar field. It describes the local curvature of a function of many variables"
+		}
+		{
+			displayText: "\\gls-hopper"
+			snippet: "\\\\gls{sym-hopper}"
+			description: "a storage container or compartment"
+		}
+		{
+			displayText: "\\gls-hydraulic-motor"
+			snippet: "\\\\gls{sym-hydraulic-motor}"
+			description: "a mechanical actuator that converts hydraulic pressure and flow into torque and angular displacement"
+		}
+		{
+			displayText: "\\gls-hydraulic-pump"
+			snippet: "\\\\gls{sym-hydraulic-pump}"
+			description: "a mechanical source of power that converts mechanical power into hydraulic energy"
+		}
+		{
+			displayText: "\\gls-Kalman-filter"
+			snippet: "\\\\gls{sym-Kalman-filter}"
+			description: "an algorithm that uses a series of measurements observed over time, containing statistical noise and other inaccuracies, and produces estimates of unknown variables that tend to be more precise than those based on a single measurement alone"
+		}
+		{
+			displayText: "\\gls-kalman-gain"
+			snippet: "\\\\gls{sym-kalman-gain}"
+			description: "the relative weight given to the measurements and current state estimate, and can be 'tuned' to achieve particular performance. With a high gain, the filter places more weight on the most recent measurements, and thus follows them more responsively. With a low gain, the filter follows the model predictions more closely. At the extremes, a high gain close to one will result in a more jumpy estimated trajectory, while low gain close to zero will smooth out noise but decrease the responsiveness"
+		}
+		{
+			displayText: "\\gls-latent-heat"
+			snippet: "\\\\gls{sym-latent-heat}"
+			description: "thermal energy released or absorbed by a body"
+		}
+		{
+			displayText: "\\gls-lora"
+			snippet: "\\\\gls{sym-lora}"
+			description: "a wireless technology that has been developed to enable low data rate communications to be made over long distances by sensors and actuators for M2M and Internet of Things, IoT applications"
+		}
+		{
+			displayText: "\\gls-lorentz-force"
+			snippet: "\\\\gls{sym-lorentz-force}"
+			description: " the combination of electric and magnetic force on a point charge due to electromagnetic fields"
+		}
+		{
+			displayText: "\\gls-magnetic-field"
+			snippet: "\\\\gls{sym-magnetic-field}"
+			description: "a magnetic effect of electric currents and magnetic materials. The magnetic field at any given point is specified by both a direction and a magnitude (or strength); as such it is a vector field"
+		}
+		{
+			displayText: "\\gls-magnetometer"
+			snippet: "\\\\gls{sym-magnetometer}"
+			description: "a magnetometer is an instrument that measures magnetism, either magnetization of magnetic material like a ferromagnet, or the strength and, in some cases, direction of the magnetic field at a point in space"
+		}
+		{
+			displayText: "\\gls-maxwell"
+			snippet: "\\\\gls{sym-maxwell}"
+			description: "are a set of partial differential equations that, together with the Lorentz force law, form the foundation of classical electrodynamics, classical optics, and electric circuits"
+		}
+		{
+			displayText: "\\gls-monotonically"
+			snippet: "\\\\gls{sym-monotonically}"
+			description: "a function between ordered sets that preserves or reverses the given order"
+		}
+		{
+			displayText: "\\gls-morse-function"
+			snippet: "\\\\gls{sym-morse-function}"
+			description: "a function for which all critical points are non-degenerate and all critical levels are different"
+		}
+		{
+			displayText: "\\gls-MTIpython"
+			snippet: "\\\\gls{sym-MTIpython}"
+			description: "a Python package, used within IHC, to solve engineering problems in the disciplines: fluids, thermodynamics, mechanical and electrical"
+		}
+		{
+			displayText: "\\gls-narrow-cell"
+			snippet: "\\\\gls{sym-narrow-cell}"
+			description: "a cell is located in a narrow space, bound between multiple walls"
+		}
+		{
+			displayText: "\\gls-node"
+			snippet: "\\\\gls{sym-node}"
+			description: "fundamental unit of which graphs are formed"
+		}
+		{
+			displayText: "\\gls-non-commutative"
+			snippet: "\\\\gls{sym-non-commutative}"
+			description: "a operation in which the order of the operands determine the results"
+		}
+		{
+			displayText: "\\gls-odometry"
+			snippet: "\\\\gls{sym-odometry}"
+			description: "the use of data from motion sensors to estimate change in position over time"
+		}
+		{
+			displayText: "\\gls-off-line"
+			snippet: "\\\\gls{sym-off-line}"
+			description: "algorithm which plans an optimal path ahead of time, thus which needs to know the environment a priori"
+		}
+		{
+			displayText: "\\gls-on-line"
+			snippet: "\\\\gls{sym-on-line}"
+			description: "an algorithm which has the ability to adapt when needed"
+		}
+		{
+			displayText: "\\gls-open-system"
+			snippet: "\\\\gls{sym-open-system}"
+			description: "a system that has external interactions. Such interactions can take the form of information, energy, or material transfers into or out of the system boundary"
+		}
+		{
+			displayText: "\\gls-optimal-path"
+			snippet: "\\\\gls{sym-optimal-path}"
+			description: "a sequence of steps which are optimized"
+		}
+		{
+			displayText: "\\gls-polarized-plane"
+			snippet: "\\\\gls{sym-polarized-plane}"
+			description: "is a confinement of the electric field vector or magnetic field vector to a given plane along the direction of propagation"
+		}
+		{
+			displayText: "\\gls-pressure-sensor"
+			snippet: "\\\\gls{sym-pressure-sensor}"
+			description: "can be classified in terms of pressure ranges they measure, temperature ranges of operation, and most importantly the type of pressure they measure"
+		}
+		{
+			displayText: "\\gls-Python"
+			snippet: "\\\\gls{sym-Python}"
+			description: "an interpreted high-level programming language for general-purpose programming"
+		}
+		{
+			displayText: "\\gls-quaternion"
+			snippet: "\\\\gls{sym-quaternion}"
+			description: "a number system that extends the complex numbers, they are very useful in describing a rotation involving three dimensions"
+		}
+		{
+			displayText: "\\gls-radiation"
+			snippet: "\\\\gls{sym-radiation}"
+			description: "an electromagnetic radiation generated by the thermal motion of charged particles in matter. All matter with a temperature greater than absolute zero emits thermal radiation"
+		}
+		{
+			displayText: "\\gls-reeb-graph"
+			snippet: "\\\\gls{sym-reeb-graph}"
+			description: "a mathematical object reflecting the evolution of the level sets of a real-valued function on a manifold"
+		}
+		{
+			displayText: "\\gls-refrigerant"
+			snippet: "\\\\gls{sym-refrigerant}"
+			description: "a substance or mixture, used in heat pumps to transport heat energy"
+		}
+		{
+			displayText: "\\gls-resistor"
+			snippet: "\\\\gls{sym-resistor}"
+			description: "a passive two-terminal electrical component that implements electrical resistance as a circuit element"
+		}
+		{
+			displayText: "\\gls-Sankey diagram"
+			snippet: "\\\\gls{sym-Sankey diagram}"
+			description: "a specific type of flow diagram, in which the width of the arrows is shown proportionally to the flow quantity"
+		}
+		{
+			displayText: "\\gls-sedimentation"
+			snippet: "\\\\gls{sym-sedimentation}"
+			description: "the opposite of erosion"
+		}
+		{
+			displayText: "\\gls-silt"
+			snippet: "\\\\gls{sym-silt}"
+			description: "a granular material of a size between sand and clay"
+		}
+		{
+			displayText: "\\gls-slurry"
+			snippet: "\\\\gls{sym-slurry}"
+			description: "describe a mixture that consist of both solid and fluid phases"
+		}
+		{
+			displayText: "\\gls-soft-iron"
+			snippet: "\\\\gls{sym-soft-iron}"
+			description: "a result of material that distorts the magnetic field of magnetometer, but does not necessarily generate its own magnetic field"
+		}
+		{
+			displayText: "\\gls-solvent"
+			snippet: "\\\\gls{sym-solvent}"
+			description: "a substance that dissolves a solute, such as a chemically distinct liquid, solid or gas, resulting in a solution"
+		}
+		{
+			displayText: "\\gls-tooltip"
+			snippet: "\\\\gls{sym-tooltip}"
+			description: "a popup window, containing additional information. It appears when a mouse pointer hoovers over a designated area"
+		}
+		{
+			displayText: "\\gls-trapezoidal-rule"
+			snippet: "\\\\gls{sym-trapezoidal-rule}"
+			description: "a technique for approximating the definite integral"
+		}
+		{
+			displayText: "\\gls-traveling-salesman-problem"
+			snippet: "\\\\gls{sym-traveling-salesman-problem}"
+			description: "asks the following question: ``Given a list of cities and the distances between each pair of cities, what is the shortest possible route that visits each city exactly once and returns to the origin city?'' It is an NP-hard problem in combinatorial optimization, important in operations research and theoretical computer science"
+		}
+		{
+			displayText: "\\gls-umbilical"
+			snippet: "\\\\gls{sym-umbilical}"
+			description: "a electronic cable connecting an underwater vehicle"
+		}
+		{
+			displayText: "\\gls-vast-cell"
+			snippet: "\\\\gls{sym-vast-cell}"
+			description: "a cell located in a vast open space"
+		}
+		{
+			displayText: "\\gls-voronoi-diagram"
+			snippet: "\\\\gls{sym-voronoi-diagram}"
+			description: "a partition of a plane into regions close to each of a given set of objects"
+		}
+		{
+			displayText: "\\gls-word"
+			snippet: "\\\\gls{sym-word}"
+			description: "a string of bits representing a value which is stored in memory"
+		}
+		{
+			displayText: "\\acr-AHP"
+			snippet: "\\\\gls{acr-AHP}"
+			description: "Absorption Heat Pump"
+		}
+		{
+			displayText: "\\acr-AOD"
+			snippet: "\\\\gls{acr-AOD}"
+			description: "Autonomous Operating Dredgebot"
+		}
+		{
+			displayText: "\\acr-ASD"
+			snippet: "\\\\gls{acr-ASD}"
+			description: "Auger Suction Dredger"
+		}
+		{
+			displayText: "\\acr-AUV"
+			snippet: "\\\\gls{acr-AUV}"
+			description: "Autonomous Underwater Vehicle"
+		}
+		{
+			displayText: "\\acr-AW"
+			snippet: "\\\\gls{acr-AW}"
+			description: "Acoustic Waves"
+		}
+		{
+			displayText: "\\acr-ADC"
+			snippet: "\\\\gls{acr-ADC}"
+			description: "Analog Digital Conversion"
+		}
+		{
+			displayText: "\\acr-CFC"
+			snippet: "\\\\gls{acr-CFC}"
+			description: "ChloroFluoroCarbons"
+		}
+		{
+			displayText: "\\acr-CIP"
+			snippet: "\\\\gls{acr-CIP}"
+			description: "Common Industrial Protocol"
+		}
+		{
+			displayText: "\\acr-COP"
+			snippet: "\\\\gls{acr-COP}"
+			description: "Coefficient Of Performance"
+		}
+		{
+			displayText: "\\acr-CPP"
+			snippet: "\\\\gls{acr-CPP}"
+			description: "Coverage Path Planning"
+		}
+		{
+			displayText: "\\acr-CSD"
+			snippet: "\\\\gls{acr-CSD}"
+			description: "Cutter Suction Dredger"
+		}
+		{
+			displayText: "\\acr-DEC"
+			snippet: "\\\\gls{acr-DEC}"
+			description: "Desiccant Evaporative Cooling"
+		}
+		{
+			displayText: "\\acr-EHP"
+			snippet: "\\\\gls{acr-EHP}"
+			description: "Electrical driven Heat Pump"
+		}
+		{
+			displayText: "\\acr-EMW"
+			snippet: "\\\\gls{acr-EMW}"
+			description: "Electromagnetic Waves"
+		}
+		{
+			displayText: "\\acr-ESEER"
+			snippet: "\\\\gls{acr-ESEER}"
+			description: "European Seasonal Energy Ratio"
+		}
+		{
+			displayText: "\\acr-ETC"
+			snippet: "\\\\gls{acr-ETC}"
+			description: "Evacuated Tube Collector"
+		}
+		{
+			displayText: "\\acr-FIC"
+			snippet: "\\\\gls{acr-FIC}"
+			description: "Fluoro-IodoCarbon"
+		}
+		{
+			displayText: "\\acr-FPC"
+			snippet: "\\\\gls{acr-FPC}"
+			description: "Flat Plate Collector"
+		}
+		{
+			displayText: "\\acr-FR"
+			snippet: "\\\\gls{acr-FR}"
+			description: "Frame"
+		}
+		{
+			displayText: "\\acr-GDHP"
+			snippet: "\\\\gls{acr-GDHP}"
+			description: "Gas Diffusion Heat Pump"
+		}
+		{
+			displayText: "\\acr-GEHP"
+			snippet: "\\\\gls{acr-GEHP}"
+			description: "Gas Engine Heat Pump"
+		}
+		{
+			displayText: "\\acr-GPS"
+			snippet: "\\\\gls{acr-GPS}"
+			description: "Global Positioning System"
+		}
+		{
+			displayText: "\\acr-GWP"
+			snippet: "\\\\gls{acr-GWP}"
+			description: "Global Warming Potential"
+		}
+		{
+			displayText: "\\acr-HC"
+			snippet: "\\\\gls{acr-HC}"
+			description: "HydroCarbons"
+		}
+		{
+			displayText: "\\acr-HCFC"
+			snippet: "\\\\gls{acr-HCFC}"
+			description: "HydroChloroFluoroCarbons"
+		}
+		{
+			displayText: "\\acr-HCFS"
+			snippet: "\\\\gls{acr-HCFS}"
+			description: "HydroChloroFluoroCarbons"
+		}
+		{
+			displayText: "\\acr-HE"
+			snippet: "\\\\gls{acr-HE}"
+			description: "HydroEther"
+		}
+		{
+			displayText: "\\acr-HFC"
+			snippet: "\\\\gls{acr-HFC}"
+			description: "HydroFluoroCarbons"
+		}
+		{
+			displayText: "\\acr-HFE"
+			snippet: "\\\\gls{acr-HFE}"
+			description: "HydroFluorEther"
+		}
+		{
+			displayText: "\\acr-HFIC"
+			snippet: "\\\\gls{acr-HFIC}"
+			description: "HydroFluoro-IodoCarbon"
+		}
+		{
+			displayText: "\\acr-ICS"
+			snippet: "\\\\gls{acr-ICS}"
+			description: "Integral Collector Storage"
+		}
+		{
+			displayText: "\\acr-IEEE"
+			snippet: "\\\\gls{acr-IEEE}"
+			description: "Institute of Electrical and Electronics Engineers"
+		}
+		{
+			displayText: "\\acr-IoT"
+			snippet: "\\\\gls{acr-IoT}"
+			description: "Internet of Things"
+		}
+		{
+			displayText: "\\acr-IMU"
+			snippet: "\\\\gls{acr-IMU}"
+			description: "Inertial Measurement Unit"
+		}
+		{
+			displayText: "\\acr-LLC"
+			snippet: "\\\\gls{acr-LLC}"
+			description: "Logical Link Control"
+		}
+		{
+			displayText: "\\acr-LT"
+			snippet: "\\\\gls{acr-LT}"
+			description: "Low Teemperature"
+		}
+		{
+			displayText: "\\acr-MAC"
+			snippet: "\\\\gls{acr-MAC}"
+			description: "Media Access Control"
+		}
+		{
+			displayText: "\\acr-MVR"
+			snippet: "\\\\gls{acr-MVR}"
+			description: "Mechanical Vapor Recompression"
+		}
+		{
+			displayText: "\\acr-MEMS"
+			snippet: "\\\\gls{acr-MEMS}"
+			description: "Micro Electro Mechanical System"
+		}
+		{
+			displayText: "\\acr-OP"
+			snippet: "\\\\gls{acr-OP}"
+			description: "Organic Polymer Gel"
+		}
+		{
+			displayText: "\\acr-PDR"
+			snippet: "\\\\gls{acr-PDR}"
+			description: "Parabolic Dish Reflector"
+		}
+		{
+			displayText: "\\acr-PMV"
+			snippet: "\\\\gls{acr-PMV}"
+			description: "Predicted Mean Vote"
+		}
+		{
+			displayText: "\\acr-PPD"
+			snippet: "\\\\gls{acr-PPD}"
+			description: "Predicted Percentage of Dissatisfied"
+		}
+		{
+			displayText: "\\acr-PTC"
+			snippet: "\\\\gls{acr-PTC}"
+			description: "Parabolic Trough Collector"
+		}
+		{
+			displayText: "\\acr-RESL"
+			snippet: "\\\\gls{acr-RESL}"
+			description: "Robotic Embedded Systems Laboratory"
+		}
+		{
+			displayText: "\\acr-ROV"
+			snippet: "\\\\gls{acr-ROV}"
+			description: "Remote Operated Vehicle"
+		}
+		{
+			displayText: "\\acr-SW"
+			snippet: "\\\\gls{acr-SW}"
+			description: "Sound Waves"
+		}
+		{
+			displayText: "\\acr-TCP"
+			snippet: "\\\\gls{acr-TCP}"
+			description: "Transmission Control Protocol"
+		}
+		{
+			displayText: "\\acr-TIR"
+			snippet: "\\\\gls{acr-TIR}"
+			description: "Total Internal Reflection"
+		}
+		{
+			displayText: "\\acr-TSHD"
+			snippet: "\\\\gls{acr-TSHD}"
+			description: "Trailing Suction Hopper Dredger"
+		}
+		{
+			displayText: "\\acr-UDP"
+			snippet: "\\\\gls{acr-UDP}"
+			description: "User Datagram Protocol"
+		}
+		{
+			displayText: "\\acr-LBL"
+			snippet: "\\\\gls{acr-LBL}"
+			description: "Long Base Line"
+		}
+		{
+			displayText: "\\acr-USBL"
+			snippet: "\\\\gls{acr-USBL}"
+			description: "Ultra Short Base Line"
+		}
+		{
+			displayText: "\\acr-TRN"
+			snippet: "\\\\gls{acr-TRN}"
+			description: "Terrain Relative navigation"
+		}
+		{
+			displayText: "\\acr-SLAM"
+			snippet: "\\\\gls{acr-SLAM}"
+			description: "Simultaneous Localization And Mapping"
+		}
+		{
+			displayText: "\\acr-LQG-MP"
+			snippet: "\\\\gls{acr-LQG-MP}"
+			description: "Linear-Quadratic Gaussian Motion Planning"
+		}
+		{
+			displayText: "\\acr-RRT"
+			snippet: "\\\\gls{acr-RRT}"
+			description: "Rapidly exploring Random Trees"
+		}
+		{
+			displayText: "\\acr-LQE"
+			snippet: "\\\\gls{acr-LQE}"
+			description: "Linear Quadratic Estimation"
+		}
+		{
+			displayText: "\\acr-NEES"
+			snippet: "\\\\gls{acr-NEES}"
+			description: "Normalized Estimated Error Squared"
+		}
+		{
+			displayText: "\\acr-BCD"
+			snippet: "\\\\gls{acr-BCD}"
+			description: "Boustrophedon Cellular Decomposition"
+		}
+		{
+			displayText: "\\acr-GVD"
+			snippet: "\\\\gls{acr-GVD}"
+			description: "Generalized Voronoi Diagram"
+		}
+		{
+			displayText: "\\acr-MLP"
+			snippet: "\\\\gls{acr-MLP}"
+			description: "Multi-Layer Perceptron"
+		}
+		{
+			displayText: "\\acr-Spiral-STC"
+			snippet: "\\\\gls{acr-Spiral-STC}"
+			description: "Spiral Spanning Tree Coverage"
+		}
+		{
+			displayText: "\\acr-UKF"
+			snippet: "\\\\gls{acr-UKF}"
+			description: "Unscented Kalman Filter"
+		}
+		{
+			displayText: "\\acr-UT"
+			snippet: "\\\\gls{acr-UT}"
+			description: "Unscented Transformation"
+		}
+		{
+			displayText: "\\acr-ToF"
+			snippet: "\\\\gls{acr-ToF}"
+			description: "Time of Flight"
+		}
+		{
+			displayText: "\\acr-DoA"
+			snippet: "\\\\gls{acr-DoA}"
+			description: "Direction of arrival"
+		}
+		{
+			displayText: "\\acr-SWR"
+			snippet: "\\\\gls{acr-SWR}"
+			description: "Submerged Weight Range"
+		}
+		{
+			displayText: "\\acr-SCM"
+			snippet: "\\\\gls{acr-SCM}"
+			description: "Soil Contact Model"
+		}
+		{
+			displayText: "\\acr-DEM"
+			snippet: "\\\\gls{acr-DEM}"
+			description: "Discrete Element Method"
+		}
+		{
+			displayText: "\\acr-OOP"
+			snippet: "\\\\gls{acr-OOP}"
+			description: "Object-Orientated Programming"
+		}
+		{
+			displayText: "\\acr-PLC"
+			snippet: "\\\\gls{acr-PLC}"
+			description: "Programmable Logic Controller"
+		}
+		{
+			displayText: "\\acr-SBC"
+			snippet: "\\\\gls{acr-SBC}"
+			description: "Single Board Computer"
+		}
+		{
+			displayText: "\\acr-PID"
+			snippet: "\\\\gls{acr-PID}"
+			description: "Proportional Integral Derivative"
+		}
+		{
+			displayText: "\\acr-GUI"
+			snippet: "\\\\gls{acr-GUI}"
+			description: "Graphical User Interface"
+		}
+		{
+			displayText: "\\acr-BBB"
+			snippet: "\\\\gls{acr-BBB}"
+			description: "Beagle Bone Black"
+		}
+		{
+			displayText: "\\acr-Rpi"
+			snippet: "\\\\gls{acr-Rpi}"
+			description: "Raspberry pi"
+		}
+		{
+			displayText: "\\acr-YAML"
+			snippet: "\\\\gls{acr-YAML}"
+			description: "YAML Ain't Markup Language"
+		}
+		{
+			displayText: "\\acr-onBCD"
+			snippet: "\\\\gls{acr-onBCD}"
+			description: "online Morse-based Boustrophedon Cellular Decomposition"
+		}
+		{
+			displayText: "\\acr-BCD-GVD"
+			snippet: "\\\\gls{acr-BCD-GVD}"
+			description: "Morse-based Cellular Decomposition with Voronoi Diagram"
+		}
+		{
+			displayText: "\\acr-topBCD"
+			snippet: "\\\\gls{acr-topBCD}"
+			description: "topological Boustrophedeon Cellular Decomposition"
+		}
+		{
+			displayText: "\\acr-onSD2"
+			snippet: "\\\\gls{acr-onSD2}"
+			description: "on-line Slice Decomposition II"
+		}
+		{
+			displayText: "\\acr-onSD2NN"
+			snippet: "\\\\gls{acr-onSD2NN}"
+			description: "on-line Slice Decomposition II with Neural Network"
+		}
+		{
+			displayText: "\\acr-STC"
+			snippet: "\\\\gls{acr-STC}"
+			description: "grid based Spanning Tree Coverage"
+		}
+		{
+			displayText: "\\acr-NN"
+			snippet: "\\\\gls{acr-NN}"
+			description: "Neural Network based Coverage in Grid maps"
+		}
+	]
+}
