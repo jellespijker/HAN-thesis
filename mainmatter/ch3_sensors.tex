@@ -210,7 +210,7 @@ elimination.
 
 It is assumed that tilt compensation (eq.~\ref{eq:theta_imu}) and \gls{gls-hard-iron} offset (eq.~\ref{eq:offset}) are
 already performed at this stage and that the center of the ellipse is positioned at point \( (0,0) \). Which is drawn in
-figure \ref{fig:ellipse}. The first sub sequential step is to calculate the magnitude of each point on the ellipse and
+figure~\ref{fig:ellipse}. The first sub sequential step is to calculate the magnitude of each point on the ellipse and
 finding the smallest and greatest value, using equation~\ref{eq:ellipse_max} and~\ref{eq:ellipse_min}. The y-index of
 the greatest magnitude should be stored in \gls{sym-y_1}, which, together can be used to calculated \gls{sym-theta_si},
 as is shown in equation~\ref{eq:theta_ellipse}. By scaling and rotating the \gls{gls-hard-iron} \gls{sym-m_hi} vector a

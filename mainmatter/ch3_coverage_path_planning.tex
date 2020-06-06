@@ -158,7 +158,7 @@ obstacles.
 	\includegraphics[width=\textwidth,trim=2 2 2 2,clip]{incrementalsweep.pdf}
 \end{RoyalFigure}
 
-On-line region coverage is depicted in figure \ref{fig:incrementalsweep} which shows an incremental sweep as part of an
+On-line region coverage is depicted in figure~\ref{fig:incrementalsweep} which shows an incremental sweep as part of an
 on-line \gls{acr-BCD} (a) The robot starts to cover the space at the \gls{gls-critical-point} \gls{sym-Cp_1} and
 instantiates an edge in the graph. (b) When the robot is done covering the cell between \gls{sym-Cp_1} and
 \gls{sym-Cp_2}, it joins the nodes in the graph that correspond to \gls{sym-Cp_1} and \gls{sym-Cp_2} with an edge, and
@@ -273,8 +273,8 @@ consecutive slices, each slice is a sensor sweep line where the \( \gls{sym-delt
 step. \citeauthor{wong_complete_2004} states that there are two situations where the abrupt changes occurs:
 
 \begin{enumerate}
-	\item A segment in the previous slice is split by the emergence of a new segment, see figure \ref{fig:slicedec} (a) and (b).
-	\item A segment from the previous slice disappears in the current slice, see figure \ref{fig:slicedec} (c) and (d).
+	\item A segment in the previous slice is split by the emergence of a new segment, see figure~\ref{fig:slicedec} (a) and (b).
+	\item A segment from the previous slice disappears in the current slice, see figure~\ref{fig:slicedec} (c) and (d).
 \end{enumerate}
 
 \begin{RoyalFigure}[!htb, label=fig:slicedec]{(a) SPLITTING OF SEGMENTS (b) MERGING OF SEGMENTS \cite{wong_complete_2004}}
@@ -391,7 +391,7 @@ is considered as entry point.
 	\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=6cm,
 	semithick, every state/.style={minimum size=2cm, align=center}]
 
-	\node[initial,state,fill=RoyalLightGrey]  		(boundary)  		                  	{Boundary\\Algorithm \ref{alg:boundaryStateTopo}};
+	\node[initial,state,fill=RoyalLightGrey]  		(boundary)  		                  	{Boundary\\Algorithm~\ref{alg:boundaryStateTopo}};
 	\node[state,fill=RoyalLightGrey]          		(travel)   	[below right of=boundary] 	{Travel\\Algorithm~\ref{alg:travelStateTopo}};
 	\node[state,fill=RoyalLightGrey]	  			(normal)   	[right of=boundary] 		{Normal\\Algorithm~\ref{alg:normalStateTopo}};
 	\node						(exit)		[right of=normal, xshift=-20mm]	{exit};
@@ -725,7 +725,7 @@ decreasing function defined as
 
 % todo: sym mu
 \noindent Where $ \mu $ and $ \gls{sym-r_0} $ are positive constants, The external input $ I_k $ to the $ k $th neuron
-is defined in equation \ref{eq:externalinputs}. In this equation $ E $ is a large constant.
+is defined in equation~\ref{eq:externalinputs}. In this equation $ E $ is a large constant.
 
 \begin{equation}\label{eq:externalinputs}
 	I_k = \left\{

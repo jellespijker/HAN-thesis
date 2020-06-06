@@ -17,13 +17,14 @@ template = '\tsnippet: [\n\t\t{{\n\t\t\tdisplayText: "\\\\sym-{}"\n\t\t\tsnippet
 
 snip = '".text.tex.latex": {\n\tsnippet: [\n'
 for _, r in sym.iterrows():
-    snip += '\t\t{{\n\t\t\tdisplayText: "\\\\sym-{}"\n\t\t\tsnippet: "\\\\\\\\gls{{sym-{}}}"\n\t\t\tdescription: "{}"\n\t\t}}\n'.format(r['key'], r['key'], r['description'].replace('\\', '\\\\'))
+    snip += '\t\t{{\n\t\t\tdisplayText: "\\\\sym_{}"\n\t\t\tsnippet: "\\\\\\\\gls{{sym-{}}}"\n\t\t\tdescription: "{}"\n\t\t}}\n'.format(r['key'].replace(
+        '-', '_'), r['key'], r['description'].replace('\\', '\\\\'))
 for _, r in glos.iterrows():
-    snip += '\t\t{{\n\t\t\tdisplayText: "\\\\gls-{}"\n\t\t\tsnippet: "\\\\\\\\gls{{sym-{}}}"\n\t\t\tdescription: "{}"\n\t\t}}\n'.format(
-        r['key'], r['key'], r['description'].replace('\\', '\\\\').replace('"',"'"))
+    snip += '\t\t{{\n\t\t\tdisplayText: "\\\\gls_{}"\n\t\t\tsnippet: "\\\\\\\\gls{{sym-{}}}"\n\t\t\tdescription: "{}"\n\t\t}}\n'.format(
+        r['key'].replace('-', '_'), r['key'], r['description'].replace('\\', '\\\\').replace('"',"'"))
 for _, r in acr.iterrows():
-    snip += '\t\t{{\n\t\t\tdisplayText: "\\\\acr-{}"\n\t\t\tsnippet: "\\\\\\\\gls{{acr-{}}}"\n\t\t\tdescription: "{}"\n\t\t}}\n'.format(
-        r['short'], r['short'], r['long'].replace('\\', '\\\\'))
+    snip += '\t\t{{\n\t\t\tdisplayText: "\\\\acr_{}"\n\t\t\tsnippet: "\\\\\\\\gls{{acr-{}}}"\n\t\t\tdescription: "{}"\n\t\t}}\n'.format(
+        r['short'].replace('-','_'), r['short'], r['long'].replace('\\', '\\\\'))
 
 snip += '\t]\n}\n'
 print(snip)

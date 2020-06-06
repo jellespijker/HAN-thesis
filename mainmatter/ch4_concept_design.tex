@@ -3,7 +3,6 @@
 % !TeX encoding = UTF-8
 \chapter{CONTROLLER DESIGN}\label{chap:controller design}
 
-
 A controller that is capable of making complex decisions in a changing environment, requires different levels of
 abstraction. At the highest level it should be able to form a plan based upon a predefined strategy. A dredging crawler
 should be able cover a certain area removing a specified amount of soil, until reaching the specified depth. Because the
@@ -49,21 +48,24 @@ decision the implied risk due to uncertainties is reduced.
 
 \section{PERIPHERALS}\label{sec:peripherals}
 
-The crawler is comprised of various components which are listed in Appendix~\ref{app:crawlerpartlist}. This section will
-only focus on components which are required for autonomous operations. The two drivetrains consists of an electric
+The crawler is comprised of multiple components which are listed in Appendix~\ref{app:crawlerpartlist}. This section
+will focus on components which are required for autonomous operations. The two drivetrains consists of an electric
 motor, with an attached gearbox, coupled to a hydraulic motor and a hydraulic system which drives a hydraulic pump. The
-shaft of the hydraulic motor is attached to a flexibel coupling and connected with an Archimedes screw by a rigid flange
-connection. This drivetrain is discussed in detail in Section \ref{sec:motion model}. The crawler is able to turn if both drivetrains operate at different velocities, which is discussed in Section~\ref{seq:steering model}. The control vector \gls{sym}
+shaft of the hydraulic motor is attached to a flexible coupling and connected with an Archimedes screw by a rigid flange
+connection. This drivetrain is discussed in detail in Section~\ref{sec:motion model}. The crawler is able to turn if
+both drivetrains operate at different velocities, which is discussed in Section~\ref{seq:steering model}. The control
+vector \gls{sym-u_k}, consist of two velocity components.
 
-% pressure torque
-% encoder
-% gyroscope
-% accelerometer
-% magnetometer
-% pressure sensor
-
-
-% describe IMU, pressure sensor height, torque (with pressure sensor), encoder and sonar
+Dead-reckoning is often accomplished with a \gls{sym-accelerometer}, \gls{sym-gyroscope} and \gls{sym-magnetometer},
+this sensor array is often expanded with a \gls{sym-pressure-sensor}. These sensors combined will give a good impression
+of the orientation and position change over time. Keeping in mind that the measurement uncertainty of the
+\gls{gls-pressure_sensor} will increase during dredging operations. This phenomena is described in
+Section~\ref{sec:pressure sensor}. Knowing actual rotational velocity of the Archimedes screw will be used to beter
+predict the traveled distance. Something that can be measure with an encoder attached on the shaft of the electro motor.
+These encoder are also used for the regular \gls{acr-PID} controller of the screws. Although we can measure the
+rotational velocity of the screws we can't know for sure how fast the crawler will actually move. Section~\ref{sec:soil
+dynamic model} describes how the change in required torque of the drivetrain will give a indication of the slippage of
+the Archimedes screws.
 
 \section{KALMAN FILTER DESIGN}\label{sec:kalman design}
 
@@ -183,7 +185,7 @@ the state vector can also contain the first and second derivatives of the pose v
 \subsubsection{2D OR 3D}
 
 \citet{bahr_cooperative_2009} proposes the following simplification; They state that all submersible vehicles are
-outfitted with a pressure sensor which allows them to determine their absolute depth with high accuracy and a high
+outfitted with a \gls{gls-pressure_sensor} which allows them to determine their absolute depth with high accuracy and a high
 update rate. As a result all underwater navigation systems are only used to resolve the 2D position and all underwater
 vehicle related localization problems are stated in 2D. Which allows for a simplified state vector \( \gls{sym-x_k} =
 \left[\gls{sym-x} ~\gls{sym-y} ~\gls{sym-phi_c} ~\gls{sym-psi_c} ~\gls{sym-theta_c}\right]^T \).
@@ -457,7 +459,7 @@ times the rotational speed \gls{sym-omega}. Which is shown in equation~\ref{eq:i
 \end{equation}
 
 \noindent In order to determine the pressure gain as a function of fluid speed and angular velocity,
-equations \ref{eq:flow rate}, \ref{eq:pump flowrate}, \ref{eq:ideal flow rate} and \ref{eq:leak flow rate} can be
+equations~\ref{eq:flow rate},~\ref{eq:pump flowrate},~\ref{eq:ideal flow rate} and~\ref{eq:leak flow rate} can be
 combined and rewritten in to equation~\ref{eq:dpp}.
 
 \begin{equation}\label{eq:dpp}
@@ -508,15 +510,15 @@ efficiency is an inverse of the pump.
 \end{equation}
 
 \noindent In order to calculate a pressure drop as an function of fluid and angular velocity over the outlets, equations
-\ref{eq:flow rate}, \ref{eq:motor flowrate}, \ref{eq:ideal flow rate} and \ref{eq:leak flow rate} can be combined and
-rewritten in to equation \ref{eq:dpp motor}.
+\ref{eq:flow rate},~\ref{eq:motor flowrate},~\ref{eq:ideal flow rate} and~\ref{eq:leak flow rate} can be combined and
+rewritten in to equation~\ref{eq:dpp motor}.
 
 \begin{equation}\label{eq:dpp motor}
 	\gls{sym-Delta_p}(\gls{sym-v_f}, \gls{sym-omega}) = \frac{\gls{sym-v_f} \gls{sym-A_p} - D \gls{sym-omega}}{ \gls{sym-K_HP}}
 \end{equation}
 
-\noindent In equation \ref{eq:dpp motor} the Hagen-Poiseuille coefficient for laminar pipe flows is calculated according
-to equation \ref{eq:hagen}
+\noindent In equation~\ref{eq:dpp motor} the Hagen-Poiseuille coefficient for laminar pipe flows is calculated according
+to equation~\ref{eq:hagen}
 
 \begin{equation}\label{eq:hagen}
 	\gls{sym-K_HP}= \frac{\gls{sym-mu_n}}{\gls{sym-rho} \gls{sym-mu}} \frac{\gls{sym-rho_n} \gls{sym-omega_n} D}{\gls{sym-Delta_p_n}} \left(\frac{1}{\gls{sym-eta_Vn}} - 1\right)
@@ -524,14 +526,14 @@ to equation \ref{eq:hagen}
 
 \noindent An other notable difference is that the net torque is lessened by the friction, as is shown in equation
 \ref{eq:torque}. Where the ideal torque \( \gls{sym-tau_i}(v,\gls{sym-omega}) \)and torque generated by friction \(
-\gls{sym-tau_f}(\gls{sym-v_f},\gls{sym-omega}) \) are calculated according to equation \ref{ideal torque} and \ref{eq:torque
+\gls{sym-tau_f}(\gls{sym-v_f},\gls{sym-omega}) \) are calculated according to equation~\ref{ideal torque} and~\ref{eq:torque
 friction}.
 
 \begin{equation}\label{eq:torque}
 	\gls{sym-tau}(\gls{sym-v_f},\gls{sym-omega}) = \gls{sym-tau_i}(\gls{sym-v_f},\gls{sym-omega}) - \gls{sym-tau_f}(\gls{sym-v_f},\gls{sym-omega})
 \end{equation}
 
-\subsection{SOIL DYNAMIC MODEL}
+\subsection{SOIL DYNAMIC MODEL}\label{sec:soil dynamic model}
 
 At this stage it is needed to model all interactions of a propulsion systems with a soil bed. According to
 \citet{lotman_applicable_2009} the soil mechanics behind a moving process with Archimedes screws is similar to those of
@@ -613,7 +615,7 @@ acceleration due to gravity.
 \end{equation}
 
 \citet{miedema_slurry_2016} shows that the normal forces working on a pipe from the inside can be calculated with
-equation \ref{eq:miedema_F_n_pipe}. He multiplies the density of undrained soil over a pipe length \gls{sym-Delta_L},
+equation~\ref{eq:miedema_F_n_pipe}. He multiplies the density of undrained soil over a pipe length \gls{sym-Delta_L},
 where a fraction of the density between soil and water \( \gls{sym-Re_sd} = \frac{\gls{sym-rho_ds}}{\gls{sym-rho_w}} - 1
 \) combined with a volumetric bed concentration fraction \gls{sym-C_vb}, which combined can be describes as an in-situ
 specific weight difference \gls{sym-gamma_sw}, found in equation~\ref{eq:submerged weight}. This is multiplied with a
@@ -682,7 +684,7 @@ Figure~\ref{fig:bearing_capacity} shows the resulting situation of the bearing c
 the loads \gls{sym-p_sb} and \gls{sym-p_q}. \textbf{Zone I} is an area were the horizontal principle stress
 \gls{sym-sigma_H} is greater than the vertical principle stress \gls{sym-sigma_V}. Whilst \textbf{zone II} is a
 transition zone between \textbf{I} and \textbf{III}. Where in \textbf{zone III} the vertical principle stress, which is
-equal to \gls{sym-p_sb}, is greater than horizontal principle stress, as shown in equation \ref{eq:bigger v instead of h stress}.
+equal to \gls{sym-p_sb}, is greater than horizontal principle stress, as shown in equation~\ref{eq:bigger v instead of h stress}.
 
 \begin{equation}\label{eq:bigger v instead of h stress}
 	\gls{sym-sigma_H} < \gls{sym-sigma_V} = \gls{sym-p_sb}
@@ -982,7 +984,7 @@ for the grains \gls{sym-F_rxd}. Which can be assumed as \( 0.501 \) for a modera
 
 Using the above established pressure losses equations, the loss at the suction side \gls{sym-p_s} can be calculated with
 equation~\ref{eq:pressure_suction}. This represent the pressure at the entrance of the submerged pump. While the loss at
-the pressure side \gls{sym-p_p} is calculated with equation \ref{eq:pressure_press}. Subtracting the suction side loss
+the pressure side \gls{sym-p_p} is calculated with equation~\ref{eq:pressure_press}. Subtracting the suction side loss
 from the pressure side, as shown in equation~\ref{eq:man_pressure}, gives the manometric head \gls{sym-p_man} of the
 system.
 
