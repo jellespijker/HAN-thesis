@@ -8,41 +8,43 @@ The actual implementation of the controller framework, as set out in Section~\re
 at \url{https://github.com/jellespijker/ohCaptain}. This includes build scripts and device-tree overlays for an arm
 embedded \gls{acr-SBC} of the \gls{acr-BBB} variant.
 
-It is important to validate the performance of the proposed controller. In particular the localization under
-uncertainty challenge. This could either be done in a field test with the actual crawler, or in a virtual simulation
-environment. Provided that the simulated environment is an accurate representation of the physical world. The crawler
-which was available at the beginning of this project, was for various unrelated reasons disassembled, before any actual
-testing could be performed. Roughly around the same time, the working environment and contract of of the author changed
-as well. This forced validation to be performed in a simulation.
+Validation of the controller performance is an important benchmark. In particular the localization under uncertainty
+challenge. This could either be done in a field test with the actual crawler, or in a virtual simulation environment.
+Provided that the simulated environment is an accurate representation of the physical world. The crawler which was
+available at the beginning of this project, was for various unrelated reasons disassembled, before any actual testing
+could be performed. Roughly around the same time, the working environment and contract of the author changed as well.
+This forced validation to be performed in a simulation.
 
 \noindent This chapter describes the simulation setup in Section~\ref{sec:simulation}. The final results are discussed
 in Section~\ref{sec:results}.
 
 \section{SIMULATION}\label{sec:simulation}
 
-In order to tell something meaningful about performance of a controller, it has to be subject to the same physical
-processes, as it would in real-life, albeit in virtual form. Section\ref{sec:motion model} lists assumed forces
-and processes acting upon on a crawler and states that drive-train characteristic and soil dynamics play a huge part in
-the kinematic behavior of a crawler. There are a couple of physics simulation engines that could be possible candidates
-for usage in this project; These are Gazebo, Project Chrono, Bullet and PhyhsX.
+In order to tell something meaningful about the performance of a controller, it has to be subject to the same physical
+processes, as it would in real-life, albeit in virtual form. Section~\ref{sec:motion model} lists all known external
+forces which are interacting with the crawler, and concludes that the dynamic properties of the drive-train and soil
+play a huge part in the kinematic behavior of the crawler. There are a couple of physics simulation engines that which
+are candidates for usage in this project; These are \href{http://gazebosim.org/}{Gazebo},
+\href{https://projectchrono.org/}{Project Chrono}, \href{https://pybullet.org/wordpress/}{Bullet} and
+\href{https://developer.nvidia.com/gameworks-physx-overview}{PhysX}.
 
-From this list, only Project Chrono has an existing framework which takes into account soil dynamic behavior. This can
-be simulated using a granular approach, were each particle of sand is body and is modeled using spherical rigid bodies
-whose orientation is captured by Euler parameters. For each time step a complete geometric characterization of all
-contacting particles is then obtained using collision detection and inter- particle normal contact forces are calculated
-by allowing small inter-penetrations using a penalty method for \gls[first]{acr-DEM}. Were the normal contact force is
-based on Hertz law and friction forces are calculated using the Coulomb
-limit~\cite{recuero_high-fidelity_2017}\cite{serban_co-simulation_2018}. This method is computational heavy and more
-suitable for detailed modeling.
+From this list, only Project Chrono has an existing framework which takes into account soil dynamic behavior and
+terramechanics. This is either simulated using \gls[first]{acr-DEM} or granular approach. Were each particle of sand is
+an individual body and is represented as a spherical rigid bodies whose orientation is captured by Euler parameters.
+For each time step a complete geometric characterization of all contacting particles is then obtained using collision
+detection and inter- particle normal contact forces are calculated by allowing small inter-penetrations using a penalty
+method for \gls{acr-DEM}. Were the normal contact force is based on Hertz law and friction forces are calculated using
+the Coulomb limit~\cite{recuero_high-fidelity_2017}\cite{serban_co-simulation_2018}. This method is computational heavy
+and more suitable for detailed modeling.
 
-An alternative method is \gls[first]{acr-SCM}, based upon the familiar Becker-Wong model. The model provides a
-semi-empirical approach to the simulation of soft soil. It offers high speed of simulation and it is accurate enough for
-many scenarios. It has the following attributes: it depends on few parameters (the same that are used in the Bekker-
-Wong model); it can generate 3D ruts on terrains of variable height; it takes into account multi-pass hardening when
-wheels generate intersecting ruts; it can work with irregular triangle-based terrain meshes; it supports an optional
-refinement of the terrain mesh to capture fine details like tire threads and lugs; and, it is compatible with deformable
-tires and generic shapes like obstacles, track shoes of tanks, etc. On the downside, the new soil model cannot simulate
-lateral bulldozing effects like those happening when a tracked vehicle steers in-place and pushes material apart~
+An alternative method is the \gls[first]{acr-SCM}, based upon the familiar Becker-Wong model. The model provides a
+semi-empirical approach to the simulation of soft soil. It offers high speed of simulation and it's accurate enough for
+many scenarios. It has the following attributes: it depends on parameters (the same that are used in the Bekker- Wong
+model); it can generate 3D ruts on terrains of variable height; it takes into account multi-pass hardening when wheels
+generate intersecting ruts; it can work with irregular triangle-based terrain meshes; it supports an optional refinement
+of the terrain mesh to capture fine details like tire threads and lugs; and, it's compatible with deformable tires and
+generic shapes like obstacles, track shoes of tanks, etc. On the downside, the new soil model cannot simulate lateral
+bulldozing effects like those happening when a tracked vehicle steers in-place and pushes material apart~
 \cite{tasora_overview_2018}. This means that the proposed slip-prediction method can't be used in this simulation.
 
 A big part of the physics engine, Project Chrono, is the autonomous vehicle support. This is set-up according to well
@@ -57,7 +59,39 @@ simulation}.
 
 \subsection{SENSOR SIMULATION}\label{sec:sensor simulation}
 
+One of the biggest challenges and risks determining how it should deal with uncertainties and errors introduced by the
+inherent behavior and limits of the sensors. Project Chrono is an established and mature physics simulation engine which
+is written in C++. It consists of multiple modules. Simulating the behavior of an autonomous vehicle requires usage of
+the Core module, where Physics, Geometric and Collision objects are defined and the Vehicle module, containing among
+others objects for a Driver system, Powertrain, Terrain and Steering. The orientation and position for every object can
+be tracked, logged and plotted. These values represent continual ideal states, governed by the simulated physical laws.
+Simulating a controller with these values as input signals isn't representative for the real world.
+
+The code for Project Chrono has been released under a BSD-3 clause, this allows for modification and distribution of
+code for private and commercial use. An extension for realistic sensor behavior is written for this project en released
+as open-source for others to use. The extension library makes it possible to attach a virtual sensor somewhere on a
+frame, define which native signals it should use. For instance: acceleration of the sensors local coordinate system
+vector \gls{sym-a_z_k} compared to the global coordinate system. These values can then be transformed by routing it
+through different signal transformations, which represent typical errors. The transformed values can then be used as
+input for a controller and/or logged for post-processing. These typical errors are sensors characteristic which are
+discussed in Section~\ref{sec:sensors}. An inventory of the different errors is listed in the below. The subsequent
+sections describe which modification are used for sensors in this project.
+
+\begin{RoyalTable}{X[2,l,m] X[4,l,m]}
+  \RoyalHeader{ERROR||DESCRIPTION}
+  \RoyalRow{Noise|The input signal is transformed by adding a noise signal to it. The noise can either be generated with a random Gaussian distribution or a uniform distribution}
+  \RoyalRow{Digitize|The resolution of the incomming signal is lowered to a specified amount of bits, this will reduce the precision}
+  \RoyalRow{Bias|A constant offset is added to signal, simulating a drift}
+  \RoyalRow{Transform|A signal can be transformed with a tranformation matrix (stretching, squeezing, rotating, shear, reflect, etc.), simulating \gls{gls-hard-iron} effect with a skew transform matrix for instance}
+  \RoyalRow{Hysteresis|A signal is delayed simulating a lag in response of the system}
+\end{RoyalTable}
+
 \subsubsection{ACCELEROMETER}
+
+% noise /digitize
+An \gls{gls-accelerometer} is subjective to the effects of temperature and discretization of an analog signal to its
+digital representation\cite{abyarjoo_implementing_2015}. The noise is analog in nature and is therefor model before the
+discretization.
 
 \begin{RoyalFigure}[htb, label=fig:accelerometersim]{SIGNAL TRANSFORM ACCELEROMETER}
 	\begin{tikzpicture}[auto, node distance=4cm,>=latex', align=center]
@@ -81,6 +115,10 @@ simulation}.
 \end{RoyalFigure}
 
 \subsubsection{GYROSCOPE}
+
+The \gls{gls-gyroscope} is subject to a drift along its rotational axis or induced by the rotation of the earth. Noise
+from different sources is also added to the signal. Signals from modern gyroscopes are interpreted on a microcontroller,
+which convert the analog values to digital levels.
 
 \begin{RoyalFigure}[htb, label=fig:gyroscopesim]{SIGNAL TRANSFORM GYROSCOPE}
 	\begin{tikzpicture}[auto, node distance=4cm,>=latex', align=center]
@@ -121,6 +159,10 @@ simulation}.
 
 \subsubsection{MAGNETOMETER}
 
+A \gls{gls-magnetometer} experience distortions in its fields, Either due to \gls{gls-soft-iron} or \gls{gls-hard-iron}
+effects. These manifest in an elliptical nature, a skewed circle. A transformation matrix mimics those distortions. The
+sensor is also sensitive to background distortions, resulting in noise in the signal. This signal is also digitized.
+
 \begin{RoyalFigure}[htb, label=fig:magnetometersim]{SIGNAL TRANSFORM MAGNETOMETER}
 	\begin{tikzpicture}[auto, node distance=4cm,>=latex', align=center]
 		\node[block] (digitize) {Digitize};
@@ -149,6 +191,15 @@ simulation}.
 
 \subsubsection{ENCODER}
 
+An encoder measures events in time, these events are usually triggers generated by a by a photodiode which is
+intermittenly blocked or exposed from a light source with the use of a code disk. \citet{j_borenstein_where_1996} state
+these relative inexpensive devices are well-suited for velocity feedback sensors in medium-to-high control systems, but
+run into noise and stability problems at extremely slow velocities due to quantization errors.
+
+\begin{RoyalFigure}[htb, label=fig:encoderworkings]{WORKING PRINCIPLE ENCODER~\cite{j_borenstein_where_1996}}
+    \includegraphics[width=\textwidth]{encoder.png}
+\end{RoyalFigure}
+
 \begin{RoyalFigure}[htb, label=fig:encodersim]{SIGNAL TRANSFORM ENCODER}
 	\begin{tikzpicture}[auto, node distance=4cm,>=latex', align=center]
 		\node[block] (digitize) {Digitize};
@@ -171,6 +222,10 @@ simulation}.
 \end{RoyalFigure}
 
 \subsubsection{PRESSURE SENSOR}
+
+\citet{liptak_instrument_2003} mentions that \gls{gls-pressure-sensor} are subject to hysteresis of there signal because
+of the material properties of the membrame and its ability to bounce back. The electrical components of these  sensors
+are also subjective to background noise, the transformed signal is also digitized.
 
 \begin{RoyalFigure}[htb, label=fig:pressuresensorsim]{SIGNAL TRANSFORM PRESSURE SENSOR}
 	\begin{tikzpicture}[auto, node distance=4cm,>=latex', align=center]
@@ -200,9 +255,29 @@ simulation}.
 
 \subsection{SIMULATION MODEL}\label{sec:simulation model}
 
-In this section a model describing the movement of a crawler is outlined. Which allows for an accurate estimate of a
-predicted location and orientation of a crawler. The challenge lies in limiting uncertainties, such that path
-planning algorithms can be executed without unacceptable drift of a crawler during operations.
+Project Chrono is setup as a multi-body simulation. It simulate a world and a collection of objects. The world has an
+absolute global reference frame of coordinates, all other objects have a reference frame which is relative to the global
+frame. The simulation is based upon use-case 2, which is specified in Section~\ref{sec:usecase2}. A crawler needs to
+remove a layer of \SI{5}{\centi\metre} soil from the waterbed of the Marina Aqua Delta habour. Which is located near
+Bruinisse, in the Netherlands, Figure~\ref{fig:harbor_ariel} show a satelite image of the location. It are two
+interconnected basins with an opening towards open water. Scaffolding are placed in regular intervals where small
+recreational ships are docked. The following simplifications are made:
+
+\begin{itemize}
+    \setlength\itemsep{0mm}
+    \item it's a closed body of water
+    \item scaffolding does not interfer
+    \item body of crawler is represented as block
+    \item no umbilicaland and dredgeline attached
+\end{itemize}
+
+The simulated model is build from a rectangular block with the two 3D Archimedes screws, which are the actual 3D CAD files.The joints and connections are created in source. They have no 3D representation. Collision detection for the 3D model is done with the mesh as boundaries, while the other components have simple primitives defined in the source code.
+The drivetrain is a serie of interconnected 1D
+
+\begin{RoyalFigure}[htb, label=fig:harbor_ariel]{MARINE AQUA DELTA SATALITE IMAGE \cite{google_maps_marine_2005}}
+    \includegraphics[width=0.5\textwidth]{gmaps_harbor.png}
+\end{RoyalFigure}
+
 
 \section{RESULTS}\label{sec:results}
 

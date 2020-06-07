@@ -32,7 +32,7 @@ be employed for an autonomous operating crawler. These will therefore not be des
 Recent studies have been focused on minimizing uncertainties using multiple robots, such as the leap-frog strategy
 proposed by~\citet{tully_leap_frog_2010}, which uses a team of three robots where two alternating robots act as
 stationary beacons. Others like~\citet{wei_gao_robust_2014} use a single surface which act as an communication and
-navigation aid. It is quite common to filter sensor readings and state vectors from the multiple robots using a
+navigation aid. it's quite common to filter sensor readings and state vectors from the multiple robots using a
 \gls{gls-Kalman-filter}.
 
 But this chapter begins with a dive into \gls{gls-Kalman-filter}. The sections below describe how the state
@@ -44,7 +44,7 @@ a alternative source, such as moving or stationary beacons.
 
 A crawler has multiple sensors on-board to establish were and what its orientation is; These will in a likelihood be a
 \gls{gls-gyroscope}, \gls{gls-accelerometer}, \gls{gls-magnetometer} and a \gls{gls-pressure-sensor}. It was established
-in section~\ref{sec:sensorstate} that each of these sensors have their own limitations and strengths. It is common
+in section~\ref{sec:sensorstate} that each of these sensors have their own limitations and strengths. it's common
 practice to fuse multiple sensors together, to counteract these limitations with strengths of the other sensors.
 \gls{gls-Kalman-filter} or as they are also known \gls[first]{acr-LQE}, are a tried and practice method to achieve this.
 
@@ -53,7 +53,7 @@ working on the ball.
 
 \subsection{BASIC KALMAN FILTERING}\label{sec:basic Kalman filter}
 
-Before a \gls{gls-Kalman-filter}  can be designed it is important that the basics are explained. The section will
+Before a \gls{gls-Kalman-filter}  can be designed it's important that the basics are explained. The section will
 feature a short description of the background and workings of a \gls{gls-Kalman-filter}  and
 \gls[first]{gls-quaternion}.
 
@@ -70,7 +70,7 @@ state dynamics. Which should contain a fairly faithful replication of the true s
 object in one dimension can be described with the state \( \gls{sym-x_k} = \left[\gls{sym-s_z}, \gls{sym-v_z}\right]^T
 \). Here \gls[first]{sym-s_z} and \gls[first]{sym-v_z}.
 
-A \gls{gls-Kalman-filter} works by estimating the state of a process based on \textit{a priori} states. It is in effect
+A \gls{gls-Kalman-filter} works by estimating the state of a process based on \textit{a priori} states. it's in effect
 an optimal estimator based on a prediction made from the previous input and current input. The \gls{gls-Kalman-filter}
 addresses the general problem of trying to estimate the state \( \gls{sym-x_khat} \in \Re^n \) of a discrete-time
 controlled process that is governed by the linear stochastic difference equation~\ref{eq:kalman}. Here \gls{sym-F_k} is
@@ -167,7 +167,7 @@ time step.
 \end{equation}
 
 The new predicted error of the estimate, known as the error covariance matrix \gls{sym-P_k}, is used to map the
-covariance between the \( i^{th} \) and \( j^{th} \) elements of the state vector \gls{sym-x_k}. In this example it is
+covariance between the \( i^{th} \) and \( j^{th} \) elements of the state vector \gls{sym-x_k}. In this example it's
 initial assumed that error between the state of its position \gls{sym-s_z} and the velocity are unrelated. The
 assumption is also made that the position has an error of \( \sigma{\gls{sym-s_z}} \) and the velocity \(
 \sigma{\gls{sym-v_z} } \). From this, a simple error covariance matrix can be constructed. Which can be used in
@@ -438,8 +438,8 @@ at time \( k \).
 
 
 This means that if the covariance matrix gets smaller, \gls{acr-NEES} gets larger for the same error. A covariance
-matrix is the filter's estimate of it's error, so if it is small relative to the estimation error then it is performing
-worse than if it is large relative to the same estimation error. Equation~\ref{eq:eps_nees} gives a scalar for each time
+matrix is the filter's estimate of it's error, so if it's small relative to the estimation error then it's performing
+worse than if it's large relative to the same estimation error. Equation~\ref{eq:eps_nees} gives a scalar for each time
 step, which is said to be \textit{chi-squared distributed with n degrees of freedom}. The average \gls{acr-NEES} value
 \gls{sym-epsilon_nees_mean} should be less then number of elements in the state space vector \gls{sym-n_x}, as is shown
 in equation~\ref{eq:mean_eps}. The performance of our example or the \( \gls{sym-epsilon_nees_mean} = \num{1.307745} \)

@@ -4,7 +4,7 @@ accelerometer|accelerometer|accelerometers|a device that measures proper acceler
 acoustic-navigation|time of flight acoustic navigation|time of flight acoustic navigation's|triangulation of a position using the difference in send and receive time of signal, to calculate the distance from a source
 adjacency-graph|adjacency graph|adjacency graphs|a graph representing depicting all the nodes
 Archimedes-screw|Archimedes screw|Archimedes screws|a machine historically used for transferring water from a low-lying body of water into irrigation ditches. The same principle can also be used propel the screw in a medium
-auger-dredge-head|auger dredge head|auger dredge heads|consists of two opposite-thread spiral cutters on a horizontal tubular body. The soil is cut by the spiral cutters, and the pitch ensures that it is carried to the center of the auger, where the suction head is situated.
+auger-dredge-head|auger dredge head|auger dredge heads|consists of two opposite-thread spiral cutters on a horizontal tubular body. The soil is cut by the spiral cutters, and the pitch ensures that it's carried to the center of the auger, where the suction head is situated.
 bandwidth|bandwidth|bandwidths|a difference between the upper and lower frequencies in a continuous set of frequencies
 bathymetric-map|bathymetric map|bathymetric maps|submerged equivalent of an above-water topographic map
 Bingham-plastic|Bingham plastic|Bingham plastics|a viscoplastic material that behaves as a rigid body at low stresses but flows as a viscous fluid at high stress
@@ -41,7 +41,7 @@ kalman-gain|Kalman gain|Kalman gains|the relative weight given to the measuremen
 latent-heat|latent heat|latent heats|thermal energy released or absorbed by a body
 lora|LoRa|LoRa|a wireless technology that has been developed to enable low data rate communications to be made over long distances by sensors and actuators for M2M and Internet of Things, IoT applications
 lorentz-force|Lorentz force|Lorentz forces| the combination of electric and magnetic force on a point charge due to electromagnetic fields
-magnetic-field|magnetic field|magnetic fields|a magnetic effect of electric currents and magnetic materials. The magnetic field at any given point is specified by both a direction and a magnitude (or strength); as such it is a vector field
+magnetic-field|magnetic field|magnetic fields|a magnetic effect of electric currents and magnetic materials. The magnetic field at any given point is specified by both a direction and a magnitude (or strength); as such it's a vector field
 magnetometer|magnetometer|magnetometers|a magnetometer is an instrument that measures magnetism, either magnetization of magnetic material like a ferromagnet, or the strength and, in some cases, direction of the magnetic field at a point in space
 maxwell|Maxwell's equation|Maxwell's equations|are a set of partial differential equations that, together with the Lorentz force law, form the foundation of classical electrodynamics, classical optics, and electric circuits
 monotonically|monotonically|monotonically|a function between ordered sets that preserves or reverses the given order
@@ -71,7 +71,7 @@ soft-iron|soft iron|soft irons|a result of material that distorts the magnetic f
 solvent|solvent|solvents|a substance that dissolves a solute, such as a chemically distinct liquid, solid or gas, resulting in a solution
 tooltip|tooltip|tooltips|a popup window, containing additional information. It appears when a mouse pointer hoovers over a designated area
 trapezoidal-rule|Trapezoidal rule|Trapezoidal rules|a technique for approximating the definite integral
-traveling-salesman-problem|traveling salesman|traveling salesmans|asks the following question: ``Given a list of cities and the distances between each pair of cities, what is the shortest possible route that visits each city exactly once and returns to the origin city?'' It is an NP-hard problem in combinatorial optimization, important in operations research and theoretical computer science
+traveling-salesman-problem|traveling salesman|traveling salesmans|asks the following question: ``Given a list of cities and the distances between each pair of cities, what is the shortest possible route that visits each city exactly once and returns to the origin city?'' it's an NP-hard problem in combinatorial optimization, important in operations research and theoretical computer science
 umbilical|umbilical|umbilicals|a electronic cable connecting an underwater vehicle
 vast-cell|VAST-cell|VAST-cells|a cell located in a vast open space
 voronoi-diagram|Voronoi diagram|Voronoi diagrams|a partition of a plane into regions close to each of a given set of objects

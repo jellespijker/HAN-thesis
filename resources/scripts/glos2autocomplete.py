@@ -20,7 +20,7 @@ for _, r in sym.iterrows():
     snip += '\t\t{{\n\t\t\tdisplayText: "\\\\sym_{}"\n\t\t\tsnippet: "\\\\\\\\gls{{sym-{}}}"\n\t\t\tdescription: "{}"\n\t\t}}\n'.format(r['key'].replace(
         '-', '_'), r['key'], r['description'].replace('\\', '\\\\'))
 for _, r in glos.iterrows():
-    snip += '\t\t{{\n\t\t\tdisplayText: "\\\\gls_{}"\n\t\t\tsnippet: "\\\\\\\\gls{{sym-{}}}"\n\t\t\tdescription: "{}"\n\t\t}}\n'.format(
+    snip += '\t\t{{\n\t\t\tdisplayText: "\\\\gls_{}"\n\t\t\tsnippet: "\\\\\\\\gls{{gls-{}}}"\n\t\t\tdescription: "{}"\n\t\t}}\n'.format(
         r['key'].replace('-', '_'), r['key'], r['description'].replace('\\', '\\\\').replace('"',"'"))
 for _, r in acr.iterrows():
     snip += '\t\t{{\n\t\t\tdisplayText: "\\\\acr_{}"\n\t\t\tsnippet: "\\\\\\\\gls{{acr-{}}}"\n\t\t\tdescription: "{}"\n\t\t}}\n'.format(

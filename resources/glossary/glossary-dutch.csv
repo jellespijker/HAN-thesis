@@ -3,7 +3,7 @@ black_body|black body|black bodies|"an idealized physical body that absorbs all 
 conduction|conduction|conduction's|a transfer of heat by microscopic collisions of particles and movement of electrons within a body
 convection|convection|convection's|"a heat transfer due to bulk movement of molecules within fluids such as gases and liquids. Convection takes place through advection| diffusion or both"
 cooling_load|cooling load|cooling loads|a rate at which sensible and latent heat must be removed from the space to maintain a constant space dry-bulb air temperature and humidity
-edge|edge|edges|"one of the two basic units out of which graphs are constructed. Each edge has two (or in hypergraphs, more) vertices to which it is attached| called its endpoints. Edges may be directed or undirected"
+edge|edge|edges|"one of the two basic units out of which graphs are constructed. Each edge has two (or in hypergraphs, more) vertices to which it's attached| called its endpoints. Edges may be directed or undirected"
 graph|graph|graphs|"a mathematical structure used to model pairwise relations between objects. A graph in this context is made up of vertices| nodes| or points which are connected by edges| arcs| or lines"
 heating_load|heating load|heating loads|a rate at which sensible and latent heat must be added to the space to maintain a constant space dry-bulb air temperature and humidity
 latent_heat|latent heat|latent heats|thermal energy released or absorbed by a body

@@ -1672,387 +1672,387 @@
 		}
 		{
 			displayText: "\\gls_Dempster_shafer_theory"
-			snippet: "\\\\gls{sym-Dempster-shafer-theory}"
+			snippet: "\\\\gls{gls-Dempster-shafer-theory}"
 			description: "theory of belief functions, also referred to as evidence theory or Dempster–Shafer theory (DST), is a general framework for reasoning with uncertainty"
 		}
 		{
 			displayText: "\\gls_accelerometer"
-			snippet: "\\\\gls{sym-accelerometer}"
+			snippet: "\\\\gls{gls-accelerometer}"
 			description: "a device that measures proper acceleration"
 		}
 		{
 			displayText: "\\gls_acoustic_navigation"
-			snippet: "\\\\gls{sym-acoustic-navigation}"
+			snippet: "\\\\gls{gls-acoustic-navigation}"
 			description: "triangulation of a position using the difference in send and receive time of signal, to calculate the distance from a source"
 		}
 		{
 			displayText: "\\gls_adjacency_graph"
-			snippet: "\\\\gls{sym-adjacency-graph}"
+			snippet: "\\\\gls{gls-adjacency-graph}"
 			description: "a graph representing depicting all the nodes"
 		}
 		{
 			displayText: "\\gls_Archimedes_screw"
-			snippet: "\\\\gls{sym-Archimedes-screw}"
+			snippet: "\\\\gls{gls-Archimedes-screw}"
 			description: "a machine historically used for transferring water from a low-lying body of water into irrigation ditches. The same principle can also be used propel the screw in a medium"
 		}
 		{
 			displayText: "\\gls_auger_dredge_head"
-			snippet: "\\\\gls{sym-auger-dredge-head}"
+			snippet: "\\\\gls{gls-auger-dredge-head}"
 			description: "consists of two opposite-thread spiral cutters on a horizontal tubular body. The soil is cut by the spiral cutters, and the pitch ensures that it is carried to the center of the auger, where the suction head is situated."
 		}
 		{
 			displayText: "\\gls_bandwidth"
-			snippet: "\\\\gls{sym-bandwidth}"
+			snippet: "\\\\gls{gls-bandwidth}"
 			description: "a difference between the upper and lower frequencies in a continuous set of frequencies"
 		}
 		{
 			displayText: "\\gls_bathymetric_map"
-			snippet: "\\\\gls{sym-bathymetric-map}"
+			snippet: "\\\\gls{gls-bathymetric-map}"
 			description: "submerged equivalent of an above-water topographic map"
 		}
 		{
 			displayText: "\\gls_Bingham_plastic"
-			snippet: "\\\\gls{sym-Bingham-plastic}"
+			snippet: "\\\\gls{gls-Bingham-plastic}"
 			description: "a viscoplastic material that behaves as a rigid body at low stresses but flows as a viscous fluid at high stress"
 		}
 		{
 			displayText: "\\gls_bitstream"
-			snippet: "\\\\gls{sym-bitstream}"
+			snippet: "\\\\gls{gls-bitstream}"
 			description: "a sequential binary sequence"
 		}
 		{
 			displayText: "\\gls_black_body"
-			snippet: "\\\\gls{sym-black-body}"
+			snippet: "\\\\gls{gls-black-body}"
 			description: "an idealized physical body that absorbs all incident electromagnetic radiation, regardless of frequency or angle of incidence"
 		}
 		{
 			displayText: "\\gls_closed_system"
-			snippet: "\\\\gls{sym-closed-system}"
+			snippet: "\\\\gls{gls-closed-system}"
 			description: "a physical system that doesn't exchange any matter with its surroundings, and isn't subject to any net force whose source is external to the system"
 		}
 		{
 			displayText: "\\gls_conduction"
-			snippet: "\\\\gls{sym-conduction}"
+			snippet: "\\\\gls{gls-conduction}"
 			description: "a transfer of heat by microscopic collisions of particles and movement of electrons within a body"
 		}
 		{
 			displayText: "\\gls_convection"
-			snippet: "\\\\gls{sym-convection}"
+			snippet: "\\\\gls{gls-convection}"
 			description: "an algorithm that uses a series of measurements observed over time, containing statistical noise and other inaccuracies, and produces estimates of unknown variables that tend to be more precise than those based on a single measurement alone, by using Bayesian inference and estimating a joint probability distribution over the variables for each time frame"
 		}
 		{
 			displayText: "\\gls_cooling_load"
-			snippet: "\\\\gls{sym-cooling-load}"
+			snippet: "\\\\gls{gls-cooling-load}"
 			description: "a rate at which sensible and latent heat must be removed from the space to maintain a constant space dry-bulb air temperature and humidity"
 		}
 		{
 			displayText: "\\gls_coriolis_effect"
-			snippet: "\\\\gls{sym-coriolis-effect}"
+			snippet: "\\\\gls{gls-coriolis-effect}"
 			description: "an inertial or fictitious force that acts on objects that are in motion within a frame of reference that rotates with respect to an inertial frame."
 		}
 		{
 			displayText: "\\gls_coverage_path"
-			snippet: "\\\\gls{sym-coverage-path}"
+			snippet: "\\\\gls{gls-coverage-path}"
 			description: "a sequence of steps which coveres a whole area by following a certain path"
 		}
 		{
 			displayText: "\\gls_critical_point"
-			snippet: "\\\\gls{sym-critical-point}"
+			snippet: "\\\\gls{gls-critical-point}"
 			description: "a value of average degree, which separates networks"
 		}
 		{
 			displayText: "\\gls_cusp_point"
-			snippet: "\\\\gls{sym-cusp-point}"
+			snippet: "\\\\gls{gls-cusp-point}"
 			description: "are points where its surface normal of the boundary of the free configuration space is non-smooth"
 		}
 		{
 			displayText: "\\gls_dead_reckoning"
-			snippet: "\\\\gls{sym-dead-reckoning}"
+			snippet: "\\\\gls{gls-dead-reckoning}"
 			description: "the process of calculating one's current position by using a previously determined position, or fix, and advancing that position based upon known or estimated speeds over elapsed time and course"
 		}
 		{
 			displayText: "\\gls_deadlock_state"
-			snippet: "\\\\gls{sym-deadlock-state}"
+			snippet: "\\\\gls{gls-deadlock-state}"
 			description: "a standstill situation, from which the algorithm has no means of escape"
 		}
 		{
 			displayText: "\\gls_dilatancy"
-			snippet: "\\\\gls{sym-dilatancy}"
+			snippet: "\\\\gls{gls-dilatancy}"
 			description: "volume increase that may occur during shear"
 		}
 		{
 			displayText: "\\gls_draghead"
-			snippet: "\\\\gls{sym-draghead}"
+			snippet: "\\\\gls{gls-draghead}"
 			description: "a suction mouth which is dragged across a water body"
 		}
 		{
 			displayText: "\\gls_dredgeline"
-			snippet: "\\\\gls{sym-dredgeline}"
+			snippet: "\\\\gls{gls-dredgeline}"
 			description: "a pipeline which transports excavated slurry"
 		}
 		{
 			displayText: "\\gls_electric_field"
-			snippet: "\\\\gls{sym-electric-field}"
+			snippet: "\\\\gls{gls-electric-field}"
 			description: "a vector field that associates to each point in space the Coulomb force that would be experienced per unit of electric charge, by an infinitesimal test charge at that point. Electric fields converge and diverge at electric charges and can be induced by time-varying magnetic fields"
 		}
 		{
 			displayText: "\\gls_electric_motor"
-			snippet: "\\\\gls{sym-electric-motor}"
+			snippet: "\\\\gls{gls-electric-motor}"
 			description: "an electrical machine that converts electrical energy into mechanical energy"
 		}
 		{
 			displayText: "\\gls_erosion"
-			snippet: "\\\\gls{sym-erosion}"
+			snippet: "\\\\gls{gls-erosion}"
 			description: "an action of surface processes (such as water flow or wind) that removes soil"
 		}
 		{
 			displayText: "\\gls_geophysical_navigation"
-			snippet: "\\\\gls{sym-geophysical-navigation}"
+			snippet: "\\\\gls{gls-geophysical-navigation}"
 			description: "navigation using landmarks"
 		}
 		{
 			displayText: "\\gls_gimbal_lock"
-			snippet: "\\\\gls{sym-gimbal-lock}"
+			snippet: "\\\\gls{gls-gimbal-lock}"
 			description: "the loss of one degree of freedom in a three-dimensional space, three-gimbal mechanism that occurs when the axes of two of the three gimbals are driven into a parallel configuration, ``locking'' the system into rotation in a degenerate two-dimensional space"
 		}
 		{
 			displayText: "\\gls_graph"
-			snippet: "\\\\gls{sym-graph}"
+			snippet: "\\\\gls{gls-graph}"
 			description: "a mathematical structure used to model pairwise relations between objects. A graph in this context is made up of vertices, nodes, or points which are connected by edges, arcs, or lines"
 		}
 		{
 			displayText: "\\gls_gyroscope"
-			snippet: "\\\\gls{sym-gyroscope}"
+			snippet: "\\\\gls{gls-gyroscope}"
 			description: "a spinning wheel or disc in which the axis of rotation is free to assume any orientation by itself. When rotating, the orientation of this axis is unaffected by tilting or rotation of the mounting, according to the conservation of angular momentum. Because of this, gyroscopes are useful for measuring or maintaining orientation"
 		}
 		{
 			displayText: "\\gls_hard_iron"
-			snippet: "\\\\gls{sym-hard-iron}"
+			snippet: "\\\\gls{gls-hard-iron}"
 			description: "a constant additive disturbance in the magnetic field of the magnetometer"
 		}
 		{
 			displayText: "\\gls_heating_load"
-			snippet: "\\\\gls{sym-heating-load}"
+			snippet: "\\\\gls{gls-heating-load}"
 			description: "a rate at which sensible and latent heat must be added to the space to maintain a constant space dry-bulb air temperature and humidity"
 		}
 		{
 			displayText: "\\gls_hessian"
-			snippet: "\\\\gls{sym-hessian}"
+			snippet: "\\\\gls{gls-hessian}"
 			description: "a square matrix of second-order partial derivatives of a scalar-valued function, or scalar field. It describes the local curvature of a function of many variables"
 		}
 		{
 			displayText: "\\gls_hopper"
-			snippet: "\\\\gls{sym-hopper}"
+			snippet: "\\\\gls{gls-hopper}"
 			description: "a storage container or compartment"
 		}
 		{
 			displayText: "\\gls_hydraulic_motor"
-			snippet: "\\\\gls{sym-hydraulic-motor}"
+			snippet: "\\\\gls{gls-hydraulic-motor}"
 			description: "a mechanical actuator that converts hydraulic pressure and flow into torque and angular displacement"
 		}
 		{
 			displayText: "\\gls_hydraulic_pump"
-			snippet: "\\\\gls{sym-hydraulic-pump}"
+			snippet: "\\\\gls{gls-hydraulic-pump}"
 			description: "a mechanical source of power that converts mechanical power into hydraulic energy"
 		}
 		{
 			displayText: "\\gls_Kalman_filter"
-			snippet: "\\\\gls{sym-Kalman-filter}"
+			snippet: "\\\\gls{gls-Kalman-filter}"
 			description: "an algorithm that uses a series of measurements observed over time, containing statistical noise and other inaccuracies, and produces estimates of unknown variables that tend to be more precise than those based on a single measurement alone"
 		}
 		{
 			displayText: "\\gls_kalman_gain"
-			snippet: "\\\\gls{sym-kalman-gain}"
+			snippet: "\\\\gls{gls-kalman-gain}"
 			description: "the relative weight given to the measurements and current state estimate, and can be 'tuned' to achieve particular performance. With a high gain, the filter places more weight on the most recent measurements, and thus follows them more responsively. With a low gain, the filter follows the model predictions more closely. At the extremes, a high gain close to one will result in a more jumpy estimated trajectory, while low gain close to zero will smooth out noise but decrease the responsiveness"
 		}
 		{
 			displayText: "\\gls_latent_heat"
-			snippet: "\\\\gls{sym-latent-heat}"
+			snippet: "\\\\gls{gls-latent-heat}"
 			description: "thermal energy released or absorbed by a body"
 		}
 		{
 			displayText: "\\gls_lora"
-			snippet: "\\\\gls{sym-lora}"
+			snippet: "\\\\gls{gls-lora}"
 			description: "a wireless technology that has been developed to enable low data rate communications to be made over long distances by sensors and actuators for M2M and Internet of Things, IoT applications"
 		}
 		{
 			displayText: "\\gls_lorentz_force"
-			snippet: "\\\\gls{sym-lorentz-force}"
+			snippet: "\\\\gls{gls-lorentz-force}"
 			description: " the combination of electric and magnetic force on a point charge due to electromagnetic fields"
 		}
 		{
 			displayText: "\\gls_magnetic_field"
-			snippet: "\\\\gls{sym-magnetic-field}"
+			snippet: "\\\\gls{gls-magnetic-field}"
 			description: "a magnetic effect of electric currents and magnetic materials. The magnetic field at any given point is specified by both a direction and a magnitude (or strength); as such it is a vector field"
 		}
 		{
 			displayText: "\\gls_magnetometer"
-			snippet: "\\\\gls{sym-magnetometer}"
+			snippet: "\\\\gls{gls-magnetometer}"
 			description: "a magnetometer is an instrument that measures magnetism, either magnetization of magnetic material like a ferromagnet, or the strength and, in some cases, direction of the magnetic field at a point in space"
 		}
 		{
 			displayText: "\\gls_maxwell"
-			snippet: "\\\\gls{sym-maxwell}"
+			snippet: "\\\\gls{gls-maxwell}"
 			description: "are a set of partial differential equations that, together with the Lorentz force law, form the foundation of classical electrodynamics, classical optics, and electric circuits"
 		}
 		{
 			displayText: "\\gls_monotonically"
-			snippet: "\\\\gls{sym-monotonically}"
+			snippet: "\\\\gls{gls-monotonically}"
 			description: "a function between ordered sets that preserves or reverses the given order"
 		}
 		{
 			displayText: "\\gls_morse_function"
-			snippet: "\\\\gls{sym-morse-function}"
+			snippet: "\\\\gls{gls-morse-function}"
 			description: "a function for which all critical points are non-degenerate and all critical levels are different"
 		}
 		{
 			displayText: "\\gls_MTIpython"
-			snippet: "\\\\gls{sym-MTIpython}"
+			snippet: "\\\\gls{gls-MTIpython}"
 			description: "a Python package, used within IHC, to solve engineering problems in the disciplines: fluids, thermodynamics, mechanical and electrical"
 		}
 		{
 			displayText: "\\gls_narrow_cell"
-			snippet: "\\\\gls{sym-narrow-cell}"
+			snippet: "\\\\gls{gls-narrow-cell}"
 			description: "a cell is located in a narrow space, bound between multiple walls"
 		}
 		{
 			displayText: "\\gls_node"
-			snippet: "\\\\gls{sym-node}"
+			snippet: "\\\\gls{gls-node}"
 			description: "fundamental unit of which graphs are formed"
 		}
 		{
 			displayText: "\\gls_non_commutative"
-			snippet: "\\\\gls{sym-non-commutative}"
+			snippet: "\\\\gls{gls-non-commutative}"
 			description: "a operation in which the order of the operands determine the results"
 		}
 		{
 			displayText: "\\gls_odometry"
-			snippet: "\\\\gls{sym-odometry}"
+			snippet: "\\\\gls{gls-odometry}"
 			description: "the use of data from motion sensors to estimate change in position over time"
 		}
 		{
 			displayText: "\\gls_off_line"
-			snippet: "\\\\gls{sym-off-line}"
+			snippet: "\\\\gls{gls-off-line}"
 			description: "algorithm which plans an optimal path ahead of time, thus which needs to know the environment a priori"
 		}
 		{
 			displayText: "\\gls_on_line"
-			snippet: "\\\\gls{sym-on-line}"
+			snippet: "\\\\gls{gls-on-line}"
 			description: "an algorithm which has the ability to adapt when needed"
 		}
 		{
 			displayText: "\\gls_open_system"
-			snippet: "\\\\gls{sym-open-system}"
+			snippet: "\\\\gls{gls-open-system}"
 			description: "a system that has external interactions. Such interactions can take the form of information, energy, or material transfers into or out of the system boundary"
 		}
 		{
 			displayText: "\\gls_optimal_path"
-			snippet: "\\\\gls{sym-optimal-path}"
+			snippet: "\\\\gls{gls-optimal-path}"
 			description: "a sequence of steps which are optimized"
 		}
 		{
 			displayText: "\\gls_polarized_plane"
-			snippet: "\\\\gls{sym-polarized-plane}"
+			snippet: "\\\\gls{gls-polarized-plane}"
 			description: "is a confinement of the electric field vector or magnetic field vector to a given plane along the direction of propagation"
 		}
 		{
 			displayText: "\\gls_pressure_sensor"
-			snippet: "\\\\gls{sym-pressure-sensor}"
+			snippet: "\\\\gls{gls-pressure-sensor}"
 			description: "can be classified in terms of pressure ranges they measure, temperature ranges of operation, and most importantly the type of pressure they measure"
 		}
 		{
 			displayText: "\\gls_Python"
-			snippet: "\\\\gls{sym-Python}"
+			snippet: "\\\\gls{gls-Python}"
 			description: "an interpreted high-level programming language for general-purpose programming"
 		}
 		{
 			displayText: "\\gls_quaternion"
-			snippet: "\\\\gls{sym-quaternion}"
+			snippet: "\\\\gls{gls-quaternion}"
 			description: "a number system that extends the complex numbers, they are very useful in describing a rotation involving three dimensions"
 		}
 		{
 			displayText: "\\gls_radiation"
-			snippet: "\\\\gls{sym-radiation}"
+			snippet: "\\\\gls{gls-radiation}"
 			description: "an electromagnetic radiation generated by the thermal motion of charged particles in matter. All matter with a temperature greater than absolute zero emits thermal radiation"
 		}
 		{
 			displayText: "\\gls_reeb_graph"
-			snippet: "\\\\gls{sym-reeb-graph}"
+			snippet: "\\\\gls{gls-reeb-graph}"
 			description: "a mathematical object reflecting the evolution of the level sets of a real-valued function on a manifold"
 		}
 		{
 			displayText: "\\gls_refrigerant"
-			snippet: "\\\\gls{sym-refrigerant}"
+			snippet: "\\\\gls{gls-refrigerant}"
 			description: "a substance or mixture, used in heat pumps to transport heat energy"
 		}
 		{
 			displayText: "\\gls_resistor"
-			snippet: "\\\\gls{sym-resistor}"
+			snippet: "\\\\gls{gls-resistor}"
 			description: "a passive two-terminal electrical component that implements electrical resistance as a circuit element"
 		}
 		{
 			displayText: "\\gls_Sankey diagram"
-			snippet: "\\\\gls{sym-Sankey diagram}"
+			snippet: "\\\\gls{gls-Sankey diagram}"
 			description: "a specific type of flow diagram, in which the width of the arrows is shown proportionally to the flow quantity"
 		}
 		{
 			displayText: "\\gls_sedimentation"
-			snippet: "\\\\gls{sym-sedimentation}"
+			snippet: "\\\\gls{gls-sedimentation}"
 			description: "the opposite of erosion"
 		}
 		{
 			displayText: "\\gls_silt"
-			snippet: "\\\\gls{sym-silt}"
+			snippet: "\\\\gls{gls-silt}"
 			description: "a granular material of a size between sand and clay"
 		}
 		{
 			displayText: "\\gls_slurry"
-			snippet: "\\\\gls{sym-slurry}"
+			snippet: "\\\\gls{gls-slurry}"
 			description: "describe a mixture that consist of both solid and fluid phases"
 		}
 		{
 			displayText: "\\gls_soft_iron"
-			snippet: "\\\\gls{sym-soft-iron}"
+			snippet: "\\\\gls{gls-soft-iron}"
 			description: "a result of material that distorts the magnetic field of magnetometer, but does not necessarily generate its own magnetic field"
 		}
 		{
 			displayText: "\\gls_solvent"
-			snippet: "\\\\gls{sym-solvent}"
+			snippet: "\\\\gls{gls-solvent}"
 			description: "a substance that dissolves a solute, such as a chemically distinct liquid, solid or gas, resulting in a solution"
 		}
 		{
 			displayText: "\\gls_tooltip"
-			snippet: "\\\\gls{sym-tooltip}"
+			snippet: "\\\\gls{gls-tooltip}"
 			description: "a popup window, containing additional information. It appears when a mouse pointer hoovers over a designated area"
 		}
 		{
 			displayText: "\\gls_trapezoidal_rule"
-			snippet: "\\\\gls{sym-trapezoidal-rule}"
+			snippet: "\\\\gls{gls-trapezoidal-rule}"
 			description: "a technique for approximating the definite integral"
 		}
 		{
 			displayText: "\\gls_traveling_salesman_problem"
-			snippet: "\\\\gls{sym-traveling-salesman-problem}"
+			snippet: "\\\\gls{gls-traveling-salesman-problem}"
 			description: "asks the following question: ``Given a list of cities and the distances between each pair of cities, what is the shortest possible route that visits each city exactly once and returns to the origin city?'' It is an NP-hard problem in combinatorial optimization, important in operations research and theoretical computer science"
 		}
 		{
 			displayText: "\\gls_umbilical"
-			snippet: "\\\\gls{sym-umbilical}"
+			snippet: "\\\\gls{gls-umbilical}"
 			description: "a electronic cable connecting an underwater vehicle"
 		}
 		{
 			displayText: "\\gls_vast_cell"
-			snippet: "\\\\gls{sym-vast-cell}"
+			snippet: "\\\\gls{gls-vast-cell}"
 			description: "a cell located in a vast open space"
 		}
 		{
 			displayText: "\\gls_voronoi_diagram"
-			snippet: "\\\\gls{sym-voronoi-diagram}"
+			snippet: "\\\\gls{gls-voronoi-diagram}"
 			description: "a partition of a plane into regions close to each of a given set of objects"
 		}
 		{
 			displayText: "\\gls_word"
-			snippet: "\\\\gls{sym-word}"
+			snippet: "\\\\gls{gls-word}"
 			description: "a string of bits representing a value which is stored in memory"
 		}
 		{

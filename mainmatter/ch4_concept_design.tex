@@ -40,7 +40,7 @@ criteria, which range between \( 1 \) and \( 5 \), the higher the better it fulf
 performance is impossible at this stage. This introduces a level of uncertainty, which is taken into account in the
 decision. The total sum for each algorithm is then calculated with the propagation of those uncertainties. The table
 below shows that all three BCD algorithm easily outweigh the others for our application. Were \gls{acr-BCD-GVD}, has the
-highest score but it brings with it a greater uncertainty compared against \gls{acr-topBCD}. It is good practice in
+highest score but it brings with it a greater uncertainty compared against \gls{acr-topBCD}. it's good practice in
 agile developement, to ``make it work first'' and ``refine it later''. By choosing \gls{acr-topBCD} as the best strategy
 decision the implied risk due to uncertainties is reduced.
 
@@ -56,11 +56,11 @@ connection. This drivetrain is discussed in detail in Section~\ref{sec:motion mo
 both drivetrains operate at different velocities, which is discussed in Section~\ref{seq:steering model}. The control
 vector \gls{sym-u_k}, consist of two velocity components.
 
-Dead-reckoning is often accomplished with a \gls{sym-accelerometer}, \gls{sym-gyroscope} and \gls{sym-magnetometer},
-this sensor array is often expanded with a \gls{sym-pressure-sensor}. These sensors combined will give a good impression
+Dead-reckoning is often accomplished with a \gls{gls-accelerometer}, \gls{gls-gyroscope} and \gls{gls-magnetometer},
+this sensor array is often expanded with a \gls{gls-pressure-sensor}. These sensors combined will give a good impression
 of the orientation and position change over time. Keeping in mind that the measurement uncertainty of the
-\gls{gls-pressure_sensor} will increase during dredging operations. This phenomena is described in
-Section~\ref{sec:pressure sensor}. Knowing actual rotational velocity of the Archimedes screw will be used to beter
+\gls{gls-pressure-sensor} will increase during dredging operations. This phenomena is described in
+Section~\ref{sec:pressure sensor}. Knowing actual rotational velocity of the Archimedes screw will be used to better
 predict the traveled distance. Something that can be measure with an encoder attached on the shaft of the electro motor.
 These encoder are also used for the regular \gls{acr-PID} controller of the screws. Although we can measure the
 rotational velocity of the screws we can't know for sure how fast the crawler will actually move. Section~\ref{sec:soil
@@ -70,7 +70,7 @@ the Archimedes screws.
 \section{KALMAN FILTER DESIGN}\label{sec:kalman design}
 
 In Chapter~\ref{sec:cpp} it became evident that an accurate estimation of a crawlers position and heading is needed
-such that it can perform its tasks using \gls{acr-CPP} algorithms. Because it is not possible to use \gls{acr-GPS} in an
+such that it can perform its tasks using \gls{acr-CPP} algorithms. Because it's not possible to use \gls{acr-GPS} in an
 underwater environment, due to the dampening of electric and magnetic fields in water, which was described in
 Section~\ref{sec:em}, an alternative localization method had to be found. Chapter~\ref{sec:coverageunderuncertainty}
 describes \gls{gls-Kalman-filter} as the industry de-facto. Position estimation for the control will therefore be
@@ -128,7 +128,7 @@ Where the speed of an  \gls{gls-Archimedes-screw} driven crawler is a direct fun
 this only applies if there is no horizontal soil failure under the screws. Such a phenomena is called slip. It consist
 of a period in time where the screws turn, but generate no forwarding force. Leading to an inaccurate estimation for the
 new predicted state. Due to the geometry of an \gls{gls-Archimedes-screw}, this slip coexist with an bulldozer effect
-created by the vanes acting as a shovel in the soil. This will lead to an increase in torque. It is proposed that by
+created by the vanes acting as a shovel in the soil. This will lead to an increase in torque. it's proposed that by
 measuring the required torque of the drive train, a prediction can be made how much slip has occurred, leading to a
 better estimation of the future state-vector \gls{sym-x_kt+1}. This behavior and the mathematical model will be
 discussed in more detail in Section~\ref{sec:motion model}. Figure~\ref{fig:kalman process} shows the interaction and
@@ -185,7 +185,7 @@ the state vector can also contain the first and second derivatives of the pose v
 \subsubsection{2D OR 3D}
 
 \citet{bahr_cooperative_2009} proposes the following simplification; They state that all submersible vehicles are
-outfitted with a \gls{gls-pressure_sensor} which allows them to determine their absolute depth with high accuracy and a high
+outfitted with a \gls{gls-pressure-sensor} which allows them to determine their absolute depth with high accuracy and a high
 update rate. As a result all underwater navigation systems are only used to resolve the 2D position and all underwater
 vehicle related localization problems are stated in 2D. Which allows for a simplified state vector \( \gls{sym-x_k} =
 \left[\gls{sym-x} ~\gls{sym-y} ~\gls{sym-phi_c} ~\gls{sym-psi_c} ~\gls{sym-theta_c}\right]^T \).
@@ -208,13 +208,13 @@ interested, a good explanation is given by \citet{3blue1brown_quaternions_2018} 
 at~\url{www.youtube.com/watch?v=d4EgbgTm0Bg}. A \gls{gls-quaternion}s is represented as a single column matrix with four
 rows, consisting  of a real valued magnitude and three imaginary components for the axes \(\gls{sym-q} =
 \left[\gls{sym-q_s} ~\gls{sym-q_x} ~\gls{sym-q_y}  ~\gls{sym-q_z} \right]^T \), Where the \gls{sym-q_s} is used to
-normalize the \gls{gls-quaternion}, this keeps the error from accumulating. It is important to note that
+normalize the \gls{gls-quaternion}, this keeps the error from accumulating. it's important to note that
 \gls{gls-quaternion}s are \gls{gls-non-commutative}, thus the order in which they are applied matters to the outcome of
 the rotation.
 
 \subsection{MOTION MODEL}\label{sec:motion model}
 
-It is important to evaluate the effects of control inputs \( \gls{sym-u_k} \) on the pose vector \( \gls{sym-p_k} =
+it's important to evaluate the effects of control inputs \( \gls{sym-u_k} \) on the pose vector \( \gls{sym-p_k} =
 [\gls{sym-x}, \gls{sym-y}, \gls{sym-z}]^T \) such that \( \gls{sym-p_kt_1} \) can be predicted. Since the
 continuous-time model for the vehicle state's speed and rate can be described as:
 
@@ -278,13 +278,13 @@ as well as the parameters listed below. All of which influence movement and sens
 \end{itemize}
 
 Not all parameters shown above, have the same impact on the future state representation. Since calculations on a complex
-model require more processing power, only parameters with a substantial influence will be used. It is assumed that the
+model require more processing power, only parameters with a substantial influence will be used. it's assumed that the
 biggest influences are drag-forces, due to movement in a fluidium and the interaction with the Archimedes screw in the
 silt layer. These will in all likelihood have a bigger impact than other operating parameters. Forces exerted on the
 crawler due to a current, floating lines, and actuators are --- for now --- deemed to be a magnitude smaller and can
 be ignored.
 
-During travel between two points, it is preferred to minimize travel time. Which is usually achieved by moving at the
+During travel between two points, it's preferred to minimize travel time. Which is usually achieved by moving at the
 fastest sustainable speed. The propulsion system which acts on the submerged soil bed is governed by a lot of
 interactions on the system as a whole. Which were listed in~Section~\ref{sec:motion model}. The crawler is propelled by
 an Archimedes screw. A proven technology for land based vehicles. Especially in rough, impassable terrain. They have
@@ -502,7 +502,7 @@ shaft angular velocity parameter. The Friction torque vs pressure gain coefficie
 a \citet{mathworks_mechanical_hydraulic_2016}, described model. It receives feedback from the fluid velocity
 \gls{sym-v_f} and the angular velocity \gls{sym-omega} of the propulsion system. It generates torque \gls{sym-tau} by
 converting pressure \gls{sym-p}. The workings of a hydraulic pump and motor share much similarities, with some notable
-differences related to the leakage flow. Were a pump subtracts the leakage flow it is added in this model. Since the
+differences related to the leakage flow. Were a pump subtracts the leakage flow it's added in this model. Since the
 efficiency is an inverse of the pump.
 
 \begin{equation}\label{eq:motor flowrate}
@@ -535,7 +535,7 @@ friction}.
 
 \subsection{SOIL DYNAMIC MODEL}\label{sec:soil dynamic model}
 
-At this stage it is needed to model all interactions of a propulsion systems with a soil bed. According to
+At this stage it's needed to model all interactions of a propulsion systems with a soil bed. According to
 \citet{lotman_applicable_2009} the soil mechanics behind a moving process with Archimedes screws is similar to those of
 track propulsion. The type of soil interaction can be modeled according to the rules of soil mechanics. The paragraphs
 below are based on \citet{verruijt_soil_2007}. In the described model, the following simplifications are proposed: No
@@ -547,8 +547,8 @@ submersion depends on the weight and buoyancy of the displaced volume or the soi
 \gls{sym-p_sb} representing the crawler, is applied at a certain depth \gls{sym-d_a}. Where the normal force working on
 the submerged surface of an Archimedes screw are in equilibrium with the weight and buoyancy of a crawler.
 
-It is important to note that the material of a soil bed, determines how the sinkage depth is calculated. When the soil
-bed consists of silt-like material it is assumed that the soil bearing capacity goes to zero, because the cohesion
+it's important to note that the material of a soil bed, determines how the sinkage depth is calculated. When the soil
+bed consists of silt-like material it's assumed that the soil bearing capacity goes to zero, because the cohesion
 \gls{sym-c_sb} will lessen, combined with a smaller difference between a specific in-situ weight of silt
 \gls{sym-rho_is} compared to water \gls{sym-rho_w}, resulting in a small specific in-situ weight \gls{sym-gamma_sw}.
 Setting all terms in the Brinch-Hansen equation~\ref{eq:Brinch-Hansen} to zero. Which allow for a simplification of the
@@ -819,7 +819,7 @@ Because there are multiple interdependent variables in the equations~\ref{eq:sub
 sinkage depth needs to be determined numerically. The model for bearing capacity vs sinkage depth allows for a quick
 exploration which gives an impression how deep a crawler will sink in different soil types, before settling. In
 Figure~\ref{fig:sinkage depths} the bearing capacity is plotted against the sinkage depth. The source code for these
-calculations can be found in Appendix~\ref{app:crawler bearing cap}. It is clear that that silt, with a sinkage of
+calculations can be found in Appendix~\ref{app:crawler bearing cap}. it's clear that that silt, with a sinkage of
 \SI{135}{\milli\meter}, offers less bearing capacity compared to sand \SI{18}{\milli\meter} and clay, either loosely
 \SI{45}{\milli\meter} or densely packed \SI{11}{\milli\meter}
 
@@ -947,7 +947,7 @@ usually obtained from empirical obtained values.
 	\gls{sym-p_sm} = \gls{sym-rho_m} \gls{sym-g} \gls{sym-Delta_z}
 \end{equation}
 
-When a fluid is transported through a pipe it is subject to external and internal shear as a result of its velocity and
+When a fluid is transported through a pipe it's subject to external and internal shear as a result of its velocity and
 surrounding body. Which results in a pressure loss \gls{sym-p_rp} for each meter of pipe. Both
 \citet{van_den_berg_ihc_2013} and \citet{miedema_slurry_2016} make use of the Durand-Condolois formula in
 \gls{gls-slurry} transportation systems. The friction factor \gls{sym-lambda} per meter can be estimated with
@@ -1024,7 +1024,7 @@ described on a 2-dimensional space as a differential drive. Which is a very simp
 	\includegraphics[height=5cm,trim=2 2 2 2,clip]{difdrivekinetics.png}
 \end{RoyalFigure}
 
-Considering Figure~\ref{fig:difdrivekinetics} it is possible to determine the rotation \gls{sym-psi} and tangential
+Considering Figure~\ref{fig:difdrivekinetics} it's possible to determine the rotation \gls{sym-psi} and tangential
 velocity \gls{sym-v} of the crawler on the instantaneous radius \gls{sym-R_t} with the center ICR. \gls{sym-L} is
 defined as the distance between the two screws and \gls{sym-v_L} and \gls{sym-v_R} are the translational velocities for
 the left and right screw. \gls{sym-omega} is the angle between the global coordinate frame \( (X_g, Y_g) \) and the
@@ -1087,7 +1087,7 @@ centers~\cite{johnston_commodity_2018}.  Introduction of these devices has trick
 Introduced by tinkering employees and the academic world. The industry is now in phase with a widespread adaption of
 these devices in their prototypes and sometimes even final products.
 
-When it is  taken into account that these pilots, including the crawler, are all prototypes, with limited budgets and a
+When it's  taken into account that these pilots, including the crawler, are all prototypes, with limited budgets and a
 need for rapid development it becomes clear that such a controller as this, is an opportunity for overall betterment.
 The controller for the crawler should be written in a generic and abstract way. It should be able to run from at least
 one single \gls{acr-SBC} but allow for easy extensions, such as running on a cluster of \gls{acr-SBC}s. Due to need for
@@ -1188,7 +1188,7 @@ Specific physical prototypes with different goals, will in all likelihood requir
 job, in the case of the crawler for this project, it needs to decide how it will execute the main objective provided by
 an external authorized party, such as a human controller. The objective could be any of the three proposed use-cases
 (see Section~\ref{sec:usecases}). At first he gets his bearing --- \textit{standing on deck; Looking over the horizon}
---- or in less romantic words, he queries the World, requesting an update regarding the state it is in. This information
+--- or in less romantic words, he queries the World, requesting an update regarding the state it's in. This information
 allows him to make a decision. He will send instructions to the available first mate(s), or spawn new ones if required.
 When there a path planning or world mapping task to be performed it sends instructions to Navigator or spawn new ones
 if required.
@@ -1207,7 +1207,7 @@ receives his orders from the captain. These orders specify which state, or in ot
 state correspond with a specific operating logic for the task at hand. There can be multiple First mates running at the
 same time, each with a different state, objective and associated Boatswains working for him.
 
-In case of a crawler it is possible that a First mate is running in a Travel state, and another one in a Dredging state.
+In case of a crawler it's possible that a First mate is running in a Travel state, and another one in a Dredging state.
 See Figure~\ref{fig:stateoperating} for crawler specific states. A First mate will first determine which resources it
 needs to have access to and what type(s) of Boatswains are able to handle those resources to the satisfaction of the
 First mate wishes. It does so by requesting the ship manifest from the vessel, which is a map of resources and their
@@ -1279,15 +1279,15 @@ by Boatswains.
 \end{RoyalTable}
 
 The actual path planning is performed by a Navigator, who is connected with the World, the Captain and the First mates.
-It is uncommon for a Navigator in this state to interact with the other crew Members, such as Boatswains. It recieves
+it's uncommon for a Navigator in this state to interact with the other crew Members, such as Boatswains. It recieves
 its target destination from the Captain, coupled with secundary conditions. It will try to make sense of the world as he
 knows it at the current time and tries to plot a \gls{acr-CPP} according to the assigned strategy, such as an
-\gls{gls-on-line} \gls{acr-BCD} in case of a crawler. If it is not possible to plan a path that fulfil the assignment
+\gls{gls-on-line} \gls{acr-BCD} in case of a crawler. If it's not possible to plan a path that fulfil the assignment
 and stays within operating constraints a decision needs to be made by the Captain how to proceed. It could be so simpel,
 that the Navigator simply hasn't got enough information regarding its environment and it firsts needs to follow a an
 explorational strategy, to kick-start its \gls{acr-CPP} strategy.
 
-Once it has determined its first path it is broadcast to the First Mates. These mates will use the route as a sequence
+Once it has determined its first path it's broadcast to the First Mates. These mates will use the route as a sequence
 of set-points, to be passed to Boatswains responsible for the actuation. This can be done without interference. The
 Navigator enters in to a slumber occasionally check if updated information warrants a revision of the previous
 established path.
@@ -1295,7 +1295,7 @@ established path.
 \subsection{A BOATSWAIN}\label{seq:a boatswain}
 
 Boatswain are the worker bees of the crew. These actors have a light memory footprint and are designed to perform a
-single specific task. They only accepts requests for state changes from its parent, but it is allowed for multiple
+single specific task. They only accepts requests for state changes from its parent, but it's allowed for multiple
 actors to subscribe to the outgoing messages of a Boatswain. The concrete Boatswain classes may vary significantly in
 internal logic compared to each other, but they all inherent from the same pure virtual base class. Each concrete class
 should therefor consist of three states: Initiation, Work and Dectruction. When a Boatswain is spawned it stores the
@@ -1322,12 +1322,12 @@ the states are given in the table below.
 
 The World is just a the Captain a Singleton instance. It acts as a storage container for all historic sensor data and
 actuator signals. Only Navigators are allowed to parse data to the World, other Actors are allowed to retrieve data. But
-the World class is more then a glorified container. It is continuous process of data refinement. Which is largely based
+the World class is more then a glorified container. it's continuous process of data refinement. Which is largely based
 upon probabilistic properties of the system. Since the World has a sensor of history it can estimate where newly
 obtained Navigator data should belong. This is basically on big sensor fusion algorithm throughout time. Which has the
 potential to limit drift, filter out noise, and take care of error accumulation.
 
-Just as the Captain it is allowed to communicate with Worlds that belong to different Captains and crews, pooling their
+Just as the Captain it's allowed to communicate with Worlds that belong to different Captains and crews, pooling their
 resources, using the sensor data from other vessel to create an even richer picture. This is particular useful for
 cooperative autonomous swarms, and could even allow for an accurate estimate regarding its own pose an orientation based
 upon the external sensor data provided by the swarm.

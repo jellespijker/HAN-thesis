@@ -20,7 +20,7 @@ All these type of robots need to cover a complete region in order to perform the
 	\item Continuous and sequential operations without any repetition of paths is required of the robot.
 	\item The robot must avoid all obstacles in a region.
 	\item Simple motion trajectories (e.g., straight lines or circles) should be used for simplicity in control.
-	\item An ``optimal'' path is desired under the available conditions. It is not always possible to satisfy all these
+	\item An ``optimal'' path is desired under the available conditions. it's not always possible to satisfy all these
 	criteria for a complex environment. Sometimes a priority consideration is required.
 \end{enumerate}
 
@@ -225,7 +225,7 @@ that the robot handles both vast and cluttered regions well. See figure~\ref{fig
 The robot has two modus operandi that perform coverage of an unknown space, consisting of vast and cluttered regions. In
 a vast open space the robot scans an unknown environment for \gls{gls-critical-point}s as described in sub
 section~\ref{subsec:onlinemorsebased}. In such an environment it uses a zig-zag motion with an offset of \( 2
-\gls{sym-delta_s}  \). It is important to note that the coverage of a suction head from a dredge bot will in all
+\gls{sym-delta_s}  \). it's important to note that the coverage of a suction head from a dredge bot will in all
 likelihood be less than \( 2 \gls{sym-delta_s} \). During coverage of this \gls{gls-vast-cell} it will construct an
 \gls{gls-adjacency-graph} from every \gls{gls-critical-point}. Once it encounters a \gls[first]{gls-cusp-point}, it
 builds a \gls{acr-GVD} with corresponding nodes. Such a point is an indication of the presence of a
@@ -234,7 +234,7 @@ builds a \gls{acr-GVD} with corresponding nodes. Such a point is an indication o
 This newly placed node on the \gls{acr-GVD} represents a new \gls{gls-narrow-cell} with a width less the \( 2
 \gls{sym-delta_s} \). It continues to traverse in the~\gls{gls-narrow-cell} till it encounters additional
 \gls{gls-cusp-point}, constructing a \gls{acr-GVD}. During this stage the sensor can be seen as a sensor with \( \infty
-\) range. Once it tracks the wall of the second \gls{gls-vast-cell} it knows it is in a vast environment, since no
+\) range. Once it tracks the wall of the second \gls{gls-vast-cell} it knows it's in a vast environment, since no
 second boundary is detected and slips into its initial modus.
 
 \begin{RoyalFigure}[!htb, label=fig:vastnarrow]{STAGES OF INCREMENTAL CONSTRUCTION~\cite{acar_complete_2001}}
@@ -258,7 +258,7 @@ topological landmarks.
 
 Topological maps are robust against sensor and odometry errors because only a global topological consistency, rather
 than a metric one, needs to be maintained. \citet{thrun_learning_1998} states that this type of map does not require
-accurate determination of the robot's position. Although this low resolution is also the reason why it is difficult to
+accurate determination of the robot's position. Although this low resolution is also the reason why it's difficult to
 use them for \gls{gls-coverage-path} planning. A node in a topological map is a landmark and does not correspond to a
 precise position or area in space. This makes it difficult to mark covered regions \cite{wong_qualitative_2006}.
 
@@ -404,7 +404,7 @@ is considered as entry point.
 
 The crawler starts in the \emph{boundary} state by executing algorithm~\ref{alg:boundaryStateTopo}. During this state
 the crawler performs a wall following algorithm. When it finds a landmark or it arrives at the end of a strip, it updates
-graph \gls{sym-G_adj}. When it is at the end of a strip and the boundary is fully explored it gets in to the state
+graph \gls{sym-G_adj}. When it's at the end of a strip and the boundary is fully explored it gets in to the state
 travel, described in algorithm~\ref{alg:travelStateTopo}, otherwise it turns around and continues in the boundary state.
 
 \begin{RoyalAlgorithm}[label=alg:boundaryStateTopo]{BOUNDARY STATE}
@@ -482,8 +482,8 @@ that the landmark type have to be predefined.
 
 \subsection{GRID-BASED METHODS}
 Grid-based methods dived the working area into a raster of uniform grid cells. Each cell has an associated value stating
-whether an obstacles is present or if it is rather free space. The value can either be binary or a probability
-\cite{galceran_coverage_2014}. These grid cells are typically square in shape, but it is not uncommon to use triangle
+whether an obstacles is present or if it's rather free space. The value can either be binary or a probability
+\cite{galceran_coverage_2014}. These grid cells are typically square in shape, but it's not uncommon to use triangle
 shaped cell. The size of the cell usually corresponds with the size of a crawler.
 
 \begin{RoyalFigure}[!htb, label=fig:ccpdistancetransform]{COVERAGE PATH GENERATED FROM A DISTANCE TRANSFORM~\cite{wong_qualitative_2006}}
@@ -730,9 +730,9 @@ is defined in equation~\ref{eq:externalinputs}. In this equation $ E $ is a larg
 \begin{equation}\label{eq:externalinputs}
 	I_k = \left\{
 	\begin{array}{ll}
-		E, \text{ if it is an uncovered area} \\
-		-E, \text{ if it is an obstacle area} \\
-		0, \text{ if it is a covered area}\\
+		E, \text{ if it's an uncovered area} \\
+		-E, \text{ if it's an obstacle area} \\
+		0, \text{ if it's a covered area}\\
 	\end{array}
 	\right.
 \end{equation}

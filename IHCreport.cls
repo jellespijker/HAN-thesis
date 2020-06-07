@@ -40,9 +40,11 @@
 
 \LoadClass[10pt,
  twoside,
+ DIV=15,
+ BCOR=15mm,
  footinclude,
  headinclude,
- usegeometry,
+ % usegeometry,
  open=any,
  titlepage=true,
  appendixprefix=false,
@@ -292,8 +294,7 @@ minimum height=3em, minimum width=6em,rounded corners=.15cm]
 \setkomafont{chapterprefix}{\huge\color{RoyalRed}}
 
 % Sections to uppercase. See https://tex.stackexchange.com/questions/33148/setkomafont-with-uppercase-that-works-robustly/33215#33215
-\renewcommand*{\chapterformat}{\chapappifchapterprefix{\nobreakspace}\thechapter\IfUsePrefixLine{}{}
-}
+\renewcommand*{\chapterformat}{\chapappifchapterprefix{\nobreakspace}\thechapter\IfUsePrefixLine{}{}}
 
 \let\scr@chapter\chapter
 \def\chapter{\@ifstar\seamus@chapter\seamus@chapter}
@@ -354,19 +355,19 @@ minimum height=3em, minimum width=6em,rounded corners=.15cm]
 % === LAYOUT ===
 \usepackage{lipsum}
 \usepackage{ragged2e}
-\usepackage[
- a4paper,
- tmargin=5mm,
- textwidth=155mm,
- textheight=250mm,
- heightrounded,
- twoside,
- bindingoffset=20mm,
- includeheadfoot,
- headheight=10mm,
- headsep=8mm,
- foot=15mm
-]{geometry}
+% \usepackage[
+%  a4paper,
+%  tmargin=5mm,
+%  textwidth=155mm,
+%  textheight=250mm,
+%  heightrounded,
+%  twoside,
+%  bindingoffset=20mm,
+%  includeheadfoot,
+%  headheight=10mm,
+%  headsep=8mm,
+%  foot=15mm
+% ]{geometry}
 
 \setkomafont{captionlabel}{\sffamily\bfseries}
 \addtokomafont{caption}{\sffamily\bfseries\MakeUppercase}
@@ -380,7 +381,7 @@ minimum height=3em, minimum width=6em,rounded corners=.15cm]
 \DeclareLayer[
  background,
  topmargin,
- addheight=\headheight,
+ addheight=\topskip,
  mode=picture,
  oddpage,
  contents={
@@ -394,7 +395,7 @@ minimum height=3em, minimum width=6em,rounded corners=.15cm]
 \DeclareLayer[
  background,
  topmargin,
- addheight=\headheight,
+ addheight=\topskip,
  mode=picture,
  evenpage,
  contents={
@@ -436,20 +437,20 @@ minimum height=3em, minimum width=6em,rounded corners=.15cm]
 }
 \usepackage{xstring}
 
-\renewcommand*\chapterlinesformat[3]{
- \ifthispageodd{
-  \begin{tikzpicture}[overlay,remember picture]
-   \node[headings/chapterbackground, anchor=south east, yshift=-45mm, xshift=-20mm] at (current page.north east) (ch) {#3};
-   \node[headings/chapternumber, anchor=south west] at (ch.south east) (chnr) {#2};
-   \node[headings/chapapp, anchor=south east] at (ch.north east) (chapp) {\MakeUppercase{\chapapp}};
-  \end{tikzpicture}
- }{
-  \begin{tikzpicture}[overlay,remember picture]
-   \node[headings/chapterbackground, anchor=south west, yshift=-45mm, xshift=20mm] at (current page.north west) (ch) {#3};
-   \node[headings/chapternumber, anchor=south east] at (ch.south west) (chnr) {#2};
-   \node[headings/chapapp, anchor=south west] at (ch.north west) (chapp) {\MakeUppercase{\chapapp}};
-  \end{tikzpicture}
- }
+\renewcommand\chapterlinesformat[3]{%
+     \ifnumodd{\thepage}{%
+      \begin{tikzpicture}[overlay,remember picture]%
+       \node[headings/chapterbackground, anchor=south east, yshift=-45mm, xshift=-20mm] at (current page.north east) (ch) {#3};%
+       \node[headings/chapternumber, anchor=south west] at (ch.south east) (chnr) {#2};%
+       \node[headings/chapapp, anchor=south east] at (ch.north east) (chapp) {\MakeUppercase{\chapapp}};%
+      \end{tikzpicture}%
+     }{%
+      \begin{tikzpicture}[overlay,remember picture]%
+       \node[headings/chapterbackground, anchor=south west, yshift=-45mm, xshift=20mm] at (current page.north west) (ch) {#3};%
+       \node[headings/chapternumber, anchor=south east] at (ch.south west) (chnr) {#2};%
+       \node[headings/chapapp, anchor=south west] at (ch.north west) (chapp) {\MakeUppercase{\chapapp}};%
+      \end{tikzpicture}%
+     }%
 }
 
 % === DOCUMENT STRUCTURE ===
@@ -469,37 +470,37 @@ minimum height=3em, minimum width=6em,rounded corners=.15cm]
 }
 
 \NewDocumentEnvironment{front} { o }
-{
- \pgfkeys{/front, fedefault, #1}
- \input{\fglossary}
- \frontmatter
- \ifmtitle \else \maketitle \fi
- \setcounter{page}{1}
- \pagenumbering{Roman}
- \ifmquality \else \makequalitycontrol
- \ifmdisclaimer \else \makedisclaimer \fi
+{%
+\pgfkeys{/front, fedefault, #1}%
+\input{\fglossary}%
+\frontmatter%
+\ifmtitle\else\maketitle\fi%
+\setcounter{page}{1}%
+\pagenumbering{Roman}%
+\ifmquality\else\makequalitycontrol%
+\ifmdisclaimer\else\makedisclaimer\fi%
 }
-{
- \tableofcontents
- \glsresetall
+{%
+\tableofcontents%
+\glsresetall%
 }
 
 \NewDocumentEnvironment{main}{}
-{
- \mainmatter
- \setcounter{page}{1}
- \glsunsetall
+{%
+\mainmatter%
+\setcounter{page}{1}%
+\glsunsetall%
 }
-{
- \label{lastoffront}
+{%
+\label{lastoffront}%
 }
 
 \NewDocumentEnvironment{app}{}
-{
- \appendix
- \setcounter{figure}{0} \renewcommand{\thefigure}{\thechapter.\arabic{figure}}
- \setcounter{table}{0} \renewcommand{\thetable}{\thechapter.\arabic{table}}
- \appendixpage
+{%
+\appendix
+\setcounter{figure}{0}\renewcommand{\thefigure}{\thechapter.\arabic{figure}}%
+\setcounter{table}{0}\renewcommand{\thetable}{\thechapter.\arabic{table}}%
+\appendixpage%
 }{}
 
 \newif\ifmallsources
@@ -514,11 +515,12 @@ minimum height=3em, minimum width=6em,rounded corners=.15cm]
  all glossaries/.is if = mallglossaries,
 }
 \NewDocumentEnvironment{back}{ o }
-{
- \pgfkeys{/back, bedefault, #1}
- \cleardoublepage
- \ifmallsources \nocite{*} \else \fi
- \ifmallglossaries \glsaddall \else \fi
+{%
+\pgfkeys{/back, bedefault, #1}%
+% \ifthispageodd{\newpage}{\cleardoublepage}%
+\cleardoubleoddstandardpage,%
+\ifmallsources\nocite{*}\else\fi%
+\ifmallglossaries\glsaddall\else\fi%
 }{}
 
 % === QUALITY CONTROL PAGE ===
@@ -530,11 +532,11 @@ minimum height=3em, minimum width=6em,rounded corners=.15cm]
 \addtolanguagecommand{\qualitycontrolcaption}{dutch}{Kwaliteitscontrole}
 
 \newlanguagecommand{\qualitycontroltxt}
-\addtolanguagecommand{\qualitycontroltxt}{english}{
- \noindent This report has been reviewed and approved in accordance with the policies of \@unitname \\
+\addtolanguagecommand{\qualitycontroltxt}{english}{%
+\noindent This report has been reviewed and approved in accordance with the policies of \@unitname \\%
 }
-\addtolanguagecommand{\qualitycontroltxt}{dutch}{
- \noindent Dit rapport is conform het beleid van \@unitname\ gecontrolleerd en goedgekeurd. \\
+\addtolanguagecommand{\qualitycontroltxt}{dutch}{%
+\noindent Dit rapport is conform het beleid van \@unitname\ gecontrolleerd en goedgekeurd. \\%
 }
 
 \newlanguagecommand{\tblheadername}
@@ -549,31 +551,29 @@ minimum height=3em, minimum width=6em,rounded corners=.15cm]
 \addtolanguagecommand{\tblheadersignature}{english}{Signature}
 \addtolanguagecommand{\tblheadersignature}{dutch}{Handtekening}
 
-\newcommand{\makequalitycontrol}{
-\vspace*{10mm}
-\section*{\qualitycontrolcaption}
-\qualitycontroltxt
-
-\newcounter{personscounter}
-\setcounter{personscounter}{0}
+\newcommand{\makequalitycontrol}{%
+\vspace*{10mm}%
+\section*{\qualitycontrolcaption}%
+\qualitycontroltxt%
+\newcounter{personscounter}%
+\setcounter{personscounter}{0}%
 \newcommand{\personrowdo}[1]{%
- \stepcounter{personscounter}%
- \ifnumequal{\intcalcMod{\value{personscounter}}{4}}{1}{##1 &}{}
- \ifnumequal{\intcalcMod{\value{personscounter}}{4}}{2}{##1 &}{}
- \ifnumequal{\intcalcMod{\value{personscounter}}{4}}{3}{\ifstrequal{##1}{empty}{}{##1}&}{}
- \ifnumequal{\intcalcMod{\value{personscounter}}{4}}{0}{\ifstrequal{##1}{empty}{\raisebox{10mm}{}}{\includegraphics[height=10mm]{##1}} \\ \hline}{}}
-\newcommand*{\personrow}{\forlistloop{\personrowdo}{\personslist}}
-
-\noindent
-\extrarowsep=1mm
-{\small
-\begin{tabu}{|>{\bfseries}l|l|l|>{\centering\arraybackslash}X[c,m]|}
- \cline{2-4}
- \rowfont \bfseries
- \multicolumn{1}{c|}{} & \tblheadername & \tblheaderdate & \tblheadersignature \\ \tabucline{1-4}  % TODO remove \\ from the last entry to get rid of Underfull \hbox (badness 10000) in paragraph at lines 30--30
- \personrow
-\end{tabu}
-\extrarowsep=0mm}
+\stepcounter{personscounter}%
+\ifnumequal{\intcalcMod{\value{personscounter}}{4}}{1}{##1 &}{}%
+\ifnumequal{\intcalcMod{\value{personscounter}}{4}}{2}{##1 &}{}%
+\ifnumequal{\intcalcMod{\value{personscounter}}{4}}{3}{\ifstrequal{##1}{empty}{}{##1}&}{}%
+\ifnumequal{\intcalcMod{\value{personscounter}}{4}}{0}{\ifstrequal{##1}{empty}{\raisebox{10mm}{}}{\includegraphics[height=10mm]{##1}} \\ \hline}{}}%
+\newcommand*{\personrow}{\forlistloop{\personrowdo}{\personslist}}%
+\noindent%
+\extrarowsep=1mm%
+{\small%
+\begin{tabu}{|>{\bfseries}l|l|l|>{\centering\arraybackslash}X[c,m]|}%
+\cline{2-4}%
+\rowfont \bfseries%
+\multicolumn{1}{c|}{} & \tblheadername & \tblheaderdate & \tblheadersignature \\ \tabucline{1-4}%
+\personrow%
+\end{tabu}%
+\extrarowsep=0mm}%
 }
 
 % === DISCLAIMER PAGE ===
@@ -582,57 +582,55 @@ minimum height=3em, minimum width=6em,rounded corners=.15cm]
 \addtolanguagecommand{\disclaimercaption}{dutch}{Disclaimer}
 
 \newlanguagecommand{\disclaimertxt}
-\addtolanguagecommand{\disclaimertxt}{english}{
- This document has been prepared by \@unitname\ for \@client. The opinions and
- information in this report are entirely those of \@unitname, based on data and
- assumptions as reported throughout the text and upon information and data
- obtained from sources which \@unitname\ believes to be reliable.\newline
-
- While \@unitname\ has taken all reasonable care to ensure that the facts and
- opinions expressed in this document are accurate, it makes no guarantee to any
- person, organization or company, representation or warranty, express or implied
- as to fairness, accuracy and liability for any loss howsoever, arising directly
- or indirectly from its use or contents.\newline
-
- This document is intended for use by professionals or institutions. This
- document remains the property of \@unitname. All rights reserved. This document
- or any part thereof may not be made public or disclosed, copied or otherwise
- reproduced or used in any form or by any means, without prior permission in
- writing from \@unitname. \newline
-
- \begin{center}
-  This document is dated \thedate
- \end{center}
+\addtolanguagecommand{\disclaimertxt}{english}{%
+This document has been prepared by \@unitname\ for \@client. The opinions and%
+information in this report are entirely those of \@unitname, based on data and%
+assumptions as reported throughout the text and upon information and data%
+obtained from sources which \@unitname\ believes to be reliable.\newline%
+While \@unitname\ has taken all reasonable care to ensure that the facts and%
+opinions expressed in this document are accurate, it makes no guarantee to any%
+person, organization or company, representation or warranty, express or implied%
+as to fairness, accuracy and liability for any loss howsoever, arising directly%
+or indirectly from its use or contents.\newline%
+This document is intended for use by professionals or institutions. This%
+document remains the property of \@unitname. All rights reserved. This document%
+or any part thereof may not be made public or disclosed, copied or otherwise%
+reproduced or used in any form or by any means, without prior permission in%
+writing from \@unitname. \newline%
+\begin{center}%
+This document is dated \thedate%
+\end{center}%
 }
-\addtolanguagecommand{\disclaimertxt}{dutch}{
- Dit document is geschreven door \@unitname\ voor \@client. Meningen
- en informatie in dit rapport zijn in het geheel van \@unitname\ en gebaseerd
- op onderliggende gegevens en aannames, zoals aangegeven in de tekst. Gegevens
- welke door \@unitname\ zelf zijn verkregen worden als betrouwbaar gezien.\newline
+\addtolanguagecommand{\disclaimertxt}{dutch}{%
+Dit document is geschreven door \@unitname\ voor \@client. Meningen%
+en informatie in dit rapport zijn in het geheel van \@unitname\ en gebaseerd%
+op onderliggende gegevens en aannames, zoals aangegeven in de tekst. Gegevens%
+welke door \@unitname\ zelf zijn verkregen worden als betrouwbaar gezien.\newline%
+\@unitname\ heeft alle zorg gedragen om feiten en meningen correct en%
+nauwkeurig te documenteren. Er kan geen zekerheidsstelling, zowel expliciet als%
+impliciet aan een persoon, organisatie, bedrijf, garantie of vertegenwoordiger%
+hiervan gegeven worden. \@unitname\ accepteert geen aansprakelijkheid voor elk%
+direct en indirect geleden verlies, voortvloeiend uit dit document en haar%
+inhoud.\newline%
+Dit document is bedoeld voor professionals en instituten. Dit document blijft%
+eigendom van \@unitname. Alle rechten voorbehouden. Dit document of een%
+gedeelte hiervan mag daarom niet gepubliceerd, vrijgegeven, gekopieerd of op%
+enige andere wijze gereproduceerd, of gebruikt worden, in elke vorm of%
+mogelijkheid, zonder van te voren verkregen schriftelijke toestemming door%
+\@unitname. \newline%
+\begin{center}%
+Dit document is gepubliceerd op \thedate%
+mogelijkheid, zonder van te voren verkregen schriftelijke toestemming door%
+\@unitname. \newline%
+\begin{center}%
+Dit document is gepubliceerd op \thedate%
+\end{center}%
+}%
 
- \@unitname\ heeft alle zorg gedragen om feiten en meningen correct en
- nauwkeurig te documenteren. Er kan geen zekerheidsstelling, zowel expliciet als
- impliciet aan een persoon, organisatie, bedrijf, garantie of vertegenwoordiger
- hiervan gegeven worden. \@unitname\ accepteert geen aansprakelijkheid voor elk
- direct en indirect geleden verlies, voortvloeiend uit dit document en haar
- inhoud.\newline
-
- Dit document is bedoeld voor professionals en instituten. Dit document blijft
- eigendom van \@unitname. Alle rechten voorbehouden. Dit document of een
- gedeelte hiervan mag daarom niet gepubliceerd, vrijgegeven, gekopieerd of op
- enige andere wijze gereproduceerd, of gebruikt worden, in elke vorm of
- mogelijkheid, zonder van te voren verkregen schriftelijke toestemming door
- \@unitname. \newline
-
- \begin{center}
-  Dit document is gepubliceerd op \thedate
- \end{center}
-}
-
-\newcommand{\makedisclaimer}{
- \section*{\disclaimercaption}
- {\parindent0pt\disclaimertxt}
-}
+\newcommand{\makedisclaimer}{%
+\section*{\disclaimercaption}%
+{\parindent0pt\disclaimertxt}%
+}%
 
 % === CLASSIFICATION ===
 \newkomafont{watermarkfont}{\sffamily\fontsize{70pt}{70pt}\selectfont\sffamily\bfseries}
@@ -684,7 +682,7 @@ minimum height=3em, minimum width=6em,rounded corners=.15cm]
 \DeclareNewLayer[
  foreground,
  foot,
- addheight=\headheight,
+ addheight=\topskip,
  mode=picture,
  contents={
    \begin{tikzpicture}[overlay,remember picture]
@@ -713,50 +711,50 @@ minimum height=3em, minimum width=6em,rounded corners=.15cm]
    fill = RoyalWhite,
   },
 }
-\renewcommand*{\maketitle}{
- \begin{titlepage}
-  \ifmcover \else \makefrontcover \fi
-  \thispagestyle{titlepage}
-  \global\@topnum=\z@\setparsizes{\z@}{\z@}{\z@\@plus 1fil}
-  \par@updaterelative
-  \begin{tikzpicture}[overlay,remember picture]
-   \node[titlenode/base, yshift=-25mm, xshift=-\coverpagerightmargin] at (current page.north east) (titlenode) {\usekomafont{title}\MakeUppercase{\@title}};
-   \ifx \@subtitle %TODO fix no subtitle defined
-    \node[titlenode/base] at (titlenode.south east) (subtitlenode) {\usekomafont{subtitle}\MakeUppercase{\@unitname}};
-   \else
-    \node[titlenode/base, align=left] at (titlenode.south east) (subtitlenode) {\usekomafont{subtitle}\@subtitle};
-    \node[titlenode/base] at (subtitlenode.south east) (subsubtitlenode) {\usekomafont{subsubtitle}\MakeUppercase{\@unitname}};
-   \fi
-   \node[anchor=center] at (0.5*\paperwidth-\coverpageleftmargin,-0.25*\paperheight) (authornode) {
-    {\usekomafont{author}{\lineskip .5em
-       \begin{tabular}[t]{c}
-        \@author
-       \end{tabular}\par}}
-   };
-   \node[anchor=north, inner sep=0pt, outer sep=1em] at (authornode.south) (datenode) {\usekomafont{date}\@date};
-   \node[anchor=south east, xshift=-\coverpagerightmargin, yshift=50mm, inner sep=0pt, outer sep=0pt] at (current page.south east) (addrnode) {
-    \begin{tabu}{r}
-     \@unitname                         \\
-     \@unitbox                          \\
-     \@unitadress                       \\
-     S: \href{\@unitsite}{\@unitmail}   \\
-     T: \href{tel:\@unittel}{\@unittel} \\
-     M: \href{mailto:\@unitmail}{\@unitmail}
-    \end{tabu}
-   };
-   \node[anchor=north west, inner sep=0pt, outer sep=0pt, xshift=34mm] at (current page.south west |- addrnode.north) {
-    \begin{tabu}{l l}
-     Client             & \@client             \\
-     External reference & \@externalreference  \\
-     Internal reference & \@internalreference  \\
-     Version            & \@version            \\
-     Status             & \status              \\
-     Classification     & \classificationstyle
-    \end{tabu}
-   };
-  \end{tikzpicture}
-  \cleardoublepage
- \end{titlepage}
+\renewcommand*{\maketitle}{%
+ \begin{titlepage}%
+  \ifmcover\else\makefrontcover\fi%
+  \thispagestyle{titlepage}%
+  \global\@topnum=\z@\setparsizes{\z@}{\z@}{\z@\@plus 1fil}%
+  \par@updaterelative%
+  \begin{tikzpicture}[overlay,remember picture]%
+   \node[titlenode/base, yshift=-25mm, xshift=-\coverpagerightmargin] at (current page.north east) (titlenode) {\usekomafont{title}\MakeUppercase{\@title}};%
+   \ifx \@subtitle %TODO fix no subtitle defined%
+    \node[titlenode/base] at (titlenode.south east) (subtitlenode) {\usekomafont{subtitle}\MakeUppercase{\@unitname}};%
+   \else%
+    \node[titlenode/base, align=left] at (titlenode.south east) (subtitlenode) {\usekomafont{subtitle}\@subtitle};%
+    \node[titlenode/base] at (subtitlenode.south east) (subsubtitlenode) {\usekomafont{subsubtitle}\MakeUppercase{\@unitname}};%
+   \fi%
+   \node[anchor=center] at (0.5*\paperwidth-\coverpageleftmargin,-0.25*\paperheight) (authornode) {%
+    {\usekomafont{author}{\lineskip .5em%
+       \begin{tabular}[t]{c}%
+        \@author%
+       \end{tabular}\par}}%
+   };%
+   \node[anchor=north, inner sep=0pt, outer sep=1em] at (authornode.south) (datenode) {\usekomafont{date}\@date};%
+   \node[anchor=south east, xshift=-\coverpagerightmargin, yshift=50mm, inner sep=0pt, outer sep=0pt] at (current page.south east) (addrnode) {%
+    \begin{tabu}{r}%
+     \@unitname                         \\%
+     \@unitbox                          \\%
+     \@unitadress                       \\%
+     S: \href{\@unitsite}{\@unitmail}   \\%
+     T: \href{tel:\@unittel}{\@unittel} \\%
+     M: \href{mailto:\@unitmail}{\@unitmail}%
+    \end{tabu}%
+   };%
+   \node[anchor=north west, inner sep=0pt, outer sep=0pt, xshift=34mm] at (current page.south west |- addrnode.north) {%
+    \begin{tabu}{l l}%
+     Client             & \@client             \\%
+     External reference & \@externalreference  \\%
+     Internal reference & \@internalreference  \\%
+     Version            & \@version            \\%
+     Status             & \status              \\%
+     Classification     & \classificationstyle%
+    \end{tabu}%
+   };%
+  \end{tikzpicture}%
+  \cleardoublepage%
+ \end{titlepage}%
 }
 
 % === COVERPAGE FRONT ===
@@ -768,28 +766,26 @@ minimum height=3em, minimum width=6em,rounded corners=.15cm]
    fill = RoyalWhite,
   },
 }
-\setkomafont{subject}{\color{RoyalBlack}\large\raggedright}
-\NewDocumentCommand{\makefrontcover}{}{
- \thispagestyle{titlepage}
- \begin{tikzpicture}[overlay,remember picture]
-  \node[covernode/base, yshift=-16mm, xshift=34mm] at (current page.north west) (titlebackground) {
-   \begin{tikzpicture}
-    \node[covernode/base] (titlenode) {\usekomafont{title}\MakeUppercase{\@title}};
-    \ifx \@subtitle %TODO fix no subtitle defined
-     \node[covernode/base] at (titlenode.south west) (subtitlenode) {\usekomafont{subtitle}\MakeUppercase{\@unitname}};
-    \else
-     \node[covernode/base,align=left] at (titlenode.south west) (subtitlenode) {{\usekomafont{subtitle}DESIGN OF AN AUTONOMOUS}};
-     \node[covernode/base] at (subtitlenode.south west) (subsubtitlenode) {\usekomafont{subsubtitle}DREDGE BOT CONTROLLER};
-    \fi
-   \end{tikzpicture}
-  };
-  \node[inner sep=0pt, outer sep=0pt, anchor=north west, yshift=-4mm] at (titlebackground.south west) (imgnode) {
-   \includegraphics[width=\paperwidth-80mm]{front.pdf}};
-  \node[covernode/base, anchor=south east, inner sep = 5pt, xshift=16mm, yshift=-16mm] at (imgnode.south east) (subjectnode) {\parbox[b]{64mm}{\usekomafont{subject}\@subject}};
-
- \end{tikzpicture}
-
- \cleardoublepage
+\setkomafont{subject}{\color{RoyalBlack}\large\raggedright}%
+\NewDocumentCommand{\makefrontcover}{}{%
+ \thispagestyle{titlepage}%
+ \begin{tikzpicture}[overlay,remember picture]%
+  \node[covernode/base, yshift=-16mm, xshift=34mm] at (current page.north west) (titlebackground) {%
+   \begin{tikzpicture}%
+    \node[covernode/base] (titlenode) {\usekomafont{title}\MakeUppercase{\@title}};%
+    \ifx\@subtitle%TODO fix no subtitle defined%
+     \node[covernode/base] at (titlenode.south west) (subtitlenode) {\usekomafont{subtitle}\MakeUppercase{\@unitname}};%
+    \else%
+     \node[covernode/base,align=left] at (titlenode.south west) (subtitlenode) {{\usekomafont{subtitle}DESIGN OF AN AUTONOMOUS}};%
+     \node[covernode/base] at (subtitlenode.south west) (subsubtitlenode) {\usekomafont{subsubtitle}DREDGE BOT CONTROLLER};%
+    \fi%
+   \end{tikzpicture}%
+  };%
+  \node[inner sep=0pt, outer sep=0pt, anchor=north west, yshift=-4mm] at (titlebackground.south west) (imgnode) {%
+   \includegraphics[width=\paperwidth-80mm]{front.pdf}};%
+  \node[covernode/base, anchor=south east, inner sep = 5pt, xshift=16mm, yshift=-16mm] at (imgnode.south east) (subjectnode) {\parbox[b]{64mm}{\usekomafont{subject}\@subject}};%
+ \end{tikzpicture}%
+ \cleardoublepage%
 }
 
 
@@ -817,7 +813,7 @@ minimum height=3em, minimum width=6em,rounded corners=.15cm]
 \input{resources/customunits.def}
 
 % === GLOSSARY ===
-\usepackage[acronym,xindy]{glossaries}
+\usepackage[acronym,xindy,section=chapter]{glossaries}
 %\usepackage[automake,acronym,xindy,docdef=atom]{glossaries-extra}
 \usepackage{datatool}
 \glsdisablehyper
@@ -868,7 +864,7 @@ minimum height=3em, minimum width=6em,rounded corners=.15cm]
  }
 }
 
-\LetLtxMacro\orig@gls\gls
+\LetLtxMacro\orig@gls\gls%
 \RenewDocumentCommand{\gls}{omo}{%
   \IfValueT{#1}{%
     \IfStrEq{#1}{first}{%
@@ -912,7 +908,7 @@ minimum height=3em, minimum width=6em,rounded corners=.15cm]
 \addtolanguagecommand{\acrtitle}{english}{ACRONYMS}
 \addtolanguagecommand{\acrtitle}{dutch}{ACRONIEMEN}
 
-\NewDocumentCommand{\loadglscsv}{ o m }{
+\NewDocumentCommand{\loadglscsv}{ o m }{%
  \DTLifdbexists{#1}{}{%
  \DTLsetdelimiter{|}%
  \DTLsetseparator{|}%
@@ -931,11 +927,11 @@ minimum height=3em, minimum width=6em,rounded corners=.15cm]
     text={\expandonce\keyname},%
     description={\expandonce\description},%
     first={\expandonce\key\glsspace which,\glsspace is\glsspace\expandonce\description,}}}%
-  \defnewentry
+  \defnewentry%
  }%
 }
 
-\NewDocumentCommand{\loadglssymbolcsv}{ o m }{
+\NewDocumentCommand{\loadglssymbolcsv}{ o m }{%
 \DTLifdbexists{#1}{}{%
 \DTLsetdelimiter{|}%
 \DTLsetseparator{|}%
@@ -959,11 +955,11 @@ minimum height=3em, minimum width=6em,rounded corners=.15cm]
       \glsspace given\glsspace in\glsspace%
       \ensuremath{\left[\expandonce\units\right]}},%
     type=symbolslist}}%
-  \defnewentry
+  \defnewentry%
  }%
 }
 
-\NewDocumentCommand{\loadglsacrocsv}{ o m }{
+\NewDocumentCommand{\loadglsacrocsv}{ o m }{%
 \DTLifdbexists{#1}{}{%
 \DTLsetdelimiter{|}%
 \DTLsetseparator{|}%
@@ -975,90 +971,86 @@ minimum height=3em, minimum width=6em,rounded corners=.15cm]
   \lng=long%
  }{%
   \edef\defnewacro{\noexpand\newacronym{#1-\shrt}{\expandonce\shrt}{\expandonce\lng}}%
-  \defnewacro
+  \defnewacro%
  }%
 }
 
-\newglossarystyle{symbolsliststyle}{
- \renewenvironment{theglossary}
- {
-  \setlength{\tabulinesep}{4mm}
-  \setlength{\extrarowsep}{2mm}
-  \noindent
-  \taburowcolors[2] 2{RoyalWhite .. RoyalLightGrey}
-  \begin{longtabu}{X[1,c,m] X[6,l,m] X[1.5,c,m] X[2,r,m]}
-   }
-   {
-  \end{longtabu}
- }
- \renewcommand*{\glossaryheader}{
-  \rowcolor{RoyalRed} \rowfont{\sffamily\bfseries}
-  \color{RoyalWhite} \signheader & \color{RoyalWhite} \descriptionheader & \color{RoyalWhite} \unitheader & \color{RoyalWhite} \pageheader \\\endhead
- }
- \renewcommand*{\glossentry}[2]{
-  \color{black}\ensuremath{\glossentryname{##1}} & \glossentrydesc{##1} & \ensuremath{\si{\glsentryunit{##1}}} & ##2 \\
- }
- \renewcommand*{\glsgroupheading}[1]{}
- \renewcommand*{\glsgroupskip}{}
+\newglossarystyle{symbolsliststyle}{%
+ \renewenvironment{theglossary}%
+ {%
+  \setlength{\tabulinesep}{4mm}%
+  \setlength{\extrarowsep}{2mm}%
+  \noindent%
+  \taburowcolors[2] 2{RoyalWhite .. RoyalLightGrey}%
+  \begin{longtabu}{X[1,c,m] X[6,l,m] X[1.5,c,m] X[2,r,m]}%
+   }%
+   {%
+  \end{longtabu}%
+ }%
+ \renewcommand*{\glossaryheader}{%
+  \rowcolor{RoyalRed} \rowfont{\sffamily\bfseries}%
+  \color{RoyalWhite} \signheader & \color{RoyalWhite} \descriptionheader & \color{RoyalWhite} \unitheader & \color{RoyalWhite} \pageheader \\\endhead%
+ }%
+ \renewcommand*{\glossentry}[2]{%
+  \color{black}\ensuremath{\glossentryname{##1}} & \glossentrydesc{##1} & \ensuremath{\si{\glsentryunit{##1}}} & ##2 \\%
+ }%
+ \renewcommand*{\glsgroupheading}[1]{}%
+ \renewcommand*{\glsgroupskip}{}%
 }
 
-\newglossarystyle{ihclongstyle}{
- \renewenvironment{theglossary}
- {
- \setlength{\tabulinesep}{4mm}
- \setlength{\extrarowsep}{2mm}
- \noindent
-  \taburowcolors[2] 2{RoyalWhite .. RoyalLightGrey}
-  \begin{longtabu}{X[3,l,m] X[5,l,m] X[1,l,m]}
-   }
-   {
-  \end{longtabu}
- }
- \renewcommand*{\glossaryheader}{
-  \rowcolor{RoyalRed} \rowfont{\sffamily\bfseries}
-  \color{RoyalWhite} \keyheader & \color{RoyalWhite} \descriptionheader & \color{RoyalWhite} \pageheader \\\endhead
- }
- \renewcommand*{\glossentry}[2]{
-  \color{black}\sffamily\bfseries \glossentryname{##1} & \glossentrydesc{##1} & ##2 \\
- }
- \renewcommand*{\glsgroupheading}[1]{}
- \renewcommand*{\glsgroupskip}{}
+\newglossarystyle{ihclongstyle}{%
+ \renewenvironment{theglossary}%
+ {%
+ \setlength{\tabulinesep}{4mm}%
+ \setlength{\extrarowsep}{2mm}%
+ \noindent%
+  \taburowcolors[2] 2{RoyalWhite .. RoyalLightGrey}%
+  \begin{longtabu}{X[3,l,m] X[5,l,m] X[1,l,m]}%
+   }%
+   {%
+  \end{longtabu}%
+ }%
+ \renewcommand*{\glossaryheader}{%
+  \rowcolor{RoyalRed} \rowfont{\sffamily\bfseries}%
+  \color{RoyalWhite} \keyheader & \color{RoyalWhite} \descriptionheader & \color{RoyalWhite} \pageheader \\\endhead%
+ }%
+ \renewcommand*{\glossentry}[2]{%
+  \color{black}\sffamily\bfseries \glossentryname{##1} & \glossentrydesc{##1} & ##2 \\%
+ }%
+ \renewcommand*{\glsgroupheading}[1]{}%
+ \renewcommand*{\glsgroupskip}{}%
 }
 
-\newglossarystyle{ihclongacrostyle}{
- \renewenvironment{theglossary}
- {
- \setlength{\tabulinesep}{4mm}
- \setlength{\extrarowsep}{2mm}
- \noindent
-  \taburowcolors[2] 2{RoyalWhite .. RoyalLightGrey}
-  \begin{longtabu}{X[1,l,m] X[6,l,m] X[1,c,m]}
-   }
-   {
-  \end{longtabu}
- }
- \renewcommand*{\glossaryheader}{
-  \rowcolor{RoyalRed} \rowfont{\sffamily\bfseries}
-  \color{RoyalWhite} \keyheader & \color{RoyalWhite} \descriptionheader & \color{RoyalWhite} \pageheader \\\endhead
- }
- \renewcommand*{\glossentry}[2]{
-  \color{black}\sffamily\bfseries \glossentryname{##1} & \glossentrydesc{##1} & ##2 \\
- }
- \renewcommand*{\glsgroupheading}[1]{}
- \renewcommand*{\glsgroupskip}{}
+\newglossarystyle{ihclongacrostyle}{%
+ \renewenvironment{theglossary}%
+ {%
+ \setlength{\tabulinesep}{4mm}%
+ \setlength{\extrarowsep}{2mm}%
+ \noindent%
+  \taburowcolors[2] 2{RoyalWhite .. RoyalLightGrey}%
+  \begin{longtabu}{X[1,l,m] X[6,l,m] X[1,c,m]}%
+   }%
+   {%
+  \end{longtabu}%
+ }%
+ \renewcommand*{\glossaryheader}{%
+  \rowcolor{RoyalRed} \rowfont{\sffamily\bfseries}%
+  \color{RoyalWhite} \keyheader & \color{RoyalWhite} \descriptionheader & \color{RoyalWhite} \pageheader \\\endhead%
+ }%
+ \renewcommand*{\glossentry}[2]{%
+  \color{black}\sffamily\bfseries \glossentryname{##1} & \glossentrydesc{##1} & ##2 \\%
+ }%
+ \renewcommand*{\glsgroupheading}[1]{}%
+ \renewcommand*{\glsgroupskip}{}%
+}
+\renewcommand*{\glsclearpage}{\clearpage}
+\renewcommand*{\printglossaries}{%
+ \label{chap:glossaries}%
+ \printglossary[type=symbolslist,style=symbolsliststyle,title=\symbolslisttitle]%
+ \printglossary[type=main,style=ihclongstyle, title=\glostitle]%
+ \printglossary[type=\acronymtype,style=ihclongacrostyle, title=\acrtitle]%
 }
 
-% \ifthenelse{\equal{\status}{concept}}{
-% \renewcommand*{\printglossaries}{
-%  \label{chap:glossaries} NOT PRINTED IN CONCEPT MODE}
-% }{%
-\renewcommand*{\printglossaries}{
- \label{chap:glossaries}
- \printglossary[type=symbolslist,style=symbolsliststyle,title=\symbolslisttitle]
- \printglossary[type=main,style=ihclongstyle, title=\glostitle]
- \printglossary[type=\acronymtype,style=ihclongacrostyle, title=\acrtitle]
-}
-%}
 
 % === MATH ===
 \usepackage{mathtools}
@@ -1095,95 +1087,96 @@ minimum height=3em, minimum width=6em,rounded corners=.15cm]
 \addto\captionsdutch{\renewcommand{\tablename}{TABEL}}
 
 %TODO check if label can be offset when needed
-\newtcolorbox[use counter*=figure]{RoyalFigure}[2][]{
-enhanced,
- blankest,
- center,
- float=#1,
- capture=hbox,
- lowerbox=invisible,
- boxrule=0pt,
- halign title=flush right,
- remember,
- check odd page=true,
- finish={
-   \ifoddpage
-    \node[fill=RoyalWhite, anchor=north east, draw=RoyalWhite, thick] at ([xshift=0mm]$(current page.east |- frame.south) $) {\usekomafont{captionlabel}\figurename~\thetcbcounter:~#2};
-   \else
-   \node[fill=RoyalWhite, anchor=north east, draw=RoyalWhite, thick] at ([xshift=-1.0in-8mm]$(current page.east |- frame.south) $) {\usekomafont{captionlabel}\figurename~\thetcbcounter:~#2};
-  }
+\newtcolorbox[use counter*=figure]{RoyalFigure}[2][]{%
+enhanced,%
+ blankest,%
+ center,%
+ float=#1,%
+ capture=hbox,%
+ lowerbox=invisible,%
+ boxrule=0pt,%
+ halign title=flush right,%
+ remember,%
+ check odd page=true,%
+ finish={%
+   \ifoddpage%
+    \node[fill=RoyalWhite, anchor=north east, draw=RoyalWhite, thick] at ([xshift=0mm]$(current page.east |- frame.south) $) {\usekomafont{captionlabel}\figurename~\thetcbcounter:~#2};%
+   \else%
+   \node[fill=RoyalWhite, anchor=north east, draw=RoyalWhite, thick] at ([xshift=-1.0in-8mm]$(current page.east |- frame.south) $) {\usekomafont{captionlabel}\figurename~\thetcbcounter:~#2};%
+  }%
 }
 
 % === LISTINGS ===
-\newtcbinputlisting[auto counter, number within=chapter]{RoyalFileListing}[4][]{
- blankest,
- listing engine=minted,
- minted language=#2,
- minted style=colorful,
- listing file={#3},
- listing only,
- before skip=10pt,
- after skip=10pt,
- colback=RoyalLightGrey,
- enhanced jigsaw,
- lowerbox=invisible,
- toptitle=5pt,
- lefttitle=5pt,
- title={LISTING~\thetcbcounter:~\MakeUppercase{#4}},
- fonttitle=\usekomafont{captionlabel}\color{RoyalWhite},
- colbacktitle=RoyalGrey,
- breakable,
- #1
+\newtcbinputlisting[auto counter, number within=chapter]{RoyalFileListing}[4][]{%
+ blankest,%
+ listing engine=minted,%
+ minted language=#2,%
+ minted style=colorful,%
+ listing file={#3},%
+ listing only,%
+ before skip=10pt,%
+ after skip=10pt,%
+ colback=RoyalLightGrey,%
+ enhanced jigsaw,%
+ lowerbox=invisible,%
+ toptitle=5pt,%
+ lefttitle=5pt,%
+ title={LISTING~\thetcbcounter:~\MakeUppercase{#4}},%
+ fonttitle=\usekomafont{captionlabel}\color{RoyalWhite},%
+ colbacktitle=RoyalGrey,%
+ breakable,%
+ #1%
 }
 
-\newtcblisting[auto counter, number within=chapter]{RoyalListing}[2][]{
- blankest,
- listing engine=minted,
- before skip=10pt,
- after skip=10pt,
- colback=RoyalLightGrey,
- enhanced jigsaw,
- lowerbox=invisible,
- toptitle=5pt,
- lefttitle=5pt,
- title={LISTING~\thetcbcounter:~\MakeUppercase{#2}},
- fonttitle=\usekomafont{captionlabel}\color{RoyalWhite},
- colbacktitle=RoyalGrey,
- #1
+\newtcblisting[auto counter, number within=chapter]{RoyalListing}[2][]{%
+ blankest,%
+ listing engine=minted,%
+ before skip=10pt,%
+ after skip=10pt,%
+ colback=RoyalLightGrey,%
+ enhanced jigsaw,%
+ lowerbox=invisible,%
+ toptitle=5pt,%
+ lefttitle=5pt,%
+ title={LISTING~\thetcbcounter:~\MakeUppercase{#2}},%
+ fonttitle=\usekomafont{captionlabel}\color{RoyalWhite},%
+ colbacktitle=RoyalGrey,%
+ #1%
 }
 
 % === ALGORITHMS ===
 
 \usepackage{algpseudocode}
 
-\newtcolorbox[auto counter, number within=chapter]{RoyalAlgorithm}[2][]{
- blankest, left=5mm,
- before skip=10pt, after skip=10pt,
- colback=RoyalLightGrey,
- enhanced jigsaw,
- boxsep=5mm,
- title={LISTING~\thetcbcounter:~\MakeUppercase{#2}},
- fonttitle=\usekomafont{captionlabel}\color{RoyalWhite},
- colbacktitle=RoyalGrey,
- #1
+\newtcolorbox[auto counter, number within=chapter]{RoyalAlgorithm}[2][]{%
+ blankest, left=5mm,%
+ before skip=10pt, after skip=10pt,%
+ colback=RoyalLightGrey,%
+ enhanced jigsaw,%
+ boxsep=5mm,%
+ title={LISTING~\thetcbcounter:~\MakeUppercase{#2}},%
+ fonttitle=\usekomafont{captionlabel}\color{RoyalWhite},%
+ colbacktitle=RoyalGrey,%
+ #1%
 }
 
 % === NOTES ===
-\newtcolorbox[auto counter, number within=chapter]{RoyalNote}[2][]{
- blankest,
- before skip=10pt,
- after skip=10pt,
- boxsep=2mm,
- top=1mm,
- colback=RoyalLightGrey,
- enhanced jigsaw,
- toptitle=5pt,
- lefttitle=5pt,
- lowerbox=ignored,
- title={NOTE~\thetcbcounter:~\MakeUppercase{#2}},
- fonttitle=\usekomafont{captionlabel}\color{RoyalWhite},
- colbacktitle=RoyalGrey,
- #1
+\newtcolorbox[auto counter, number within=chapter]{RoyalNote}[2][]{%
+ blankest,%
+ before skip=10pt,%
+ after skip=10pt,%
+ boxsep=2mm,%
+ top=1mm,%
+ colback=RoyalLightGrey,%
+ enhanced jigsaw,%
+ toptitle=5pt,%
+ lefttitle=5pt,%
+ lowerbox=ignored,%
+ title={NOTE~\thetcbcounter:~\MakeUppercase{#2}},%
+ fonttitle=\usekomafont{captionlabel}\color{RoyalWhite},%
+ colbacktitle=RoyalGrey,%
+ #1%
 }
 
 \usepackage{csquotes}
+\usepackage{scrhack}
