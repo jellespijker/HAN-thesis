@@ -1,16 +1,999 @@
+% !TeX root = ../../report.tex
+% !TeX spellcheck = en-US
+% !TeX encoding = UTF-8
 \ProvidesFile{glossary.tex}
-\glsnoexpandfields{}
-% === MATH SYMBOLS ===
-\loadglssymbolcsv[sym]{resources/glossary/symbols-\languagename.csv}
-\loadglssymbolcsv[usym]{resources/glossary/symbols-user.csv}
-
-% === ACRONYMS ===
-\loadglsacrocsv[shp]{resources/glossary/acronyms-ships.csv}
-\loadglsacrocsv[comp]{resources/glossary/acronyms-companies-organizations.csv}
-\loadglsacrocsv[acr]{resources/glossary/acronyms-\languagename.csv}
-
-% === GLOSSARIES ===
-\loadglscsv[gls]{resources/glossary/glossary-\languagename.csv}
-\loadglscsv[ugls]{resources/glossary/glossary-user.csv}
-
+\glsnoexpandfields
+\newacronym{acr-1271}{1271}{MAGDALEN}
+\newacronym{acr-1275}{1275}{JUN YANG I}
+\newacronym{acr-ADC}{ADC}{Analog Digital Conversion}
+\newacronym{acr-AHP}{AHP}{Absorption Heat Pump}
+\newacronym{acr-AOD}{AOD}{Autonomous Operating Dredgebot}
+\newacronym{acr-ASD}{ASD}{Auger Suction Dredger}
+\newacronym{acr-ASHRAE}{ASHRAE}{American Society of Heating, Refrigerating and Air-Conditioning}
+\newacronym{acr-AUV}{AUV}{Autonomous Underwater Vehicle}
+\newacronym{acr-AW}{AW}{Acoustic Waves}
+\newacronym{acr-BBB}{BBB}{Beagle Bone Black}
+\newacronym{acr-BCD}{BCD}{Boustrophedon Cellular Decomposition}
+\newacronym{acr-BCD-GVD}{BCD-GVD}{Morse-based Cellular Decomposition with Voronoi Diagram}
+\newacronym{acr-BV}{BV}{Bureau Veritas}
+\newacronym{acr-CCS}{CCS}{China Classification Society}
+\newacronym{acr-CFC}{CFC}{ChloroFluoroCarbons}
+\newacronym{acr-CIP}{CIP}{Common Industrial Protocol}
+\newacronym{acr-COP}{COP}{Coefficient Of Performance}
+\newacronym{acr-CPP}{CPP}{Coverage Path Planning}
+\newacronym{acr-CSD}{CSD}{Cutter Suction Dredger}
+\newacronym{acr-DEC}{DEC}{Desiccant Evaporative Cooling}
+\newacronym{acr-DEM}{DEM}{Discrete Element Method}
+\newacronym{acr-DIN}{DIN}{Deutsches Institut fur Normung e.V.}
+\newacronym{acr-DoA}{DoA}{Direction of arrival}
+\newacronym{acr-EHP}{EHP}{Electrical driven Heat Pump}
+\newacronym{acr-EMW}{EMW}{Electromagnetic Waves}
+\newacronym{acr-EN}{EN}{Europese norm}
+\newacronym{acr-ESEER}{ESEER}{European Seasonal Energy Ratio}
+\newacronym{acr-ETC}{ETC}{Evacuated Tube Collector}
+\newacronym{acr-FIC}{FIC}{Fluoro-IodoCarbon}
+\newacronym{acr-FPC}{FPC}{Flat Plate Collector}
+\newacronym{acr-FR}{FR}{Frame}
+\newacronym{acr-GDC}{GDC}{CCCC Guangzhou Dredging Co., Ltd}
+\newacronym{acr-GDHP}{GDHP}{Gas Diffusion Heat Pump}
+\newacronym{acr-GEHP}{GEHP}{Gas Engine Heat Pump}
+\newacronym{acr-GPS}{GPS}{Global Positioning System}
+\newacronym{acr-GUI}{GUI}{Graphical User Interface}
+\newacronym{acr-GVD}{GVD}{Generalized Voronoi Diagram}
+\newacronym{acr-GWP}{GWP}{Global Warming Potential}
+\newacronym{acr-HAN}{HAN}{Hogeschool Arnhem and Nijmegen}
+\newacronym{acr-HC}{HC}{HydroCarbons}
+\newacronym{acr-HCFC}{HCFC}{HydroChloroFluoroCarbons}
+\newacronym{acr-HCFS}{HCFS}{HydroChloroFluoroCarbons}
+\newacronym{acr-HE}{HE}{HydroEther}
+\newacronym{acr-HFC}{HFC}{HydroFluoroCarbons}
+\newacronym{acr-HFE}{HFE}{HydroFluorEther}
+\newacronym{acr-HFIC}{HFIC}{HydroFluoro-IodoCarbon}
+\newacronym{acr-ICS}{ICS}{Integral Collector Storage}
+\newacronym{acr-IEEE}{IEEE}{Institute of Electrical and Electronics Engineers}
+\newacronym{acr-IHC}{IHC}{Royal IHC}
+\newacronym{acr-IMU}{IMU}{Inertial Measurement Unit}
+\newacronym{acr-ISO}{ISO}{International Organization for Standardization}
+\newacronym{acr-IoT}{IoT}{Internet of Things}
+\newacronym{acr-KNMI}{KNMI}{Koninklijk Nederlands Meteorologish Instituut}
+\newacronym{acr-LBL}{LBL}{Long Base Line}
+\newacronym{acr-LLC}{LLC}{Logical Link Control}
+\newacronym{acr-LQE}{LQE}{Linear Quadratic Estimation}
+\newacronym{acr-LQG-MP}{LQG-MP}{Linear-Quadratic Gaussian Motion Planning}
+\newacronym{acr-LT}{LT}{Low Teemperature}
+\newacronym{acr-MAC}{MAC}{Media Access Control}
+\newacronym{acr-MEMS}{MEMS}{Micro Electro Mechanical System}
+\newacronym{acr-MLP}{MLP}{Multi-Layer Perceptron}
+\newacronym{acr-MTI}{MTI}{IHC MTI B.V.}
+\newacronym{acr-MVR}{MVR}{Mechanical Vapor Recompression}
+\newacronym{acr-Medusa}{Medusa}{IHC Medusa B.V.}
+\newacronym{acr-NEES}{NEES}{Normalized Estimated Error Squared}
+\newacronym{acr-NN}{NN}{Neural Network based Coverage in Grid maps}
+\newacronym{acr-OOP}{OOP}{Object-Orientated Programming}
+\newacronym{acr-OP}{OP}{Organic Polymer Gel}
+\newacronym{acr-PDR}{PDR}{Parabolic Dish Reflector}
+\newacronym{acr-PID}{PID}{Proportional Integral Derivative}
+\newacronym{acr-PLC}{PLC}{Programmable Logic Controller}
+\newacronym{acr-PMV}{PMV}{Predicted Mean Vote}
+\newacronym{acr-PPD}{PPD}{Predicted Percentage of Dissatisfied}
+\newacronym{acr-PTC}{PTC}{Parabolic Trough Collector}
+\newacronym{acr-RESL}{RESL}{Robotic Embedded Systems Laboratory}
+\newacronym{acr-ROV}{ROV}{Remote Operated Vehicle}
+\newacronym{acr-RRT}{RRT}{Rapidly exploring Random Trees}
+\newacronym{acr-Rpi}{Rpi}{Raspberry pi}
+\newacronym{acr-SBC}{SBC}{Single Board Computer}
+\newacronym{acr-SCM}{SCM}{Soil Contact Model}
+\newacronym{acr-SLAM}{SLAM}{Simultaneous Localization And Mapping}
+\newacronym{acr-STC}{STC}{grid based Spanning Tree Coverage}
+\newacronym{acr-SW}{SW}{Sound Waves}
+\newacronym{acr-SWR}{SWR}{Submerged Weight Range}
+\newacronym{acr-Spiral-STC}{Spiral-STC}{Spiral Spanning Tree Coverage}
+\newacronym{acr-TCP}{TCP}{Transmission Control Protocol}
+\newacronym{acr-TIR}{TIR}{Total Internal Reflection}
+\newacronym{acr-TRN}{TRN}{Terrain Relative navigation}
+\newacronym{acr-TSHD}{TSHD}{Trailing Suction Hopper Dredger}
+\newacronym{acr-ToF}{ToF}{Time of Flight}
+\newacronym{acr-UDP}{UDP}{User Datagram Protocol}
+\newacronym{acr-UKF}{UKF}{Unscented Kalman Filter}
+\newacronym{acr-USBL}{USBL}{Ultra Short Base Line}
+\newacronym{acr-UT}{UT}{Unscented Transformation}
+\newacronym{acr-YAML}{YAML}{YAML Ain't Markup Language}
+\newacronym{acr-onBCD}{onBCD}{online Morse-based Boustrophedon Cellular Decomposition}
+\newacronym{acr-onSD2}{onSD2}{on-line Slice Decomposition II}
+\newacronym{acr-onSD2NN}{onSD2NN}{on-line Slice Decomposition II with Neural Network}
+\newacronym{acr-topBCD}{topBCD}{topological Boustrophedeon Cellular Decomposition}
+\newglossaryentry{gls-Archimedes-screw}%
+{%
+  name={Archimedes screw},%
+  sort={Archimedes-screw},%
+  category={regular},%
+  description={a machine historically used for transferring water from a low-lying body of water into irrigation ditches. The same principle can also be used propel the screw in a medium}%
+}
+\newglossaryentry{gls-Bingham-plastic}%
+{%
+  name={Bingham plastic},%
+  sort={Bingham-plastic},%
+  category={regular},%
+  description={a viscoplastic material that behaves as a rigid body at low stresses but flows as a viscous fluid at high stress}%
+}
+\newglossaryentry{gls-Chrono_Sensors}%
+{%
+  name={Chrono Sensors},%
+  sort={ChronoSensors},%
+  category={regular},%
+  description={an extension library for Project Chrono, which allows simulation of realistic sensor values.}%
+}
+\newglossaryentry{gls-Dempster-shafer-theory}%
+{%
+  name={Dempster Shafer theory},%
+  sort={Dempster-shafer-theory},%
+  category={regular},%
+  description={theory of belief functions, also referred to as evidence theory or Dempster-Shafer theory (DST), is a general framework for reasoning with uncertainty}%
+}
+\newglossaryentry{gls-Kalman-filter}%
+{%
+  name={Kalman filter},%
+  sort={Kalman-filter},%
+  category={regular},%
+  description={an algorithm that uses a series of measurements observed over time, containing statistical noise and other inaccuracies, and produces estimates of unknown variables that tend to be more precise than those based on a single measurement alone}%
+}
+\newglossaryentry{gls-MTIpython}%
+{%
+  name={MTIpython},%
+  sort={MTIpython},%
+  category={regular},%
+  description={a Python package, used within IHC, to solve engineering problems in the disciplines: fluids, thermodynamics, mechanical and electrical}%
+}
+\newglossaryentry{gls-Project_Chrono}%
+{%
+  name={Project Chrono},%
+  sort={ProjectChrono},%
+  category={regular},%
+  description={a physics-based modelling and simulation infrastructure based on a platform-independent open-source design implemented in C++}%
+}
+\newglossaryentry{gls-Python}%
+{%
+  name={Python},%
+  sort={Python},%
+  category={regular},%
+  description={an interpreted high-level programming language for general-purpose programming}%
+}
+\newglossaryentry{gls-Sankey diagram}%
+{%
+  name={Sankey diagram},%
+  sort={Sankey diagram},%
+  category={regular},%
+  description={a specific type of flow diagram, in which the width of the arrows is shown proportionally to the flow quantity}%
+}
+\newglossaryentry{gls-accelerometer}%
+{%
+  name={accelerometer},%
+  sort={accelerometer},%
+  category={regular},%
+  description={a device that measures proper acceleration}%
+}
+\newglossaryentry{gls-acoustic-navigation}%
+{%
+  name={time of flight acoustic navigation},%
+  sort={acoustic-navigation},%
+  category={regular},%
+  description={triangulation of a position using the difference in send and receive time of signal, to calculate the distance from a source}%
+}
+\newglossaryentry{gls-adjacency-graph}%
+{%
+  name={adjacency graph},%
+  sort={adjacency-graph},%
+  category={regular},%
+  description={a graph representing depicting all the nodes}%
+}
+\newglossaryentry{gls-auger-dredge-head}%
+{%
+  name={auger dredge head},%
+  sort={auger-dredge-head},%
+  category={regular},%
+  description={consists of two opposite-thread spiral cutters on a horizontal tubular body. The soil is cut by the spiral cutters, and the pitch ensures that it's carried to the center of the auger, where the suction head is situated.}%
+}
+\newglossaryentry{gls-bandwidth}%
+{%
+  name={bandwidth},%
+  sort={bandwidth},%
+  category={regular},%
+  description={a difference between the upper and lower frequencies in a continuous set of frequencies}%
+}
+\newglossaryentry{gls-bathymetric-map}%
+{%
+  name={bathymetric map},%
+  sort={bathymetric-map},%
+  category={regular},%
+  description={submerged equivalent of an above-water topographic map}%
+}
+\newglossaryentry{gls-bitstream}%
+{%
+  name={bitstream},%
+  sort={bitstream},%
+  category={regular},%
+  description={a sequential binary sequence}%
+}
+\newglossaryentry{gls-black-body}%
+{%
+  name={black body},%
+  sort={black-body},%
+  category={regular},%
+  description={an idealized physical body that absorbs all incident electromagnetic radiation, regardless of frequency or angle of incidence}%
+}
+\newglossaryentry{gls-closed-system}%
+{%
+  name={closed system},%
+  sort={closed-system},%
+  category={regular},%
+  description={a physical system that doesn't exchange any matter with its surroundings, and isn't subject to any net force whose source is external to the system}%
+}
+\newglossaryentry{gls-conduction}%
+{%
+  name={conduction},%
+  sort={conduction},%
+  category={regular},%
+  description={a transfer of heat by microscopic collisions of particles and movement of electrons within a body}%
+}
+\newglossaryentry{gls-convection}%
+{%
+  name={convection},%
+  sort={convection},%
+  category={regular},%
+  description={an algorithm that uses a series of measurements observed over time, containing statistical noise and other inaccuracies, and produces estimates of unknown variables that tend to be more precise than those based on a single measurement alone, by using Bayesian inference and estimating a joint probability distribution over the variables for each time frame}%
+}
+\newglossaryentry{gls-cooling-load}%
+{%
+  name={cooling load},%
+  sort={cooling-load},%
+  category={regular},%
+  description={a rate at which sensible and latent heat must be removed from the space to maintain a constant space dry-bulb air temperature and humidity}%
+}
+\newglossaryentry{gls-coriolis-effect}%
+{%
+  name={Coriolis effect},%
+  sort={coriolis-effect},%
+  category={regular},%
+  description={an inertial or fictitious force that acts on objects that are in motion within a frame of reference that rotates with respect to an inertial frame.}%
+}
+\newglossaryentry{gls-coverage-path}%
+{%
+  name={coverage path},%
+  sort={coverage-path},%
+  category={regular},%
+  description={a sequence of steps which coveres a whole area by following a certain path}%
+}
+\newglossaryentry{gls-critical-point}%
+{%
+  name={critical point},%
+  sort={critical-point},%
+  category={regular},%
+  description={a value of average degree, which separates networks}%
+}
+\newglossaryentry{gls-cusp-point}%
+{%
+  name={cusp point},%
+  sort={cusp-point},%
+  category={regular},%
+  description={are points where its surface normal of the boundary of the free configuration space is non-smooth}%
+}
+\newglossaryentry{gls-dead-reckoning}%
+{%
+  name={dead-reckoning},%
+  sort={dead-reckoning},%
+  category={regular},%
+  description={the process of calculating one's current position by using a previously determined position, or fix, and advancing that position based upon known or estimated speeds over elapsed time and course}%
+}
+\newglossaryentry{gls-deadlock-state}%
+{%
+  name={deadlock state},%
+  sort={deadlock-state},%
+  category={regular},%
+  description={a standstill situation, from which the algorithm has no means of escape}%
+}
+\newglossaryentry{gls-dilatancy}%
+{%
+  name={dilatancy},%
+  sort={dilatancy},%
+  category={regular},%
+  description={volume increase that may occur during shear}%
+}
+\newglossaryentry{gls-draghead}%
+{%
+  name={draghead},%
+  sort={draghead},%
+  category={regular},%
+  description={a suction mouth which is dragged across a water body}%
+}
+\newglossaryentry{gls-dredgeline}%
+{%
+  name={dredgeline},%
+  sort={dredgeline},%
+  category={regular},%
+  description={a pipeline which transports excavated slurry}%
+}
+\newglossaryentry{gls-electric-field}%
+{%
+  name={electric field},%
+  sort={electric-field},%
+  category={regular},%
+  description={a vector field that associates to each point in space the Coulomb force that would be experienced per unit of electric charge, by an infinitesimal test charge at that point. Electric fields converge and diverge at electric charges and can be induced by time-varying magnetic fields}%
+}
+\newglossaryentry{gls-electric-motor}%
+{%
+  name={electric motor},%
+  sort={electric-motor},%
+  category={regular},%
+  description={an electrical machine that converts electrical energy into mechanical energy}%
+}
+\newglossaryentry{gls-erosion}%
+{%
+  name={erosion},%
+  sort={erosion},%
+  category={regular},%
+  description={an action of surface processes (such as water flow or wind) that removes soil}%
+}
+\newglossaryentry{gls-geophysical-navigation}%
+{%
+  name={geophysical navigation},%
+  sort={geophysical-navigation},%
+  category={regular},%
+  description={navigation using landmarks}%
+}
+\newglossaryentry{gls-gimbal-lock}%
+{%
+  name={gimbal lock},%
+  sort={gimbal-lock},%
+  category={regular},%
+  description={the loss of one degree of freedom in a three-dimensional space, three-gimbal mechanism that occurs when the axes of two of the three gimbals are driven into a parallel configuration, ``locking'' the system into rotation in a degenerate two-dimensional space}%
+}
+\newglossaryentry{gls-graph}%
+{%
+  name={graph},%
+  sort={graph},%
+  category={regular},%
+  description={a mathematical structure used to model pairwise relations between objects. A graph in this context is made up of vertices, nodes, or points which are connected by edges, arcs, or lines}%
+}
+\newglossaryentry{gls-gyroscope}%
+{%
+  name={gyroscope},%
+  sort={gyroscope},%
+  category={regular},%
+  description={a spinning wheel or disc in which the axis of rotation is free to assume any orientation by itself. When rotating, the orientation of this axis is unaffected by tilting or rotation of the mounting, according to the conservation of angular momentum. Because of this, gyroscopes are useful for measuring or maintaining orientation}%
+}
+\newglossaryentry{gls-hard-iron}%
+{%
+  name={hard iron},%
+  sort={hard-iron},%
+  category={regular},%
+  description={a constant additive disturbance in the magnetic field of the magnetometer}%
+}
+\newglossaryentry{gls-heating-load}%
+{%
+  name={heating load},%
+  sort={heating-load},%
+  category={regular},%
+  description={a rate at which sensible and latent heat must be added to the space to maintain a constant space dry-bulb air temperature and humidity}%
+}
+\newglossaryentry{gls-hessian}%
+{%
+  name={Hessian},%
+  sort={hessian},%
+  category={regular},%
+  description={a square matrix of second-order partial derivatives of a scalar-valued function, or scalar field. It describes the local curvature of a function of many variables}%
+}
+\newglossaryentry{gls-hopper}%
+{%
+  name={hopper},%
+  sort={hopper},%
+  category={regular},%
+  description={a storage container or compartment}%
+}
+\newglossaryentry{gls-hydraulic-motor}%
+{%
+  name={hydraulic motor},%
+  sort={hydraulic-motor},%
+  category={regular},%
+  description={a mechanical actuator that converts hydraulic pressure and flow into torque and angular displacement}%
+}
+\newglossaryentry{gls-hydraulic-pump}%
+{%
+  name={hydraulic pump},%
+  sort={hydraulic-pump},%
+  category={regular},%
+  description={a mechanical source of power that converts mechanical power into hydraulic energy}%
+}
+\newglossaryentry{gls-kalman-gain}%
+{%
+  name={Kalman gain},%
+  sort={kalman-gain},%
+  category={regular},%
+  description={the relative weight given to the measurements and current state estimate, and can be "tuned" to achieve particular performance. With a high gain, the filter places more weight on the most recent measurements, and thus follows them more responsively. With a low gain, the filter follows the model predictions more closely. At the extremes, a high gain close to one will result in a more jumpy estimated trajectory, while low gain close to zero will smooth out noise but decrease the responsiveness}%
+}
+\newglossaryentry{gls-latent-heat}%
+{%
+  name={latent heat},%
+  sort={latent-heat},%
+  category={regular},%
+  description={thermal energy released or absorbed by a body}%
+}
+\newglossaryentry{gls-lora}%
+{%
+  name={LoRa},%
+  sort={lora},%
+  category={regular},%
+  description={a wireless technology that has been developed to enable low data rate communications to be made over long distances by sensors and actuators for M2M and Internet of Things, IoT applications}%
+}
+\newglossaryentry{gls-lorentz-force}%
+{%
+  name={Lorentz force},%
+  sort={lorentz-force},%
+  category={regular},%
+  description={ the combination of electric and magnetic force on a point charge due to electromagnetic fields}%
+}
+\newglossaryentry{gls-magnetic-field}%
+{%
+  name={magnetic field},%
+  sort={magnetic-field},%
+  category={regular},%
+  description={a magnetic effect of electric currents and magnetic materials. The magnetic field at any given point is specified by both a direction and a magnitude (or strength); as such it's a vector field}%
+}
+\newglossaryentry{gls-magnetometer}%
+{%
+  name={magnetometer},%
+  sort={magnetometer},%
+  category={regular},%
+  description={a magnetometer is an instrument that measures magnetism, either magnetization of magnetic material like a ferromagnet, or the strength and, in some cases, direction of the magnetic field at a point in space}%
+}
+\newglossaryentry{gls-maxwell}%
+{%
+  name={Maxwell's equation},%
+  sort={maxwell},%
+  category={regular},%
+  description={are a set of partial differential equations that, together with the Lorentz force law, form the foundation of classical electrodynamics, classical optics, and electric circuits}%
+}
+\newglossaryentry{gls-monotonically}%
+{%
+  name={monotonically},%
+  sort={monotonically},%
+  category={regular},%
+  description={a function between ordered sets that preserves or reverses the given order}%
+}
+\newglossaryentry{gls-morse-function}%
+{%
+  name={Morse function},%
+  sort={morse-function},%
+  category={regular},%
+  description={a function for which all critical points are non-degenerate and all critical levels are different}%
+}
+\newglossaryentry{gls-narrow-cell}%
+{%
+  name={NARROW-cell},%
+  sort={narrow-cell},%
+  category={regular},%
+  description={a cell is located in a narrow space, bound between multiple walls}%
+}
+\newglossaryentry{gls-node}%
+{%
+  name={node},%
+  sort={node},%
+  category={regular},%
+  description={fundamental unit of which graphs are formed}%
+}
+\newglossaryentry{gls-non-commutative}%
+{%
+  name={non-commutative},%
+  sort={non-commutative},%
+  category={regular},%
+  description={a operation in which the order of the operands determine the results}%
+}
+\newglossaryentry{gls-odometry}%
+{%
+  name={odometry},%
+  sort={odometry},%
+  category={regular},%
+  description={the use of data from motion sensors to estimate change in position over time}%
+}
+\newglossaryentry{gls-off-line}%
+{%
+  name={off-line},%
+  sort={off-line},%
+  category={regular},%
+  description={algorithm which plans an optimal path ahead of time, thus which needs to know the environment a priori}%
+}
+\newglossaryentry{gls-ohCaptain}%
+{%
+  name={ohCaptain},%
+  sort={ohCaptain},%
+  category={regular},%
+  description={a versatile efficient controller framework for the maritime industry}%
+}
+\newglossaryentry{gls-on-line}%
+{%
+  name={on-line},%
+  sort={on-line},%
+  category={regular},%
+  description={an algorithm which has the ability to adapt when needed}%
+}
+\newglossaryentry{gls-open-system}%
+{%
+  name={open system},%
+  sort={open-system},%
+  category={regular},%
+  description={a system that has external interactions. Such interactions can take the form of information, energy, or material transfers into or out of the system boundary}%
+}
+\newglossaryentry{gls-optimal-path}%
+{%
+  name={optimal path},%
+  sort={optimal-path},%
+  category={regular},%
+  description={a sequence of steps which are optimized}%
+}
+\newglossaryentry{gls-polarized-plane}%
+{%
+  name={polarized plane},%
+  sort={polarized-plane},%
+  category={regular},%
+  description={is a confinement of the electric field vector or magnetic field vector to a given plane along the direction of propagation}%
+}
+\newglossaryentry{gls-pressure-sensor}%
+{%
+  name={pressure sensor},%
+  sort={pressure-sensor},%
+  category={regular},%
+  description={can be classified in terms of pressure ranges they measure, temperature ranges of operation, and most importantly the type of pressure they measure}%
+}
+\newglossaryentry{gls-quaternion}%
+{%
+  name={quaternion},%
+  sort={quaternion},%
+  category={regular},%
+  description={a number system that extends the complex numbers, they are very useful in describing a rotation involving three dimensions}%
+}
+\newglossaryentry{gls-radiation}%
+{%
+  name={radiation},%
+  sort={radiation},%
+  category={regular},%
+  description={an electromagnetic radiation generated by the thermal motion of charged particles in matter. All matter with a temperature greater than absolute zero emits thermal radiation}%
+}
+\newglossaryentry{gls-reeb-graph}%
+{%
+  name={Reeb graph},%
+  sort={reeb-graph},%
+  category={regular},%
+  description={a mathematical object reflecting the evolution of the level sets of a real-valued function on a manifold}%
+}
+\newglossaryentry{gls-refrigerant}%
+{%
+  name={refrigerant},%
+  sort={refrigerant},%
+  category={regular},%
+  description={a substance or mixture, used in heat pumps to transport heat energy}%
+}
+\newglossaryentry{gls-resistor}%
+{%
+  name={resistor},%
+  sort={resistor},%
+  category={regular},%
+  description={a passive two-terminal electrical component that implements electrical resistance as a circuit element}%
+}
+\newglossaryentry{gls-sedimentation}%
+{%
+  name={sedimentation},%
+  sort={sedimentation},%
+  category={regular},%
+  description={the opposite of erosion}%
+}
+\newglossaryentry{gls-silt}%
+{%
+  name={silt},%
+  sort={silt},%
+  category={regular},%
+  description={a granular material of a size between sand and clay}%
+}
+\newglossaryentry{gls-slurry}%
+{%
+  name={slurry},%
+  sort={slurry},%
+  category={regular},%
+  description={describe a mixture that consist of both solid and fluid phases}%
+}
+\newglossaryentry{gls-soft-iron}%
+{%
+  name={soft iron},%
+  sort={soft-iron},%
+  category={regular},%
+  description={a result of material that distorts the magnetic field of magnetometer, but does not necessarily generate its own magnetic field}%
+}
+\newglossaryentry{gls-solvent}%
+{%
+  name={solvent},%
+  sort={solvent},%
+  category={regular},%
+  description={a substance that dissolves a solute, such as a chemically distinct liquid, solid or gas, resulting in a solution}%
+}
+\newglossaryentry{gls-tooltip}%
+{%
+  name={tooltip},%
+  sort={tooltip},%
+  category={regular},%
+  description={a popup window, containing additional information. It appears when a mouse pointer hoovers over a designated area}%
+}
+\newglossaryentry{gls-trapezoidal-rule}%
+{%
+  name={Trapezoidal rule},%
+  sort={trapezoidal-rule},%
+  category={regular},%
+  description={a technique for approximating the definite integral}%
+}
+\newglossaryentry{gls-traveling-salesman-problem}%
+{%
+  name={traveling salesman},%
+  sort={traveling-salesman-problem},%
+  category={regular},%
+  description={asks the following question: ``Given a list of cities and the distances between each pair of cities, what is the shortest possible route that visits each city exactly once and returns to the origin city?'' it's an NP-hard problem in combinatorial optimization, important in operations research and theoretical computer science}%
+}
+\newglossaryentry{gls-umbilical}%
+{%
+  name={umbilical},%
+  sort={umbilical},%
+  category={regular},%
+  description={a electronic cable connecting an underwater vehicle}%
+}
+\newglossaryentry{gls-vast-cell}%
+{%
+  name={VAST-cell},%
+  sort={vast-cell},%
+  category={regular},%
+  description={a cell located in a vast open space}%
+}
+\newglossaryentry{gls-voronoi-diagram}%
+{%
+  name={Voronoi diagram},%
+  sort={voronoi-diagram},%
+  category={regular},%
+  description={a partition of a plane into regions close to each of a given set of objects}%
+}
+\newglossaryentry{gls-word}%
+{%
+  name={word},%
+  sort={word},%
+  category={regular},%
+  description={a string of bits representing a value which is stored in memory}%
+}
+\glsxtrnewsymbol[description = {surface},unit={\si{\meter\squared}}]{sym-A}{\ensuremath{A}}
+\glsxtrnewsymbol[description = {surface of object 1},unit={\si{\meter\squared}}]{sym-A_1}{\ensuremath{A_1}}
+\glsxtrnewsymbol[description = {surface of object 2},unit={\si{\meter\squared}}]{sym-A_2}{\ensuremath{A_2}}
+\glsxtrnewsymbol[description = {working section of the screw conveyor},unit={\si{\meter\squared}}]{sym-A_a}{\ensuremath{A_a}}
+\glsxtrnewsymbol[description = {collector sunlight exposed surface},unit={\si{\meter\squared}}]{sym-A_c}{\ensuremath{A_c}}
+\glsxtrnewsymbol[description = {cross section of a pipe},unit={\si{\meter\squared}}]{sym-A_p}{\ensuremath{A_p}}
+\glsxtrnewsymbol[description = {cross section area of in soil submerged volume},unit={\si{\meter\squared}}]{sym-A_s}{\ensuremath{A_s}}
+\glsxtrnewsymbol[description = {slow chancing component of the signal; this is the gyroscope drift},unit={\si{\radian\per\second}}]{sym-B_d}{\ensuremath{B_d}}
+\glsxtrnewsymbol[description = {a control-input model which is applied to a control vector},unit={\si{-}}]{sym-B_k}{\ensuremath{\mathbf{B}}}
+\glsxtrnewsymbol[description = {cost a function},unit={\si{-}}]{sym-C}{\ensuremath{C}}
+\glsxtrnewsymbol[description = {volumetric bed concentration},unit={\si{-}}]{sym-C_vb}{\ensuremath{C_{vb}}}
+\glsxtrnewsymbol[description = {critical point in graph},unit={\si{-}}]{sym-Cp}{\ensuremath{Cp}}
+\glsxtrnewsymbol[description = {critical point 0 in graph},unit={\si{-}}]{sym-Cp_0}{\ensuremath{Cp_0}}
+\glsxtrnewsymbol[description = {critical point 1 in graph},unit={\si{-}}]{sym-Cp_1}{\ensuremath{Cp_1}}
+\glsxtrnewsymbol[description = {critical point 2 in graph},unit={\si{-}}]{sym-Cp_2}{\ensuremath{Cp_2}}
+\glsxtrnewsymbol[description = {critical point 3 in graph},unit={\si{-}}]{sym-Cp_3}{\ensuremath{Cp_3}}
+\glsxtrnewsymbol[description = {critical point ith in graph},unit={\si{-}}]{sym-Cp_i}{\ensuremath{Cp_i}}
+\glsxtrnewsymbol[description = {list of line segments},unit={\si{-}}]{sym-D_l}{\ensuremath{D_{l,t}}}
+\glsxtrnewsymbol[description = {line segment at t},unit={\si{-}}]{sym-D_l_t}{\ensuremath{D_{l,t}}}
+\glsxtrnewsymbol[description = {line segment at t-1},unit={\si{-}}]{sym-D_l_t-1}{\ensuremath{D_{l,t-1}}}
+\glsxtrnewsymbol[description = {suction depth},unit={\si{\meter}}]{sym-D_s}{\ensuremath{D_{s}}}
+\glsxtrnewsymbol[description = {difference in force},unit={\si{\newton}}]{sym-Delta_F}{\ensuremath{\Delta F}}
+\glsxtrnewsymbol[description = {length of a pipe},unit={\si{\meter}}]{sym-Delta_L}{\ensuremath{\Delta L}}
+\glsxtrnewsymbol[description = {heat flow stored in a node},unit={\si{\watt}}]{sym-Delta_Q_c}{\ensuremath{\Delta Q_{c}}}
+\glsxtrnewsymbol[description = {distance between two points},unit={\si{\meter}}]{sym-Delta_d_1_2}{\ensuremath{\Delta d_{1,2}}}
+\glsxtrnewsymbol[description = {pressureloss},unit={\si{\pascal}}]{sym-Delta_p}{\ensuremath{\Delta p}}
+\glsxtrnewsymbol[description = {nominal pressureloss},unit={\si{\pascal}}]{sym-Delta_p_n}{\ensuremath{\Delta p_n}}
+\glsxtrnewsymbol[description = {difference in yaw of a crawler on the Euclidean z-axis between time k and k+1},unit={\si{\radian}}]{sym-Delta_psi}{\ensuremath{\Delta \psi}}
+\glsxtrnewsymbol[description = {time difference},unit={\si{\second}}]{sym-Delta_t}{\ensuremath{\Delta t}}
+\glsxtrnewsymbol[description = {torque difference},unit={\si{\newton\meter}}]{sym-Delta_tau}{\ensuremath{\Delta \tau}}
+\glsxtrnewsymbol[description = {distance between nodes},unit={\si{\meter}}]{sym-Delta_x}{\ensuremath{\Delta x}}
+\glsxtrnewsymbol[description = {height difference},unit={\si{\meter}}]{sym-Delta_z}{\ensuremath{\Delta z}}
+\glsxtrnewsymbol[description = {amplitude of the electric field wave},unit={\si{\volt\per\meter}}]{sym-E_hat}{\ensuremath{\hat{E}}}
+\glsxtrnewsymbol[description = {Is defined mathematically as a vector field that associates to each point in space the (electrostatic or Coulomb) force per unit of charge exerted on an infinitesimal positive test charge at rest at that point.},unit={\si{\volt\per\meter}}]{sym-E_x}{\ensuremath{E_x}}
+\glsxtrnewsymbol[description = {force},unit={\si{\newton}}]{sym-F}{\ensuremath{F}}
+\glsxtrnewsymbol[description = {view factor between geometries},unit={\si{-}}]{sym-F_12}{\ensuremath{\mathcal{F}_{12}}}
+\glsxtrnewsymbol[description = {buoyancy force of a submerged Archimedes screw},unit={\si{\newton}}]{sym-F_b}{\ensuremath{F_b}}
+\glsxtrnewsymbol[description = {buoyancy force of a submerged crawler},unit={\si{\newton}}]{sym-F_crb}{\ensuremath{F_{cr,b}}}
+\glsxtrnewsymbol[description = {a state transition model which is applied to the previous state},unit={\si{-}}]{sym-F_k}{\ensuremath{\mathbf{F}}}
+\glsxtrnewsymbol[description = {normal force working on an Archimedes screw},unit={\si{\newton}}]{sym-F_n}{\ensuremath{F_{n}}}
+\glsxtrnewsymbol[description = {Froude number for a pipeline},unit={\si{-}}]{sym-F_r}{\ensuremath{F_{r}}}
+\glsxtrnewsymbol[description = {Froude number of the grains},unit={\si{-}}]{sym-F_rxd}{\ensuremath{F_{rxd}}}
+\glsxtrnewsymbol[description = {skin friction},unit={\si{\newton}}]{sym-F_s}{\ensuremath{F_s}}
+\glsxtrnewsymbol[description = {specific normal force working on an Archimedes screw},unit={\si{\newton\per\kilo\gram}}]{sym-F_sn}{\ensuremath{F_{sn}}}
+\glsxtrnewsymbol[description = {ultimate skin friction},unit={\si{\newton}}]{sym-F_u}{\ensuremath{F_u}}
+\glsxtrnewsymbol[description = {heat conductance},unit={\si{\watt\per\kelvin}}]{sym-G}{\ensuremath{G}}
+\glsxtrnewsymbol[description = {total global solar radiation},unit={\si{\watt\per\meter\squared}}]{sym-G_T}{\ensuremath{G_T}}
+\glsxtrnewsymbol[description = {adjacency graph},unit={\si{-}}]{sym-G_adj}{\ensuremath{\mathbf{G}}}
+\glsxtrnewsymbol[description = {adjacency subgraph 1},unit={\si{-}}]{sym-G_adj_1}{\ensuremath{\mathbf{G}_1}}
+\glsxtrnewsymbol[description = {adjacency subgraph 2},unit={\si{-}}]{sym-G_adj_2}{\ensuremath{\mathbf{G}_2}}
+\glsxtrnewsymbol[description = {net head of a flow},unit={\si{\meter}}]{sym-H}{\ensuremath{H}}
+\glsxtrnewsymbol[description = {net head of a flow at point 1},unit={\si{\meter}}]{sym-H_1}{\ensuremath{H_1}}
+\glsxtrnewsymbol[description = {net head of a flow at point 2},unit={\si{\meter}}]{sym-H_2}{\ensuremath{H_2}}
+\glsxtrnewsymbol[description = {amplitude of the magnetic field wave},unit={\si{\ampere}}]{sym-H_hat}{\ensuremath{\hat{H}}}
+\glsxtrnewsymbol[description = {measurement sensitivity matrix defining the linear relationship between state of the dynamic system and measurements that can be made},unit={\si{-}}]{sym-H_k}{\ensuremath{\mathbf{H}}}
+\glsxtrnewsymbol[description = {is a vector field that describes the magnetic influence of electric charges in relative motion and magnetized materials},unit={\si{\ampere\per\meter}}]{sym-H_y}{\ensuremath{H_y}}
+\glsxtrnewsymbol[description = {moment of inertia},unit={\si{\kilo\gram\meter\squared}}]{sym-I}{\ensuremath{I}}
+\glsxtrnewsymbol[description = {flow rate of an auger},unit={\si{\cubic\meter\per\hour}}]{sym-I_v}{\ensuremath{I_v}}
+\glsxtrnewsymbol[description = {Hagen-Poiseuille coefficient for laminar pipe flows},unit={\si{-}}]{sym-K_HP}{\ensuremath{K_{HP}}}
+\glsxtrnewsymbol[description = {friction torque vs pressure gain coefficient parameter},unit={\si{-}}]{sym-K_TP}{\ensuremath{K_{TP}}}
+\glsxtrnewsymbol[description = {Kalman gain matrix},unit={\si{-}}]{sym-Kgain}{\ensuremath{\bar{\mathbf{K}}}}
+\glsxtrnewsymbol[description = {Distance between the crawlers screws},unit={\si{\meter}}]{sym-L}{\ensuremath{L}}
+\glsxtrnewsymbol[description = {electromagnetic signal strength},unit={\si{\decibel}}]{sym-L_alpha_epsilon}{\ensuremath{L_{\alpha, \epsilon}}}
+\glsxtrnewsymbol[description = {length of suction line},unit={\si{\meter}}]{sym-L_s}{\ensuremath{L_{s}}}
+\glsxtrnewsymbol[description = {metabolic heat production},unit={\si{\watt\per\meter\squared}}]{sym-M}{\ensuremath{M}}
+\glsxtrnewsymbol[description = {moleculair weight},unit={\si{\kilo\gram\per\mole}}]{sym-M_mat}{\ensuremath{M_{mat}}}
+\glsxtrnewsymbol[description = {moleculair weight of water vapor},unit={\si{\kilo\gram\per\mole}}]{sym-M_v}{\ensuremath{M_v}}
+\glsxtrnewsymbol[description = {dimensionless constant used in the Brinch-Hansen equation, related to the cohesion},unit={\si{-}}]{sym-N_c}{\ensuremath{N_c}}
+\glsxtrnewsymbol[description = {dimensionless constant used in the Brinch-Hansen equation, related to the specific weight of the soil},unit={\si{-}}]{sym-N_gamma}{\ensuremath{N_{\gamma}}}
+\glsxtrnewsymbol[description = {dimensionless factor of the internal friction angle},unit={\si{-}}]{sym-N_phi}{\ensuremath{N_{\phi}}}
+\glsxtrnewsymbol[description = {dimensionless constant used in the Brinch-Hansen equation, related to the load of the surrounding soil},unit={\si{-}}]{sym-N_q}{\ensuremath{N_q}}
+\glsxtrnewsymbol[description = {power},unit={\si{\watt}}]{sym-P}{\ensuremath{P}}
+\glsxtrnewsymbol[description = {initialization covariance matrix of state estimation uncertainty},unit={\si{-}}]{sym-P_0}{\ensuremath{\mathbf{P}_0}}
+\glsxtrnewsymbol[description = {electrical power},unit={\si{\kilo\watt}}]{sym-P_e}{\ensuremath{P_e}}
+\glsxtrnewsymbol[description = {effective needed power},unit={\si{\kilo\watt}}]{sym-P_eff}{\ensuremath{P_{eff}}}
+\glsxtrnewsymbol[description = {covariance matrix of state estimation uncertainty},unit={\si{-}}]{sym-P_k}{\ensuremath{\mathbf{P}_k}}
+\glsxtrnewsymbol[description = {covariance matrix of a priori state estimation uncertainty},unit={\si{-}}]{sym-P_k-1}{\ensuremath{\mathbf{P}_{k-1}}}
+\glsxtrnewsymbol[description = {power at a shaft},unit={\si{\kilo\watt}}]{sym-P_s}{\ensuremath{P_s}}
+\glsxtrnewsymbol[description = {drive power},unit={\si{\kilo\watt}}]{sym-P_w}{\ensuremath{P_w}}
+\glsxtrnewsymbol[description = {volumetric fluid flow},unit={\si{\meter\cubed\per\second}}]{sym-Q}{\ensuremath{Q}}
+\glsxtrnewsymbol[description = {heat flow from node 1 to node 2},unit={\si{\watt}}]{sym-Q_1_2}{\ensuremath{Q_{1-2}}}
+\glsxtrnewsymbol[description = {heat transferred at a high temperature},unit={\si{\kilo\watt}}]{sym-Q_H}{\ensuremath{Q_H}}
+\glsxtrnewsymbol[description = {heat transferred at a low temperature},unit={\si{\kilo\watt}}]{sym-Q_L}{\ensuremath{Q_L}}
+\glsxtrnewsymbol[description = {heat flow at condensator},unit={\si{\watt}}]{sym-Q_con}{\ensuremath{Q_{con}}}
+\glsxtrnewsymbol[description = {ideal volumetric fluid flow},unit={\si{\meter\cubed\per\second}}]{sym-Q_i}{\ensuremath{Q_i}}
+\glsxtrnewsymbol[description = {heat flow out from a node},unit={\si{\watt}}]{sym-Q_j}{\ensuremath{Q_j}}
+\glsxtrnewsymbol[description = {covariance matrix of process estimation uncertainty},unit={\si{-}}]{sym-Q_k}{\ensuremath{\mathbf{Q}_k}}
+\glsxtrnewsymbol[description = {volumetric fluid leakage flow},unit={\si{\meter\cubed\per\second}}]{sym-Q_l}{\ensuremath{Q_l}}
+\glsxtrnewsymbol[description = {useful energy},unit={\si{\watt}}]{sym-Q_n}{\ensuremath{\dot{Q}_{n}}}
+\glsxtrnewsymbol[description = {heat generated by a person},unit={\si{\watt}}]{sym-Q_p}{\ensuremath{Q_p}}
+\glsxtrnewsymbol[description = {external heat},unit={\si{\watt}}]{sym-Q_rc}{\ensuremath{Q_{rc}}}
+\glsxtrnewsymbol[description = {heat generated due to the water vapor production of a person},unit={\si{\watt}}]{sym-Q_wp}{\ensuremath{Q_{wp}}}
+\glsxtrnewsymbol[description = {heat resistance due the conduction and convection},unit={\si{\watt\per\kelvin}}]{sym-R}{\ensuremath{R}}
+\glsxtrnewsymbol[description = {relative humidty},unit={\si{\percent}}]{sym-RH}{\ensuremath{RH}}
+\glsxtrnewsymbol[description = {covariance matrix of state estimation uncertainty},unit={\si{-}}]{sym-R_k}{\ensuremath{\mathbf{R}}}
+\glsxtrnewsymbol[description = {heat resistance due to radiation},unit={\si{\watt\per\kelvin\tothe{4}}}]{sym-R_rad}{\ensuremath{R_{rad}}}
+\glsxtrnewsymbol[description = {radius from ICR ro COG of crawler},unit={\si{\meter}}]{sym-R_t}{\ensuremath{R_t}}
+\glsxtrnewsymbol[description = {Reynolds Number},unit={\si{-}}]{sym-Re}{\ensuremath{Re}}
+\glsxtrnewsymbol[description = {relative submerged density},unit={\si{-}}]{sym-Re_sd}{\ensuremath{Re_{sd}}}
+\glsxtrnewsymbol[description = {a movement in a graph},unit={\si{-}}]{sym-S}{\ensuremath{S}}
+\glsxtrnewsymbol[description = {temperature},unit={\si{\kelvin}}]{sym-T}{\ensuremath{T}}
+\glsxtrnewsymbol[description = {temperature in node 1},unit={\si{\kelvin}}]{sym-T_1}{\ensuremath{T_1}}
+\glsxtrnewsymbol[description = {temperature in node 2},unit={\si{\kelvin}}]{sym-T_2}{\ensuremath{T_2}}
+\glsxtrnewsymbol[description = {high temperature},unit={\si{\kelvin}}]{sym-T_H}{\ensuremath{T_H}}
+\glsxtrnewsymbol[description = {low temperature},unit={\si{\kelvin}}]{sym-T_L}{\ensuremath{T_L}}
+\glsxtrnewsymbol[description = {ambient environment temperature},unit={\si{\kelvin}}]{sym-T_a}{\ensuremath{T_a}}
+\glsxtrnewsymbol[description = {dew point temperature},unit={\si{\kelvin}}]{sym-T_dp}{\ensuremath{T_{dp}}}
+\glsxtrnewsymbol[description = {temperature of an ingoing flow},unit={\si{\kelvin}}]{sym-T_in}{\ensuremath{T_{in}}}
+\glsxtrnewsymbol[description = {temperature of a free stream},unit={\si{\kelvin}}]{sym-T_inf}{\ensuremath{T_{\infty}}}
+\glsxtrnewsymbol[description = {mean temperature of an absorber},unit={\si{\kelvin}}]{sym-T_m}{\ensuremath{T_m}}
+\glsxtrnewsymbol[description = {temperature of an outgoing flow},unit={\si{\kelvin}}]{sym-T_out}{\ensuremath{T_{out}}}
+\glsxtrnewsymbol[description = {rate of temperature variation},unit={\si{\kelvin\per\second}}]{sym-T_prime}{\ensuremath{T^{'}}}
+\glsxtrnewsymbol[description = {temperature setpoint},unit={\si{\kelvin}}]{sym-T_sp}{\ensuremath{T_{sp}}}
+\glsxtrnewsymbol[description = {temperature of a wall},unit={\si{\kelvin}}]{sym-T_w}{\ensuremath{T_w}}
+\glsxtrnewsymbol[description = {volume},unit={\si{\cubic\meter}}]{sym-V}{\ensuremath{V}}
+\glsxtrnewsymbol[description = {volumetric fluid flow through the auger},unit={\si{\cubic\meter\per\second}}]{sym-V_dot_a}{\ensuremath{\dot{V}_s}}
+\glsxtrnewsymbol[description = {volumetric fluid flow pump},unit={\si{\cubic\meter\per\second}}]{sym-V_dot_p}{\ensuremath{\dot{V}_p}}
+\glsxtrnewsymbol[description = {volumetric fluid flow},unit={\si{\cubic\meter\per\second}}]{sym-V_dot_s}{\ensuremath{\dot{V}_s}}
+\glsxtrnewsymbol[description = {volume flow of fresh air},unit={\si{\meter\cubic\per\second}}]{sym-V_flow_fa}{\ensuremath{\dot{V}_{fa}}}
+\glsxtrnewsymbol[description = {submerged volume of a Archimedes screw},unit={\si{\cubic\meter}}]{sym-V_sa}{\ensuremath{V_{sa}}}
+\glsxtrnewsymbol[description = {added heat energy},unit={\si{\kilo\watt}}]{sym-W_c}{\ensuremath{W_c}}
+\glsxtrnewsymbol[description = {acceleration},unit={\si{\meter\per\second\squared}}]{sym-a}{\ensuremath{a}}
+\glsxtrnewsymbol[description = {acceleration along the x-axis},unit={\si{\meter\per\second\squared}}]{sym-a_x}{\ensuremath{a_x}}
+\glsxtrnewsymbol[description = {acceleration along the y-axis},unit={\si{\meter\per\second\squared}}]{sym-a_y}{\ensuremath{a_y}}
+\glsxtrnewsymbol[description = {acceleration along the z-axis},unit={\si{\meter\per\second\squared}}]{sym-a_z}{\ensuremath{a_z}}
+\glsxtrnewsymbol[description = {acceleration along the z-axis at time k},unit={\si{\meter\per\second\squared}}]{sym-a_z_k}{\ensuremath{a_{z,k}}}
+\glsxtrnewsymbol[description = {acceleration along the z-axis at time k-1},unit={\si{\meter\per\second\squared}}]{sym-a_z_k-1}{\ensuremath{a_{z,k-1}}}
+\glsxtrnewsymbol[description = {absorption coefficient},unit={\si{-}}]{sym-alpha}{\ensuremath{\alpha}}
+\glsxtrnewsymbol[description = {attenuation},unit={\si{\decibel\per\meter}}]{sym-alpha_e}{\ensuremath{\alpha_e}}
+\glsxtrnewsymbol[description = {sensitivity coefficient},unit={\si{-}}]{sym-alpha_s}{\ensuremath{\alpha_s}}
+\glsxtrnewsymbol[description = {skin friction coefficient},unit={\si{-}}]{sym-alpha_sf}{\ensuremath{\alpha_sf}}
+\glsxtrnewsymbol[description = {coefficient as a function of spent time and sex of the subject},unit={\si{-}}]{sym-b}{\ensuremath{b}}
+\glsxtrnewsymbol[description = {phase factor of a wave},unit={\si{-}}]{sym-beta}{\ensuremath{\beta}}
+\glsxtrnewsymbol[description = {singel cell},unit={\si{-}}]{sym-c}{\ensuremath{c}}
+\glsxtrnewsymbol[description = {specific heat at constant pressure},unit={\si{\joule\per\kilo\gram\per\kelvin}}]{sym-c_p}{\ensuremath{c_p}}
+\glsxtrnewsymbol[description = {cohesion of a soil bed},unit={\si{\pascal}}]{sym-c_sb}{\ensuremath{c_{sb}}}
+\glsxtrnewsymbol[description = {volumetric concentration},unit={\si{-}}]{sym-c_t}{\ensuremath{c_{t}}}
+\glsxtrnewsymbol[description = {undrained shear strength of soil},unit={\si{\pascal}}]{sym-c_u}{\ensuremath{c_u}}
+\glsxtrnewsymbol[description = {specific heat at constant volume},unit={\si{\joule\per\kilo\gram\per\kelvin}}]{sym-c_v}{\ensuremath{c_v}}
+\glsxtrnewsymbol[description = {sinkage depth of a Archimedes screw},unit={\si{\meter}}]{sym-d_a}{\ensuremath{d_a}}
+\glsxtrnewsymbol[description = {pipe diameter},unit={\si{\meter}}]{sym-d_p}{\ensuremath{d_p}}
+\glsxtrnewsymbol[description = {volumetric flow},unit={\si{\meter}}]{sym-d_pp}{\ensuremath{d_{pp}}}
+\glsxtrnewsymbol[description = {volumetric flow},unit={\si{\meter}}]{sym-d_ps}{\ensuremath{d_{ps}}}
+\glsxtrnewsymbol[description = {distance between x points and obstacle i},unit={\si{\meter}}]{sym-d_x_i}{\ensuremath{d_i(x)}}
+\glsxtrnewsymbol[description = {range of a sensor-detector-range},unit={\si{\meter}}]{sym-delta_s}{\ensuremath{\delta_s}}
+\glsxtrnewsymbol[description = {emissivity property of material 1},unit={\si{-}}]{sym-epsilon_1}{\ensuremath{\epsilon_1}}
+\glsxtrnewsymbol[description = {emissivity property of material 2},unit={\si{-}}]{sym-epsilon_2}{\ensuremath{\epsilon_2}}
+\glsxtrnewsymbol[description = {resistance coefficient of the bends, valves, hoses and other obstructions},unit={\si{-}}]{sym-epsilon_b}{\ensuremath{\epsilon_{b}}}
+\glsxtrnewsymbol[description = {permittivity},unit={\si{-}}]{sym-epsilon_e}{\ensuremath{\epsilon_e}}
+\glsxtrnewsymbol[description = {NEES at time k},unit={\si{-}}]{sym-epsilon_nees}{\ensuremath{\epsilon_{N,k}}}
+\glsxtrnewsymbol[description = {mean NEES value},unit={\si{-}}]{sym-epsilon_nees_mean}{\ensuremath{\bar{\epsilon}_{N}}}
+\glsxtrnewsymbol[description = {resistance coefficient of the suction inlet},unit={\si{-}}]{sym-epsilon_s}{\ensuremath{\epsilon_{s}}}
+\glsxtrnewsymbol[description = {nominal Volumetric efficiency},unit={\si{-}}]{sym-eta_Vn}{\ensuremath{\eta_{V,n}}}
+\glsxtrnewsymbol[description = {efficiency of an solar collector},unit={\si{-}}]{sym-eta_c}{\ensuremath{\eta_c}}
+\glsxtrnewsymbol[description = {efficiency of a compressor},unit={\si{-}}]{sym-eta_eff_comp}{\ensuremath{\eta_{eff,comp}}}
+\glsxtrnewsymbol[description = {efficiency of an isotropisch compressor},unit={\si{-}}]{sym-eta_is_comp}{\ensuremath{\eta_{is,comp}}}
+\glsxtrnewsymbol[description = {efficiency of a electrical engine},unit={\si{-}}]{sym-eta_m}{\ensuremath{\eta_m}}
+\glsxtrnewsymbol[description = {efficiency of a mechanical compressor},unit={\si{-}}]{sym-eta_mech_comp}{\ensuremath{\eta_{me,comp}}}
+\glsxtrnewsymbol[description = {Eulers number},unit={\si{-}}]{sym-exp}{\ensuremath{\exp}}
+\glsxtrnewsymbol[description = {standard gravity model},unit={\si{\meter\per\squared\second}}]{sym-g}{\ensuremath{g}}
+\glsxtrnewsymbol[description = {specific weight},unit={\si{\newton\per\cubic\meter}}]{sym-gamma}{\ensuremath{\gamma}}
+\glsxtrnewsymbol[description = {propagation constant},unit={\si{\meter}}]{sym-gamma_EM}{\ensuremath{\gamma_e}}
+\glsxtrnewsymbol[description = {specific weight of diluted water during dredging},unit={\si{\newton\per\cubic\meter}}]{sym-gamma_m}{\ensuremath{\gamma_m}}
+\glsxtrnewsymbol[description = {specific weight of submerged soil},unit={\si{\newton\per\cubic\meter}}]{sym-gamma_sw}{\ensuremath{\gamma_{sw}}}
+\glsxtrnewsymbol[description = {specific weight of water},unit={\si{\newton\per\cubic\meter}}]{sym-gamma_w}{\ensuremath{\gamma_w}}
+\glsxtrnewsymbol[description = {height difference between radius of screw and its submerged part},unit={\si{\meter}}]{sym-h}{\ensuremath{h}}
+\glsxtrnewsymbol[description = {height of water level above center line of a pump},unit={\si{\meter}}]{sym-h_a}{\ensuremath{h_{a}}}
+\glsxtrnewsymbol[description = {convection heat-transfer coefficient},unit={\si{\watt\per\square\meter}}]{sym-h_c}{\ensuremath{h_c}}
+\glsxtrnewsymbol[description = {height of a dredge head},unit={\si{\meter}}]{sym-h_dh}{\ensuremath{h_{dh}}}
+\glsxtrnewsymbol[description = {specific enthalpy at entry point},unit={\si{\kilo\joule\per\kilo\gram\per\kelvin}}]{sym-h_in}{\ensuremath{h_{in}}}
+\glsxtrnewsymbol[description = {specific enthalpy at exit point},unit={\si{\kilo\joule\per\kilo\gram\per\kelvin}}]{sym-h_out}{\ensuremath{h_{out}}}
+\glsxtrnewsymbol[description = {actual specific enthalpy at exit point},unit={\si{\kilo\joule\per\kilo\gram\per\kelvin}}]{sym-h_out_prime}{\ensuremath{h_{out}^{'}}}
+\glsxtrnewsymbol[description = {imaginary unit},unit={\si{-}}]{sym-imag}{\ensuremath{i}}
+\glsxtrnewsymbol[description = {thermal conductivity},unit={\si{\watt\per\meter\per\kelvin}}]{sym-k}{\ensuremath{k}}
+\glsxtrnewsymbol[description = {constant representing thermal losses to the outside},unit={\si{-}}]{sym-k_1}{\ensuremath{k_1}}
+\glsxtrnewsymbol[description = {constant representing thermal losses to the outside},unit={\si{-}}]{sym-k_2}{\ensuremath{k_2}}
+\glsxtrnewsymbol[description = {heat capacity ratio},unit={\si{\kelvin\per\watt}}]{sym-kappa}{\ensuremath{\kappa}}
+\glsxtrnewsymbol[description = {length of an Archimedes screw},unit={\si{\meter}}]{sym-l_a}{\ensuremath{l_a}}
+\glsxtrnewsymbol[description = {friction factor of a straight pipe},unit={\si{-}}]{sym-lambda}{\ensuremath{\lambda}}
+\glsxtrnewsymbol[description = {mass},unit={\si{\kg}}]{sym-m}{\ensuremath{m}}
+\glsxtrnewsymbol[description = {mass of a crawler},unit={\si{\kg}}]{sym-m_cr}{\ensuremath{m_{cr}}}
+\glsxtrnewsymbol[description = {total buoyancy corrected mass of a crawler},unit={\si{\kilo\gram}}]{sym-m_cr_prime}{\ensuremath{m_{cr}^{'}}}
+\glsxtrnewsymbol[description = {mass},unit={\si{\kg}}]{sym-m_f}{\ensuremath{m_f}}
+\glsxtrnewsymbol[description = {mass flux},unit={\si{\kilo\gram\per\second}}]{sym-m_flux}{\ensuremath{\dot{m}}}
+\glsxtrnewsymbol[description = {mass flux refrigerant},unit={\si{\kilo\gram\per\second}}]{sym-m_flux_rf}{\ensuremath{\dot{m}_{rf}}}
+\glsxtrnewsymbol[description = {hard iron adjusted vector},unit={\si{\tesla}}]{sym-m_hi}{\ensuremath{\vv{m}_{hi}}}
+\glsxtrnewsymbol[description = {number of neighbouring neurons},unit={\si{-}}]{sym-m_n}{\ensuremath{m_n}}
+\glsxtrnewsymbol[description = {soft iron adjusted vector},unit={\si{\tesla}}]{sym-m_si}{\ensuremath{\vv{m}_{si}}}
+\glsxtrnewsymbol[description = {raw magnetometer vector},unit={\si{\tesla}}]{sym-m_vec}{\ensuremath{\vv{m}}}
+\glsxtrnewsymbol[description = {dynamic viscosity},unit={\si{\pascal\second}}]{sym-mu}{\ensuremath{\mu}}
+\glsxtrnewsymbol[description = {electromagnetism permeability},unit={\si{\henry\per\meter}}]{sym-mu_e}{\ensuremath{\mu_e}}
+\glsxtrnewsymbol[description = {nominal dynamic viscosity},unit={\si{\pascal\second}}]{sym-mu_n}{\ensuremath{\mu_n}}
+\glsxtrnewsymbol[description = {neural activity of a the lth neuron},unit={\si{-}}]{sym-n_a_l}{\ensuremath{n_{a,l}}}
+\glsxtrnewsymbol[description = {stochastic component of a signal},unit={\si{\radian\per\second}}]{sym-n_s}{\ensuremath{n_s}}
+\glsxtrnewsymbol[description = {number of elements in the state vector},unit={\si{-}}]{sym-n_x}{\ensuremath{\mathit{n}_x}}
+\glsxtrnewsymbol[description = {normal of a surface},unit={\si{\meter}}]{sym-nabla_m}{\ensuremath{\nabla_m}}
+\glsxtrnewsymbol[description = {kinematic viscosity},unit={\si{\squared\meter\per\second}}]{sym-nu}{\ensuremath{\nu}}
+\glsxtrnewsymbol[description = {angular velocity},unit={\si{\radian\per\second}}]{sym-omega}{\ensuremath{\omega}}
+\glsxtrnewsymbol[description = {functional angular velocity},unit={\si{\radian\per\second}}]{sym-omega_func}{\ensuremath{\omega_t}}
+\glsxtrnewsymbol[description = {nominal angular velocity},unit={\si{\radian\per\second}}]{sym-omega_n}{\ensuremath{\omega_n}}
+\glsxtrnewsymbol[description = {true angular velocity},unit={\si{\radian\per\second}}]{sym-omega_t}{\ensuremath{\omega_t}}
+\glsxtrnewsymbol[description = {angular velocity threshold},unit={\si{\radian\per\second}}]{sym-omega_th}{\ensuremath{\omega_{th}}}
+\glsxtrnewsymbol[description = {pressure},unit={\si{\pascal}}]{sym-p}{\ensuremath{p}}
+\glsxtrnewsymbol[description = {pressure at point 1},unit={\si{\pascal}}]{sym-p_1}{\ensuremath{p_1}}
+\glsxtrnewsymbol[description = {pressure at point 2},unit={\si{\pascal}}]{sym-p_2}{\ensuremath{p_2}}
+\glsxtrnewsymbol[description = {atmospheric pressure},unit={\si{\pascal}}]{sym-p_a}{\ensuremath{p_a}}
+\glsxtrnewsymbol[description = {atmospheric pressure},unit={\si{\pascal}}]{sym-p_atm}{\ensuremath{p_{atm}}}
+\glsxtrnewsymbol[description = {head, i.e. the velocity required to accelerate the mixture in the pipe},unit={\si{\pascal}}]{sym-p_h}{\ensuremath{p_{h}}}
+\glsxtrnewsymbol[description = {pressureloss at the suction inlet},unit={\si{\pascal}}]{sym-p_i}{\ensuremath{p_{i}}}
+\glsxtrnewsymbol[description = {pressure at entry point},unit={\si{\pascal}}]{sym-p_in}{\ensuremath{p_{in}}}
+\glsxtrnewsymbol[description = {pose components of the state vector xk},unit={\si{\meter}}]{sym-p_k}{\ensuremath{\vv{p}_k}}
+\glsxtrnewsymbol[description = {AUV location at time k + 1},unit={\si{\meter}}]{sym-p_k_1}{\ensuremath{\vv{p}_{k + 1}}}
+\glsxtrnewsymbol[description = {velocity components of the state vector xk},unit={\si{\meter\per\second}}]{sym-p_k_dot}{\ensuremath{\vv{\dot{p}}_k}}
+\glsxtrnewsymbol[description = {pose components of the state vector xk+1},unit={\si{\meter}}]{sym-p_kt_1}{\ensuremath{\vv{p}_{k+1}}}
+\glsxtrnewsymbol[description = {manometric head of the dredge pump},unit={\si{\pascal}}]{sym-p_man}{\ensuremath{p_{man}}}
+\glsxtrnewsymbol[description = {pressure at exit point},unit={\si{\pascal}}]{sym-p_out}{\ensuremath{p_{out}}}
+\glsxtrnewsymbol[description = {absolute pressure at the outlet of the dredge pump},unit={\si{\pascal}}]{sym-p_p}{\ensuremath{p_{p}}}
+\glsxtrnewsymbol[description = {pressure generated at a certain depth due to the soil on top of it},unit={\si{\pascal}}]{sym-p_q}{\ensuremath{p_{q}}}
+\glsxtrnewsymbol[description = {resistance offered by bends, valves, hoses and other obstructions},unit={\si{\pascal}}]{sym-p_ro}{\ensuremath{p_{ro}}}
+\glsxtrnewsymbol[description = {resistance of the straightline pipe},unit={\si{\pascal}}]{sym-p_rp}{\ensuremath{p_{rp}}}
+\glsxtrnewsymbol[description = {absolute pressure at the entrance of impeller},unit={\si{\pascal}}]{sym-p_s}{\ensuremath{p_{s}}}
+\glsxtrnewsymbol[description = {load working on a soil bed},unit={\si{\pascal}}]{sym-p_sb}{\ensuremath{p_{sb}}}
+\glsxtrnewsymbol[description = {static head in the suction pipe},unit={\si{\pascal}}]{sym-p_sm}{\ensuremath{p_{sm}}}
+\glsxtrnewsymbol[description = {static pressure generated by surrounding water},unit={\si{\pascal}}]{sym-p_ss}{\ensuremath{p_{ss}}}
+\glsxtrnewsymbol[description = {pressure of water vapor in ambient air},unit={\si{\pascal}}]{sym-p_v}{\ensuremath{p_v}}
+\glsxtrnewsymbol[description = {roll of the crawler on the Euclidean y-axis},unit={\si{\radian}}]{sym-phi_c}{\ensuremath{\phi_{c}}}
+\glsxtrnewsymbol[description = {roll of the IMU on the Euclidean y-axis},unit={\si{\radian}}]{sym-phi_imu}{\ensuremath{\phi_{IMU}}}
+\glsxtrnewsymbol[description = {angle of internal friction},unit={\si{\radian}}]{sym-phi_s}{\ensuremath{\phi_{s}}}
+\glsxtrnewsymbol[description = {yaw of the crawler on the Euclidean z-axis},unit={\si{\radian}}]{sym-psi}{\ensuremath{\psi}}
+\glsxtrnewsymbol[description = {yaw of the crawler bot on the Euclidean z-axis},unit={\si{\radian}}]{sym-psi_c}{\ensuremath{\psi_{c}}}
+\glsxtrnewsymbol[description = {yaw of the IMU bot on the Euclidean z-axis},unit={\si{\radian}}]{sym-psi_imu}{\ensuremath{\psi_{IMU}}}
+\glsxtrnewsymbol[description = {Durand-Condolios mixture correction},unit={\si{-}}]{sym-psi_m}{\ensuremath{\psi_{m}}}
+\glsxtrnewsymbol[description = {heat flow},unit={\si{-}}]{sym-q}{\ensuremath{\vv{q}}}
+\glsxtrnewsymbol[description = {space heat gain},unit={\si{\watt}}]{sym-q_e}{\ensuremath{q_e}}
+\glsxtrnewsymbol[description = {refrigerating effect of a refrigerant},unit={\si{\joule\per\kilo\gram}}]{sym-q_rf}{\ensuremath{q_{rf}}}
+\glsxtrnewsymbol[description = {real component of a quaternion},unit={\si{-}}]{sym-q_s}{\ensuremath{q_s}}
+\glsxtrnewsymbol[description = {smallest magnitude of a point on the ellipse, and thus the vector of the B-axis},unit={\si{\tesla}}]{sym-q_si}{\ensuremath{q_{si}}}
+\glsxtrnewsymbol[description = {imaginary x-axis of a quaternion},unit={\si{-}}]{sym-q_x}{\ensuremath{q_x}}
+\glsxtrnewsymbol[description = {imaginary y-axis of a quaternion},unit={\si{-}}]{sym-q_y}{\ensuremath{q_y}}
+\glsxtrnewsymbol[description = {imaginary z-axis of a quaternion},unit={\si{-}}]{sym-q_z}{\ensuremath{q_z}}
+\glsxtrnewsymbol[description = {radius},unit={\si{\meter}}]{sym-r}{\ensuremath{r}}
+\glsxtrnewsymbol[description = {the receptive field radius of the kth neuron},unit={\si{\meter}}]{sym-r_0}{\ensuremath{r_0}}
+\glsxtrnewsymbol[description = {radius of Archimedes screw},unit={\si{\meter}}]{sym-r_a}{\ensuremath{r_a}}
+\glsxtrnewsymbol[description = {greatest magnitude of a point on the ellipse, and thus the vector of the A-axis},unit={\si{\tesla}}]{sym-r_si}{\ensuremath{r_{si}}}
+\glsxtrnewsymbol[description = {density of a material},unit={\si{\kilo\gram\per\cubic\meter}}]{sym-rho}{\ensuremath{\rho}}
+\glsxtrnewsymbol[description = {density of drained soil},unit={\si{\kilo\gram\per\cubic\meter}}]{sym-rho_ds}{\ensuremath{\rho_{ds}}}
+\glsxtrnewsymbol[description = {in-situ density of soil},unit={\si{\kilo\gram\per\cubic\meter}}]{sym-rho_is}{\ensuremath{\rho_{is}}}
+\glsxtrnewsymbol[description = {density of a mixture},unit={\si{\kilo\gram\per\cubic\meter}}]{sym-rho_m}{\ensuremath{\rho_m}}
+\glsxtrnewsymbol[description = {nominal density of a material},unit={\si{\kilo\gram\per\cubic\meter}}]{sym-rho_n}{\ensuremath{\rho_n}}
+\glsxtrnewsymbol[description = {density of a slurry},unit={\si{\kilo\gram\per\cubic\meter}}]{sym-rho_s}{\ensuremath{\rho_s}}
+\glsxtrnewsymbol[description = {density of water},unit={\si{\kilo\gram\per\cubic\meter}}]{sym-rho_w}{\ensuremath{\rho_w}}
+\glsxtrnewsymbol[description = {position},unit={\si{\meter}}]{sym-s}{\ensuremath{s}}
+\glsxtrnewsymbol[description = {soil contact arc length},unit={\si{\meter}}]{sym-s_a}{\ensuremath{s_a}}
+\glsxtrnewsymbol[description = {shape factor used in the Brinch-Hansen equation, related to the cohesion},unit={\si{-}}]{sym-s_c}{\ensuremath{s_c}}
+\glsxtrnewsymbol[description = {shape factor used in the Brinch-Hansen equation, related to the specific weight of the soil},unit={\si{\meter}}]{sym-s_gamma}{\ensuremath{s_{\gamma}}}
+\glsxtrnewsymbol[description = {shape factor used in the Brinch-Hansen equation, related to the surrounding load of the soil},unit={\si{-}}]{sym-s_q}{\ensuremath{s_q}}
+\glsxtrnewsymbol[description = {position along the z-axis},unit={\si{\meter}}]{sym-s_z}{\ensuremath{s_z}}
+\glsxtrnewsymbol[description = {position along the z-axis at time k},unit={\si{\meter}}]{sym-s_z_k}{\ensuremath{s_{z,k}}}
+\glsxtrnewsymbol[description = {position along the z-axis at time k + 1},unit={\si{\meter}}]{sym-s_z_k+1}{\ensuremath{s_{z,k+1}}}
+\glsxtrnewsymbol[description = {position along the z-axis at time k-1},unit={\si{\meter}}]{sym-s_z_k-1}{\ensuremath{s_{z,k-1}}}
+\glsxtrnewsymbol[description = {measured position along the z-axis},unit={\si{\meter}}]{sym-s_z_m}{\ensuremath{s_{z,m}}}
+\glsxtrnewsymbol[description = {measured position along the z-axis at time k},unit={\si{\meter}}]{sym-s_z_m_k}{\ensuremath{s_{z,m,k}}}
+\glsxtrnewsymbol[description = {horizontal stress},unit={\si{\pascal}}]{sym-sigma_H}{\ensuremath{\sigma_H}}
+\glsxtrnewsymbol[description = {vertical stress},unit={\si{\pascal}}]{sym-sigma_V}{\ensuremath{\sigma_V}}
+\glsxtrnewsymbol[description = {Boltzmann constant 1.38064852e-23},unit={\si{\square\meter\kilo\gram\per\square\second\per\kelvin}}]{sym-sigma_boltz}{\ensuremath{\sigma_c}}
+\glsxtrnewsymbol[description = {Electrical conductivity},unit={\si{\siemens\per\meter}}]{sym-sigma_e}{\ensuremath{\sigma_e}}
+\glsxtrnewsymbol[description = {effective stress},unit={\si{\pascal}}]{sym-sigma_prime}{\ensuremath{\sigma^{'}}}
+\glsxtrnewsymbol[description = {deviation on position},unit={\si{\meter}}]{sym-sigma_s}{\ensuremath{\sigma_{s}}}
+\glsxtrnewsymbol[description = {deviation on measured position},unit={\si{\meter}}]{sym-sigma_s_m}{\ensuremath{\sigma_{s,m}}}
+\glsxtrnewsymbol[description = {deviation on velocity},unit={\si{\meter\per\second}}]{sym-sigma_v}{\ensuremath{\sigma_{v}}}
+\glsxtrnewsymbol[description = {deviation measured on velocity},unit={\si{\meter\per\second}}]{sym-sigma_v_m}{\ensuremath{\sigma_{v,m}}}
+\glsxtrnewsymbol[description = {time},unit={\si{\second}}]{sym-t}{\ensuremath{t}}
+\glsxtrnewsymbol[description = {torque},unit={\si{\newton\meter}}]{sym-tau}{\ensuremath{\tau}}
+\glsxtrnewsymbol[description = {initial torque},unit={\si{\newton\meter}}]{sym-tau_0}{\ensuremath{\tau_0}}
+\glsxtrnewsymbol[description = {torque due to friction},unit={\si{\newton\meter}}]{sym-tau_f}{\ensuremath{\tau_f}}
+\glsxtrnewsymbol[description = {ideal torque},unit={\si{\newton\meter}}]{sym-tau_i}{\ensuremath{\tau_i}}
+\glsxtrnewsymbol[description = {angle on the x-axis},unit={\si{\radian}}]{sym-theta}{\ensuremath{\theta}}
+\glsxtrnewsymbol[description = {pitch of the dredge bot on the Euclidean z-axis},unit={\si{\radian}}]{sym-theta_b}{\ensuremath{\theta_b}}
+\glsxtrnewsymbol[description = {pitch of the crawler on the Euclidean x-axis},unit={\si{\radian}}]{sym-theta_c}{\ensuremath{\theta_{c}}}
+\glsxtrnewsymbol[description = {pitch of the IMU on the Euclidean x-axis},unit={\si{\radian}}]{sym-theta_imu}{\ensuremath{\theta_{IMU}}}
+\glsxtrnewsymbol[description = {inclination of the pipeline},unit={\si{\degree}}]{sym-theta_p}{\ensuremath{\theta_{p}}}
+\glsxtrnewsymbol[description = {sink angle of an Archimedes screw},unit={\si{\radian}}]{sym-theta_s}{\ensuremath{\theta_{s}}}
+\glsxtrnewsymbol[description = {soft iron axis offset along the x-axis},unit={\si{\radian}}]{sym-theta_si}{\ensuremath{\theta_{si}}}
+\glsxtrnewsymbol[description = {unit vector},unit={\si{-}}]{sym-u}{\ensuremath{\vv{u}}}
+\glsxtrnewsymbol[description = {control inputs},unit={\si{-}}]{sym-u_k}{\ensuremath{\vv{u}_k}}
+\glsxtrnewsymbol[description = {control inputs from the previous component of the vector},unit={\si{-}}]{sym-u_k-1}{\ensuremath{\vv{u}_{k-1}}}
+\glsxtrnewsymbol[description = {specific volume},unit={\si{\cubic\meter\per\kilo\gram}}]{sym-v}{\ensuremath{v}}
+\glsxtrnewsymbol[description = {translational velocity of left Archimedes screw},unit={\si{\meter\per\second}}]{sym-v_L}{\ensuremath{v_L}}
+\glsxtrnewsymbol[description = {translational velocity of right Archimedes screw},unit={\si{\meter\per\second}}]{sym-v_R}{\ensuremath{v_R}}
+\glsxtrnewsymbol[description = {velocity of a fluid at a certain point},unit={\si{\meter\per\second}}]{sym-v_f}{\ensuremath{v_f}}
+\glsxtrnewsymbol[description = {velocity of a fluid at point 1},unit={\si{\meter\per\second}}]{sym-v_f_1}{\ensuremath{v_{f,1}}}
+\glsxtrnewsymbol[description = {velocity of a fluid at point 2},unit={\si{\meter\per\second}}]{sym-v_f_2}{\ensuremath{v_{f,2}}}
+\glsxtrnewsymbol[description = {measurement noise},unit={\si{-}}]{sym-v_k}{\ensuremath{\vv{v}_k}}
+\glsxtrnewsymbol[description = {mixture velocity in discharge line},unit={\si{\meter\per\second}}]{sym-v_p}{\ensuremath{v_{p}}}
+\glsxtrnewsymbol[description = {mixture velocity in suction line},unit={\si{\meter\per\second}}]{sym-v_s}{\ensuremath{v_{s}}}
+\glsxtrnewsymbol[description = {velocity along the z-axis},unit={\si{\meter\per\second}}]{sym-v_z}{\ensuremath{v_z}}
+\glsxtrnewsymbol[description = {velocity along the z-axis at time k},unit={\si{\meter\per\second}}]{sym-v_z_k}{\ensuremath{v_{z,k}}}
+\glsxtrnewsymbol[description = {velocity along the z-axis at time k-1},unit={\si{\meter\per\second}}]{sym-v_z_k-1}{\ensuremath{v_{z,k-1}}}
+\glsxtrnewsymbol[description = {heating efficiency of a Carnot cycle},unit={\si{-}}]{sym-varepsilon_c}{\ensuremath{\varepsilon_c}}
+\glsxtrnewsymbol[description = {effective cooling efficiency},unit={\si{-}}]{sym-varepsilon_eff}{\ensuremath{\varepsilon_{eff}}}
+\glsxtrnewsymbol[description = {theoretical heating efficiency},unit={\si{-}}]{sym-varepsilon_th}{\ensuremath{\varepsilon_{th}}}
+\glsxtrnewsymbol[description = {real heating efficiency},unit={\si{-}}]{sym-varepsilon_w}{\ensuremath{\varepsilon_w}}
+\glsxtrnewsymbol[description = {width of the Archimedes screw in contact with the soil},unit={\si{\meter}}]{sym-w_a}{\ensuremath{w_a}}
+\glsxtrnewsymbol[description = { width of a dredge head},unit={\si{\meter}}]{sym-w_dh}{\ensuremath{w_{dh}}}
+\glsxtrnewsymbol[description = {specific effective work},unit={\si{\joule\per\kilo\gram}}]{sym-w_eff}{\ensuremath{w_{eff}}}
+\glsxtrnewsymbol[description = {specific isentropic work},unit={\si{\joule\per\kilo\gram}}]{sym-w_is}{\ensuremath{w_{is}}}
+\glsxtrnewsymbol[description = {process noise},unit={\si{-}}]{sym-w_k}{\ensuremath{\vv{w}_k}}
+\glsxtrnewsymbol[description = {location along the x-axis},unit={\si{\meter}}]{sym-x}{\ensuremath{x}}
+\glsxtrnewsymbol[description = {hard iron distortion along the x-axis},unit={\si{\tesla}}]{sym-x_h}{\ensuremath{x_h}}
+\glsxtrnewsymbol[description = {state vector describing the state of a system at the kth component of x},unit={\si{-}}]{sym-x_k}{\ensuremath{\vv{x}_k}}
+\glsxtrnewsymbol[description = {state vector describing the initial state of a system at the kth component of x},unit={\si{-}}]{sym-x_k0}{\ensuremath{\vv{x}_0}}
+\glsxtrnewsymbol[description = {ground truth state, describing the real state of a system kth component of x},unit={\si{-}}]{sym-x_kg}{\ensuremath{\vv{x}_{g,k}}}
+\glsxtrnewsymbol[description = {an estimation of the state vector x},unit={\si{-}}]{sym-x_khat}{\ensuremath{\hat{x}_k}}
+\glsxtrnewsymbol[description = {a state estimate of x, conditioned on all available measurements at time tk},unit={\si{-}}]{sym-x_kt+1}{\ensuremath{\vv{x}_{k+1}}}
+\glsxtrnewsymbol[description = {a posteriori estimate of x, conditioned on all available measurements at time tk},unit={\si{-}}]{sym-x_kt+1hat}{\ensuremath{\hat{x}_{k+1}}}
+\glsxtrnewsymbol[description = {a priori state of xk, conditioned on all prior measurements, except the one at time tk},unit={\si{-}}]{sym-x_kt-1}{\ensuremath{\vv{x}_{k-1}}}
+\glsxtrnewsymbol[description = {a priori estimate of xk, conditioned on all prior measurements, except the one at time tk},unit={\si{-}}]{sym-x_kt-1hat}{\ensuremath{\hat{x}_{k-1}}}
+\glsxtrnewsymbol[description = {Error of the state of a system at the kth component of x},unit={\si{-}}]{sym-x_ktilde}{\ensuremath{\tilde{x}_k}}
+\glsxtrnewsymbol[description = {raw magnetometer value along the x-axis},unit={\si{\tesla}}]{sym-x_m}{\ensuremath{x_m}}
+\glsxtrnewsymbol[description = {humidity by mass},unit={\si{-}}]{sym-x_w}{\ensuremath{x_w}}
+\glsxtrnewsymbol[description = {location along the y-axis},unit={\si{\meter}}]{sym-y}{\ensuremath{y}}
+\glsxtrnewsymbol[description = {y-index of greatest magnetic magnitude},unit={\si{\tesla}}]{sym-y_1}{\ensuremath{y_1}}
+\glsxtrnewsymbol[description = {hard iron distortion along the y-axis},unit={\si{\tesla}}]{sym-y_h}{\ensuremath{y_h}}
+\glsxtrnewsymbol[description = {measured values},unit={\si{-}}]{sym-y_k}{\ensuremath{\vv{y}_k}}
+\glsxtrnewsymbol[description = {transformed measured values},unit={\si{-}}]{sym-y_k_prime}{\ensuremath{\vv{y}_k^{'}}}
+\glsxtrnewsymbol[description = {a gls-monotonically increasing function of the difference between the next moving directions},unit={\si{\meter}}]{sym-y_l}{\ensuremath{y_l}}
+\glsxtrnewsymbol[description = {raw magnetometer value along the y-axis},unit={\si{\tesla}}]{sym-y_m}{\ensuremath{y_m}}
+\glsxtrnewsymbol[description = {height},unit={\si{\meter}}]{sym-z}{\ensuremath{z}}
+\glsxtrnewsymbol[description = {height at point 1},unit={\si{\meter}}]{sym-z_1}{\ensuremath{z_1}}
+\glsxtrnewsymbol[description = {height at point 2},unit={\si{\meter}}]{sym-z_2}{\ensuremath{z_2}}
+\glsxtrnewsymbol[description = {height error},unit={\si{\meter}}]{sym-z_epsilon}{\ensuremath{z_{\epsilon}}}
+\glsxtrnewsymbol[description = {measured values mapped to the state space},unit={\si{-}}]{sym-z_k}{\ensuremath{\vv{z}_k}}
+\glsxtrnewsymbol[description = {raw magnetometer value along the z-axis},unit={\si{\tesla}}]{sym-z_m}{\ensuremath{z_m}}
+\glsxtrnewsymbol[description = {height of the pressure sensor with regards to the soil bed},unit={\si{\meter}}]{sym-z_p}{\ensuremath{z_p}}
 \endinput

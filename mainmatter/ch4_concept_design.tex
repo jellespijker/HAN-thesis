@@ -25,13 +25,13 @@ changing environment. This reduces viable candidate algorithms to the following 
 
 \begin{itemize}
 	\setlength\itemsep{0mm}
-	\item \gls[first]{acr-onBCD}
-	\item \gls[first]{acr-BCD-GVD}
-	\item \gls[first]{acr-topBCD}
-	\item \gls[first]{acr-onSD2}
-	\item \gls[first]{acr-onSD2NN}
-	\item \gls[first]{acr-STC}
-	\item \gls[first]{acr-NN}
+	\item \gls{acr-onBCD}
+	\item \gls{acr-BCD-GVD}
+	\item \gls{acr-topBCD}
+	\item \gls{acr-onSD2}
+	\item \gls{acr-onSD2NN}
+	\item \gls{acr-STC}
+	\item \gls{acr-NN}
 \end{itemize}
 
 The options presented above are judged against different criteria of assorted relevance, refelected in a weight factor.
@@ -136,8 +136,8 @@ connectivity of the various components that server as the input and output of th
 
 Since the physical processes for movement of a crawler are non-linear and the ``basic'' \gls{gls-Kalman-filter},
 described in Section~\ref{sec:basic Kalman filter} is limited to linear assumptions, the proposed
-\gls{gls-Kalman-filter} is of the Unscented variant. The \gls[first]{acr-UKF} uses a deterministic sampling technique
-known as \gls[first]{acr-UT}. This technique picks a minimal set of sample points, also known as sigma points, around
+\gls{gls-Kalman-filter} is of the Unscented variant. The \gls{acr-UKF} uses a deterministic sampling technique
+known as \gls{acr-UT}. This technique picks a minimal set of sample points, also known as sigma points, around
 the mean. The sigma points are then propagated through the non-linear function, from which a new mean and covariance
 estimate are then formed.
 
@@ -267,7 +267,7 @@ as well as the parameters listed below. All of which influence movement and sens
 			\setlength\itemsep{0mm}
 			\item Length\footnotemark[\getrefnumber{c}]\footnotemark[\getrefnumber{used}]
 			\item Diameter\footnotemark[\getrefnumber{c}]\footnotemark[\getrefnumber{used}]
-			\item \gls[first]{acr-SWR}\footnotemark[\getrefnumber{c}]\footnotemark[\getrefnumber{used}]
+			\item \gls{acr-SWR}\footnotemark[\getrefnumber{c}]\footnotemark[\getrefnumber{used}]
 			\item Number of helices\footnotemark[\getrefnumber{c}]\footnotemark[\getrefnumber{used}]
 			\item Pitch angle\footnotemark[\getrefnumber{c}]\footnotemark[\getrefnumber{used}]
 			\item Vane height\footnotemark[\getrefnumber{c}]\footnotemark[\getrefnumber{used}]
@@ -1073,13 +1073,13 @@ moving frame attached to the center of mass of the crawler \( (X_m, Y_m) \).
 
 \section{CONTROLLER FRAMEWORK}\label{sec:controller}
 
-\gls{comp-IHC} recognizes the potential benefits that autonomous operating vehicles can provide for their customers. They
-are currently exploring, which are viable products and methods within this product group.The \gls{comp-MTI} crawler is
-just one of many projects being developed within \gls{comp-IHC}.
+\gls{acr-IHC} recognizes the potential benefits that autonomous operating vehicles can provide for their customers. They
+are currently exploring, which are viable products and methods within this product group.The \gls{acr-MTI} crawler is
+just one of many projects being developed within \gls{acr-IHC}.
 
-Automation and control of these vessel was traditionally done with \gls[first]{acr-PLC} units.  Recent strides in
+Automation and control of these vessel was traditionally done with \gls{acr-PLC} units.  Recent strides in
 performance of micro-technology and a growing maker community, opens up possible usage of alternative devices for
-control units. \gls[first]{acr-SBC} such as the \gls[first]{acr-Rpi} and \gls[first]{acr-BBB} are viable options, which
+control units. \gls{acr-SBC} such as the \gls{acr-Rpi} and \gls{acr-BBB} are viable options, which
 cost a magnitude less then regular \gls{acr-PLC} units. These devices have evolved over the years and are now
 sufficiently powerful that they can run standard operating systems and main-stream workloads. Many such boards may be
 linked together, to create small low-clusters that replicate features of large data
@@ -1107,13 +1107,13 @@ This allows actors responsible for computational heavy or complex task to run tr
 is: acting as redundancy safe-guard for actors responsible with critical tasks. When the regular actor breaks down, the
 safe-guard might step in, either continue the task at hand or break-down safely.
 
-In our case a single actor might be a~\gls[first]{acr-PID} controller for an Archimedes screw, a sensor reader, or a
+In our case a single actor might be a~\gls{acr-PID} controller for an Archimedes screw, a sensor reader, or a
 path generator. Communication between the actors on a single vessel, or between actors on multiple vessel should be done
 with a language neutral platform, which is optimized for speed. Google has developed a method of serializing structured
 data known as ProtoBuf. There method allows for both internal and external communication. The Protobuf method is an
 industry standard. It has a code generator for multiple languages, such as C++, C, Python, Java, Go, Ruby, Rust and
 Scala. Using the Protobuf communication method allows for creation of extensions to the controller framework. Such as a
-\gls[first]{acr-GUI} for a wall operator written in Python. But the most obvious implementation is inter-vessel
+\gls{acr-GUI} for a wall operator written in Python. But the most obvious implementation is inter-vessel
 communication in a cooperative swarm of autonomous vehicles with a common goal.
 
 \begin{RoyalNote}[label=Kernel_req]{KERNEL REQUIREMENTS}
@@ -1334,7 +1334,7 @@ upon the external sensor data provided by the swarm.
 
 \subsection{A VESSEL}\label{seq:a vessel}
 
-The Vessel is the actual executable binary; The entry point for the controller. It will load a \gls[first]{acr-YAML}
+The Vessel is the actual executable binary; The entry point for the controller. It will load a \gls{acr-YAML}
 text file at start-up. That file describes the hierarchical structure and definitions of the physical devices which are
 connected to the controller. For each individual device the physical characteristics are described, together with a
 definition of the required interface and the contract, stating how a Boatswain should treat that peripheral. Dynamically

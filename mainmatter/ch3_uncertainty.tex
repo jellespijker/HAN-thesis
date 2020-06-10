@@ -12,21 +12,21 @@ velocity measurements from sensors such as \gls{gls-accelerometer} and \gls{gls-
 estimates. The problem with exclusive reliance on \gls{gls-dead-reckoning} is that the position error increases without
 bound as the distance travelled by the crawler~\cite{galceran_coverage_2014}. It will be illustrated in
 section~\ref{sec:KalmanRefinement} that the position error can de limited by making use of sensor fusion. But this won't
-be enough. The effects of sporadically position updating using stationary \gls[first]{acr-LBL} and \gls[first]{acr-USBL}
+be enough. The effects of sporadically position updating using stationary \gls{acr-LBL} and \gls{acr-USBL}
 is shown as well. Both \gls{acr-LBL} as \gls{acr-USBL} make use of acoustic energy, which is described in more detail in
 section~\ref{sec:ac}. Because acoustic energy is known for its excellent travel characteristics underwater it's common
 practice to deploy those transponders as beacons, such that they can update the position and bound the dead-reckoning
 error.
 
-\gls{gls-geophysical-navigation} such as \gls[first]{acr-TRN} and \gls[first]{acr-SLAM} are up and coming methods which
+\gls{gls-geophysical-navigation} such as \gls{acr-TRN} and \gls{acr-SLAM} are up and coming methods which
 show potential. These use the characteristic of a terrain, perceived through there sensors, to obtain their position.
 These methods are not discussed in this paper.
 
 Other methods for navigation under uncertainty are based on probabilities taken into account \emph{a priori} known
-characteristics of sensors and actuators such as \gls[first]{acr-LQG-MP} and \gls[first]{acr-RRT}. According
+characteristics of sensors and actuators such as \gls{acr-LQG-MP} and \gls{acr-RRT}. According
 to~\citet{galceran_uncertainty_driven_2013} these methods are theoretically satisfactory but they require discretization
 of the environment, and will, as a result suffer from scalability problems. They propose the use of \emph{a priori}
-known \gls[first]{gls-bathymetric-map}. Which classifies this method as \gls{gls-off-line} and therefore unsuitable to
+known \gls{gls-bathymetric-map}. Which classifies this method as \gls{gls-off-line} and therefore unsuitable to
 be employed for an autonomous operating crawler. These will therefore not be described in this thesis.
 
 Recent studies have been focused on minimizing uncertainties using multiple robots, such as the leap-frog strategy
@@ -46,7 +46,7 @@ A crawler has multiple sensors on-board to establish were and what its orientati
 \gls{gls-gyroscope}, \gls{gls-accelerometer}, \gls{gls-magnetometer} and a \gls{gls-pressure-sensor}. It was established
 in section~\ref{sec:sensorstate} that each of these sensors have their own limitations and strengths. it's common
 practice to fuse multiple sensors together, to counteract these limitations with strengths of the other sensors.
-\gls{gls-Kalman-filter} or as they are also known \gls[first]{acr-LQE}, are a tried and practice method to achieve this.
+\gls{gls-Kalman-filter} or as they are also known \gls{acr-LQE}, are a tried and practice method to achieve this.
 
 Section~\ref{sec:KalmanRefinement} explains the filter using a simple example of a falling ball with only gravity
 working on the ball.
@@ -55,7 +55,7 @@ working on the ball.
 
 Before a \gls{gls-Kalman-filter}  can be designed it's important that the basics are explained. The section will
 feature a short description of the background and workings of a \gls{gls-Kalman-filter}  and
-\gls[first]{gls-quaternion}.
+\gls{gls-quaternion}.
 
 In 1960, R.E. Kalman published his paper \citet{kalman_new_1960} --- \textit{''A new approach to linear filtering and
 prediction problems``}. In this paper he described a recursive solution to the discrete-data linear filter problem.
@@ -68,7 +68,7 @@ A \gls{gls-Kalman-filter} can be used to control a dynamic model, especially tho
 differential equations. These generally come from the laws of physics. The real-world dynamics are used to model the
 state dynamics. Which should contain a fairly faithful replication of the true system dynamics. The state of a falling
 object in one dimension can be described with the state \( \gls{sym-x_k} = \left[\gls{sym-s_z}, \gls{sym-v_z}\right]^T
-\). Here \gls[first]{sym-s_z} and \gls[first]{sym-v_z}.
+\). Here \gls{sym-s_z} and \gls{sym-v_z}.
 
 A \gls{gls-Kalman-filter} works by estimating the state of a process based on \textit{a priori} states. it's in effect
 an optimal estimator based on a prediction made from the previous input and current input. The \gls{gls-Kalman-filter}
@@ -245,7 +245,7 @@ position can be measured \gls{sym-s_z_m_k} and that the measurement noise is ass
 
 With the predicted state and the obtained measurements a new state can be estimated. During this \textbf{update} phase,
 we determine how much weight the \gls{gls-Kalman-filter} needs to put in to its measurements compared to its predicted
-state. This can be done by calculating the \gls{sym-Kgain}~\gls[first]{gls-kalman-gain}. It can be calculated with
+state. This can be done by calculating the \gls{sym-Kgain}~\gls{gls-kalman-gain}. It can be calculated with
 equation~\ref{eq:kalman gain}. Where \gls{sym-R_k} is the covariance matrix of observational (measurement) uncertainty.
 
 \begin{equation}\label{eq:kalman gain}
@@ -377,7 +377,7 @@ The above described example of a falling ball can be simulated with a Python scr
 appendix~\ref{app:Python Kalman}. Results from such a simulation are shown in figure~\ref{fig:pos_ball_kalman}. Were it
 is clearly evident that the estimated Kalman value, of the position, is a better estimate then the measured values.
 According to \citet{roger_r_labbe_jr_kalman_2017} an effective way to measure the results of a simulated Kalman filters,
-is the \gls[first]{acr-NEES}. Which can be calculated with equation~\ref{eq:eps_nees}, where \gls{sym-x_ktilde} is the
+is the \gls{acr-NEES}. Which can be calculated with equation~\ref{eq:eps_nees}, where \gls{sym-x_ktilde} is the
 error, or difference, between the ground truth state vector \gls{sym-x_kg} and the estimated filter value
 \gls{sym-x_khat}, squared and multiplied with the inverse of the process covariance matrix \gls{sym-P_k}; All evaluated
 at time \( k \).

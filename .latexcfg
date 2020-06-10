@@ -1,0 +1,5 @@
+{
+  "root" : "/home/peer23peer/projects/HAN-thesis/thesis/report.tex",
+  "toolchain" : "%TEX %ARG %DOC",
+  "latex_ext": [".tikz", ".Rnw"]
+}

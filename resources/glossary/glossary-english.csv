@@ -1,4 +1,7 @@
 key|name|plural|description
+ohCaptain|ohCaptain|ohCaptain|a versatile efficient controller framework for the maritime industry
+Project_Chrono|Project Chrono|Project Chronos|a physics-based modelling and simulation infrastructure based on a platform-independent open-source design implemented in C++
+Chrono_Sensors|Chrono Sensors|Chrono Sensors|an extension library for Project Chrono, which allows simulation of realistic sensor values.
 Dempster-shafer-theory|Dempster Shafer theory|Demspter Shafer theories|theory of belief functions, also referred to as evidence theory or Dempster–Shafer theory (DST), is a general framework for reasoning with uncertainty
 accelerometer|accelerometer|accelerometers|a device that measures proper acceleration
 acoustic-navigation|time of flight acoustic navigation|time of flight acoustic navigation's|triangulation of a position using the difference in send and receive time of signal, to calculate the distance from a source

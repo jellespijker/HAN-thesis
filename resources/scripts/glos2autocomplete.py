@@ -1,10 +1,13 @@
 #%%
 import pandas as pd
+import re
 
 sym = pd.read_csv('../glossary/symbols-english.csv', delimiter='|')
 acr = pd.read_csv('../glossary/acronyms-english.csv', delimiter='|')
 glos = pd.read_csv('../glossary/glossary-english.csv', delimiter='|')
 sym.index = sym.key
+acr.index = acr.short
+glos.index =glos.key
 
 #%%
 
@@ -12,7 +15,18 @@ def store_glossary(df: pd.DataFrame):
     df = df.sort_index()
     df.to_csv('../glossary/symbols-english.csv', sep='|', index=False)
 
-template = '\tsnippet: [\n\t\t{{\n\t\t\tdisplayText: "\\\\sym-{}"\n\t\t\tsnippet: "\\\\\\\\gls{{sym-{}}}\\\\n"\n\t\t\tdescription: "$2"\n\t\t}}\n\t]\n'
+#%%
+n = []
+for r in glos.description:
+    ma = re.findall(r'(\\.*?{)([^\}]+)(.?)\}', r)
+    if len(m) == 0:
+        continue
+    s = []
+    for fr, mid, bck in ma:
+        s.append((''.join([fr, mid, bck]), '\\textit{{{}}}'.format(mid)))
+    
+
+
 #%%
 
 snip = '".text.tex.latex": {\n\tsnippet: [\n'

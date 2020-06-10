@@ -6,7 +6,7 @@ Two of the use cases described in the introduction dictate that the crawler has 
 an \gls{gls-optimal-path}. This type of path planning problem differs from the in Chapter~\ref{sec:cpp} described
 problem. \citeauthor{choset_principles_2005} describes the task of determining a path that passes an effector (e.g., a
 robot, a detector, etc.) over all points in a free space as a~\gls{gls-coverage-path}
-problem~\cite{choset_principles_2005}, hence that this task is called a~\gls[first]{acr-CPP}. This type of task can be
+problem~\cite{choset_principles_2005}, hence that this task is called a~\gls{acr-CPP}. This type of task can be
 found as an integral part of many robotic applications such as vacuum cleaning robots, painter robots, autonomous
 underwater vehicles creating image mosaic, demining robots, lawn mowers, automated harvesters, window cleaners and
 inspection of complex underwater structures~\cite{galceran_survey_2013}.
@@ -97,7 +97,7 @@ corresponds with a node while a cell is represented by an edge.
 The above describe technique has a minor short-coming, \citet{choset_exact_2000} states that this method may result in
 many small cell, such as cell 9 shown in figure~\ref{fig:manysmallcells}, which can seemingly be ``clumped'' into
 neighbouring cells. Reorganizing the cells can result in a shorter (more efficient) path to cover the same area. To
-address this issue, the \gls[first]{acr-BCD} approach was introduced.
+address this issue, the \gls{acr-BCD} approach was introduced.
 
 \begin{RoyalFigure}[!htb, label=fig:manysmallcells]{TRAPEZOIDAL DECOMPOSITION OF BOUND FREE SPACE\cite{choset_exact_2000}.}
 		\includegraphics[width=0.4\textwidth,trim=2 2 2 2,clip]{manysmallcells.pdf}
@@ -212,14 +212,14 @@ from \gls{sym-Cp_1} to \gls{sym-Cp_2}; This is error prone because of the accumu
 \gls{gls-dead-reckoning} navigation.
 
 \subsubsection{MORSE-BASED CELLULAR DECOMPOSITION COMBINED WITH VORONOI-DIAGRAM}
-The above described on-line Morse-based \gls[first]{acr-BCD} handles unknown vast environments pretty well. It does so
+The above described on-line Morse-based \gls{acr-BCD} handles unknown vast environments pretty well. It does so
 by making use of it sensors. Most work that describe \gls{acr-BCD} either assume the detector range of the sensor is
 infinite in size or the same size as the robot. \citet{acar_complete_2001} shows how a detector range of an sensor can
-be utilized which is \( \gls{sym-r}  < \gls{sym-delta_s}  < \infty \) here \gls[first]{sym-r} and
-\gls[first]{sym-delta_s}.
+be utilized which is \( \gls{sym-r}  < \gls{sym-delta_s}  < \infty \) here \gls{sym-r} and
+\gls{sym-delta_s}.
 
-Morse-based cellular decomposition combined with \gls[first]{acr-GVD} describe how this can be exploited to find an
-optimum coverage pad for a space which consists of \gls[first]{gls-vast-cell} and \gls[first]{gls-narrow-cell}. Such
+Morse-based cellular decomposition combined with \gls{acr-GVD} describe how this can be exploited to find an
+optimum coverage pad for a space which consists of \gls{gls-vast-cell} and \gls{gls-narrow-cell}. Such
 that the robot handles both vast and cluttered regions well. See figure~\ref{fig:vastnarrow}, for such an environment.
 
 The robot has two modus operandi that perform coverage of an unknown space, consisting of vast and cluttered regions. In
@@ -227,7 +227,7 @@ a vast open space the robot scans an unknown environment for \gls{gls-critical-p
 section~\ref{subsec:onlinemorsebased}. In such an environment it uses a zig-zag motion with an offset of \( 2
 \gls{sym-delta_s}  \). it's important to note that the coverage of a suction head from a dredge bot will in all
 likelihood be less than \( 2 \gls{sym-delta_s} \). During coverage of this \gls{gls-vast-cell} it will construct an
-\gls{gls-adjacency-graph} from every \gls{gls-critical-point}. Once it encounters a \gls[first]{gls-cusp-point}, it
+\gls{gls-adjacency-graph} from every \gls{gls-critical-point}. Once it encounters a \gls{gls-cusp-point}, it
 builds a \gls{acr-GVD} with corresponding nodes. Such a point is an indication of the presence of a
 \gls{gls-narrow-cell}.
 
@@ -476,7 +476,7 @@ figure~\ref{fig:rotatedsonarvectors}.
 	\includegraphics[width=\textwidth,trim=2 2 2 2,clip]{rotatedsonarvectors.pdf}
 \end{RoyalFigure}
 
-This vector is fed into a \gls[first]{acr-MLP} which distinguishes three different type of classes: free space nodes,
+This vector is fed into a \gls{acr-MLP} which distinguishes three different type of classes: free space nodes,
 obstacle nodes and everything else. This neural network first has to be taught. This is done under supervision, meaning
 that the landmark type have to be predefined.
 
@@ -642,7 +642,7 @@ farthest cell. Where it remains, if no backtracking over previous visited cells 
 An sub-family of grid-based coverage are systematic spiral paths algorithms. These work by following a systematic spiral
 spanning tree of a partial grid map. This map is constructed using its on-board sensors~\cite{galceran_coverage_2014}
 and uses two different sizes of grid cells. The smaller grid cell is the same size as the robot. Four of these grid
-cells then form a mega cell. \cite{wong_qualitative_2006}. The \gls[first]{acr-Spiral-STC} described in
+cells then form a mega cell. \cite{wong_qualitative_2006}. The \gls{acr-Spiral-STC} described in
 algorithm~\ref{alg:stc}, works as follows:
 
 Starting at the current cell, the robot chooses a new travel direction by selecting the first new mega cell in the free
@@ -695,7 +695,7 @@ neighbors~\cite{galceran_survey_2013}. This architecture is illustrated in figur
 
 The proposed neural network, is topologically expressed on a 2-dimensional occupancy grid map. The location of the
 \(k\)th neuron of the neural network represent a location (cell). Where each neuron has local lateral connections
-to its neighboring neurons, in the small region \( [0,\gls{sym-r_0}] \); Where \gls[first]{sym-r_0} is the receptive field
+to its neighboring neurons, in the small region \( [0,\gls{sym-r_0}] \); Where \gls{sym-r_0} is the receptive field
 radius of the \( k \)th neuron, as shown in figure~\ref{fig:cppnn} (b). The excitatory input results from uncovered area
 and lateral neural connections, while inhibitory inputs, results from obstacles~\cite{yan_complete_2012}. The shunting
 equation~\ref{eq:shunting} derived from Hodgkin and Huxley~\cite{hodgkin_quantitative_1952} determines the dynamics of

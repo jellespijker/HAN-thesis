@@ -16,7 +16,7 @@
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{scrlayer}}
 
 % === CLASS OPTIONS ===
-\newif\ifshowunits
+\newif\ifshowunits%
 \pgfkeys{
  /IHCreport/.is family,
  /IHCreport,
@@ -38,18 +38,17 @@
 
 \ProcessPgfOptions{/IHCreport}
 
-\LoadClass[10pt,
- twoside,
- DIV=15,
- BCOR=15mm,
- footinclude,
- headinclude,
- % usegeometry,
- open=any,
- titlepage=true,
- appendixprefix=false,
- chapterprefix=false,
- numbers=noenddot,
+\LoadClass[10pt,%
+ twoside,%
+ DIV=15,%
+ BCOR=15mm,%
+ footinclude,%
+ headinclude,%
+ open=any,%
+ titlepage=true,%
+ appendixprefix=false,%
+ chapterprefix=false,%
+ numbers=noenddot,%
  captions=setting]{scrbook}
 \usepackage[automark]{scrlayer-scrpage}
 \usepackage{scrlayer}
@@ -80,14 +79,15 @@
  \definecolor{RoyalWhite}{HTML}{FFFFFF}
 
 % === HOOKS ===
-\AtEndPreamble{
- \addbibresource{resources/report.bib}
- \input{user.sty}
- \makeglossaries
- \loadglsentries{\fglossary}
+\AtEndPreamble{%
+ \addbibresource{resources/report.bib}%
+ \input{user.sty}%
+ %\input{\fglossary}%
+ \makeglossaries%
+ \loadglsentries{\fglossary}%
 }
-\AtBeginDocument{
- \let\thedate\@date
+\AtBeginDocument{%
+ \let\thedate\@date%
 }
 
 % === HYPERREF ===
@@ -192,7 +192,7 @@
     \color{#1} #2
   }
   #2
-  \let\RoyalCell\RoyalCella
+  \let\RoyalCell\RoyalCella%
 }
 \NewDocumentCommand\RoyalCella{om}
 {
@@ -280,8 +280,8 @@ minimum height=3em, minimum width=6em,rounded corners=.15cm]
 \usepackage{bm}
 \usepackage[utf8]{luainputenc}
 \usepackage{mathrsfs}
-\let\Re\undefined
-\let\Im\undefined
+\let\Re\undefined%
+\let\Im\undefined%
 \DeclareMathOperator{\Re}{\mathscr{R}}
 \DeclareMathOperator{\Im}{\mathscr{I}}
 \DeclareMathOperator{\Eu}{\mathscr{E}}
@@ -296,7 +296,7 @@ minimum height=3em, minimum width=6em,rounded corners=.15cm]
 % Sections to uppercase. See https://tex.stackexchange.com/questions/33148/setkomafont-with-uppercase-that-works-robustly/33215#33215
 \renewcommand*{\chapterformat}{\chapappifchapterprefix{\nobreakspace}\thechapter\IfUsePrefixLine{}{}}
 
-\let\scr@chapter\chapter
+\let\scr@chapter\chapter%
 \def\chapter{\@ifstar\seamus@chapter\seamus@chapter}
 \def\seamus@chapters#1{\scr@chapter*{#1}}
 \def\seamus@chapter{\@dblarg{\seamus@chapter@}}
@@ -471,14 +471,11 @@ minimum height=3em, minimum width=6em,rounded corners=.15cm]
 
 \NewDocumentEnvironment{front} { o }
 {%
-\pgfkeys{/front, fedefault, #1}%
-\input{\fglossary}%
 \frontmatter%
-\ifmtitle\else\maketitle\fi%
 \setcounter{page}{1}%
 \pagenumbering{Roman}%
-\ifmquality\else\makequalitycontrol%
-\ifmdisclaimer\else\makedisclaimer\fi%
+\makequalitycontrol%
+\makedisclaimer%
 }
 {%
 \tableofcontents%
@@ -517,7 +514,6 @@ minimum height=3em, minimum width=6em,rounded corners=.15cm]
 \NewDocumentEnvironment{back}{ o }
 {%
 \pgfkeys{/back, bedefault, #1}%
-% \ifthispageodd{\newpage}{\cleardoublepage}%
 \cleardoubleoddstandardpage,%
 \ifmallsources\nocite{*}\else\fi%
 \ifmallglossaries\glsaddall\else\fi%
@@ -679,16 +675,16 @@ Dit document is gepubliceerd op \thedate%
 % === TITLEPAGE ===
 \usepackage{authblk}
 
-\DeclareNewLayer[
- foreground,
- foot,
- addheight=\topskip,
- mode=picture,
- contents={
-   \begin{tikzpicture}[overlay,remember picture]
-    \node[inner sep=0pt, outer sep=0pt, anchor=south west, xshift=34mm, yshift=18.5mm] at (current page.south west) {\includegraphics[height=16mm]{footer.png}};
-   \end{tikzpicture}
-  }
+\DeclareNewLayer[%
+ foreground,%
+ foot,%
+ addheight=\topskip,%
+ mode=picture,%
+ contents={%
+   \begin{tikzpicture}[overlay,remember picture]%
+    \node[inner sep=0pt, outer sep=0pt, anchor=south west, xshift=34mm, yshift=18.5mm] at (current page.south west) {\includegraphics[height=16mm]{footer.png}};%
+   \end{tikzpicture}%
+  }%
 ]{titlepagelogo}
 \DeclarePageStyleByLayers{titlepage}{titlepagelogo}
 \newlanguagecommand{\titlepublishedby}
@@ -756,37 +752,29 @@ Dit document is gepubliceerd op \thedate%
   \cleardoublepage%
  \end{titlepage}%
 }
-
+%TODO fix no subtitle defined%
 % === COVERPAGE FRONT ===
-\tikzset{
- covernode/base/.style = {
-   outer sep = 0pt,
-   inner sep = 1pt,
-   anchor = north west,
-   fill = RoyalWhite,
-  },
-}
+\tikzset{%
+ covernode/base/.style = {%
+   outer sep = 0pt,%
+   inner sep = 1pt,%
+   anchor = north west,%
+   fill = RoyalWhite,%
+  },%
+}%
 \setkomafont{subject}{\color{RoyalBlack}\large\raggedright}%
-\NewDocumentCommand{\makefrontcover}{}{%
- \thispagestyle{titlepage}%
+\NewDocumentCommand{\makefrontcover}{}{\thispagestyle{titlepage}%
  \begin{tikzpicture}[overlay,remember picture]%
-  \node[covernode/base, yshift=-16mm, xshift=34mm] at (current page.north west) (titlebackground) {%
-   \begin{tikzpicture}%
-    \node[covernode/base] (titlenode) {\usekomafont{title}\MakeUppercase{\@title}};%
-    \ifx\@subtitle%TODO fix no subtitle defined%
-     \node[covernode/base] at (titlenode.south west) (subtitlenode) {\usekomafont{subtitle}\MakeUppercase{\@unitname}};%
-    \else%
-     \node[covernode/base,align=left] at (titlenode.south west) (subtitlenode) {{\usekomafont{subtitle}DESIGN OF AN AUTONOMOUS}};%
-     \node[covernode/base] at (subtitlenode.south west) (subsubtitlenode) {\usekomafont{subsubtitle}DREDGE BOT CONTROLLER};%
-    \fi%
-   \end{tikzpicture}%
-  };%
-  \node[inner sep=0pt, outer sep=0pt, anchor=north west, yshift=-4mm] at (titlebackground.south west) (imgnode) {%
-   \includegraphics[width=\paperwidth-80mm]{front.pdf}};%
-  \node[covernode/base, anchor=south east, inner sep = 5pt, xshift=16mm, yshift=-16mm] at (imgnode.south east) (subjectnode) {\parbox[b]{64mm}{\usekomafont{subject}\@subject}};%
+    \node[covernode/base, yshift=-16mm, xshift=34mm] at (current page.north west) (titlebackground) { \begin{tikzpicture}%
+        \node[covernode/base] (titlenode) {\usekomafont{title}\MakeUppercase{\@title}};%
+        \node[covernode/base,align=left] at (titlenode.south west) (subtitlenode) {{\usekomafont{subtitle}DESIGN OF AN AUTONOMOUS}};%
+        \node[covernode/base] at (subtitlenode.south west) (subsubtitlenode) {\usekomafont{subsubtitle}DREDGE BOT CONTROLLER};%
+      \end{tikzpicture}};%
+    \node[inner sep=0pt, outer sep=0pt, anchor=north west, yshift=-4mm] at (titlebackground.south west) (imgnode) {\includegraphics[width=\paperwidth-80mm]{front.pdf}};%
+        \node[covernode/base, anchor=south east, inner sep = 5pt, xshift=16mm, yshift=-16mm] at (imgnode.south east) (subjectnode) {\parbox[b]{64mm}{\usekomafont{subject}\@subject}};%
  \end{tikzpicture}%
- \cleardoublepage%
-}
+ \cleardoublepage}
+
 
 
 % === BIBLIOGRAPHY ===
@@ -798,83 +786,41 @@ Dit document is gepubliceerd op \thedate%
 \addtolanguagecommand{\rangephrase}{english}{~to~}
 \addtolanguagecommand{\rangephrase}{dutch}{~tot~}
 
-\usepackage[
- separate-uncertainty=true,
- per-mode = symbol-or-fraction,
- list-units = brackets,
- range-units = brackets,
- round-mode=places,
- round-precision=1,
- round-integer-to-decimal=true,
- multi-part-units=single,
+\usepackage[%
+ separate-uncertainty=true,%
+ per-mode = symbol-or-fraction,%
+ list-units = brackets,%
+ range-units = brackets,%
+ round-mode=places,%
+ round-precision=1,%
+ round-integer-to-decimal=true,%
+ multi-part-units=single,%
  binary-units]{siunitx}
 \sisetup{range-phrase=\rangephrase}
 
 \input{resources/customunits.def}
 
 % === GLOSSARY ===
-\usepackage[acronym,xindy,section=chapter]{glossaries}
-%\usepackage[automake,acronym,xindy,docdef=atom]{glossaries-extra}
+%\usepackage[acronym,xindy,section=chapter]{glossaries}
+\usepackage[automake=immediate,acronym,xindy,docdef=atom,section=chapter,symbols]{glossaries-extra}
 \usepackage{datatool}
-\glsdisablehyper
+%\glsdisablehyper
 \usepackage[dvipdfmx]{pdfcomment}
-%\usepackage[dvipdfmx]{pdfcomment}
-\usepackage{letltxmacro}
 
 \glsaddkey{unit}{\glsentrytext{\glslabel}}{\glsentryunit}{\GLsentryunit}{\glsunit}{\Glsunit}{\GLSunit}
-\newglossary[slg]{symbolslist}{sys}{syo}{Symbolslist}
-\defglsentryfmt[main]{%
- \ifglsused{\glslabel}{%
-   \ifthenelse{\equal{\status}{concept}}{%
-     \glsgenentryfmt%
-   }{%
-    \pdftooltip{\glsgenentryfmt}{\glsentrydesc{\glslabel}}}%
- }{%
-  \glsgenentryfmt%
- }%
-}
-\defglsentryfmt[\acronymtype]{%
- \ifglsused{\glslabel}{%
-   \ifthenelse{\equal{\status}{concept}}{%
-     \glsgenentryfmt%
-     }{%
-    \pdftooltip{\glsgenentryfmt}{\glsentrydesc{\glslabel}}}%
- }{%
-  \glsgenentryfmt%
- }%
-}
+\newglossary[slg]{symbols}{sys}{syo}{Symbols}
+
+
+%\defglsentryfmt[main]{\pdfmarkupcomment[author=Spijker,subject=glossary,color={1 0 0},opacity=0.33]{\glsgenentryfmt}{\glsentrydesc{\glslabel}}}
+%\defglsentryfmt[\acronymtype]{\pdfmarkupcomment[author=Spijker,subject=acronym,color={0 1 0},opacity=0.33]{\mbox{\glsgenentryfmt}}{\glsentrydesc{\glslabel}}}
 
 \newlanguagecommand{\unitgivenin}
 \addtolanguagecommand{\unitgivenin}{english}{Units are given in:}
 \addtolanguagecommand{\unitgivenin}{dutch}{Eenheden zijn opgegeven in:}
-\defglsentryfmt[symbolslist]{%
- \ifglsused{\glslabel}{%
- \ifthenelse{\equal{\status}{concept}}{%
-   \ensuremath{\glsgenentryfmt}%
- }{%
-  \pdftooltip{%
-   \ensuremath{\glsgenentryfmt%
-    \ifshowunits%
-     \left[\si{\glsentryunit{\glslabel}}\right]%
-    \else%
-    \fi}}{%
-   \glsentrydesc{\glslabel} \unitgivenin\ \si{\glsentryunit{\glslabel}}}}%
- }{%
-  \glsgenentryfmt%
- }
-}
+%\defglsentryfmt[symbolslist]{\pdfmarkupcomment[author=Spijker,subject=symbol,color={0 0 1},opacity=0.33]{\expandonce\texorpdfstring{\ensuremath{\glsgenentryfmt}}{\glslabel}}{\glsentrydesc{\glslabel} \unitgivenin\ \glsentryunit{\glslabel}}}
 
-\LetLtxMacro\orig@gls\gls%
-\RenewDocumentCommand{\gls}{omo}{%
-  \IfValueT{#1}{%
-    \IfStrEq{#1}{first}{%
-      \glslocalreset{#2}}{}}%
-  \IfValueTF{#3}{%
-    \orig@gls{#2}[#3]%
-  }{%
-    \orig@gls{#2}%
-  }%
-}
+
+
 
 \newlanguagecommand{\signheader}
 \addtolanguagecommand{\signheader}{english}{SIGN}
@@ -908,74 +854,8 @@ Dit document is gepubliceerd op \thedate%
 \addtolanguagecommand{\acrtitle}{english}{ACRONYMS}
 \addtolanguagecommand{\acrtitle}{dutch}{ACRONIEMEN}
 
-\NewDocumentCommand{\loadglscsv}{ o m }{%
- \DTLifdbexists{#1}{}{%
- \DTLsetdelimiter{|}%
- \DTLsetseparator{|}%
- \DTLloaddb{#1}{#2}}%
- \glsnoexpandfields
- % Iterate through the columns and generate a newglossaryentry
- \DTLforeach*{#1}%
- {%
-  \key=key,%
-  \keyname=name,%
-  \plural=plural,%
-  \description=description%
- }{%
-  \edef\defnewentry{\noexpand\newglossaryentry{gls-\key}%
-   {name={\expandonce\key},%
-    text={\expandonce\keyname},%
-    description={\expandonce\description},%
-    first={\expandonce\key\glsspace which,\glsspace is\glsspace\expandonce\description,}}}%
-  \defnewentry%
- }%
-}
 
-\NewDocumentCommand{\loadglssymbolcsv}{ o m }{%
-\DTLifdbexists{#1}{}{%
-\DTLsetdelimiter{|}%
-\DTLsetseparator{|}%
-\DTLloaddb{#1}{#2}}%
- \glsnoexpandfields
- % Iterate through the columns and generate a newglossaryentry
- \DTLforeach*{#1}%
- {%
-  \key=key,%
-  \symbol=symbol,%
-  \units=units,%
-  \description=description%
- }{%
-  \edef\defnewentry{\noexpand\newglossaryentry{sym-\key}%
-   {name={\expandonce\symbol},%
-    sort={\expandonce\key},%
-    description={\expandonce\description},%
-    unit={\expandonce\units},%
-    first={\ensuremath{\expandonce\symbol}%
-      \glsspace which\glsspace is\glsspace\expandonce\description%
-      \glsspace given\glsspace in\glsspace%
-      \ensuremath{\left[\expandonce\units\right]}},%
-    type=symbolslist}}%
-  \defnewentry%
- }%
-}
-
-\NewDocumentCommand{\loadglsacrocsv}{ o m }{%
-\DTLifdbexists{#1}{}{%
-\DTLsetdelimiter{|}%
-\DTLsetseparator{|}%
-\DTLloaddb{#1}{#2}}%
- % Iterate through the columns and generate a newacronym
- \DTLforeach*{#1}%
- {%
-  \shrt=short,%
-  \lng=long%
- }{%
-  \edef\defnewacro{\noexpand\newacronym{#1-\shrt}{\expandonce\shrt}{\expandonce\lng}}%
-  \defnewacro%
- }%
-}
-
-\newglossarystyle{symbolsliststyle}{%
+\newglossarystyle{symbolsstyle}{%
  \renewenvironment{theglossary}%
  {%
   \setlength{\tabulinesep}{4mm}%
@@ -1046,7 +926,7 @@ Dit document is gepubliceerd op \thedate%
 \renewcommand*{\glsclearpage}{\clearpage}
 \renewcommand*{\printglossaries}{%
  \label{chap:glossaries}%
- \printglossary[type=symbolslist,style=symbolsliststyle,title=\symbolslisttitle]%
+ \printglossary[type=symbols,style=symbolsstyle,title=\symbolslisttitle]%
  \printglossary[type=main,style=ihclongstyle, title=\glostitle]%
  \printglossary[type=\acronymtype,style=ihclongacrostyle, title=\acrtitle]%
 }
@@ -1057,22 +937,22 @@ Dit document is gepubliceerd op \thedate%
 \usepackage{esvect}
 \usepackage{physics}
 
-\tcolorboxenvironment{equation}{
- blankest, left=5mm,
- before skip=10pt, after skip=10pt,
- borderline west={2mm}{0pt}{RoyalRed},
- colback=RoyalLightGrey,
- enhanced jigsaw,
- boxsep=5mm
+\tcolorboxenvironment{equation}{%
+ blankest, left=5mm,%
+ before skip=10pt, after skip=10pt,%
+ borderline west={2mm}{0pt}{RoyalRed},%
+ colback=RoyalLightGrey,%
+ enhanced jigsaw,%
+ boxsep=5mm%
 }
 
-\tcolorboxenvironment{multiline}{
- blankest, left=5mm,
- before skip=10pt, after skip=10pt,
- borderline west={2mm}{0pt}{RoyalRed},
- colback=RoyalLightGrey,
- enhanced jigsaw,
- boxsep=5mm
+\tcolorboxenvironment{multiline}{%
+ blankest, left=5mm,%
+ before skip=10pt, after skip=10pt,%
+ borderline west={2mm}{0pt}{RoyalRed},%
+ colback=RoyalLightGrey,%
+ enhanced jigsaw,%
+ boxsep=5mm%
 }
 
 % === FIGURE ===
