@@ -1,6 +1,8 @@
 % !TeX root = ../report.tex
 % !TeX spellcheck = en-US
 % !TeX encoding = UTF-8
+
+
 \section{COVERAGE PATH PLANNING}\label{sec:cpp}
 Two of the use cases described in the introduction dictate that the crawler has to cover the whole area preferably with
 an \gls{gls-optimal-path}. This type of path planning problem differs from the in Chapter~\ref{sec:cpp} described
@@ -14,14 +16,14 @@ inspection of complex underwater structures~\cite{galceran_survey_2013}.
 All these type of robots need to cover a complete region in order to perform their tasks. According to
 \citet{cao_region_1988} such a mobile robot should use the following criteria, for a region filling operation
 \begin{enumerate}
-	\setlength\itemsep{0mm}
-	\item The mobile robot must move through an entire area, i.e., the overall travel must cover a whole region.
-	\item The mobile robot must fill the region without overlapping paths.
-	\item Continuous and sequential operations without any repetition of paths is required of the robot.
-	\item The robot must avoid all obstacles in a region.
-	\item Simple motion trajectories (e.g., straight lines or circles) should be used for simplicity in control.
-	\item An ``optimal'' path is desired under the available conditions. it's not always possible to satisfy all these
-	criteria for a complex environment. Sometimes a priority consideration is required.
+    \setlength\itemsep{0mm}
+    \item The mobile robot must move through an entire area, i.e., the overall travel must cover a whole region.
+    \item The mobile robot must fill the region without overlapping paths.
+    \item Continuous and sequential operations without any repetition of paths is required of the robot.
+    \item The robot must avoid all obstacles in a region.
+    \item Simple motion trajectories (e.g., straight lines or circles) should be used for simplicity in control.
+    \item An ``optimal'' path is desired under the available conditions. it's not always possible to satisfy all these
+    criteria for a complex environment. Sometimes a priority consideration is required.
 \end{enumerate}
 
 \citet{galceran_towards_2014} describes that these types coverage algorithms can be classified as \emph{heuristic} or
@@ -32,30 +34,31 @@ some kind of adaptivity to the requirement is required. On-line algorithms usual
 measurements. Thus these algorithms can also be called \emph{sensor-based coverage algorithms}. \gls{gls-on-line}
 coverage algorithms are in effect ``\emph{divide and conquer}'' strategies, which \citet{wong_complete_2004} describes
 as a powerful technique used to solve many problems and many mapping procedures carry out a process of space
-decomposition, where a complex space is repeatedly divided until simple sub-regions of a particular type are created. The
+decomposition, where a complex space is repeatedly divided until simple sub-regions of a particular type are created.
+The
 problem at hand is then solved by applying a simpler algorithm to the simpler sub-regions.
 
 Since an autonomous operating crawler can be stationed in different environments with multiple unknown obstacles, the
 focus of this chapter lies on \gls{gls-on-line} or sensor-based coverage algorithms from which the following are
 identified:
 \begin{itemize}
-	\item morse-based cellular decomposition
-	\begin{itemize}
-		\item On-line Morse-based boustrophedon decomposition
-		\item Morse-based cellular decomposition combined with generalized \gls{gls-voronoi-diagram}
-	\end{itemize}
-	\item Landmark-based topological coverage
-	\begin{itemize}
-		\item Slice decomposition
-		\item On-line topological coverage algorithm
-	\end{itemize}
-	\item Grid-based methods
-	\begin{itemize}
-		\item Grid-based coverage using spanning trees
-		\item Neural network-based coverage on grid maps
-	\end{itemize}
-	\item Coverage under uncertainty
-	\item Multi-robot methods
+    \item morse-based cellular decomposition
+    \begin{itemize}
+        \item On-line Morse-based boustrophedon decomposition
+        \item Morse-based cellular decomposition combined with generalized \gls{gls-voronoi-diagram}
+    \end{itemize}
+    \item Landmark-based topological coverage
+    \begin{itemize}
+        \item Slice decomposition
+        \item On-line topological coverage algorithm
+    \end{itemize}
+    \item Grid-based methods
+    \begin{itemize}
+        \item Grid-based coverage using spanning trees
+        \item Neural network-based coverage on grid maps
+    \end{itemize}
+    \item Coverage under uncertainty
+    \item Multi-robot methods
 \end{itemize}
 
 \subsection{MORSE-BASED CELLULAR DECOMPOSITION}
@@ -67,7 +70,7 @@ space. Complete coverage is then reduced to ensuring that the robot visits each 
 are different.
 
 Morse-functions are visualized by \citet{nicolaescu_invitation_2007} as follows: Suppose \( M \) is a smooth, compact
-manifold which is  assumed to be embedded in a Euclidean space \( \Eu \), and from which we would like to understand
+manifold which is assumed to be embedded in a Euclidean space \( \Eu \), and from which we would like to understand
 some basic topological invariants. This is done with a ``slicing'' technique.
 
 Were a unit vector \gls{sym-u} is fixed in \( \Eu \) and which start slicing \( M \) with the family of hyperplanes
@@ -90,8 +93,9 @@ The above described method is depicted in figure~\ref{fig:exact_cellular_decompo
 represented with a graph such as shown in figure~\ref{fig:exact_cellular_decomposition} (b). Each critical value
 corresponds with a node while a cell is represented by an edge.
 
-\begin{RoyalFigure}[!htb, label=fig:exact_cellular_decomposition]{(a) Exact cellular decomposition, (b) Graph representation}
-	\includegraphics[width=\textwidth,trim=2 2 2 2,clip]{exact_cellular_decomposition.pdf}
+\begin{RoyalFigure}[!htb, label=fig:exact_cellular_decomposition]{(a) Exact cellular decomposition, (b) Graph 
+representation}
+    \includegraphics[width=\textwidth,trim=2 2 2 2,clip]{exact_cellular_decomposition.pdf}
 \end{RoyalFigure}
 
 The above describe technique has a minor short-coming, \citet{choset_exact_2000} states that this method may result in
@@ -99,8 +103,9 @@ many small cell, such as cell 9 shown in figure~\ref{fig:manysmallcells}, which 
 neighbouring cells. Reorganizing the cells can result in a shorter (more efficient) path to cover the same area. To
 address this issue, the \gls{acr-BCD} approach was introduced.
 
-\begin{RoyalFigure}[!htb, label=fig:manysmallcells]{TRAPEZOIDAL DECOMPOSITION OF BOUND FREE SPACE\cite{choset_exact_2000}.}
-		\includegraphics[width=0.4\textwidth,trim=2 2 2 2,clip]{manysmallcells.pdf}
+\begin{RoyalFigure}[!htb, label=fig:manysmallcells]{TRAPEZOIDAL DECOMPOSITION OF BOUND FREE 
+SPACE\cite{choset_exact_2000}.}
+    \includegraphics[width=0.4\textwidth,trim=2 2 2 2,clip]{manysmallcells.pdf}
 \end{RoyalFigure}
 
 Boustrophedon which literally means ``\emph{the way of the ox}'' merges these cells, such that a more
@@ -110,9 +115,9 @@ figure~\ref{fig:diffmorsefunction}~\cite{galceran_survey_2013}\cite{choset_cover
 spiral, spike or squarel.
 
 \begin{RoyalFigure}[!htb, label=fig:diffmorsefunction]{SPIRAL, SPIKE AND SQUAREL~\cite{acar_morse_2002}}
-		\includegraphics[width=0.3\textwidth,trim=2 2 2 2,clip]{bous1.pdf}
-		\includegraphics[width=0.3\textwidth,trim=2 2 2 2,clip]{bous2.pdf}
-		\includegraphics[width=0.3\textwidth,trim=2 2 2 2,clip]{bous3.pdf}
+    \includegraphics[width=0.3\textwidth,trim=2 2 2 2,clip]{bous1.pdf}
+    \includegraphics[width=0.3\textwidth,trim=2 2 2 2,clip]{bous2.pdf}
+    \includegraphics[width=0.3\textwidth,trim=2 2 2 2,clip]{bous3.pdf}
 \end{RoyalFigure}
 
 Once each cell is identified a strategy for the infill is executed, which is described by \citet{huang_optimal_2001} as
@@ -124,7 +129,7 @@ minimizing the number of turns, which are proportional to the altitude of a subr
 found.
 
 \begin{RoyalFigure}[!htb]{DIFFERENT SWEEP DIRECTIONS~\cite{huang_optimal_2001}}
-		\includegraphics[width=.6\textwidth,trim=2 2 2 2,clip]{differentsweepdirections.pdf}
+    \includegraphics[width=.6\textwidth,trim=2 2 2 2,clip]{differentsweepdirections.pdf}
 \end{RoyalFigure}
 
 This is done by first creating an \gls{gls-adjacency-graph} \gls{sym-G_adj}, generated with the
@@ -139,9 +144,10 @@ Let \gls{sym-G_adj_1} and \gls{sym-G_adj_2} be a subset of graph \gls{sym-G_adj}
 needs to be visited and let \gls{sym-C} be a function that calculates the cost in movement \gls{sym-S}, which iterative
 over \( i \) for all possible combinations of \gls{sym-G_adj_1} and \gls{sym-G_adj_2}.
 
-\begin{equation}\label{eq:MSA}
-	\gls{sym-S}(\gls{sym-G_adj}) = min \left\lbrace \gls{sym-C}(\gls{sym-G_adj}), \underset{i}{min}\  \gls{sym-S} \left(
-	\gls{sym-G_adj_1}^i \right) + \gls{sym-S} \left( \gls{sym-G_adj_2}^1 \right) \right\rbrace
+\begin{equation}
+    \label{eq:MSA}
+    \gls{sym-S}(\gls{sym-G_adj}) = min \left\lbrace \gls{sym-C}(\gls{sym-G_adj}), \underset{i}{min}\  \gls{sym-S} \left(
+    \gls{sym-G_adj_1}^i \right) + \gls{sym-S} \left( \gls{sym-G_adj_2}^1 \right) \right\rbrace
 \end{equation}
 
 So far it assumed that the environment is known \emph{a priori} which labels this method as an \gls{gls-off-line}
@@ -149,13 +155,13 @@ method. While the use case described in Chapter~\ref{chap:introduction}, dictate
 obstacles.
 
 \subsubsection{ON-LINE MORSE-BASED BOUSTROPHEDON DECOMPOSITION}\label{subsec:onlinemorsebased}
- \citet{acar_sensor_based_2002} describe a method which allows the use of above portrayed Morse-based cellular
- decomposition in an unknown dynamically chancing environment. Critical point sensing, is a way to determine
- \gls{gls-critical-point}s based on a sweep direction and an omnidirectional range sensor. These can be  detected when
- the sweep direction and the surface normal \( \gls{sym-nabla_m}(x) \) of an obstacle are parallel.
+\citet{acar_sensor_based_2002} describe a method which allows the use of above portrayed Morse-based cellular
+decomposition in an unknown dynamically chancing environment. Critical point sensing, is a way to determine
+\gls{gls-critical-point}s based on a sweep direction and an omnidirectional range sensor. These can be detected when
+the sweep direction and the surface normal \( \gls{sym-nabla_m}(x) \) of an obstacle are parallel.
 
 \begin{RoyalFigure}[!htb, label=fig:incrementalsweep]{INCREMENTAL GRAPH CONSTRUCTION~\cite{acar_sensor_based_2002}}
-	\includegraphics[width=\textwidth,trim=2 2 2 2,clip]{incrementalsweep.pdf}
+    \includegraphics[width=\textwidth,trim=2 2 2 2,clip]{incrementalsweep.pdf}
 \end{RoyalFigure}
 
 On-line region coverage is depicted in figure~\ref{fig:incrementalsweep} which shows an incremental sweep as part of an
@@ -171,15 +177,17 @@ On-line detection of \gls{gls-critical-point}s is illustrated by \citet{galceran
 detects a surface normal which is the same as a gradient. Given a robot located at point \gls{sym-x}, let \gls{sym-Cp_0}
 be the closest point to \gls{sym-x}  on the surface of obstacle \gls{sym-Cp_i}:
 
-\begin{equation}\label{eq:closestpoint}
-	\gls{sym-Cp_0}  = \underset{\gls{sym-x}  \in \gls{sym-Cp_i} }{arg min} ||\gls{sym-x} - \gls{sym-Cp} ||,
+\begin{equation}
+    \label{eq:closestpoint}
+    \gls{sym-Cp_0}  = \underset{\gls{sym-x}  \in \gls{sym-Cp_i} }{arg min} ||\gls{sym-x} - \gls{sym-Cp} ||,
 \end{equation}
 
 \noindent and let \gls{sym-d_x_i} be the distance between point \gls{sym-x} and the obstacle \gls{sym-Cp_i}. Now, the
 gradient of \( \gls{sym-d_x_i}, \nabla \gls{sym-d_x_i} \) can be calculated as
 
-\begin{equation}\label{eq:gradiantdix}
-	\nabla \gls{sym-d_x_i} = \frac{\gls{sym-x}  - \gls{sym-Cp_0}}{||\gls{sym-x}  - \gls{sym-Cp_0}||}.
+\begin{equation}
+    \label{eq:gradiantdix}
+    \nabla \gls{sym-d_x_i} = \frac{\gls{sym-x}  - \gls{sym-Cp_0}}{||\gls{sym-x}  - \gls{sym-Cp_0}||}.
 \end{equation}
 
 Since a gradient is a unit vector normal to a surface at a given point and since \gls{sym-Cp_0} is a point laying on the
@@ -189,7 +197,7 @@ the conclusion that a \gls{gls-critical-point} occurs when \( \nabla \gls{sym-d_
 direction, as illustrated in figure~\ref{fig:criticalpointdetectiononline}.
 
 \begin{RoyalFigure}[!htb, label=fig:criticalpointdetectiononline]{CRITICAL POINT DETECTING~\cite{galceran_survey_2013}}
-		\includegraphics[width=.4\textwidth,trim=2 2 2 2,clip]{critcialpointdetection.pdf}
+    \includegraphics[width=.4\textwidth,trim=2 2 2 2,clip]{critcialpointdetection.pdf}
 \end{RoyalFigure}
 
 Points are only detected from the side view. A normal sweeping motion will miss \gls{gls-critical-point} that lay
@@ -200,7 +208,8 @@ Cyclic path start by moving the robot in a forward phase, when it hits the bound
 obstacles is encounter during its travels it changes it state into a wall following unit, until reaching the next
 boundary in front of him or detects an \gls{gls-critical-point}. If the later one is the case, it starts moving upward
 again. If an obstacles detected during this cycle it will follow that wall until a \gls{gls-critical-point} is detected.
-It then marks it as a new next strip or cell boundary and moves back, towards the point where it ended its initial upward
+It then marks it as a new next strip or cell boundary and moves back, towards the point where it ended its initial 
+upward
 movement. It now starts filling the cell with general zig-zag sweeps. This incremental construct of the Morse
 decomposition on-line is stored as \gls{gls-reeb-graph}. Such a graph has the same functionality as a
 \gls{gls-adjacency-graph}
@@ -238,7 +247,7 @@ This newly placed node on the \gls{acr-GVD} represents a new \gls{gls-narrow-cel
 second boundary is detected and slips into its initial modus.
 
 \begin{RoyalFigure}[!htb, label=fig:vastnarrow]{STAGES OF INCREMENTAL CONSTRUCTION~\cite{acar_complete_2001}}
-		\includegraphics[width=0.5\textwidth,trim=2 2 2 2,clip]{VASTNARROW.pdf}
+    \includegraphics[width=0.5\textwidth,trim=2 2 2 2,clip]{VASTNARROW.pdf}
 \end{RoyalFigure}
 
 Figure~\ref{fig:vastnarrow} depicts the stages of the incremental construction of the hierarchical decomposition while
@@ -273,34 +282,38 @@ consecutive slices, each slice is a sensor sweep line where the \( \gls{sym-delt
 step. \citeauthor{wong_complete_2004} states that there are two situations where the abrupt changes occurs:
 
 \begin{enumerate}
-	\item A segment in the previous slice is split by the emergence of a new segment, see figure~\ref{fig:slicedec} (a) and (b).
-	\item A segment from the previous slice disappears in the current slice, see figure~\ref{fig:slicedec} (c) and (d).
+    \item A segment in the previous slice is split by the emergence of a new segment, see figure~\ref{fig:slicedec} 
+	\item (a) and (b).
+    \item A segment from the previous slice disappears in the current slice, see figure~\ref{fig:slicedec} (c) and (d).
 \end{enumerate}
 
-\begin{RoyalFigure}[!htb, label=fig:slicedec]{(a) SPLITTING OF SEGMENTS (b) MERGING OF SEGMENTS \cite{wong_complete_2004}}
-		\includegraphics[height=2.5cm,trim=2 2 2 2,clip]{slicedec.pdf}
+\begin{RoyalFigure}[!htb, label=fig:slicedec]{(a) SPLITTING OF SEGMENTS (b) MERGING OF SEGMENTS 
+\cite{wong_complete_2004}}
+    \includegraphics[height=2.5cm,trim=2 2 2 2,clip]{slicedec.pdf}
 \end{RoyalFigure}
 
 \begin{RoyalAlgorithm}[label=alg:offlineslicedecomposition]{OFF-LINE SLICE DECOMPOSITION}
-	\begin{algorithmic}[1]
-		\Procedure{SliceDecomposition}{}
-		\State $ \gls{sym-c} \in \{Free Space Cell, Obstacle Cell\} $
-		\ForAll{$ \text{time } \gls{sym-t} $}
-		\State $ \text{Move sweep line downwards by} \gls{sym-Delta_x}   $
-		\State $ \gls{sym-D_l_t-1} = (\ldots, \gls{sym-c}_{i-2}, \gls{sym-c}_{i-1}, \gls{sym-c}_{i}, \gls{sym-c}_{i+1}, \gls{sym-c}_{i+2}, \ldots)$
-		\ForAll{$ \text{segments in } \gls{sym-D_l_t-1} $}
-		\If{$ \text{emergence inside } \gls{sym-c}_i $}
-		\State $(\gls{sym-c}_i) \gets (\gls{sym-c}_{e-1},\gls{sym-c}_{e},\gls{sym-c}_{e+1})$
-		\State $ \gls{sym-D_l_t} = (\ldots, \gls{sym-c}_{i-2}, \gls{sym-c}_{i-1}, \gls{sym-c}_{e-1}, \gls{sym-c}_{e}, \gls{sym-c}_{e+1}, \gls{sym-c}_{i+1}, \gls{sym-c}_{i+2}, \ldots) $
-		\EndIf
-		\If{$ \gls{sym-c}_i \text{disappears} $}
-		\State $ (\gls{sym-c}_{i-1}, \gls{sym-c}_i, \gls{sym-c}_{i+1}) \gets (\gls{sym-c}_d) $
-		\State $ \gls{sym-D_l_t} = (\dots, \gls{sym-c}_{i-2}, \gls{sym-c}_d, \gls{sym-c}_{i+2}, \dots) $
-		\EndIf
-		\EndFor
-		\EndFor
-		\EndProcedure
-	\end{algorithmic}
+    \begin{algorithmic}[1]
+        \Procedure{SliceDecomposition}{}
+            \State $ \gls{sym-c} \in \{Free Space Cell, Obstacle Cell\} $
+            \ForAll{$ \text{time } \gls{sym-t} $}
+                \State $ \text{Move sweep line downwards by} \gls{sym-Delta_x}   $
+                \State $ \gls{sym-D_l_t-1} = (\ldots, \gls{sym-c}_{i-2}, \gls{sym-c}_{i-1}, \gls{sym-c}_{i}, 
+				\gls{sym-c}_{i+1}, \gls{sym-c}_{i+2}, \ldots)$
+                \ForAll{$ \text{segments in } \gls{sym-D_l_t-1} $}
+                    \If{$ \text{emergence inside } \gls{sym-c}_i $}
+                        \State $(\gls{sym-c}_i) \gets (\gls{sym-c}_{e-1},\gls{sym-c}_{e},\gls{sym-c}_{e+1})$
+                        \State $ \gls{sym-D_l_t} = (\ldots, \gls{sym-c}_{i-2}, \gls{sym-c}_{i-1}, \gls{sym-c}_{e-1}, 
+						\gls{sym-c}_{e}, \gls{sym-c}_{e+1}, \gls{sym-c}_{i+1}, \gls{sym-c}_{i+2}, \ldots) $
+                    \EndIf
+                    \If{$ \gls{sym-c}_i \text{disappears} $}
+                        \State $ (\gls{sym-c}_{i-1}, \gls{sym-c}_i, \gls{sym-c}_{i+1}) \gets (\gls{sym-c}_d) $
+                        \State $ \gls{sym-D_l_t} = (\dots, \gls{sym-c}_{i-2}, \gls{sym-c}_d, \gls{sym-c}_{i+2}, \dots) $
+                    \EndIf
+                \EndFor
+            \EndFor
+        \EndProcedure
+    \end{algorithmic}
 \end{RoyalAlgorithm}
 
 The slice decomposition is a formed by maintaining a list \gls{sym-D_l}, which consist of active obstacles and free
@@ -310,8 +323,9 @@ situation. At this time it updates the list \gls{sym-D_l} marking it landmark. T
 ``\emph{line of sight}''. The author of this paper states that disappearance of segment can only be measured from
 hindsight. Thus backtracking will still be an issue.
 
-\begin{RoyalFigure}[!htb, label=fig:slicedecmpD]{SLICE DECOMPOSITION GENERATED BY ALGORITHM~\ref{alg:offlineslicedecomposition}~\cite{wong_complete_2004}}
-		\includegraphics[height=3cm,trim=2 2 2 2,clip]{slicedecompD.pdf}
+\begin{RoyalFigure}[!htb, label=fig:slicedecmpD]{SLICE DECOMPOSITION GENERATED BY 
+ALGORITHM~\ref{alg:offlineslicedecomposition}~\cite{wong_complete_2004}}
+    \includegraphics[height=3cm,trim=2 2 2 2,clip]{slicedecompD.pdf}
 \end{RoyalFigure}
 
 \citet{wong_qualitative_2006} recognizes the limitations of slice decomposition and proposes a new method ``\emph{slice
@@ -323,57 +337,61 @@ instance with an \gls{gls-umbilical}, not every cell can be be reached. The rest
 view as a change of the boundary of the environment.
 
 \begin{RoyalFigure}[!htb, label=fig:slicedecompII]{(a) SPLIT, (b) MERGE, (c) END, (d) LENGTHEN, (e) SHORTEN}
-	\includegraphics[height=10cm,trim=2 2 2 2,clip]{slicedecompII.pdf}
+    \includegraphics[height=10cm,trim=2 2 2 2,clip]{slicedecompII.pdf}
 \end{RoyalFigure}
 
 \begin{RoyalTable}{X[1,l,m] X[4,l,m]}
-	\RoyalHeader{ACTION|DESCRIPTION}
-	\RoyalRow{SPLIT|Free space segment in the previous slice is split into two by the emergence of an obstacle. This is
-	equivalent to obstacle segment emergence in normal Slice Decomposition.}
-	\RoyalRow{MERGE|Free space segment in the current slice neighbors free spaces other than the free space segment in the
-	previous slice in the direction of the previous slice. This is equivalent to obstacle segment disappearance in normal
-	slice decomposition.}
-	\RoyalRow{END|The previous free space segment is the final one in the current cell. This is equivalent to free space
-	segment disappearance in the normal version.}
-	\RoyalRow{LENGTHEN|Free space segment in the current slice neighbors an obstacle segment in addition to the free space
-	segment in the previous slice in the direction of the previous slice. Another way to view this situation is that the
-	current slice is much longer than the previous slice.}
-	\RoyalRow{SHORTEN|Free space segment in the previous slice neighbors and obstacle segment in addition to the free space
-	segment in the current slice in the direction of the current slice. Another way to view this situation is that the
-	current slice is much shorter than the previous slice.}
+    \RoyalHeader{ACTION|DESCRIPTION}
+    \RoyalRow{SPLIT|Free space segment in the previous slice is split into two by the emergence of an obstacle. This is
+    equivalent to obstacle segment emergence in normal Slice Decomposition.}
+    \RoyalRow{MERGE|Free space segment in the current slice neighbors free spaces other than the free space segment 
+	in the
+    previous slice in the direction of the previous slice. This is equivalent to obstacle segment disappearance in 
+	normal
+    slice decomposition.}
+    \RoyalRow{END|The previous free space segment is the final one in the current cell. This is equivalent to free space
+    segment disappearance in the normal version.}
+    \RoyalRow{LENGTHEN|Free space segment in the current slice neighbors an obstacle segment in addition to the free 
+	space
+    segment in the previous slice in the direction of the previous slice. Another way to view this situation is that the
+    current slice is much longer than the previous slice.}
+    \RoyalRow{SHORTEN|Free space segment in the previous slice neighbors and obstacle segment in addition to the free
+	space
+    segment in the current slice in the direction of the current slice. Another way to view this situation is that the
+    current slice is much shorter than the previous slice.}
 \end{RoyalTable}
 
 \begin{RoyalAlgorithm}[label=alg:offlineslicedecompositionII]{OFF-LINE SLICE DECOMPOSITION II}
-	\begin{algorithmic}[1]
-		\Procedure{SliceDecompositionII}{}
-		\State $ O \gets \text{inital cell} $
-		\State $ F \gets \emptyset $
-		\While{$O \neq  \emptyset$}
-			\State $f_c \gets f \in O $
-			\State move to on (of two) cell boundary of $ f_c $
-			\Repeat
-				\State move sweep line by $ \gls{sym-Delta_x}  $ towards the opposite cell boundary
-				\If{event occur}
-					\State $ F \gets F + f_c $
-					\State $ O \gets O - f_c $
-					\If{event = split or merge}
-						\State $ O \gets O + f_{c+1},f_{c+2} \text{if} f_{c+1},f_{c+2} \notin (O \cup F) $
-					\EndIf
-					\If{event = lengthen or shorten}
-						\State $ O \gets O + f_{c+1} \text{if} f_{c+1} \notin (O \cup F) $
-					\EndIf
-				\EndIf
-			\Until{event occur}
-		\EndWhile
-		\EndProcedure
-	\end{algorithmic}
+    \begin{algorithmic}[1]
+        \Procedure{SliceDecompositionII}{}
+            \State $ O \gets \text{inital cell} $
+            \State $ F \gets \emptyset $
+            \While{$O \neq  \emptyset$}
+                \State $f_c \gets f \in O $
+                \State move to on (of two) cell boundary of $ f_c $
+                \Repeat
+                    \State move sweep line by $ \gls{sym-Delta_x}  $ towards the opposite cell boundary
+                    \If{event occur}
+                        \State $ F \gets F + f_c $
+                        \State $ O \gets O - f_c $
+                        \If{event = split or merge}
+                            \State $ O \gets O + f_{c+1},f_{c+2} \text{if} f_{c+1},f_{c+2} \notin (O \cup F) $
+                        \EndIf
+                        \If{event = lengthen or shorten}
+                            \State $ O \gets O + f_{c+1} \text{if} f_{c+1} \notin (O \cup F) $
+                        \EndIf
+                    \EndIf
+                \Until{event occur}
+            \EndWhile
+        \EndProcedure
+    \end{algorithmic}
 \end{RoyalAlgorithm}
 
 \subsubsection{ON-LINE TOPOLOGICAL COVERAGE ALGORITHM}
 By using slice decomposition II, which is described in Section~\ref{subsec:slicedecomp}, with a topological map. A
 crawler can construct it on-line. It now allows in to perform its task in a unknown environment. The topological map
 embeds the slice decomposition of an environment by using events as nodes. The map is updated whenever relevant
-information becomes available. The path planner  generates a new path un each update, based on the new partial
+information becomes available. The path planner generates a new path un each update, based on the new partial
 topological map~\cite{wong_qualitative_2006}.
 
 This topological map is represented as a planar graph, where the nodes represent landmarks (i.e., split, merge, end,
@@ -383,49 +401,56 @@ is on. They also store estimated distances separating the two nodes they connect
 
 This topological coverage algorithm makes use of a state transition diagram~\ref{dia:statetopo}. In this diagram three
 states are described, each with corresponding algorithm (\ref{alg:boundaryStateTopo},~\ref{alg:normalStateTopo}
-and~\ref{alg:travelStateTopo}). The crawler is assumed to be placed in a corner near a wall, therefore the boundary state
+and~\ref{alg:travelStateTopo}). The crawler is assumed to be placed in a corner near a wall, therefore the boundary 
+state
 is considered as entry point.
 
 \begin{RoyalFigure}[!htb, label=dia:statetopo]{STATE TRANSITIONS FOR TOPOLOGICAL COVERAGE ALGORITHM}
-	\resizebox{!}{6cm}{
-	\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=6cm,
-	semithick, every state/.style={minimum size=2cm, align=center}]
+    \resizebox{!}{6cm}{
+    \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=6cm,
+    semithick, every state/.style={minimum size=2cm, align=center}]
 
-	\node[initial,state,fill=RoyalLightGrey]  		(boundary)  		                  	{Boundary\\Algorithm~\ref{alg:boundaryStateTopo}};
-	\node[state,fill=RoyalLightGrey]          		(travel)   	[below right of=boundary] 	{Travel\\Algorithm~\ref{alg:travelStateTopo}};
-	\node[state,fill=RoyalLightGrey]	  			(normal)   	[right of=boundary] 		{Normal\\Algorithm~\ref{alg:normalStateTopo}};
-	\node						(exit)		[right of=normal, xshift=-20mm]	{exit};
-	\path (boundary) edge [bend right] node[xshift=-10mm, pos=0.4, align=center, below] {boundary fully\\explored} (travel);
-	\path (normal) edge [bend right] node [pos=0.5] {all covered} (exit);
-	\path (travel) edge [bend right] node [pos=0.8, align=center, below, xshift=10mm]{arrived at\\uncovered cell} (normal);
-	\path (normal) edge [bend right] node [align=center, above] {event occurred\\new landmark reached} (boundary);
-	\end{tikzpicture}}
+        \node[initial,state,fill=RoyalLightGrey]        (boundary)                            
+		{Boundary\\Algorithm~\ref{alg:boundaryStateTopo}};
+        \node[state,fill=RoyalLightGrey]                (travel)    [below right of=boundary]    
+		{Travel\\Algorithm~\ref{alg:travelStateTopo}};
+        \node[state,fill=RoyalLightGrey]                (normal)    [right of=boundary]        
+		{Normal\\Algorithm~\ref{alg:normalStateTopo}};
+        \node                        (exit)        [right of=normal, xshift=-20mm]    {exit};
+        \path (boundary) edge [bend right] node[xshift=-10mm, pos=0.4, align=center, below] {boundary 
+		fully\\explored} (travel);
+        \path (normal) edge [bend right] node [pos=0.5] {all covered} (exit);
+        \path (travel) edge [bend right] node [pos=0.8, align=center, below, xshift=10mm]{arrived at\\uncovered cell}
+		(normal);
+        \path (normal) edge [bend right] node [align=center, above] {event occurred\\new landmark reached} (boundary);
+    \end{tikzpicture}}
 \end{RoyalFigure}
 
 The crawler starts in the \emph{boundary} state by executing algorithm~\ref{alg:boundaryStateTopo}. During this state
-the crawler performs a wall following algorithm. When it finds a landmark or it arrives at the end of a strip, it updates
+the crawler performs a wall following algorithm. When it finds a landmark or it arrives at the end of a strip, it 
+updates
 graph \gls{sym-G_adj}. When it's at the end of a strip and the boundary is fully explored it gets in to the state
 travel, described in algorithm~\ref{alg:travelStateTopo}, otherwise it turns around and continues in the boundary state.
 
 \begin{RoyalAlgorithm}[label=alg:boundaryStateTopo]{BOUNDARY STATE}
-	\begin{algorithmic}[1]
-		\Procedure{BoundaryState}{}
-		\Loop
-		\State move forward along boundary
-		\If{at landmark}
-		\State update \gls{sym-G_adj}
-		\EndIf
-		\If{arrive at end of strip}
-		\State update \gls{sym-G_adj}
-		\If{boundary fully explored}
-		\State state $ \Leftarrow $ travel
-		\Else
-		\State turn around 180\textdegree
-		\EndIf
-		\EndIf
-		\EndLoop
-		\EndProcedure
-	\end{algorithmic}
+    \begin{algorithmic}[1]
+        \Procedure{BoundaryState}{}
+            \Loop
+                \State move forward along boundary
+                \If{at landmark}
+                    \State update \gls{sym-G_adj}
+                \EndIf
+                \If{arrive at end of strip}
+                    \State update \gls{sym-G_adj}
+                    \If{boundary fully explored}
+                        \State state $ \Leftarrow $ travel
+                    \Else
+                        \State turn around 180\textdegree
+                    \EndIf
+                \EndIf
+            \EndLoop
+        \EndProcedure
+    \end{algorithmic}
 \end{RoyalAlgorithm}
 
 Once in the \emph{travel} state, the path is generated that moves the crawler from one cell to another, it does so by
@@ -435,33 +460,33 @@ arrives at an cell its operation state becomes \emph{normal}. A normal boustroph
 this state.
 
 \begin{RoyalAlgorithm}[label=alg:normalStateTopo]{NORMAL STATE}
-	\begin{algorithmic}[1]
-		\Procedure{NormalState}{}
-		\Repeat
-			\State follow zigzag pattern
-		\Until{at landmark}
-		\State update \gls{sym-G_adj}
-		\State state $ \Leftarrow $ boundary
-		\EndProcedure
-	\end{algorithmic}
+    \begin{algorithmic}[1]
+        \Procedure{NormalState}{}
+            \Repeat
+                \State follow zigzag pattern
+            \Until{at landmark}
+            \State update \gls{sym-G_adj}
+            \State state $ \Leftarrow $ boundary
+        \EndProcedure
+    \end{algorithmic}
 \end{RoyalAlgorithm}
 
 \begin{RoyalAlgorithm}[label=alg:travelStateTopo]{TRAVEL STATE}
-	\begin{algorithmic}[1]
-		\Procedure{TravelState}{}
-		\State $ T(n) \Leftarrow \text{search } G $
-		\If{$ T(n) =\emptyset $}
-			\State exit algorithm
-		\EndIf
-		\While{$ T(n) \neq \emptyset $}
-			\State move towards $ T(0) $
-			\If{at $ T(0) $}
-				$ T(n) \Leftarrow T(n) - { T(0) } $
-			\EndIf
-		\EndWhile
-		\State state $ \Leftarrow $ normal
-		\EndProcedure
-	\end{algorithmic}
+    \begin{algorithmic}[1]
+        \Procedure{TravelState}{}
+            \State $ T(n) \Leftarrow \text{search } G $
+            \If{$ T(n) =\emptyset $}
+                \State exit algorithm
+            \EndIf
+            \While{$ T(n) \neq \emptyset $}
+                \State move towards $ T(0) $
+                \If{at $ T(0) $}
+                    $ T(n) \Leftarrow T(n) - { T(0) } $
+                \EndIf
+            \EndWhile
+            \State state $ \Leftarrow $ normal
+        \EndProcedure
+    \end{algorithmic}
 \end{RoyalAlgorithm}
 
 \subsubsection{LANDMARK RECOGNITION USING NEURAL NETWORKS}
@@ -472,8 +497,9 @@ a range of 360\textdegree. This vector is made independent of orientation, by vi
 would always point towards the direction where the sonar range measured the shortest distance, as depicted in
 figure~\ref{fig:rotatedsonarvectors}.
 
-\begin{RoyalFigure}[!htb, label=fig:rotatedsonarvectors]{ROTATION OF SONAR READING TO MOST OCCUPIED DIRECTION~\cite{wong_qualitative_2006}}
-	\includegraphics[width=\textwidth,trim=2 2 2 2,clip]{rotatedsonarvectors.pdf}
+\begin{RoyalFigure}[!htb, label=fig:rotatedsonarvectors]{ROTATION OF SONAR READING TO MOST OCCUPIED 
+DIRECTION~\cite{wong_qualitative_2006}}
+    \includegraphics[width=\textwidth,trim=2 2 2 2,clip]{rotatedsonarvectors.pdf}
 \end{RoyalFigure}
 
 This vector is fed into a \gls{acr-MLP} which distinguishes three different type of classes: free space nodes,
@@ -486,8 +512,9 @@ whether an obstacles is present or if it's rather free space. The value can eith
 \cite{galceran_coverage_2014}. These grid cells are typically square in shape, but it's not uncommon to use triangle
 shaped cell. The size of the cell usually corresponds with the size of a crawler.
 
-\begin{RoyalFigure}[!htb, label=fig:ccpdistancetransform]{COVERAGE PATH GENERATED FROM A DISTANCE TRANSFORM~\cite{wong_qualitative_2006}}
-	\includegraphics[height=7cm,trim=2 2 2 2,clip]{cppdistancetransform.pdf}
+\begin{RoyalFigure}[!htb, label=fig:ccpdistancetransform]{COVERAGE PATH GENERATED FROM A DISTANCE 
+TRANSFORM~\cite{wong_qualitative_2006}}
+    \includegraphics[height=7cm,trim=2 2 2 2,clip]{cppdistancetransform.pdf}
 \end{RoyalFigure}
 
 Once the environment is mapped onto an uniform grid. An optimal \gls{gls-coverage-path} can be found using the by
@@ -499,24 +526,24 @@ the robot can use gradient descent on this numeric potential function to find a 
 results of algorithm~\ref{alg:offlinegridbased} is shown in figure~\ref{fig:ccpdistancetransform}.
 
 \begin{RoyalAlgorithm}[label=alg:offlinegridbased]{OFF-LINE GRID-BASED COMPLETE COVERAGE}
-	\begin{algorithmic}[1]
-		\Procedure{GridBasedCompleteCoverage}{}
-		\State Set start cell to current cell
-		\State Set all cells to NOT visited
-		\Loop
-			\State Find unvisited neighboring cell with highest value
-			\If{NO unvisited neighboring cell found}
-				\State Mark current cell as visited
-				\State Exit procedure \Comment{Goal reached}
-			\EndIf
-			\If{unvisited neighboring cell value $ \leq $ current cell value}
-				\State Mark current cell as visited
-				\State Exit procdedure \Comment{Goal reached}
-			\EndIf
-			\State Set current cell to neighboring cell \Comment{Move to next cell}
-		\EndLoop
-		\EndProcedure
-	\end{algorithmic}
+    \begin{algorithmic}[1]
+        \Procedure{GridBasedCompleteCoverage}{}
+            \State Set start cell to current cell
+            \State Set all cells to NOT visited
+            \Loop
+                \State Find unvisited neighboring cell with highest value
+                \If{NO unvisited neighboring cell found}
+                    \State Mark current cell as visited
+                    \State Exit procedure \Comment{Goal reached}
+                \EndIf
+                \If{unvisited neighboring cell value $ \leq $ current cell value}
+                    \State Mark current cell as visited
+                    \State Exit procdedure \Comment{Goal reached}
+                \EndIf
+                \State Set current cell to neighboring cell \Comment{Move to next cell}
+            \EndLoop
+        \EndProcedure
+    \end{algorithmic}
 \end{RoyalAlgorithm}
 
 The author states an optimal placement of the start and goal cell is paramount. The algorithm~\ref{alg:offlinegridbased}
@@ -525,117 +552,117 @@ goal and start cell are arbitrarily placed. Execution of the algorithm ensures t
 farthest cell. Where it remains, if no backtracking over previous visited cells is allowed.
 
 \begin{RoyalFigure}[!htb, label=fig:deadlock]{DEADLOCK STATE DUE TO INCORRECT STARTING POINT}
-		\begin{tikzpicture}[every node/.style={draw,rectangle,minimum size=1cm}]
-		\foreach \x in {1,2,3,4,5}
-		{
-			\foreach \y in {1,2,3,4,5}
-			{
-				\ifnum\x=1
-					\ifnum\y=1
-						\node [align=center](\x \y) at (\x,\y) {6\\{\tiny deadlock}};
-					\fi
-					\ifnum\y=2
-						\node [fill=RoyalBlack](\x \y) at (\x,\y) {};
-					\fi
-					\ifnum\y=3
-						\node [](\x \y) at (\x,\y) {4};
-					\fi
-					\ifnum\y=4
-						\node [](\x \y) at (\x,\y) {4};
-					\fi
-					\ifnum\y=5
-						\node [](\x \y) at (\x,\y) {4};
-					\fi
-				\fi
+    \begin{tikzpicture}[every node/.style={draw,rectangle,minimum size=1cm}]
+        \foreach \x in {1,2,3,4,5}
+        {
+        \foreach \y in {1,2,3,4,5}
+        {
+        \ifnum\x=1
+        \ifnum\y=1
+        \node [align=center](\x \y) at (\x,\y) {6\\{\tiny deadlock}};
+        \fi
+        \ifnum\y=2
+        \node [fill=RoyalBlack](\x \y) at (\x,\y) {};
+        \fi
+        \ifnum\y=3
+        \node [](\x \y) at (\x,\y) {4};
+        \fi
+        \ifnum\y=4
+        \node [](\x \y) at (\x,\y) {4};
+        \fi
+        \ifnum\y=5
+        \node [](\x \y) at (\x,\y) {4};
+        \fi
+        \fi
 
-				\ifnum\x=2
-					\ifnum\y=1
-						\node [](\x \y) at (\x,\y) {5};
-					\fi
-					\ifnum\y=2
-						\node [fill=RoyalBlack](\x \y) at (\x,\y) {};
-					\fi
-					\ifnum\y=3
-						\node [](\x \y) at (\x,\y) {3};
-					\fi
-					\ifnum\y=4
-						\node [](\x \y) at (\x,\y) {3};
-					\fi
-					\ifnum\y=5
-						\node [](\x \y) at (\x,\y) {3};
-					\fi
-				\fi
+        \ifnum\x=2
+        \ifnum\y=1
+        \node [](\x \y) at (\x,\y) {5};
+        \fi
+        \ifnum\y=2
+        \node [fill=RoyalBlack](\x \y) at (\x,\y) {};
+        \fi
+        \ifnum\y=3
+        \node [](\x \y) at (\x,\y) {3};
+        \fi
+        \ifnum\y=4
+        \node [](\x \y) at (\x,\y) {3};
+        \fi
+        \ifnum\y=5
+        \node [](\x \y) at (\x,\y) {3};
+        \fi
+        \fi
 
-				\ifnum\x=3
-					\ifnum\y=1
-						\node [](\x \y) at (\x,\y) {4};
-					\fi
-					\ifnum\y=2
-						\node [fill=RoyalBlack](\x \y) at (\x,\y) {};
-					\fi
-					\ifnum\y=3
-						\node [](\x \y) at (\x,\y) {2};
-					\fi
-					\ifnum\y=4
-						\node [](\x \y) at (\x,\y) {S};
-					\fi
-					\ifnum\y=5
-						\node [](\x \y) at (\x,\y) {2};
-					\fi
-				\fi
+        \ifnum\x=3
+        \ifnum\y=1
+        \node [](\x \y) at (\x,\y) {4};
+        \fi
+        \ifnum\y=2
+        \node [fill=RoyalBlack](\x \y) at (\x,\y) {};
+        \fi
+        \ifnum\y=3
+        \node [](\x \y) at (\x,\y) {2};
+        \fi
+        \ifnum\y=4
+        \node [](\x \y) at (\x,\y) {S};
+        \fi
+        \ifnum\y=5
+        \node [](\x \y) at (\x,\y) {2};
+        \fi
+        \fi
 
-				\ifnum\x=4
-					\ifnum\y=1
-						\node [](\x \y) at (\x,\y) {4};
-					\fi
-					\ifnum\y=2
-						\node [](\x \y) at (\x,\y) {3};
-					\fi
-					\ifnum\y=3
-						\node [](\x \y) at (\x,\y) {2};
-					\fi
-					\ifnum\y=4
-						\node [](\x \y) at (\x,\y) {1};
-					\fi
-					\ifnum\y=5
-						\node [](\x \y) at (\x,\y) {1};
-					\fi
-				\fi
+        \ifnum\x=4
+        \ifnum\y=1
+        \node [](\x \y) at (\x,\y) {4};
+        \fi
+        \ifnum\y=2
+        \node [](\x \y) at (\x,\y) {3};
+        \fi
+        \ifnum\y=3
+        \node [](\x \y) at (\x,\y) {2};
+        \fi
+        \ifnum\y=4
+        \node [](\x \y) at (\x,\y) {1};
+        \fi
+        \ifnum\y=5
+        \node [](\x \y) at (\x,\y) {1};
+        \fi
+        \fi
 
-				\ifnum\x=5
-					\ifnum\y=1
-						\node [](\x \y) at (\x,\y) {4};
-					\fi
-					\ifnum\y=2
-						\node [](\x \y) at (\x,\y) {3};
-					\fi
-					\ifnum\y=3
-						\node [](\x \y) at (\x,\y) {2};
-					\fi
-					\ifnum\y=4
-						\node [](\x \y) at (\x,\y) {1};
-					\fi
-					\ifnum\y=5
-						\node [](\x \y) at (\x,\y) {G};
-					\fi
-				\fi
+        \ifnum\x=5
+        \ifnum\y=1
+        \node [](\x \y) at (\x,\y) {4};
+        \fi
+        \ifnum\y=2
+        \node [](\x \y) at (\x,\y) {3};
+        \fi
+        \ifnum\y=3
+        \node [](\x \y) at (\x,\y) {2};
+        \fi
+        \ifnum\y=4
+        \node [](\x \y) at (\x,\y) {1};
+        \fi
+        \ifnum\y=5
+        \node [](\x \y) at (\x,\y) {G};
+        \fi
+        \fi
 
-			}
-		}
+        }
+        }
 
-		\draw(34.center) -- (23.center);
-		\draw(23.center) -- (13.center);
-		\draw(13.center) -- (15.center);
-		\draw(15.center) -- (25.center);
-		\draw(25.center) -- (24.center);
-		\draw(24.center) -- (35.center);
-		\draw(35.center) -- (45.center);
-		\draw(45.center) -- (44.center);
-		\draw(44.center) -- (33.center);
-		\draw(33.center) -- (43.center);
-		\draw(43.center) -- (41.center);
-		\draw(41.center) -- (11.center);
-		\end{tikzpicture}
+        \draw(34.center) -- (23.center);
+        \draw(23.center) -- (13.center);
+        \draw(13.center) -- (15.center);
+        \draw(15.center) -- (25.center);
+        \draw(25.center) -- (24.center);
+        \draw(24.center) -- (35.center);
+        \draw(35.center) -- (45.center);
+        \draw(45.center) -- (44.center);
+        \draw(44.center) -- (33.center);
+        \draw(33.center) -- (43.center);
+        \draw(43.center) -- (41.center);
+        \draw(41.center) -- (11.center);
+    \end{tikzpicture}
 \end{RoyalFigure}
 
 \subsubsection{GRID-BASED COVERAGE USING SPANNING TREES}
@@ -653,24 +680,25 @@ along one side of the spanning tree until it reaches the end of the tree. At thi
 traverse the other side of the tree~\cite{galceran_coverage_2014}.
 
 \begin{RoyalFigure}[!htb, label=]{COVERAGE PATH GENERATED WITH THE SPIRAL-STC ALGORITHM~\cite{galceran_survey_2013}.}
-		\includegraphics[height=7cm,trim=2 2 2 2,clip]{spiral-stc.pdf}
+    \includegraphics[height=7cm,trim=2 2 2 2,clip]{spiral-stc.pdf}
 \end{RoyalFigure}
 
 \begin{RoyalAlgorithm}[label=alg:stc]{SPIRAL SPANNING TREE COVERAGE}
-	\begin{algorithmic}[1]
-		\Procedure{SpiralSpanningTreeCoverage}{ $ w , \gls{sym-x} $ }
-		\State Mark the current cell \gls{sym-x} as $ old $
-		\While{\gls{sym-x} has $ new $ obstacle-free-4-neighbour cell }
-			\State Scan for the first new neighbour of \gls{sym-x} in anti-clockwise order, starting with the parent cell $ w $ Call this neighbour \gls{sym-y}
-			\State Construct a spanning-tree edge from \gls{sym-x} to \gls{sym-y}.
-			\State Move to a subcell of \gls{sym-y} by following the right-side of the spanning tree edges
-			\State Execute SpiralSpanningTreeCoverage($\gls{sym-x},\gls{sym-y}$).
-		\EndWhile
-		\If{$ \gls{sym-x} \neq start cell $ }
-			\State Move back from \gls{sym-x} to a subcell of $ w $ along the right-side of the spanning tree edges.
-		\EndIf
-		\EndProcedure
-	\end{algorithmic}
+    \begin{algorithmic}[1]
+        \Procedure{SpiralSpanningTreeCoverage}{ $ w , \gls{sym-x} $ }
+            \State Mark the current cell \gls{sym-x} as $ old $
+            \While{\gls{sym-x} has $ new $ obstacle-free-4-neighbour cell }
+                \State Scan for the first new neighbour of \gls{sym-x} in anti-clockwise order, starting with the 
+				parent cell $ w $ Call this neighbour \gls{sym-y}
+                \State Construct a spanning-tree edge from \gls{sym-x} to \gls{sym-y}.
+                \State Move to a subcell of \gls{sym-y} by following the right-side of the spanning tree edges
+                \State Execute SpiralSpanningTreeCoverage($\gls{sym-x},\gls{sym-y}$).
+            \EndWhile
+            \If{$ \gls{sym-x} \neq start cell $ }
+                \State Move back from \gls{sym-x} to a subcell of $ w $ along the right-side of the spanning tree edges.
+            \EndIf
+        \EndProcedure
+    \end{algorithmic}
 \end{RoyalAlgorithm}
 
 \citet{wong_qualitative_2006} and \citet{lee_smooth_2011} states the path can be optimized by using smaller grid cells,
@@ -690,7 +718,7 @@ is associated to each and every grid cell. Each neuron has connections to its im
 neighbors~\cite{galceran_survey_2013}. This architecture is illustrated in figure~\ref{fig:cppnn}.
 
 \begin{RoyalFigure}[!htb, label=fig:cppnn]{ARCHITECTURE OF A NEURODYNAMICS MODEL~\cite{yan_complete_2012}}
-	\includegraphics[height=12cm,trim=2 2 2 2,clip]{cppnn.pdf}
+    \includegraphics[height=12cm,trim=2 2 2 2,clip]{cppnn.pdf}
 \end{RoyalFigure}
 
 The proposed neural network, is topologically expressed on a 2-dimensional occupancy grid map. The location of the
@@ -701,8 +729,10 @@ and lateral neural connections, while inhibitory inputs, results from obstacles~
 equation~\ref{eq:shunting} derived from Hodgkin and Huxley~\cite{hodgkin_quantitative_1952} determines the dynamics of
 each neuron in the network.
 
-\begin{equation}\label{eq:shunting}
-	\dv{x_k}{t} = -Ax_k + (B - x_k) \left(\left[I_k\right]^+ + \sum_{l=1}^{m}w_{kl}\left[\gls{sym-n_a_l}\right]^+ \right) - (D + x_i)\left[I_i\right]^-
+\begin{equation}
+    \label{eq:shunting}
+    \dv{x_k}{t} = -Ax_k + (B - x_k) \left(\left[I_k\right]^+ + \sum_{l=1}^{m}w_{kl}\left[\gls{sym-n_a_l}\right]^+ 
+	\right) - (D + x_i)\left[I_i\right]^-
 \end{equation}
 
 Equation~\ref{eq:shunting} consist of the following terms: \( x_k \) is the \( k \)th neuron in the neural network,
@@ -714,27 +744,29 @@ between the $ k $th and the $ l $th neuron, which is given by $ w_{kl} = f(|q_k 
 Euclidean distance between vectors $ q_k $ and $ q_l $ in the state space, and $ f(d) $is a \gls{gls-monotonically}
 decreasing function defined as
 
-\begin{equation}\label{eq:fd}
-	f(d) = \left\{
-	\begin{array}{ll}
-		\frac{\mu}{d}, 0 \leq d < \gls{sym-r_0} \\
-		0, d \geq \gls{sym-r_0} \\
-	\end{array}
-	\right.
+\begin{equation}
+    \label{eq:fd}
+    f(d) = \left\{
+    \begin{array}{ll}
+        \frac{\mu}{d}, 0 \leq d < \gls{sym-r_0} \\
+        0, d \geq \gls{sym-r_0}                 \\
+    \end{array}
+    \right.
 \end{equation}
 
 % todo: sym mu
 \noindent Where $ \mu $ and $ \gls{sym-r_0} $ are positive constants, The external input $ I_k $ to the $ k $th neuron
 is defined in equation~\ref{eq:externalinputs}. In this equation $ E $ is a large constant.
 
-\begin{equation}\label{eq:externalinputs}
-	I_k = \left\{
-	\begin{array}{ll}
-		E, \text{ if it's an uncovered area} \\
-		-E, \text{ if it's an obstacle area} \\
-		0, \text{ if it's a covered area}\\
-	\end{array}
-	\right.
+\begin{equation}
+    \label{eq:externalinputs}
+    I_k = \left\{
+    \begin{array}{ll}
+        E, \text{ if it's an uncovered area} \\
+        -E, \text{ if it's an obstacle area} \\
+        0, \text{ if it's a covered area}    \\
+    \end{array}
+    \right.
 \end{equation}
 
 By properly defining the external inputs from the changing environment and internal neural connections, the unclean
@@ -752,11 +784,12 @@ crawler location at time \( k \), denoted by \gls{sym-p_k}, the next crawler loc
 \gls{sym-p_k_1} is obtained by equation~\ref{eq:nextauvloc}. Where \( c \) is a positive constant and \gls{sym-m_n} is
 the number of neighbouring neurons of the \gls{sym-p_k} neuron, that is all the possible locations of the current
 location \gls{sym-p_k}; variable \gls{sym-n_a_l} is the neural activity of the \( l \)th neuron, which is the same as in
-equation~\ref{eq:shunting}; \gls{sym-y_l} is a \gls{gls-monotonically} increasing function of the difference  between
+equation~\ref{eq:shunting}; \gls{sym-y_l} is a \gls{gls-monotonically} increasing function of the difference between
 the next crawler moving directions, defined in equation~\ref{eq:movementfucntion}.
 
-\begin{equation}\label{eq:nextauvloc}
-	\gls{sym-p_k_1} \Longleftarrow x_{\gls{sym-p_k}} = \max\{\gls{sym-n_a_l} + c~\gls{sym-y_l}, l=1,2...,m\}
+\begin{equation}
+    \label{eq:nextauvloc}
+    \gls{sym-p_k_1} \Longleftarrow x_{\gls{sym-p_k}} = \max\{\gls{sym-n_a_l} + c~\gls{sym-y_l}, l=1,2...,m\}
 \end{equation}
 
 Where \( \Delta \varPsi_l \in [0,\pi] \) is the turning angle between the current moving direction and the next moving
@@ -766,8 +799,9 @@ depending on the convention place on  \( \Delta \varPsi_l \). By defining it as 
 crawler has a full turning range. Thus \( \Delta \varPsi_l = \varPsi_l - \varPsi_c = |a \tan 2(y_{p_l} - y_{p_c},
 x_{p_l} - x_{p_c}) - a \tan 2(y_{p_c} - y_{p_p}, x_{p_c} - x_{p_p})| \)
 
-\begin{equation}\label{eq:movementfucntion}
-	y_l = 1 - \frac{\Delta \varPsi_l}{\pi}
+\begin{equation}
+    \label{eq:movementfucntion}
+    y_l = 1 - \frac{\Delta \varPsi_l}{\pi}
 \end{equation}
 
 According to \citet{yan_complete_2012} path planning in the vicinity of some unstructured obstacles may cause overlap,
@@ -778,10 +812,10 @@ vicinity situation of unstructured obstacles and enable the crawler to plan a mo
 overlapping areas.
 
 \begin{figure}
-	\begin{center}
-		\includegraphics[width=\textwidth,trim=2 2 2 2,clip]{predefinedtemplates.pdf}
-	\end{center}
-	\caption{Four predefined templates. Source: \citet{yan_complete_2012}}\label{fig:fourtemp}
+    \begin{center}
+        \includegraphics[width=\textwidth,trim=2 2 2 2,clip]{predefinedtemplates.pdf}
+    \end{center}
+    \caption{Four predefined templates. Source: \citet{yan_complete_2012}}\label{fig:fourtemp}
 \end{figure}
 
 Grid based neural networks methods lend themselves to be easily integrated with map building. \citet{yan_complete_2012}

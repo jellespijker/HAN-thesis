@@ -1,6 +1,8 @@
 % !TeX root = ../report.tex
 % !TeX spellcheck = en-US
 % !TeX encoding = UTF-8
+
+
 \section{LOCATION UNDER UNCERTAINTY}\label{sec:coverageunderuncertainty}
 
 Due to the absence of an ubiquitous global localization system such as \gls{acr-GPS} in underwater environments, crawler
@@ -83,12 +85,16 @@ state space \gls{sym-x_k} into the observed space, whilst taking into account th
 is assumed to be unrelated to \gls{sym-w_k}, and is white with a normal probability distribution. Where \gls{sym-R_k} is
 the measurement noise covariance.
 
-\begin{equation}\label{eq:kalman}
-	\gls{sym-x_khat} = \gls{sym-F_k} \gls{sym-x_kt-1} + \gls{sym-B_k} \gls{sym-u_k} + \gls{sym-w_k}, \qquad p(\gls{sym-w_k}) \sim \mathit{N}(0,\gls{sym-Q_k})
+\begin{equation}
+    \label{eq:kalman}
+    \gls{sym-x_khat} = \gls{sym-F_k} \gls{sym-x_kt-1} + \gls{sym-B_k} \gls{sym-u_k} + \gls{sym-w_k}, \qquad p
+	(\gls{sym-w_k}) \sim \mathit{N}(0,\gls{sym-Q_k})
 \end{equation}
 
-\begin{equation}\label{eq:kalman measurement}
-	\gls{sym-z_k} = \gls{sym-H_k} \gls{sym-x_k} + \gls{sym-v_k}, \qquad p(\gls{sym-v_k}) \sim \mathit{N}(0,\gls{sym-R_k})
+\begin{equation}
+    \label{eq:kalman measurement}
+    \gls{sym-z_k} = \gls{sym-H_k} \gls{sym-x_k} + \gls{sym-v_k}, \qquad p(\gls{sym-v_k}) \sim \mathit{N}(0,
+	\gls{sym-R_k})
 \end{equation}
 
 Figure~\ref{fig:Kalman workflow}, shows the algorithm as a flow diagram. It starts with and initial assumption of the
@@ -96,37 +102,41 @@ state \gls{sym-x_k0} and \gls{sym-P_0}, which is the initial state of the error 
 described as a measure of the estimated accuracy of the state estimate.
 
 \begin{RoyalFigure}[!htb, label=fig:Kalman workflow]{FLOW OF A KALMAN FILTER}
-	\begin{tikzpicture}[auto, node distance=4cm,>=latex', align=center]
-	% Placing the blocks
-	\node [block, name=initial state] {\sffamily\bfseries{INITIAL STATE} \\ $\begin{array}{c}
-		\gls{sym-x_k0} \\
-		\gls{sym-P_0}
-		\end{array} $};
-	\node [block, right of=initial state] (previous state) {\sffamily\bfseries{PREVIOUS STATE} \\  $\begin{array}{c}
-		\gls{sym-x_kt-1} \\
-		\gls{sym-P_k-1}
-		\end{array} $};
-	\node [block, right of=previous state,xshift=1cm] (new predicted state) {\sffamily\bfseries{NEW PREDICTED STATE} \\ $\begin{array}{c}
-		\gls{sym-x_khat} = \gls{sym-F_k} \gls{sym-x_kt-1} + \gls{sym-B_k} \gls{sym-u_k} + \gls{sym-w_k} \\
-		\gls{sym-P_k} = \gls{sym-F_k} \gls{sym-P_k-1} \gls{sym-F_k}^T + \gls{sym-Q_k}
-		\end{array}$};
-	\node[block, below of=new predicted state, yshift=1cm](update) {\sffamily\bfseries{UPDATE AND CALCULATE GAIN} \\ $ \begin{array}{c}
-		\gls{sym-Kgain} = \frac{\gls{sym-P_k}\gls{sym-H_k}^T}{\gls{sym-H_k}\gls{sym-P_k}\gls{sym-H_k}^T + \gls{sym-R_k}} \\
-		\gls{sym-x_k} = \gls{sym-x_khat} + \gls{sym-Kgain}\left[\gls{sym-z_k} - \gls{sym-H_k} \gls{sym-x_khat} \right]
-		\end{array} $};
-	\node[block, below of=previous state,yshift=1cm](current state) {\sffamily\bfseries{CURRENT STATE} \\ $ \begin{array}{c}
-		\gls{sym-P_k} = \left[\mathbf{I}-\gls{sym-Kgain}\gls{sym-H_k}\right] \gls{sym-P_k} \\
-		\gls{sym-x_k}
-		\end{array} $};
-	\node[block, below of=update,yshift=1cm](measurement) {\sffamily\bfseries{MEASUREMENT} \\ $ \gls{sym-z_k} = \gls{sym-H_k} \gls{sym-y_k} + \gls{sym-v_k} $};
+    \begin{tikzpicture}[auto, node distance=4cm,>=latex', align=center]
+        % Placing the blocks
+        \node [block, name=initial state] {\sffamily\bfseries{INITIAL STATE} \\ $\begin{array}{c}
+                                                                                     \gls{sym-x_k0} \\
+                                                                                     \gls{sym-P_0}
+        \end{array} $};
+        \node [block, right of=initial state] (previous state) {\sffamily\bfseries{PREVIOUS STATE} \\  $\begin{array}{c}
+                                                                                                            \gls{sym-x_kt-1} \\
+                                                                                                            \gls{sym-P_k-1}
+        \end{array} $};
+        \node [block, right of=previous state,xshift=1cm] (new predicted state) {\sffamily\bfseries{NEW PREDICTED 
+		STATE} \\ $\begin{array}{c}
+                                                                                                                                 \gls{sym-x_khat} = \gls{sym-F_k} \gls{sym-x_kt-1} + \gls{sym-B_k} \gls{sym-u_k} + \gls{sym-w_k} \\
+                                                                                                                                 \gls{sym-P_k} = \gls{sym-F_k} \gls{sym-P_k-1} \gls{sym-F_k}^T + \gls{sym-Q_k}
+        \end{array}$};
+        \node[block, below of=new predicted state, yshift=1cm](update) {\sffamily\bfseries{UPDATE AND CALCULATE GAIN}
+		\\ $ \begin{array}{c}
+                                                                                                                               \gls{sym-Kgain} = \frac{\gls{sym-P_k}\gls{sym-H_k}^T}{\gls{sym-H_k}\gls{sym-P_k}\gls{sym-H_k}^T + \gls{sym-R_k}} \\
+                                                                                                                               \gls{sym-x_k} = \gls{sym-x_khat} + \gls{sym-Kgain}\left[\gls{sym-z_k} - \gls{sym-H_k} \gls{sym-x_khat} \right]
+        \end{array} $};
+        \node[block, below of=previous state,yshift=1cm](current state) {\sffamily\bfseries{CURRENT STATE} \\ $ 
+		\begin{array}{c}
+                                                                                                                    \gls{sym-P_k} = \left[\mathbf{I}-\gls{sym-Kgain}\gls{sym-H_k}\right] \gls{sym-P_k} \\
+                                                                                                                    \gls{sym-x_k}
+        \end{array} $};
+        \node[block, below of=update,yshift=1cm](measurement) {\sffamily\bfseries{MEASUREMENT} \\ $ \gls{sym-z_k} = 
+		\gls{sym-H_k} \gls{sym-y_k} + \gls{sym-v_k} $};
 
-	\draw [->] (initial state) -- (previous state);
-	\draw [->] (previous state) -- (new predicted state);
-	\draw [->] (new predicted state) -- (update);
-	\draw [->] (update) -- (current state);
-	\draw [->] (current state) -- (previous state);
-	\draw [->] (measurement) -- (update);
-	\end{tikzpicture}
+        \draw [->] (initial state) -- (previous state);
+        \draw [->] (previous state) -- (new predicted state);
+        \draw [->] (new predicted state) -- (update);
+        \draw [->] (update) -- (current state);
+        \draw [->] (current state) -- (previous state);
+        \draw [->] (measurement) -- (update);
+    \end{tikzpicture}
 \end{RoyalFigure}
 
 These initialized values are fed in the loop as a \textbf{previous state}. With which a \textbf{new predicted state} is
@@ -141,29 +151,31 @@ example it will be an acceleration due to gravity \gls{sym-a_z} = -\gls{sym-g}. 
 estimate} illustrates the new estimation of the state of our example. Here \( \gls{sym-Delta_t} \) is an incremental
 time step.
 
-\begin{equation}\label{eq:kalman example estimate}
-	\gls{sym-x_khat} =
-	\left[\begin{array}{cc}
-	1 & \gls{sym-Delta_t} \\
-	0 & 1
-	\end{array}\right]
-	\left[\begin{array}{c}
-	\gls{sym-s_z_k-1} \\
-	\gls{sym-v_z_k-1}
-	\end{array}\right]
-	+ \left[\begin{array}{c}
-	\frac{1}{2}\gls{sym-Delta_t}^2 \\
-	\gls{sym-Delta_t}
-	\end{array}\right]
-	\left[\gls{sym-a_z_k}\right]
-	+ \left[\begin{array}{c}
-	0 \\
-	0
-	\end{array}\right] =
-	\left[\begin{array}{c}
-	\gls{sym-s_z_k-1} + \gls{sym-v_z_k-1}\gls{sym-Delta_t} + \frac{1}{2} \gls{sym-a_z_k} \gls{sym-Delta_t}^2\\
-	\gls{sym-v_z_k-1} + \gls{sym-a_z_k} \gls{sym-Delta_t}
-	\end{array}\right]
+\begin{equation}
+    \label{eq:kalman example estimate}
+    \gls{sym-x_khat} =
+    \left[\begin{array}{cc}
+              1 & \gls{sym-Delta_t} \\
+              0 & 1
+    \end{array}\right]
+    \left[\begin{array}{c}
+              \gls{sym-s_z_k-1} \\
+              \gls{sym-v_z_k-1}
+    \end{array}\right]
+    + \left[\begin{array}{c}
+                \frac{1}{2}\gls{sym-Delta_t}^2 \\
+                \gls{sym-Delta_t}
+    \end{array}\right]
+    \left[\gls{sym-a_z_k}\right]
+    + \left[\begin{array}{c}
+                0 \\
+                0
+    \end{array}\right] =
+    \left[\begin{array}{c}
+              \gls{sym-s_z_k-1} + \gls{sym-v_z_k-1}\gls{sym-Delta_t} + \frac{1}{2} \gls{sym-a_z_k} 
+			  \gls{sym-Delta_t}^2 \\
+              \gls{sym-v_z_k-1} + \gls{sym-a_z_k} \gls{sym-Delta_t}
+    \end{array}\right]
 \end{equation}
 
 The new predicted error of the estimate, known as the error covariance matrix \gls{sym-P_k}, is used to map the
@@ -174,40 +186,46 @@ assumption is also made that the position has an error of \( \sigma{\gls{sym-s_z
 equation~\ref{eq:kalman new predicted P}, with which a new error covariance matrix can be calculated, as is shown in
 equation~\ref{eq:kalman example P}. The noise matrix \gls{sym-Q_k} is set to zero.
 
-\begin{equation}\label{eq:kalman new predicted P}
-	\gls{sym-P_k} = \gls{sym-F_k} \gls{sym-P_k-1} \gls{sym-F_k}^T + \gls{sym-Q_k}
+\begin{equation}
+    \label{eq:kalman new predicted P}
+    \gls{sym-P_k} = \gls{sym-F_k} \gls{sym-P_k-1} \gls{sym-F_k}^T + \gls{sym-Q_k}
 \end{equation}
 
-\begin{equation}\label{eq:kalman example P}
-	\begin{multlined}[b]
-	\gls{sym-P_k} =
-	\left[\begin{array}{cc}
-	1 & \gls{sym-Delta_t} \\
-	0 & 1
-	\end{array}\right]
-	\left[\begin{array}{cc}
-	\sigma_{\gls{sym-s_z} }^{2} & 0 \\
-	0 & \sigma_{\gls{sym-v_z} }^{2}
-	\end{array}\right]
-	\left[\begin{array}{cc}
-	1 & \gls{sym-Delta_t} \\
-	0 & 1
-	\end{array}\right]^{T}
-	+
-	\left[\begin{array}{cc}
-	0 & 0 \\
-	0 & 0
-	\end{array}\right]
-	= \\ \left[\begin{array}{cc}
-	\gls{sym-Delta_t}^2 \sigma_{\gls{sym-v_z} }^{2} + \sigma_{\gls{sym-s_z} }^{2} & \gls{sym-Delta_t} \sigma_{\gls{sym-s_z} }^{2} \\
-	\gls{sym-Delta_t} \sigma_{\gls{sym-s_z} }^{2} & \sigma_{\gls{sym-s_z} }^{2}
-	\end{array}\right]
-	\approx
-	\left[\begin{array}{cc}
-	\gls{sym-Delta_t}^2 \sigma_{\gls{sym-v_z} }^{2} + \sigma_{\gls{sym-s_z} }^{2} & 0 \\
-	0 & \sigma_{\gls{sym-s_z} }^{2}
-	\end{array}\right]
-\end{multlined}
+\begin{equation}
+    \label{eq:kalman example P}
+    \begin{multlined}[b]
+        \gls{sym-P_k} =
+        \left[\begin{array}{cc}
+                  1 & \gls{sym-Delta_t} \\
+                  0 & 1
+        \end{array}\right]
+        \left[\begin{array}{cc}
+                  \sigma_{\gls{sym-s_z} }^{2} & 0                           \\
+                  0                           & \sigma_{\gls{sym-v_z} }^{2}
+        \end{array}\right]
+        \left[\begin{array}{cc}
+                  1 & \gls{sym-Delta_t} \\
+                  0 & 1
+        \end{array}\right]^{T}
+        +
+        \left[\begin{array}{cc}
+                  0 & 0 \\
+                  0 & 0
+        \end{array}\right]
+        = \\ \left[\begin{array}{cc}
+                       \gls{sym-Delta_t}^2 \sigma_{\gls{sym-v_z} }^{2} + \sigma_{\gls{sym-s_z} }^{2} & 
+					   \gls{sym-Delta_t} \sigma_{\gls{sym-s_z} }^{2} \\
+                       \gls{sym-Delta_t} \sigma_{\gls{sym-s_z} }^{2}                                 & 
+					   \sigma_{\gls{sym-s_z} }^{2}
+        \end{array}\right]
+        \approx
+        \left[\begin{array}{cc}
+                  \gls{sym-Delta_t}^2 \sigma_{\gls{sym-v_z} }^{2} + \sigma_{\gls{sym-s_z} }^{2} & 0                  
+				  \\
+                  0                                                                             & 
+				  \sigma_{\gls{sym-s_z} }^{2}
+        \end{array}\right]
+    \end{multlined}
 \end{equation}
 
 Once the prediction of a new state and error covariance matrix is made, The \textbf{measurements} can be calculated. It
@@ -217,30 +235,32 @@ sensitivity matrix defining the linear relationship between the state of a dynam
 be made, which for now is set equal to a \( 2 \times 2 \) identity matrix. Lets assume that for our example only the
 position can be measured \gls{sym-s_z_m_k} and that the measurement noise is assumed to be zero.
 
-\begin{equation}\label{eq:kalman measurement form}
-	\gls{sym-z_k} = \gls{sym-H_k} \gls{sym-y_k} + \gls{sym-v_k}
+\begin{equation}
+    \label{eq:kalman measurement form}
+    \gls{sym-z_k} = \gls{sym-H_k} \gls{sym-y_k} + \gls{sym-v_k}
 \end{equation}
 
-\begin{equation}\label{eq:kalman measurement example}
-	\gls{sym-z_k} =
-	\left[\begin{array}{cc}
-	1 & 0 \\
-	0 & 1
-	\end{array}\right]
-	\left[\begin{array}{c}
-	\gls{sym-s_z_m_k} \\
-	0
-	\end{array}\right]
-	+
-	\left[\begin{array}{c}
-	0 \\
-	0
-	\end{array}\right]
-	=
-	\left[\begin{array}{c}
-	\gls{sym-s_z_m}  \\
-	0
-	\end{array}\right]
+\begin{equation}
+    \label{eq:kalman measurement example}
+    \gls{sym-z_k} =
+    \left[\begin{array}{cc}
+              1 & 0 \\
+              0 & 1
+    \end{array}\right]
+    \left[\begin{array}{c}
+              \gls{sym-s_z_m_k} \\
+              0
+    \end{array}\right]
+    +
+    \left[\begin{array}{c}
+              0 \\
+              0
+    \end{array}\right]
+    =
+    \left[\begin{array}{c}
+              \gls{sym-s_z_m} \\
+              0
+    \end{array}\right]
 \end{equation}
 
 With the predicted state and the obtained measurements a new state can be estimated. During this \textbf{update} phase,
@@ -248,39 +268,45 @@ we determine how much weight the \gls{gls-Kalman-filter} needs to put in to its 
 state. This can be done by calculating the \gls{sym-Kgain}~\gls{gls-kalman-gain}. It can be calculated with
 equation~\ref{eq:kalman gain}. Where \gls{sym-R_k} is the covariance matrix of observational (measurement) uncertainty.
 
-\begin{equation}\label{eq:kalman gain}
-\gls{sym-Kgain} = \frac{\gls{sym-P_k}\gls{sym-H_k}^T}{\gls{sym-H_k}\gls{sym-P_k}\gls{sym-H_k}^T + \gls{sym-R_k}}
+\begin{equation}
+    \label{eq:kalman gain}
+    \gls{sym-Kgain} = \frac{\gls{sym-P_k}\gls{sym-H_k}^T}{\gls{sym-H_k}\gls{sym-P_k}\gls{sym-H_k}^T + \gls{sym-R_k}}
 \end{equation}
 
 \begin{equation}
-	\gls{sym-Kgain} = \frac{\left[\begin{array}{cc}
-		\gls{sym-Delta_t}^2 \gls{sym-sigma_v}^{2} + \gls{sym-sigma_s}^{2} & 0 \\
-		0 & \gls{sym-sigma_s}^{2}
-		\end{array}\right]
-		\left[\begin{array}{cc}
-		1 & 0 \\
-		0 & 1
-		\end{array}\right]^{T}}{
-		\left[\begin{array}{cc}
-		1 & 0 \\
-		0 & 1
-		\end{array}\right]
-		\left[\begin{array}{cc}
-		\gls{sym-Delta_t}^2 \gls{sym-sigma_v}^{2} + \gls{sym-sigma_s}^{2} & 0 \\
-		0 & \gls{sym-sigma_s}^{2}
-		\end{array}\right]
-		\left[\begin{array}{cc}
-		1 & 0 \\
-		0 & 1
-		\end{array}\right]^{T}
-		\left[\begin{array}{cc}
-		\gls{sym-sigma_s_m}^2 & 0 \\
-		0 & \gls{sym-sigma_v_m}^2
-		\end{array}\right]} =
-		\left[\begin{array}{cc}
-		\frac{\gls{sym-Delta_t}^2 \gls{sym-sigma_v}^2 + \gls{sym-sigma_s}^2}{\gls{sym-Delta_t} ^2 \gls{sym-sigma_v}^2 + \gls{sym-sigma_s}^2 + \gls{sym-sigma_s_m}^2} & 0 \\
-		0 & \frac{\gls{sym-sigma_v}^2}{\gls{sym-sigma_v}^2 + \gls{sym-sigma_v_m}^2}
-		\end{array}\right]
+    \gls{sym-Kgain} = \frac{\left[\begin{array}{cc}
+                                      \gls{sym-Delta_t}^2 \gls{sym-sigma_v}^{2} + \gls{sym-sigma_s}^{2} & 0          
+									  \\
+                                      0                                                                 & 
+									  \gls{sym-sigma_s}^{2}
+    \end{array}\right]
+    \left[\begin{array}{cc}
+              1 & 0 \\
+              0 & 1
+    \end{array}\right]^{T}}{
+    \left[\begin{array}{cc}
+              1 & 0 \\
+              0 & 1
+    \end{array}\right]
+    \left[\begin{array}{cc}
+              \gls{sym-Delta_t}^2 \gls{sym-sigma_v}^{2} + \gls{sym-sigma_s}^{2} & 0                     \\
+              0                                                                 & \gls{sym-sigma_s}^{2}
+    \end{array}\right]
+    \left[\begin{array}{cc}
+              1 & 0 \\
+              0 & 1
+    \end{array}\right]^{T}
+    \left[\begin{array}{cc}
+              \gls{sym-sigma_s_m}^2 & 0                     \\
+              0                     & \gls{sym-sigma_v_m}^2
+    \end{array}\right]} =
+    \left[\begin{array}{cc}
+              \frac{\gls{sym-Delta_t}^2 \gls{sym-sigma_v}^2 + \gls{sym-sigma_s}^2}{\gls{sym-Delta_t} ^2 
+			  \gls{sym-sigma_v}^2 + \gls{sym-sigma_s}^2 + \gls{sym-sigma_s_m}^2} & 0                                  
+			  \\
+              0                                                                                                      
+			  & \frac{\gls{sym-sigma_v}^2}{\gls{sym-sigma_v}^2 + \gls{sym-sigma_v_m}^2}
+    \end{array}\right]
 \end{equation}
 
 The \gls{gls-kalman-gain} obtained in equation~\ref{eq:kalman gain}, is used in equation~\ref{eq:kalman xk}. Where a new
@@ -296,44 +322,55 @@ From the worked out 1-dimensional example it becomes apparent, that the state va
 equation~\ref{eq:kalman example xk} are weighted average between the measurements and the prediction, normalized against
 the error of the covariance, between the state variables.
 
-\begin{equation}\label{eq:kalman xk}
-	\gls{sym-x_k} = \gls{sym-x_khat} + \gls{sym-Kgain}\left[\gls{sym-z_k} - \gls{sym-H_k} \gls{sym-x_khat}\right]
+\begin{equation}
+    \label{eq:kalman xk}
+    \gls{sym-x_k} = \gls{sym-x_khat} + \gls{sym-Kgain}\left[\gls{sym-z_k} - \gls{sym-H_k} \gls{sym-x_khat}\right]
 \end{equation}
 
-\begin{equation}\label{eq:kalman example xk}
-\begin{aligned}
-	\gls{sym-x_k} =
-	\left[\begin{array}{c}
-	\gls{sym-s_z_k-1} + \gls{sym-v_z_k-1}\gls{sym-Delta_t} + \frac{1}{2} \gls{sym-a_z_k} \gls{sym-Delta_t}^2\\
-	\gls{sym-v_z_k-1} + \gls{sym-a_z_k} \gls{sym-Delta_t}
-	\end{array}\right]
-	+
-	\left[\begin{array}{cc}
-	\frac{\gls{sym-Delta_t}^2 \gls{sym-sigma_v}^2 + \gls{sym-sigma_s}^2}{\gls{sym-Delta_t}^2 \gls{sym-sigma_v}^2 + \gls{sym-sigma_s}^2 + \gls{sym-sigma_s_m}^2} & 0 \\
-	0 & \frac{\gls{sym-sigma_v}^2}{\gls{sym-sigma_v}^2 + \gls{sym-sigma_v_m}^2}
-	\end{array}\right] \dots \\
-	\left[
-	\left[\begin{array}{c}
-	\gls{sym-s_z_m_k}  \\
-	0
-	\end{array}\right]
-	-
-	\left[\begin{array}{cc}
-	1 & 0 \\
-	0 & 1
-	\end{array}\right]
-	\left[\begin{array}{c}
-	\gls{sym-s_z_k-1} + \gls{sym-v_z_k-1}\gls{sym-Delta_t} + \frac{1}{2} \gls{sym-a_z_k} \gls{sym-Delta_t}^2\\
-	\gls{sym-v_z_k-1} + \gls{sym-a_z_k} \gls{sym-Delta_t}
-	\end{array}\right]
-	\right]
-	= \dots \\
-	\left[\begin{array}{c}
-	\frac{\gls{sym-s_z_m} \gls{sym-Delta_t}^{2} \gls{sym-sigma_v}^2 + 2 \gls{sym-a_z_k} \gls{sym-Delta_t}^2 + 2 \gls{sym-v_z_k-1} \gls{sym-Delta_t} \gls{sym-sigma_s_m}^{2} + \gls{sym-s_z_m_k} \gls{sym-sigma_s}^2 + s_{k-1} + \gls{sym-sigma_s_m}^2 }{\gls{sym-Delta_t}^2 \gls{sym-sigma_v}^2 + \gls{sym-sigma_s}^2 + \gls{sym-sigma_s_m}^2} \\
-	\frac{\gls{sym-sigma_v_m}^2\left(\gls{sym-v_z_k-1}  + 2 \gls{sym-a_z_k}  \gls{sym-Delta_t}  \right)}{\gls{sym-sigma_v}^2 + \gls{sym-sigma_v_m}^2}
-	\end{array}
-	\right]
-	\end{aligned}
+\begin{equation}
+    \label{eq:kalman example xk}
+    \begin{aligned}
+        \gls{sym-x_k} =
+        \left[\begin{array}{c}
+                  \gls{sym-s_z_k-1} + \gls{sym-v_z_k-1}\gls{sym-Delta_t} + \frac{1}{2} \gls{sym-a_z_k} 
+				  \gls{sym-Delta_t}^2 \\
+                  \gls{sym-v_z_k-1} + \gls{sym-a_z_k} \gls{sym-Delta_t}
+        \end{array}\right]
+        +
+        \left[\begin{array}{cc}
+                  \frac{\gls{sym-Delta_t}^2 \gls{sym-sigma_v}^2 + \gls{sym-sigma_s}^2}{\gls{sym-Delta_t}^2 
+				  \gls{sym-sigma_v}^2 + \gls{sym-sigma_s}^2 + \gls{sym-sigma_s_m}^2} & 0                              
+				  \\
+                  0                                                                                                  
+				  & \frac{\gls{sym-sigma_v}^2}{\gls{sym-sigma_v}^2 + \gls{sym-sigma_v_m}^2}
+        \end{array}\right] \dots \\
+        \left[
+        \left[\begin{array}{c}
+                  \gls{sym-s_z_m_k} \\
+                  0
+        \end{array}\right]
+        -
+        \left[\begin{array}{cc}
+                  1 & 0 \\
+                  0 & 1
+        \end{array}\right]
+        \left[\begin{array}{c}
+                  \gls{sym-s_z_k-1} + \gls{sym-v_z_k-1}\gls{sym-Delta_t} + \frac{1}{2} \gls{sym-a_z_k} 
+				  \gls{sym-Delta_t}^2 \\
+                  \gls{sym-v_z_k-1} + \gls{sym-a_z_k} \gls{sym-Delta_t}
+        \end{array}\right]
+        \right]
+        = \dots \\
+        \left[\begin{array}{c}
+                  \frac{\gls{sym-s_z_m} \gls{sym-Delta_t}^{2} \gls{sym-sigma_v}^2 + 2 \gls{sym-a_z_k} 
+				  \gls{sym-Delta_t}^2 + 2 \gls{sym-v_z_k-1} \gls{sym-Delta_t} \gls{sym-sigma_s_m}^{2} + 
+				  \gls{sym-s_z_m_k} \gls{sym-sigma_s}^2 + s_{k-1} + \gls{sym-sigma_s_m}^2 }{\gls{sym-Delta_t}^2 
+				  \gls{sym-sigma_v}^2 + \gls{sym-sigma_s}^2 + \gls{sym-sigma_s_m}^2} \\
+                  \frac{\gls{sym-sigma_v_m}^2\left(\gls{sym-v_z_k-1}  + 2 \gls{sym-a_z_k}  \gls{sym-Delta_t}  \right)
+				  }{\gls{sym-sigma_v}^2 + \gls{sym-sigma_v_m}^2}
+        \end{array}
+        \right]
+    \end{aligned}
 \end{equation}
 
 This newly obtained state, or \textbf{current state} \gls{sym-x_k} can be used in the next iteration. During this phase
@@ -341,36 +378,45 @@ a new process covariance matrix \gls{sym-P_k} is calculated with equation~\ref{e
 \mathbf{I} \) is a \( 2 \times 2 \) identity matrix. Both the new state, obtained from equation~\ref{eq:kalman xk} and
 the newly obtained process covariance matrix are set as the previous iteration.
 
-\begin{equation}\label{eq:kalman new Pk}
-	\gls{sym-P_k} = \left[\mathbf{I}-\gls{sym-Kgain}\gls{sym-H_k}\right] \gls{sym-P_k}
+\begin{equation}
+    \label{eq:kalman new Pk}
+    \gls{sym-P_k} = \left[\mathbf{I}-\gls{sym-Kgain}\gls{sym-H_k}\right] \gls{sym-P_k}
 \end{equation}
 
-\begin{equation}\label{eq:kalman example new Pk}
-	\begin{aligned}
-		\gls{sym-P_k} = \left[
-		\left[\begin{array}{cc}
-		1 & 0 \\
-		0 & 1
-		\end{array}\right]
-		-
-		\left[\begin{array}{cc}
-		\frac{\gls{sym-Delta_t}^2 \gls{sym-sigma_v}^2 + \gls{sym-sigma_s}^2}{\gls{sym-Delta_t}^2 \gls{sym-sigma_v}^2 + \gls{sym-sigma_s}^2 + \gls{sym-sigma_s_m}^2} & 0 \\
-		0 & \frac{\gls{sym-sigma_v}^2}{\gls{sym-sigma_v}^2 + \gls{sym-sigma_v_m}^2}
-		\end{array}\right]
-		\left[\begin{array}{cc}
-		1 & 0 \\
-		0 & 1
-		\end{array}\right]
-		\right]
-		\left[\begin{array}{cc}
-		\gls{sym-Delta_t}^2 \gls{sym-sigma_v}^{2} + \gls{sym-sigma_s}^{2} & 0 \\
-		0 & \gls{sym-sigma_s}^{2}
-		\end{array}\right] = \dots \\
-		\left[\begin{array}{cc}
-		\frac{\gls{sym-sigma_s_m}^2 \left(\gls{sym-Delta_t}^2 \gls{sym-sigma_v}^2 + \gls{sym-sigma_s}^2\right)}{\gls{sym-Delta_t}^2 \gls{sym-sigma_v}^2 + \gls{sym-sigma_s}^2 + \gls{sym-sigma_s_m}^2} & 0 \\
-		0 & \frac{\gls{sym-sigma_v}^2 \gls{sym-sigma_v_m}^2}{\gls{sym-sigma_v}^2 + \gls{sym-sigma_v_m}^2}
-		\end{array}\right]
-	\end{aligned}
+\begin{equation}
+    \label{eq:kalman example new Pk}
+    \begin{aligned}
+        \gls{sym-P_k} = \left[
+        \left[\begin{array}{cc}
+                  1 & 0 \\
+                  0 & 1
+        \end{array}\right]
+        -
+        \left[\begin{array}{cc}
+                  \frac{\gls{sym-Delta_t}^2 \gls{sym-sigma_v}^2 + \gls{sym-sigma_s}^2}{\gls{sym-Delta_t}^2 
+				  \gls{sym-sigma_v}^2 + \gls{sym-sigma_s}^2 + \gls{sym-sigma_s_m}^2} & 0                              
+				  \\
+                  0                                                                                                  
+				  & \frac{\gls{sym-sigma_v}^2}{\gls{sym-sigma_v}^2 + \gls{sym-sigma_v_m}^2}
+        \end{array}\right]
+        \left[\begin{array}{cc}
+                  1 & 0 \\
+                  0 & 1
+        \end{array}\right]
+        \right]
+        \left[\begin{array}{cc}
+                  \gls{sym-Delta_t}^2 \gls{sym-sigma_v}^{2} + \gls{sym-sigma_s}^{2} & 0                     \\
+                  0                                                                 & \gls{sym-sigma_s}^{2}
+        \end{array}\right] = \dots \\
+        \left[\begin{array}{cc}
+                  \frac{\gls{sym-sigma_s_m}^2 \left(\gls{sym-Delta_t}^2 \gls{sym-sigma_v}^2 + 
+				  \gls{sym-sigma_s}^2\right)}{\gls{sym-Delta_t}^2 \gls{sym-sigma_v}^2 + \gls{sym-sigma_s}^2 + 
+				  \gls{sym-sigma_s_m}^2} & 0                                                                          
+				  \\
+                  0                                                                                                  
+				  & \frac{\gls{sym-sigma_v}^2 \gls{sym-sigma_v_m}^2}{\gls{sym-sigma_v}^2 + \gls{sym-sigma_v_m}^2}
+        \end{array}\right]
+    \end{aligned}
 \end{equation}
 
 The above described example of a falling ball can be simulated with a Python script. Such a script can be found in
@@ -382,58 +428,61 @@ error, or difference, between the ground truth state vector \gls{sym-x_kg} and t
 \gls{sym-x_khat}, squared and multiplied with the inverse of the process covariance matrix \gls{sym-P_k}; All evaluated
 at time \( k \).
 
-\begin{equation}\label{eq:xtild}
-	\gls{sym-x_ktilde} = \gls{sym-x_kg} - \gls{sym-x_khat}
+\begin{equation}
+    \label{eq:xtild}
+    \gls{sym-x_ktilde} = \gls{sym-x_kg} - \gls{sym-x_khat}
 \end{equation}
 
-\begin{equation}\label{eq:eps_nees}
-	\gls{sym-epsilon_nees} = \gls{sym-x_ktilde} \gls{sym-P_k}^1 \gls{sym-x_ktilde}
+\begin{equation}
+    \label{eq:eps_nees}
+    \gls{sym-epsilon_nees} = \gls{sym-x_ktilde} \gls{sym-P_k}^1 \gls{sym-x_ktilde}
 \end{equation}
 
-\begin{equation}\label{eq:mean_eps}
-	\gls{sym-epsilon_nees_mean} = \frac{1}{k}\sum_{1}^{k} \gls{sym-epsilon_nees} \leq \gls{sym-n_x}
+\begin{equation}
+    \label{eq:mean_eps}
+    \gls{sym-epsilon_nees_mean} = \frac{1}{k}\sum_{1}^{k} \gls{sym-epsilon_nees} \leq \gls{sym-n_x}
 \end{equation}
 
 \begin{RoyalFigure}[!htb, label=fig:pos_ball_kalman]{COMPARISON OF ESTIMATED, MEASURED AND REAL POSITION}
-		\begin{tikzpicture}
-			\begin{axis}[
-			ylabel={\gls{sym-s_z} in \glsunit{sym-s_z}},
-			xlabel={\gls{sym-t} in \glsunit{sym-t}},
-			grid=major,
-			xminorgrids=true,
-			width=\textwidth,
-			height=0.3\textwidth,
-			xmin=0,
-			xmax=20,
-			legend pos=north west]
-			\addplot[color=RoyalBlack,mark=none] table[x index=0,y index=1,col sep=comma] {resources/fallingBallPos.dat};
-			\addlegendentry{Analytic};
-			\addplot[color=RoyalRed] table[x index=0,y index=2,col sep=comma] {resources/fallingBallPos.dat};
-			\addlegendentry{Kalman estimate};
-			\addplot[color=RoyalRed,mark=+, only marks] table[x index=0,y index=3,col sep=comma] {resources/fallingBallPos.dat};
-			\addlegendentry{Measurements};
-			\end{axis}
-		\end{tikzpicture}
-	\end{RoyalFigure}
+    \begin{tikzpicture}
+        \begin{axis}[
+        ylabel={\gls{sym-s_z} in \glsunit{sym-s_z}},
+        xlabel={\gls{sym-t} in \glsunit{sym-t}},
+        grid=major,
+        xminorgrids=true,
+        width=\textwidth,
+        height=0.3\textwidth,
+        xmin=0,
+        xmax=20,
+        legend pos=north west]
+            \addplot[color=RoyalBlack,mark=none] table[x index=0,y index=1,col sep=comma] {resources/fallingBallPos.dat};
+            \addlegendentry{Analytic};
+            \addplot[color=RoyalRed] table[x index=0,y index=2,col sep=comma] {resources/fallingBallPos.dat};
+            \addlegendentry{Kalman estimate};
+            \addplot[color=RoyalRed,mark=+, only marks] table[x index=0,y index=3,col sep=comma] {resources/fallingBallPos.dat};
+            \addlegendentry{Measurements};
+        \end{axis}
+    \end{tikzpicture}
+\end{RoyalFigure}
 
-	\begin{RoyalFigure}[!htb, label=fig:speed_ball_kalman]{COMPARISON OF ESTIMATED AND REAL SPEED}
-		\begin{tikzpicture}
-			\begin{axis}[
-			ylabel={\gls{sym-v_z} in \glsunit{sym-v_z}},
-			xlabel={\gls{sym-t} in \glsunit{sym-t}},
-			grid=major,
-			xminorgrids=true,
-			width=\textwidth,
-			height=0.3\textwidth,
-			xmin=0,
-			xmax=20,
-			legend pos=north west]
-			\addplot[color=RoyalBlack,mark=none] table[x index=0,y index=1,col sep=comma] {resources/fallingBallSpeed.dat};
-			\addlegendentry{Analytic};
-			\addplot[color=RoyalRed] table[x index=0,y index=2,col sep=comma] {resources/fallingBallSpeed.dat};
-			\addlegendentry{Kalman estimate};
-		\end{axis}
-	\end{tikzpicture}
+\begin{RoyalFigure}[!htb, label=fig:speed_ball_kalman]{COMPARISON OF ESTIMATED AND REAL SPEED}
+    \begin{tikzpicture}
+        \begin{axis}[
+        ylabel={\gls{sym-v_z} in \glsunit{sym-v_z}},
+        xlabel={\gls{sym-t} in \glsunit{sym-t}},
+        grid=major,
+        xminorgrids=true,
+        width=\textwidth,
+        height=0.3\textwidth,
+        xmin=0,
+        xmax=20,
+        legend pos=north west]
+            \addplot[color=RoyalBlack,mark=none] table[x index=0,y index=1,col sep=comma] {resources/fallingBallSpeed.dat};
+            \addlegendentry{Analytic};
+            \addplot[color=RoyalRed] table[x index=0,y index=2,col sep=comma] {resources/fallingBallSpeed.dat};
+            \addlegendentry{Kalman estimate};
+        \end{axis}
+    \end{tikzpicture}
 \end{RoyalFigure}
 
 
@@ -446,20 +495,20 @@ in equation~\ref{eq:mean_eps}. The performance of our example or the \( \gls{sym
 is shown in figure~\ref{fig:nees_ball_kalman}.
 
 \begin{RoyalFigure}[!htb, label=fig:nees_ball_kalman]{\gls{acr-NEES} for \gls{gls-Kalman-filter}}
-	\begin{tikzpicture}
-	\begin{axis}[
-	ylabel={\gls{acr-NEES} $ [-] $},
-	xlabel={Time $ [s] $},
-	grid=major,
-	xminorgrids=true,
-	width=\textwidth,
-	height=0.3\textwidth,
-	xmin=0,
-	xmax=20,
-	ymin=0,
-	legend pos=north west]
-	\addplot[color=RoyalRed,mark=none, fill=RoyalRed, fill opacity=0.5] table[x index=0,y index=1, col sep=comma] {resources/fallingBall_NEES.dat};
-	\addlegendentry{\gls{acr-NEES}};
-	\end{axis}
-	\end{tikzpicture}
+    \begin{tikzpicture}
+        \begin{axis}[
+        ylabel={\gls{acr-NEES} $ [-] $},
+        xlabel={Time $ [s] $},
+        grid=major,
+        xminorgrids=true,
+        width=\textwidth,
+        height=0.3\textwidth,
+        xmin=0,
+        xmax=20,
+        ymin=0,
+        legend pos=north west]
+            \addplot[color=RoyalRed,mark=none, fill=RoyalRed, fill opacity=0.5] table[x index=0,y index=1, col sep=comma] {resources/fallingBall_NEES.dat};
+            \addlegendentry{\gls{acr-NEES}};
+        \end{axis}
+    \end{tikzpicture}
 \end{RoyalFigure}
