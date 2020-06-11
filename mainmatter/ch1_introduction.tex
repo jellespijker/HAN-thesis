@@ -1,23 +1,62 @@
 % !TeX root = ../report.tex
 % !TeX spellcheck = en-US
 % !TeX encoding = UTF-8
+
+
 \chapter{INTRODUCTION}\label{chap:introduction}
 
-%TODO write introduction
+The last decenium has shown a spurt in the acceptance and adaptation of machine learning. Smart controllers
+capable of performing complex tasks without interference of human operator. These range from ``smart'' cars to home
+owners whom integrate cheap~\glspl{acr-SBC}, such as a \gls{acr-Rpi}, into their home. This general acceptance and an
+abundance of cheap available devices, has given a real boost to the development of machine learning and autonomous 
+operating machines.
 
- This chapter will first specify three use-cases, specified in the project assignment, in which an crawler must operate. It then describes basic principles, applications and tools relevant for these use cases.
+\gls{acr-IHC} is investigating on a strategic level how to best place this technology in their product portfolio. One
+of the key parameters is knowing the~\gls{acr-TRL}. Multiple business units within~\gls{acr-IHC} are developing
+prototypes of autonomous operating machines. Ranging from catamarans to deep sea mining crawlers. A lot of these 
+explorations are usually small side projects. With short leads and limited budgets. All give valuable insights 
+and are of import in developing a familiarization with this technology.
+
+\gls{acr-MTI} is one of these business units exploring the technological challenges that of various autonomous devices.
+They're the reseach and development department within~\gls{acr-IHC}. They adopted an Archimedes driven crawler from 
+one of their sibling business units in 2016. This crawler was unfinished at the time.
+
+This chapter will first specify three use-cases, specified in the project assignment, in which an crawler must 
+operate. It then describes basic principles, applications and tools relevant for these use cases.
+
 
 \section{USE CASES}\label{sec:usecases}
-The use case below are determined by ir. F. Hofstra, these cases are expected to be valid and realistic. Keeping in mind their marketability. These cases will determine the needed functionality for an crawler and stand at the basis for the controller design.
+The use case below are determined by ir. F. Hofstra, these cases are expected to be valid and realistic. Keeping in 
+mind their marketability. These cases will determine the needed functionality for an crawler and stand at the basis 
+for the controller design.
 
 \subsection{ARBITRARY SHAPED SPACE}\label{sec:usecase1}
-An crawler is placed in a predefined arbitrary shaped space, not too complex, with an area of \( 3500 \si{\square\metre} \). The shape of this space is set, but the movement pattern is unrestricted. The crawler has to remove a layer with a depth of \( 5 \si{\cm} \). The controller has to determine an optimal path with the least amount of time or the shortest path. This can be coupled with learning capabilities and an analyze capacity. At a later time additional constrains can be added which keep in mind the deployment location of a flexible \gls{gls-dredgeline} and an \gls{gls-umbilical}.
+An crawler is placed in a predefined arbitrary shaped space, not too complex, with an area of \( 3500 
+\si{\square\metre} \). The shape of this space is set, but the movement pattern is unrestricted. The crawler has to 
+remove a layer with a depth of \( 5 \si{\cm} \). The controller has to determine an optimal path with the least 
+amount of time or the shortest path. This can be coupled with learning capabilities and an analyze capacity. At a 
+later time additional constrains can be added which keep in mind the deployment location of a flexible 
+\gls{gls-dredgeline} and an \gls{gls-umbilical}.
 
 \subsection{MARINA AQUA DELTA}\label{sec:usecase2}
-The crawler operates in a predefined space with obstacles, not every obstacles is known. The actual location is \href{https://www.google.nl/maps/place/Jachthaven+Bruinisse/@51.6712838,4.0824101,15z/data=!4m2!3m1!1s0x0:0x9c840ab80bde39c8}{marina Aqua Delta} located in Bruinisse, the Netherlands. The shape of this location is set but the movement pattern is unrestricted. An crawler  has to remove a layer with a depth of \( 5 \si{\cm} \). The controller has to determine an optimal path with the least amount of time or the shortest path. This can be coupled with learning capabilities and an analyze capacity. The marina has enough depth for the crawler to move underneath the scaffolding.
-No consideration has to be made for a flexible \gls{gls-dredgeline} and a \gls{gls-umbilical}. These conditions are introduced at a later stage.
+The crawler operates in a predefined space with obstacles, not every obstacles is known. The actual location is 
+\href{https://www.google.nl/maps/place/Jachthaven+Bruinisse/@51.6712838,4.0824101,
+15z/data=!4m2!3m1!1s0x0:0x9c840ab80bde39c8}{marina Aqua Delta} located in Bruinisse, the Netherlands. The shape of 
+this location is set but the movement pattern is unrestricted. An crawler has to remove a layer with a depth of \( 5 
+\si{\cm} \). The controller has to determine an optimal path with the least amount of time or the shortest path. This
+can be coupled with learning capabilities and an analyze capacity. The marina has enough depth for the crawler to 
+move underneath the scaffolding.
+No consideration has to be made for a flexible \gls{gls-dredgeline} and a \gls{gls-umbilical}. These conditions are 
+introduced at a later stage.
 
 \subsection{THREE GORGES DAM}\label{sec:usecase3}
-An crawler operates in a predefined space with obstacles, not every location of those obstacles is known. The predefined space is located at the foot of \href{https://www.google.nl/maps/place/Three+Gorges+Dam/@30.8263416,111.0118356,16z/data=!4m2!3m1!1s0x368476d5e9a340d9:0xa017b4d524bd9d6c}{three Gorges dam}. Silt is deposited at the foot of this dam, due to natural occurring \gls{gls-erosion} and \gls{gls-sedimentation}. The accumulation of \gls{gls-silt} can be controlled by dredging localized pits. Which in turn create locations with a lower density. This induces a gravity driven density current towards those locations. The crawler has to maintain an average nominal depth with a certain silt deposit rate.
+An crawler operates in a predefined space with obstacles, not every location of those obstacles is known. The 
+predefined space is located at the foot of \href{https://www.google.nl/maps/place/Three+Gorges+Dam/@30.8263416,111
+.0118356,16z/data=!4m2!3m1!1s0x368476d5e9a340d9:0xa017b4d524bd9d6c}{three Gorges dam}. Silt is deposited at the foot 
+of this dam, due to natural occurring \gls{gls-erosion} and \gls{gls-sedimentation}. The accumulation of 
+\gls{gls-silt} can be controlled by dredging localized pits. Which in turn create locations with a lower density. 
+This induces a gravity driven density current towards those locations. The crawler has to maintain an average nominal
+depth with a certain silt deposit rate.
+
 
 \section{ARCHIMEDES DRIVEN CRAWLER}
