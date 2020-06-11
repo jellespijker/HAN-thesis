@@ -82,7 +82,6 @@
 \AtEndPreamble{%
  \addbibresource{resources/report.bib}%
  \input{user.sty}%
- %\input{\fglossary}%
  \makeglossaries%
  \loadglsentries{\fglossary}%
 }
@@ -342,7 +341,7 @@ minimum height=3em, minimum width=6em,rounded corners=.15cm]
 \newlanguagecommand{\conclusioncaption}
 \addtolanguagecommand{\conclusioncaption}{english}{CONCLUSION}
 \addtolanguagecommand{\conclusioncaption}{dutch}{CONCLUSIE}
-\newcommand{\conclusion}{\chapter{\conclusioncaption}\label{chap:conclusion}\glsresetall}
+\newcommand{\conclusion}{\chapter{\conclusioncaption}\label{chap:conclusion}}
 
 % === APPENDIX ===
 \usepackage[page,titletoc,title,toc,header]{appendix}
@@ -472,6 +471,7 @@ minimum height=3em, minimum width=6em,rounded corners=.15cm]
 \NewDocumentEnvironment{front} { o }
 {%
 \frontmatter%
+\maketitle
 \setcounter{page}{1}%
 \pagenumbering{Roman}%
 \makequalitycontrol%
@@ -486,7 +486,7 @@ minimum height=3em, minimum width=6em,rounded corners=.15cm]
 {%
 \mainmatter%
 \setcounter{page}{1}%
-\glsunsetall%
+\glsresetall%
 }
 {%
 \label{lastoffront}%
@@ -803,6 +803,7 @@ Dit document is gepubliceerd op \thedate%
 % === GLOSSARY ===
 %\usepackage[acronym,xindy,section=chapter]{glossaries}
 \usepackage[automake=immediate,acronym,xindy,docdef=atom,section=chapter,symbols]{glossaries-extra}
+\setabbreviationstyle[acronym]{long-short}
 \usepackage{datatool}
 %\glsdisablehyper
 \usepackage[dvipdfmx]{pdfcomment}
