@@ -728,6 +728,15 @@ Dit document is gepubliceerd op \thedate%
        \end{tabular}\par}}%
    };%
    \node[anchor=north, inner sep=0pt, outer sep=1em] at (authornode.south) (datenode) {\usekomafont{date}\@date};%
+   \node[anchor=north, inner sep=0pt, outer sep=1em, text width=15cm] at (datenode.south) (quotenode) {\justify%
+  \paragraph{PUPPET MASTER}\textit{It can also be argued that DNA is nothing more than a program designed to preserve % 
+  itself. Life has become more complex in the overwhelming sea of information. And life, when organized into species, % 
+  relies upon genes to be its memory system. So, man is an individual only because of his intangible memory... and % 
+  memory cannot be defined, but it defines mankind. The advent of computers, and the subsequent accumulation of % 
+  incalculable data has given rise to a new system of memory and thought parallel to your own. Humanity has % 
+  underestimated the consequences of computerization.}};%
+   \node[anchor=north east, inner sep=0pt, outer sep=1em, text width=6.5cm] at (quotenode.south east) (qoutenodeauthor)%
+   {\RaggedRight Masamune Shirow - \textit{Kôkaku Kidôtai}};%
    \node[anchor=south east, xshift=-\coverpagerightmargin, yshift=50mm, inner sep=0pt, outer sep=0pt] at (current page.south east) (addrnode) {%
     \begin{tabu}{r}%
      \@unitname                         \\%
