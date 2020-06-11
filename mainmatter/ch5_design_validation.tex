@@ -1,6 +1,8 @@
 % !TeX root = ../report.tex
 % !TeX spellcheck = en-US
 % !TeX encoding = UTF-8
+
+
 \chapter{DESIGN VALIDATION}\label{chap:design validation}
 
 The actual implementation of the controller framework, as set out in Section~\ref{sec:controller}, is dubbed
@@ -18,6 +20,7 @@ This forced validation to be performed in a simulation.
 \noindent This chapter describes the simulation setup in Section~\ref{sec:simulation}. The final results are discussed
 in Section~\ref{sec:results}.
 
+
 \section{SIMULATION}\label{sec:simulation}
 
 In order to tell something meaningful about the performance of a controller, it has to be subject to the same physical
@@ -28,7 +31,8 @@ are candidates for usage in this project; These are \href{http://gazebosim.org/}
 \href{https://projectchrono.org/}{Project Chrono}, \href{https://pybullet.org/wordpress/}{Bullet} and
 \href{https://developer.nvidia.com/gameworks-physx-overview}{PhysX}.
 
-From this list, only \gls{gls-Project_Chrono} has an existing framework which takes into account soil dynamic behavior and
+From this list, only \gls{gls-Project_Chrono} has an existing framework which takes into account soil dynamic
+behavior and
 terramechanics. This is either simulated using \gls{acr-DEM} or granular approach. Were each particle of sand is
 an individual body and is represented as a spherical rigid bodies whose orientation is captured by Euler parameters.
 For each time step a complete geometric characterization of all contacting particles is then obtained using collision
@@ -53,21 +57,24 @@ bodies. A custom model for different models of a drive-train, body, wheels/track
 connected as needed. Were the behavior of that individual model can be thought of as black box. As long as the interface
 with the components it connects to are maintained. Section~\ref{sec:simulation model} describes the modeling of the
 drive train in detail. The support of realistic sensor characteristic are not yet implemented in Project Chrono, since a
-big part of the validation is measuring the performance of a Kalman Filter. An extension for \gls{gls-Project_Chrono} had to be
+big part of the validation is measuring the performance of a Kalman Filter. An extension for \gls{gls-Project_Chrono}
+had to be
 written, which allows for the modeling of sensor behavior. This is extension is described in Section~\ref{sec:sensor
 simulation}.
 
 \subsection{SENSOR SIMULATION}\label{sec:sensor simulation}
 
 One of the biggest challenges and risks determining how it should deal with uncertainties and errors introduced by the
-inherent behavior and limits of the sensors. \gls{gls-Project_Chrono} is an established and mature physics simulation engine which
+inherent behavior and limits of the sensors. \gls{gls-Project_Chrono} is an established and mature physics simulation
+engine which
 is written in C++. It consists of multiple modules. Simulating the behavior of an autonomous vehicle requires usage of
 the Core module, where Physics, Geometric and Collision objects are defined and the Vehicle module, containing among
 others objects for a Driver system, Powertrain, Terrain and Steering. The orientation and position for every object can
 be tracked, logged and plotted. These values represent continual ideal states, governed by the simulated physical laws.
 Simulating a controller with these values as input signals isn't representative for the real world.
 
-The code for \gls{gls-Project_Chrono} has been released under a BSD-3 clause, this allows for modification and distribution of
+The code for \gls{gls-Project_Chrono} has been released under a BSD-3 clause, this allows for modification and
+distribution of
 code for private and commercial use. An extension for realistic sensor behavior is written for this project en released
 as open-source for others to use. The extension library makes it possible to attach a virtual sensor somewhere on a
 frame, define which native signals it should use. For instance: acceleration of the sensors local coordinate system
@@ -78,12 +85,15 @@ discussed in Section~\ref{sec:sensors}. An inventory of the different errors is 
 sections describe which modification are used for sensors in this project.
 
 \begin{RoyalTable}{X[2,l,m] X[4,l,m]}
-  \RoyalHeader{ERROR||DESCRIPTION}
-  \RoyalRow{Noise|The input signal is transformed by adding a noise signal to it. The noise can either be generated with a random Gaussian distribution or a uniform distribution}
-  \RoyalRow{Digitize|The resolution of the incomming signal is lowered to a specified amount of bits, this will reduce the precision}
-  \RoyalRow{Bias|A constant offset is added to signal, simulating a drift}
-  \RoyalRow{Transform|A signal can be transformed with a tranformation matrix (stretching, squeezing, rotating, shear, reflect, etc.), simulating \gls{gls-hard-iron} effect with a skew transform matrix for instance}
-  \RoyalRow{Hysteresis|A signal is delayed simulating a lag in response of the system}
+    \RoyalHeader{ERROR||DESCRIPTION}
+    \RoyalRow{Noise|The input signal is transformed by adding a noise signal to it. The noise can either be generated
+    with a random Gaussian distribution or a uniform distribution}
+    \RoyalRow{Digitize|The resolution of the incomming signal is lowered to a specified amount of bits, this will
+    reduce the precision}
+    \RoyalRow{Bias|A constant offset is added to signal, simulating a drift}
+    \RoyalRow{Transform|A signal can be transformed with a tranformation matrix (stretching, squeezing, rotating,
+    shear, reflect, etc.), simulating \gls{gls-hard-iron} effect with a skew transform matrix for instance}
+    \RoyalRow{Hysteresis|A signal is delayed simulating a lag in response of the system}
 \end{RoyalTable}
 
 \subsubsection{ACCELEROMETER}
@@ -95,7 +105,7 @@ discretization.
 
 \begin{RoyalFigure}[h, label=fig:accelerometersim]{SIGNAL TRANSFORM ACCELEROMETER}
     \resizebox{0.5\textwidth}{!}{
-        \begin{tikzpicture}[auto, node distance=4cm,>=latex', align=center]
+    \begin{tikzpicture}[auto, node distance=4cm,>=latex', align=center]
         \node[block] (digitize) {Digitize};
         \node[lbl] (bits) at ($(digitize.north)+(0, 1)$) {\tiny Bits};
         \draw[-latex] (bits) -- (digitize);
@@ -123,7 +133,7 @@ which convert the analog values to digital levels.
 
 \begin{RoyalFigure}[h, label=fig:gyroscopesim]{SIGNAL TRANSFORM GYROSCOPE}
     \resizebox{0.5\textwidth}{!}{
-        \begin{tikzpicture}[auto, node distance=4cm,>=latex', align=center]
+    \begin{tikzpicture}[auto, node distance=4cm,>=latex', align=center]
         \node[input] (input) {};
 
         \node[sum, right of=input] (s1) {};
@@ -165,7 +175,7 @@ sensor is also sensitive to background distortions, resulting in noise in the si
 
 \begin{RoyalFigure}[h, label=fig:magnetometersim]{SIGNAL TRANSFORM MAGNETOMETER}
     \resizebox{0.5\textwidth}{!}{
-        \begin{tikzpicture}[auto, node distance=4cm,>=latex', align=center]
+    \begin{tikzpicture}[auto, node distance=4cm,>=latex', align=center]
         \node[block] (digitize) {Digitize};
         \node[lbl] (bits) at ($(digitize.north)+(0, 1)$) {\tiny Bits};
         \draw[-latex] (bits) -- (digitize);
@@ -192,10 +202,10 @@ sensor is also sensitive to background distortions, resulting in noise in the si
 
 \subsubsection{ENCODER}
 
-An encoder measures events in time, these events are usually triggers generated by a by a photodiode which is
-intermittenly blocked or exposed from a light source with the use of a code disk. \citet{j_borenstein_where_1996} state
+An encoder measures events in time, these events are usually triggers generated by a photodiode, which is
+intermittently blocked or exposed from a light source with the use of a code disk. \citet{j_borenstein_where_1996} state
 these relative inexpensive devices are well-suited for velocity feedback sensors in medium-to-high control systems, but
-run into noise and stability problems at extremely slow velocities due to quantization errors.
+run into noise and stability problems at slow velocities due to quantization errors.
 
 \begin{RoyalFigure}[htb, label=fig:encoderworkings]{WORKING PRINCIPLE ENCODER~\cite{j_borenstein_where_1996}}
     \includegraphics[width=\textwidth]{encoder.png}
@@ -203,7 +213,7 @@ run into noise and stability problems at extremely slow velocities due to quanti
 
 \begin{RoyalFigure}[h, label=fig:encodersim]{SIGNAL TRANSFORM ENCODER}
     \resizebox{0.5\textwidth}{!}{
-        \begin{tikzpicture}[auto, node distance=4cm,>=latex', align=center]
+    \begin{tikzpicture}[auto, node distance=4cm,>=latex', align=center]
         \node[block] (digitize) {Digitize};
         \node[lbl] (bits) at ($(digitize.north)+(0, 1)$) {\tiny Bits};
         \draw[-latex] (bits) -- (digitize);
@@ -226,8 +236,8 @@ run into noise and stability problems at extremely slow velocities due to quanti
 \subsubsection{PRESSURE SENSOR}
 
 \citet{liptak_instrument_2003} mentions that \gls{gls-pressure-sensor} are subject to hysteresis of there signal because
-of the material properties of the membrane and its ability to bounce back. The electrical components of these  sensors
-are also subjective to background noise, the transformed signal is also digitized.
+of the material properties of the membrane and its ability to bounce back. The electrical components of these sensors
+are also subjective to background noise. The final filter digitizes the signal.
 
 \begin{RoyalFigure}[h, label=fig:pressuresensorsim]{SIGNAL TRANSFORM PRESSURE SENSOR}
     \resizebox{0.5\textwidth}{!}{
@@ -258,24 +268,20 @@ are also subjective to background noise, the transformed signal is also digitize
 
 \subsection{SIMULATION MODEL}\label{sec:simulation model}
 
-Project Chrono is setup as a multi-body simulation. It simulate a world and a collection of objects. The world has an
-absolute global reference frame of coordinates, all other objects have a reference frame which is relative to the global
-frame. The simulation is based upon use-case 2, which is specified in Section~\ref{sec:usecase2}. A crawler needs to
-remove a layer of \SI{5}{\centi\metre} soil from the bed of Marina Aqua Delta harbor. Which is located near Bruinisse,
-in the Netherlands, Figure~\ref{fig:harbor_ariel} show a satellite image of the location. It are two interconnected
-basins with an opening towards open water. Scaffolding are placed in regular intervals where small recreational ships
-are docked.
+Project Chrono is set up as a multi-body simulation. It simulate a world and a collection of objects. The world has 
+an absolute global reference frame of coordinates, all other objects have a reference frame, which is relative to the
+global frame. The simulation is based upon use-case 2, which is specified in Section~\ref{sec:usecase2}. A crawler 
+needs to remove a layer of \SI{5}{\centi\metre} soil from the bed of Marina Aqua Delta harbor. Which is located near 
+Bruinisse, in the Netherlands. It consits of two interconnected basins with a clearance towards open water. 
+Scaffolding is placed on a regular interval. Allowing recreational ships to dock there.
 
-\begin{RoyalFigure}[htb, label=fig:harbor_ariel]{MARINE AQUA DELTA SATALITE IMAGE~\cite{google_maps_marine_2005}}
-    \includegraphics[width=0.5\textwidth]{gmaps_harbor.png}
-\end{RoyalFigure}
-
-\noindent The following simplifications are made:
+\noindent The following simplifications apply:
 
 \begin{itemize}
     \setlength\itemsep{0mm}
     \item operating environment is a closed body of water
     \item shore is defined as clear steep boundaries
+    \item generated paths are allowed to ignore shore boundaries (such that simulation will do a complete run)
     \item scaffolding does not interfere
     \item body of crawler is represented as block
     \item no \gls{gls-umbilical} and \gls{gls-dredgeline} attached
@@ -283,37 +289,80 @@ are docked.
 \end{itemize}
 
 The simulated model is build from a rectangular block with the two 3D Archimedes screws, which are the actual 3D CAD
-files.The joints and connections are created in source. They have no 3D representation. Collision detection for the 3D
-models is done with their meshes as boundaries. The other components have simple primitives defined in the source code.
-The drivetrain is a serie of interconnected 1D motors, with the same configuration and logic as described in
-Section~\ref{sec:motion model}. Terramechanics are modeled with the \gls{acr-SCM}.
+files. The joints and connections are created in a source file. They have no 3D representation. 3D models use their
+meshes as boundaries during collision detection. The other components have simple primitives as shapes, which are
+defined in the source code. The drivetrain is a sequence of interconnected 1D components, with the same configuration
+and logic as described in Section~\ref{sec:motion model}. Terramechanics are modeled with the \gls{acr-SCM}.
 
-The \gls{gls-Chrono_Sensors} extension is compiled as a shared library, and linked to with the \gls{gls-Project_Chrono}
-executable. The controller \gls{gls-ohCaptain} is added in source and compiled as part of Project Chrono, with a wrapper
-which allows for communication between \gls{gls-ohCaptain} and Project Chrono. The Captains objective is simple: Cover
+The library \gls{gls-Chrono_Sensors} is compiled as a shared library, and linked to with the \gls{gls-Project_Chrono}
+executable. The controller~\gls{gls-ohCaptain} is added in source and compiled as part of Project Chrono. A wrapper
+was written such that ohCaptain can communicate with~\gls{gls-Project_Chrono}. The Captains objective is simple: Cover
 the bottom of this unknown body of water, from an arbitrary starting position, in a systematic and efficient way.
+
 
 \section{RESULTS}\label{sec:results}
 
-The simulation was execution on a Manjora distribution running Linux 5.4.43-1 on a Intel i7-8565U CPU @ 1.8GHz with 20G
-DRR4 memory and a nVidia GeForce MX230 graphical processor with a Samsung SSD 850 as storage. Each simulation took
+The simulation was executed on a Manjora distribution running Linux 5.4.43-1 on a Intel i7-8565U CPU @ 1.8GHz with 20G
+DRR4 memory and a nVidia GeForce MX230 graphical processor with a Samsung SSD 850 storage devie. Each simulation took
 approximately twelve hours to complete. Three different simulations were executed:
 
 \begin{enumerate}
-    \item An ``analytic'' path, the strategic logic executed with out error and fail.
-    Figure~\ref{fig:coverage_wo_kalman} left.
-    \item A  ``normal'' operating crawler, using a simple \gls{acr-PID} control implemented as a path follower, without
+    \item An ``analytic'' path, the strategic logic executed without error and fail
+    .Figure~\ref{fig:coverage_wo_kalman} left.
+    \item A ``normal'' operating crawler, using a simple \gls{acr-PID} control, implemented as a path follower without
     sensor fusion. Figure~\ref{fig:coverage_wo_kalman} center.
     \item An ``optimal'' path generated and executed with ohCaptain. Figure~\ref{fig:coverage_wo_kalman} right.
 \end{enumerate}
 
-Figure~\ref{fig:coverage_wo_kalman} it becomes immediately clear that a simple \gls{acr-PID} controller wouldn't suffice. The measured signal is
-\begin{RoyalFigure}[htb, label=fig:coverage_wo_kalman]{CPP WITH/WITHOUT KALMAN FILTERING}
-    \includegraphics[width=0.333\textwidth,trim=10 10 10 10,clip]{analytic_path.png}
-    \includegraphics[width=0.333\textwidth,trim=10 10 10 10,clip]{normal_path.png}
-    \includegraphics[width=0.333\textwidth,trim=10 10 10 10,clip]{optimal_path.png}
+\begin{RoyalFigure}[htb, label=fig:cpp_analytic]{ANALYTIC CPP OFF USECASE II}
+    \includegraphics[width=0.66\textwidth,trim=10 10 10 10,clip]{analytic_path.png}
 \end{RoyalFigure}
+
+Figure~\ref{fig:cpp_analytic} is an ``analytical'' representation of the path generated by the Captain. Which is to 
+say, it is a path generated without simulated sensor noise. It will server as a baseline and shows if the applied 
+strategy is feasable. The starting point of the crawler is approximately at \( [26, -100]^T \). The Captain senses 
+the curved corner on his right and nothing on its left. He continues on his arbitrary direction untill he senses a 
+wall in front of him. He continues to approach that wall to an acceptable distance before turning to the left; The 
+side where he sensed no boundaries. Continuing on his path in the opposite direction.
+
+This sequence will continue, until first crosses over into the other basin. He stores this position as a change in 
+environment and continues until he reaches the top most corner of the other basin. He will now turn left and generate 
+a path until he is in the top left corner of the second basin. From here he travels without dredging towards the 
+unexplored area, traversing the covered region, perpendicular to its path until it reaches a landmark point. From 
+which he will continue generation his coverage path, until he has covered the basin as a whole.
+
+\begin{RoyalFigure}[htb, label=fig:coverage_wo_kalman]{CPP WITH/WITHOUT KALMAN FILTERING}
+    \includegraphics[width=0.5\textwidth,trim=10 10 10 10,clip]{normal_path.png}
+    \includegraphics[width=0.5\textwidth,trim=10 10 10 10,clip]{optimal_path.png}
+\end{RoyalFigure}
+
+The \gls{acr-CPP} simulation is repeated two times, this time with sensor noise added. Simulating real life readings.
+Showing both traveled paths in Figure~\ref{fig:coverage_wo_kalman}. These runs differ in concrete Navigator types. The 
+first run (shown on the left) is executed with a Navigator executing a simple \gls{acr-PID} algorithm. While the 
+second run uses an \gls{acr-UKF} (shown on the right). A first glance comparision gives a clear indication between the 
+differences.
+
+The location error for a \gls{acr-PID} Navigator grows increasingly, letting the Captain think he's still within 
+the defined shore boundaries, while he is actually giving the beach goers the scare of their life. This happens due 
+to the simplification that was put into effect. Allowing boundaries to be ignored. Resulting in a longer duration in 
+which the development over time for the \gls{acr-NEES} can be compared. Which, is an important benchmark.
+
+There are a few artifacts of note to point out in the \gls{acr-PID} controlled simulation. These occur due it's 
+low performance of filtering noise and compensating for certain sensor characteristics, such as: drift, bias and 
+transformations. The effects of noise become evident it the jagged lines. Which are, for illustration purposes 
+filter by decimation. The drift in signal obtained from the \gls{gls-gyroscope}, is showing in the divergence 
+of the back-and-forth paths. The effects are most clear in the upper right corner. An other artifact of sensor 
+characteristic behaviour, which translates in a traveled path, is a difference in absolute path length. This is 
+systematically under estimated.
 
 \begin{RoyalFigure}[htb, label=fig:NEES_kalman]{NEES OF THE CONTROLLER}
     \includegraphics[width=\textwidth,trim=10 10 10 10,clip]{NEES_compared.png}
 \end{RoyalFigure}
+
+The above described artifacts are, to a lesser extend, also present in the second run. Which implements a 
+Navigator running a \gls{acr-UKF} algorithm. With an added benefit that this crawler doesn't turn into beach going 
+pshycokiller. Terrorizing unsuspecting families on a beach, by reenacting the scene from Godzilla emerging from the 
+ocean. There is still a growing error compared to the ``analytical'' position, but Figure~\ref{fig:NEES_kalman} 
+shows a clear difference between the performance of both controllers. The dip in signal around \( 800 \) is because 
+it encouters a distinct landmark feauture, which acts as a ground truth. A reference point used by the Captain from 
+which to track the traveled progress anew.
