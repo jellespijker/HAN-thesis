@@ -476,6 +476,7 @@ minimum height=3em, minimum width=6em,rounded corners=.15cm]
 \pagenumbering{Roman}%
 \makequalitycontrol%
 \makedisclaimer%
+\cleardoubleoddpage
 }
 {%
 \tableofcontents%

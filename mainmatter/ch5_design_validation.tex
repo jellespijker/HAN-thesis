@@ -131,7 +131,7 @@ The \gls{gls-gyroscope} is subject to a drift along its rotational axis or induc
 from different sources is also added to the signal. Signals from modern gyroscopes are interpreted on a microcontroller,
 which convert the analog values to digital levels.
 
-\begin{RoyalFigure}[h, label=fig:gyroscopesim]{SIGNAL TRANSFORM GYROSCOPE}
+\begin{RoyalFigure}[htb, label=fig:gyroscopesim]{SIGNAL TRANSFORM GYROSCOPE}
     \resizebox{0.5\textwidth}{!}{
     \begin{tikzpicture}[auto, node distance=4cm,>=latex', align=center]
         \node[input] (input) {};
@@ -173,7 +173,7 @@ A \gls{gls-magnetometer} experience distortions in its fields, Either due to \gl
 effects. These manifest in an elliptical nature, a skewed circle. A transformation matrix mimics those distortions. The
 sensor is also sensitive to background distortions, resulting in noise in the signal. This signal is also digitized.
 
-\begin{RoyalFigure}[h, label=fig:magnetometersim]{SIGNAL TRANSFORM MAGNETOMETER}
+\begin{RoyalFigure}[htb, label=fig:magnetometersim]{SIGNAL TRANSFORM MAGNETOMETER}
     \resizebox{0.5\textwidth}{!}{
     \begin{tikzpicture}[auto, node distance=4cm,>=latex', align=center]
         \node[block] (digitize) {Digitize};
@@ -207,11 +207,7 @@ intermittently blocked or exposed from a light source with the use of a code dis
 these relative inexpensive devices are well-suited for velocity feedback sensors in medium-to-high control systems, but
 run into noise and stability problems at slow velocities due to quantization errors.
 
-\begin{RoyalFigure}[htb, label=fig:encoderworkings]{WORKING PRINCIPLE ENCODER~\cite{j_borenstein_where_1996}}
-    \includegraphics[width=\textwidth]{encoder.png}
-\end{RoyalFigure}
-
-\begin{RoyalFigure}[h, label=fig:encodersim]{SIGNAL TRANSFORM ENCODER}
+\begin{RoyalFigure}[htb, label=fig:encodersim]{SIGNAL TRANSFORM ENCODER}
     \resizebox{0.5\textwidth}{!}{
     \begin{tikzpicture}[auto, node distance=4cm,>=latex', align=center]
         \node[block] (digitize) {Digitize};
@@ -224,7 +220,7 @@ run into noise and stability problems at slow velocities due to quantization err
         \node[lbl] (std dev) at ($(noise.north)+(-0.5, 1)$) {\tiny Std. dev.};
         \draw[-latex] (std dev) -- ($(noise.north)+(-0.5, 0)$);
 
-        \node[input, left of=transform, xshift=2cm] (input) {};
+        \node[input, left of=noise, xshift=2cm] (input) {};
         \node[output, right of=digitize, xshift=-2cm] (output) {};
 
         \draw[-latex] (input) -- (noise) node[midway] {\gls{sym-y_k}};
@@ -239,7 +235,7 @@ run into noise and stability problems at slow velocities due to quantization err
 of the material properties of the membrane and its ability to bounce back. The electrical components of these sensors
 are also subjective to background noise. The final filter digitizes the signal.
 
-\begin{RoyalFigure}[h, label=fig:pressuresensorsim]{SIGNAL TRANSFORM PRESSURE SENSOR}
+\begin{RoyalFigure}[htb, label=fig:pressuresensorsim]{SIGNAL TRANSFORM PRESSURE SENSOR}
     \resizebox{0.5\textwidth}{!}{
     \begin{tikzpicture}[auto, node distance=4cm,>=latex', align=center]
         \node[block] (digitize) {Digitize};
