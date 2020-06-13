@@ -125,29 +125,26 @@ figure~\ref{fig:AMFM}.
 \begin{RoyalFigure}[htb, label=fig:AMFM]{SIGNAL MODULATION}
     \begin{tcbraster}[raster columns=2, raster equal height]
         \begin{tikzpicture}
-            \begin{axis}[
-            title=\usekomafont{captionlabel}\color{RoyalBlack}AMPLITUDE MODULATION (AM),
-            domain=0:10,
-            samples=500,
-            legend entries={carrier, data, signal}
-            ]
-                ;
-                \addplot[thin, RoyalBlack]{cos(deg(pi*x/3))};
-                \addplot[thin, RoyalBlack]{cos(deg(pi*x*4))/2};
-                \addplot[thick, RoyalRed]{cos(deg(pi*x/3))+cos(deg(pi*x*4))/2};
+            \begin{axis}[%
+            title=\usekomafont{captionlabel}\color{RoyalBlack}AMPLITUDE MODULATION (AM),%
+            domain=0:10,%
+            samples=500,%
+            legend entries={carrier, data, signal}%
+            ];%
+                \addplot[thin, RoyalBlack]{cos(deg(pi*x/3))};%
+                \addplot[thin, RoyalBlack]{cos(deg(pi*x*4))/2};%
+                \addplot[thick, RoyalRed]{cos(deg(pi*x/3))+cos(deg(pi*x*4))/2};%
             \end{axis}
         \end{tikzpicture}
         \begin{tikzpicture}
-            \begin{axis}[
-            title=\usekomafont{captionlabel}\color{RoyalBlack}FREQUENCY MODULATION (FM),
-            domain=0:10,
-            samples=500,
-            legend entries={carrier, data, signal}
-            ]
-                ;
-                \addplot[thin, RoyalBlack]{cos(deg(pi*x/3))};
-                \addplot[thin, RoyalBlack]{cos(deg(pi*x*4))/2};
-                \addplot[thick, RoyalRed]{cos(deg(pi*cos(deg(pi*x/3))*4))/2};
+            \begin{axis}[%
+            title=\usekomafont{captionlabel}\color{RoyalBlack}FREQUENCY MODULATION (FM),%
+            domain=0:10,%
+            samples=500,%
+            legend entries={carrier, data, signal}];%
+                \addplot[thin, RoyalBlack]{cos(deg(pi*x/3))};%
+                \addplot[thin, RoyalBlack]{cos(deg(pi*x*4))/2};%
+                \addplot[thick, RoyalRed]{cos(deg(pi*cos(deg(pi*x/3))*4))/2};%
             \end{axis}
         \end{tikzpicture}
     \end{tcbraster}
@@ -274,32 +271,28 @@ frequency. Which might give an extra couple of meters underwater.
 
 \begin{RoyalFigure}[!htb, label=fig:propagationrange_wifi]{PROPAGATION RANGE OF WI-FI IN WATER.}
     \begin{tikzpicture}
-        \begin{axis}[
-        xlabel={Frequency \si{\hertz}},
-        ylabel={Range \si{\meter}},
-        xmin=10e7,
-        xmax=10e9,
-        xmode=log,
-        %log ticks with fixed point,
-        %scaled x ticks=real:1e6,
-        grid=major,
-        xminorgrids=true,
-        width=\textwidth,
-        height=0.5\textwidth,
-        extra x ticks={700e6,2.4e9,5e9},
-        extra x tick labels={\SI{700}{\mega\hertz}, \SI{2.4}{\giga\hertz}, \SI{5}{\giga\hertz}},
-        extra x tick style={
-        xticklabel style={yshift=-0.5ex,xshift=-1cm, anchor=south}
-        }]
-            ;
-            \addplot[mark=none, color=RoyalRed, thick, dashed] file {resources/range_sea_802_11.dat};
-            \addlegendentry{Sea water \(\gls{sym-sigma_e} = \SI{4}{\siemens\per\meter} \)};
-            \addplot[mark=none, color=RoyalRed, thick] file {resources/range_fresh_802_11.dat};
-            \addlegendentry{Fresh water \(\gls{sym-sigma_e} = \SI{1e-2}{\siemens\per\meter} \)};
-            %\addplot +[mark=none, color=black] coordinates {(700e6,0) (700e6,32)}
-            \draw (axis cs:700e6,-10) -- (axis cs:700e6,15);
-            \draw (axis cs:2.4e9,-10) -- (axis cs:2.4e9,15);
-            \draw (axis cs:5e9,-10) -- (axis cs:5e9,15);
+        \begin{axis}[%
+        xlabel={Frequency \si{\hertz}},%
+        ylabel={Range \si{\meter}},%
+        xmin=10e7,%
+        xmax=10e9,%
+        xmode=log,%
+        grid=major,%
+        xminorgrids=true,%
+        width=\textwidth,%
+        height=0.5\textwidth,%
+        extra x ticks={700e6,2.4e9,5e9},%
+        extra x tick labels={\SI{700}{\mega\hertz}, \SI{2.4}{\giga\hertz}, \SI{5}{\giga\hertz}},%
+        extra x tick style={%
+        xticklabel style={yshift=-0.5ex,xshift=-1cm, anchor=south}%
+        }];%
+            \addplot[mark=none, color=RoyalRed, thick, dashed] file {resources/range_sea_802_11.dat};%
+            \addlegendentry{Sea water \(\gls{sym-sigma_e} = \SI{4}{\siemens\per\meter} \)};%
+            \addplot[mark=none, color=RoyalRed, thick] file {resources/range_fresh_802_11.dat};%
+            \addlegendentry{Fresh water \(\gls{sym-sigma_e} = \SI{1e-2}{\siemens\per\meter} \)};%
+            \draw (axis cs:700e6,-10) -- (axis cs:700e6,15);%
+            \draw (axis cs:2.4e9,-10) -- (axis cs:2.4e9,15);%
+            \draw (axis cs:5e9,-10) -- (axis cs:5e9,15);%
         \end{axis}
     \end{tikzpicture}
 \end{RoyalFigure}
@@ -320,33 +313,29 @@ When this is compared with figure~\ref{fig:propagationrange_wifi} in increase in
 
 \begin{RoyalFigure}[!htb, label=fig:propagationrange]{PROPAGATION RANGE OF LO-FI IN WATER}
     \begin{tikzpicture}
-        \begin{axis}[
-        title=Propagation range of electromagnetic waves in water,
-        xlabel={Frequency \si{\hertz}},
-        ylabel={Range \si{\meter}},
-        xmin=10e6,
-        xmax=10e8,
-        xmode=log,
-        %log ticks with fixed point,
-        %scaled x ticks=real:1e6,
-        grid=major,
-        xminorgrids=true,
-        width=\textwidth,
-        height=0.5\textwidth,
-        extra x ticks={168e6,433e6,863e6},
-        extra x tick labels={\SI{168}{\mega\hertz}, \SI{433}{\mega\hertz}, \SI{863}{\mega\hertz}},
-        extra x tick style={
-        xticklabel style={yshift=-0.5ex,xshift=-1cm, anchor=south}
-        }]
-            ;
-            \addplot[mark=none, color=RoyalRed, dashed, thick] file {resources/range_sea_EM.dat};
-            \addlegendentry{Sea water \(\gls{sym-sigma_e} = \SI{4}{\siemens\per\meter} \)};
-            \addplot[mark=none, color=red, thick] file {resources/range_fresh_EM.dat};
-            \addlegendentry{Fresh water \(\gls{sym-sigma_e} = \SI{1e-2}{\siemens\per\meter} \)};
-            %\addplot +[mark=none, color=black] coordinates {(167e6,0) (167e6,32)}
-            \draw (axis cs:168e6,-100) -- (axis cs:168e6,320);
-            \draw (axis cs:433e6,-100) -- (axis cs:433e6,320);
-            \draw (axis cs:863e6,-100) -- (axis cs:863e6,320);
+        \begin{axis}[%
+        title=Propagation range of electromagnetic waves in water,%
+        xlabel={Frequency \si{\hertz}},%
+        ylabel={Range \si{\meter}},%
+        xmin=10e6,%
+        xmax=10e8,%
+        xmode=log,%
+        grid=major,%
+        xminorgrids=true,%
+        width=\textwidth,%
+        height=0.5\textwidth,%
+        extra x ticks={168e6,433e6,863e6},%
+        extra x tick labels={\SI{168}{\mega\hertz}, \SI{433}{\mega\hertz}, \SI{863}{\mega\hertz}},%
+        extra x tick style={%
+        xticklabel style={yshift=-0.5ex,xshift=-1cm, anchor=south}%
+        }];%
+            \addplot[mark=none, color=RoyalRed, dashed, thick] file {resources/range_sea_EM.dat};%
+            \addlegendentry{Sea water \(\gls{sym-sigma_e} = \SI{4}{\siemens\per\meter} \)};%
+            \addplot[mark=none, color=red, thick] file {resources/range_fresh_EM.dat};%
+            \addlegendentry{Fresh water \(\gls{sym-sigma_e} = \SI{1e-2}{\siemens\per\meter} \)};%
+            \draw (axis cs:168e6,-100) -- (axis cs:168e6,320);%
+            \draw (axis cs:433e6,-100) -- (axis cs:433e6,320);%
+            \draw (axis cs:863e6,-100) -- (axis cs:863e6,320);%
         \end{axis}
     \end{tikzpicture}
 \end{RoyalFigure}
@@ -396,3 +385,4 @@ Acoustic communication cand can be summarized as follows:
     \RoyalRow{Frequency of transmission|This will vary with the system, i.e. depth sounding or Doppler speed log.}
     \RoyalRow{Angle of incidence of the propagated beam|The closer the angle to vertical the greater will be the energy reflected by the seabed.}
 \end{RoyalTable}
+\clearpage
