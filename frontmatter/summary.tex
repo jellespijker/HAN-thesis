@@ -2,6 +2,90 @@
 % !TeX spellcheck = en-US
 % !TeX encoding = UTF-8
 
+
 \chapter{SUMMARY}\label{chap:sum}
 
-\lipsum[1-10]
+This thesis centers around the design, implementation, and validation of a controller used in autonomous maritime
+operations. In particular the operations of an Archimedes driven dredging crawler. It includes an extensive review of
+the current state of technology with regards to underwater communications. Section~\ref{sec:underwater_communication}
+differentiation between wired and wireless communications. Describing the dampening effects of water on the latter,
+and explaining why \gls{acr-GPS} doesn't work in the work environment of a sub-merged crawler. Dead-reckoning is
+often used to overcome such limitations, but these bring their own challenges.
+
+Dead-reckoning relies on state sensing sensors, which is described in Section~\ref{sec:sensor}. Focusing on
+commonly used \glspl{acr-IMU}, which are comprised of accelerometer, gyroscope, and magnetometer. It is not uncommon
+in underwater applications, to use a pressure sensor, to further limit the uncertainty of the depth estimate.
+Section~\ref{sec:pressure sensor} explains why the accuracy of this sensor might degrade during dredging operations,
+since these disturb the soil; Creating a localized suspension with a different density. Resulting in an over
+estimation of the crawlers depth.
+
+It is imperative for underwater to have a correct estimation of the position and pose of a crawler. Because it is a
+\gls{acr-GPS} deprived environment a review has been performed how to limit this uncertainty. A common method is the
+use of a \gls{acr-LQG} also known as a Kalman filter. A tried and practice method. It is used to control a
+real-world dynamic system and uses a fairly faithful replication of the true state of dynamics. It works by
+estimating the state of the process, based on a \textit{a priori} state \gls{sym-x_k}, which is transformed to \textit{a
+post priori} state \gls{sym-x_kt+1}. It is able to filter out white noise with a normal probability distribution. A
+simple linear example of a falling ball is described in Section~\ref{sec:basic Kalman filter}.
+
+A review regarding different \gls{acr-CPP} strategies, is located in Section~\ref{sec:cpp}. It describes three
+different categories of useful strategies: morse-based cellular decomposition, Landmark-based topological coverage
+and grid-based methods. These methods all use a ``divide and conquer'' strategy. Dividing an unknown, dynamically
+chancing environment in to sub-regions, based on certain distinct features. Section~\ref{sec:strategy decision}
+compares the researched strategies and weighs them against each other. Settling on \gls{acr-topBCD}, a topological
+coverage algorithm that borrows a \gls{acr-BCD} aspect from the morse-base strategies. It divides an area into
+sub-regions based on topological landmark features, and it processes these sub-regions as an ox would plough the field.
+
+Chapter~\ref{chap:controller design} includes a final choice on used peripheral, Section~\ref{sec:peripherals} and
+the design of the used Kalman filter, Section~\ref{sec:kalman design}. Which is a \gls{acr-UKF}, due to the
+non-linear behaviour of the physics governing the kinematic and dynamic behaviour. A state representation for the
+crawler is described in Section~\ref{sec:state representation}. The state \gls{sym-x_k} describes position,
+velocity and pose and its derivative in 3-dimensions. Mathematical rotation are usually performed with a rotation
+matrix, this construct suffers form gimbal-lock and is computational ``heavy''. It is quite common to use quaternions
+for this kind of rotations. Which are an extension to complex numbers. Instead of using one imaginary axis, they use
+three imaginary axes. The pose vector and its derivative are therefor represented as quaternions.
+
+Section~\ref{sec:motion model} and Section~\ref{sec:soil dynamic model} describe how the control vector \gls{sym-u_k}
+will influence \textit{a post priori} state. It takes into account the characteristics of the drive-train, which is a
+hydraulic system, actuated with an electrical motor. This drive train rotates two mirrored Archimedes screw, which
+translate this rotation in a trust forward. A novel proposal is made, estimating the slip between screw and soil in
+the terramechanic model. Since the vanes of the Archimedes screw will act as a bulldozer if the translation forward
+is not proportional with the pitch of the vanes. A kinematic steering model of the crawler is based on a differential
+drive, and is described in Section\ref{sec:steering model}.
+
+Travel of the dredger has two States: normal travel and dredging. In normal travel the maximum velocity is limited by
+the drive train. During dredging the limiting factor is its abillity of soil removal. Section~\ref{sec:dredge model}
+determines the maximum allowable speed, governed by the flow of slurry in the dredging system. Resulting in maximum
+speed of \SI{155}{\metre\per\hour} at and optimal production of \SI{140}{\cubic\metre\per\hour}.
+
+A C++ controller framework named ``ohCaptain'' is specifically written for this project. The meta description of this
+framework is provide in Section~\ref{sec:controller}. It's intended for the control of autonomous maritime vessels in
+support of their operations. It is based on an actor-model design pattern. Were each actor is responsible for its own
+tasks, which they can execute asynchronous, on the same controller or on a cluster of controllers. The actor
+responsible for the big-picture, is called the Captain, he communicates with his Navigators, responsible for state
+estimation and path planning, and his first mates. These orchestrate and controller the Boatswains according to the
+Captains wishes. Actors who perform low-level single-minded tasks. Such as reading out a sensor signal, or controlling
+the speed of an Archimedes screw. Because this framework is written in C++ it can be used on a multitude of different
+controllers, ranging from dedicated specialize hardware, to \gls{acr-SBC} such as a \gls{acr-Rpi} or \gls{acr-BBB}.
+This design choice has the potential to greatly reduce the cost and shorten the lead time of future prototypes.
+
+Validation of the controller is performed in a simulated environment. Chapter~\ref{seq:design validation} describes
+this in detail. It uses Project Chrono a multi-body physics engine with specialized modules for vehicle simulation
+and terramechanics. It lacks however a module for sensor simulation. Something that is necessary in validating the
+performance of the \gls{sym-UKF}. Section~\ref{sec:sensor simulation} discusses a custom written extension to Project
+Chrono, called ``chrono\_sensors''. It allows for realistic sensor simulation, providing sensor signals to a
+controller, and is subject to noise, discretization, delay, and transformation.
+
+A virtual scenario is created and described in Section~\ref{sec:simulation model}. This scenario is based on a
+use-case in which the crawler needs ton perform a maintenance dredging task in a small recreational harbor near
+Bruinisse in the Netherlands. The controller ``ohCaptain'' and ``chrono\_sensors'' are integrated in a simulation
+and the same scenario is run three times. Section~\ref{sec:result} evaluates the different scenarios. The first scenario
+can be considered as an ``analytical'' run. This is shows the path generated by the Captain and his Navigator with an
+accurate location estimate. This scenario shows that the selected \gls{acr-topBCD} strategy does what its intended to
+do. The whole harbor is covered in a seemingly logical way.
+
+The second and third run are executed to show the difference between a \gls{acr-UKF} based controller and a simple
+\gls{acr-PID} based one. The difference is rather pronounced, were the \gls{acr-PID} has a localization error that
+keeps on growing, eventually letting the crawler think it is inside the body of water, while in reality it has
+crossed the boundary and is now dredging on land. The \gls{acr-UKF} has however managed to cover the whole soil bed.
+
+\noindent The findings of this thesis are discussed in the conclusion, Chapter~\ref{chap:conclusion}.
