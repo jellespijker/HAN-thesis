@@ -452,6 +452,14 @@ at time \( k \).
     \gls{sym-epsilon_nees_mean} = \frac{1}{k}\sum_{1}^{k} \gls{sym-epsilon_nees} \leq \gls{sym-n_x}
 \end{equation}
 
+This means that if the covariance matrix gets smaller, \gls{acr-NEES} gets larger for the same error. A covariance
+matrix is the filter's estimate of it's error, so if it's small relative to the estimation error then it's performing
+worse than if it's large relative to the same estimation error. Equation~\ref{eq:eps_nees} gives a scalar for each time
+step, which is said to be \textit{chi-squared distributed with n degrees of freedom}. The average \gls{acr-NEES} value
+\gls{sym-epsilon_nees_mean} should be less then number of elements in the state space vector \gls{sym-n_x}, as is shown
+in equation~\ref{eq:mean_eps}. The performance of our example or the \( \gls{sym-epsilon_nees_mean} = \num{1.307745} \)
+is shown in figure~\ref{fig:nees_ball_kalman}.
+\newpage
 \begin{RoyalFigure}[!htb, label=fig:pos_ball_kalman]{COMPARISON OF ESTIMATED, MEASURED AND REAL POSITION}
     \begin{tikzpicture}
         \begin{axis}[
@@ -464,11 +472,13 @@ at time \( k \).
         xmin=0,
         xmax=20,
         legend pos=north west]
-            \addplot[color=RoyalBlack,mark=none] table[x index=0,y index=1,col sep=comma] {resources/fallingBallPos.dat};
+            \addplot[color=RoyalBlack,mark=none] table[x index=0,y index=1,col sep=comma] {resources/fallingBallPos
+            .dat};
             \addlegendentry{Analytic};
             \addplot[color=RoyalRed] table[x index=0,y index=2,col sep=comma] {resources/fallingBallPos.dat};
             \addlegendentry{Kalman estimate};
-            \addplot[color=RoyalRed,mark=+, only marks] table[x index=0,y index=3,col sep=comma] {resources/fallingBallPos.dat};
+            \addplot[color=RoyalRed,mark=+, only marks] table[x index=0,y index=3,col sep=comma] 
+            {resources/fallingBallPos.dat};
             \addlegendentry{Measurements};
         \end{axis}
     \end{tikzpicture}
@@ -486,22 +496,14 @@ at time \( k \).
         xmin=0,
         xmax=20,
         legend pos=north west]
-            \addplot[color=RoyalBlack,mark=none] table[x index=0,y index=1,col sep=comma] {resources/fallingBallSpeed.dat};
+            \addplot[color=RoyalBlack,mark=none] table[x index=0,y index=1,col sep=comma] {resources/fallingBallSpeed
+            .dat};
             \addlegendentry{Analytic};
             \addplot[color=RoyalRed] table[x index=0,y index=2,col sep=comma] {resources/fallingBallSpeed.dat};
             \addlegendentry{Kalman estimate};
         \end{axis}
     \end{tikzpicture}
 \end{RoyalFigure}
-
-
-This means that if the covariance matrix gets smaller, \gls{acr-NEES} gets larger for the same error. A covariance
-matrix is the filter's estimate of it's error, so if it's small relative to the estimation error then it's performing
-worse than if it's large relative to the same estimation error. Equation~\ref{eq:eps_nees} gives a scalar for each time
-step, which is said to be \textit{chi-squared distributed with n degrees of freedom}. The average \gls{acr-NEES} value
-\gls{sym-epsilon_nees_mean} should be less then number of elements in the state space vector \gls{sym-n_x}, as is shown
-in equation~\ref{eq:mean_eps}. The performance of our example or the \( \gls{sym-epsilon_nees_mean} = \num{1.307745} \)
-is shown in figure~\ref{fig:nees_ball_kalman}.
 
 \begin{RoyalFigure}[!htb, label=fig:nees_ball_kalman]{\gls{acr-NEES} for \gls{gls-Kalman-filter}}
     \begin{tikzpicture}
@@ -521,3 +523,4 @@ is shown in figure~\ref{fig:nees_ball_kalman}.
         \end{axis}
     \end{tikzpicture}
 \end{RoyalFigure}
+\clearpage

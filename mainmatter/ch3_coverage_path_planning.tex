@@ -95,7 +95,7 @@ corresponds with a node while a cell is represented by an edge.
 
 \begin{RoyalFigure}[!htb, label=fig:exact_cellular_decomposition]{(a) Exact cellular decomposition, (b) Graph 
 representation}
-    \includegraphics[width=\textwidth,trim=2 2 2 2,clip]{exact_cellular_decomposition.pdf}
+    \includegraphics[width=\textwidth,trim=3 3 3 3,clip]{exact_cellular_decomposition.pdf}
 \end{RoyalFigure}
 
 The above describe technique has a minor short-coming, \citet{choset_exact_2000} states that this method may result in
@@ -105,7 +105,7 @@ address this issue, the \gls{acr-BCD} approach was introduced.
 
 \begin{RoyalFigure}[!htb, label=fig:manysmallcells]{TRAPEZOIDAL DECOMPOSITION OF BOUND FREE 
 SPACE\cite{choset_exact_2000}.}
-    \includegraphics[width=0.4\textwidth,trim=2 2 2 2,clip]{manysmallcells.pdf}
+    \includegraphics[width=0.4\textwidth,trim=3 3 3 3,clip]{manysmallcells.pdf}
 \end{RoyalFigure}
 
 Boustrophedon which literally means ``\emph{the way of the ox}'' merges these cells, such that a more
@@ -115,9 +115,9 @@ figure~\ref{fig:diffmorsefunction}~\cite{galceran_survey_2013}\cite{choset_cover
 spiral, spike or squarel.
 
 \begin{RoyalFigure}[!htb, label=fig:diffmorsefunction]{SPIRAL, SPIKE AND SQUAREL~\cite{acar_morse_2002}}
-    \includegraphics[width=0.3\textwidth,trim=2 2 2 2,clip]{bous1.pdf}
-    \includegraphics[width=0.3\textwidth,trim=2 2 2 2,clip]{bous2.pdf}
-    \includegraphics[width=0.3\textwidth,trim=2 2 2 2,clip]{bous3.pdf}
+    \includegraphics[width=0.3\textwidth,trim=3 3 3 3,clip]{bous1.pdf}
+    \includegraphics[width=0.3\textwidth,trim=3 3 3 3,clip]{bous2.pdf}
+    \includegraphics[width=0.3\textwidth,trim=3 3 3 3,clip]{bous3.pdf}
 \end{RoyalFigure}
 
 Once each cell is identified a strategy for the infill is executed, which is described by \citet{huang_optimal_2001} as
@@ -129,7 +129,7 @@ minimizing the number of turns, which are proportional to the altitude of a subr
 found.
 
 \begin{RoyalFigure}[!htb]{DIFFERENT SWEEP DIRECTIONS~\cite{huang_optimal_2001}}
-    \includegraphics[width=.6\textwidth,trim=2 2 2 2,clip]{differentsweepdirections.pdf}
+    \includegraphics[width=.6\textwidth,trim=3 3 3 3,clip]{differentsweepdirections.pdf}
 \end{RoyalFigure}
 
 This is done by first creating an \gls{gls-adjacency-graph} \gls{sym-G_adj}, generated with the
@@ -161,7 +161,7 @@ decomposition in an unknown dynamically chancing environment. Critical point sen
 the sweep direction and the surface normal \( \gls{sym-nabla_m}(x) \) of an obstacle are parallel.
 
 \begin{RoyalFigure}[!htb, label=fig:incrementalsweep]{INCREMENTAL GRAPH CONSTRUCTION~\cite{acar_sensor_based_2002}}
-    \includegraphics[width=\textwidth,trim=2 2 2 2,clip]{incrementalsweep.pdf}
+    \includegraphics[width=\textwidth,trim=3 3 3 3,clip]{incrementalsweep.pdf}
 \end{RoyalFigure}
 
 On-line region coverage is depicted in figure~\ref{fig:incrementalsweep} which shows an incremental sweep as part of an
@@ -197,7 +197,7 @@ the conclusion that a \gls{gls-critical-point} occurs when \( \nabla \gls{sym-d_
 direction, as illustrated in figure~\ref{fig:criticalpointdetectiononline}.
 
 \begin{RoyalFigure}[!htb, label=fig:criticalpointdetectiononline]{CRITICAL POINT DETECTING~\cite{galceran_survey_2013}}
-    \includegraphics[width=.4\textwidth,trim=2 2 2 2,clip]{critcialpointdetection.pdf}
+    \includegraphics[width=.4\textwidth,trim=3 3 3 3,clip]{critcialpointdetection.pdf}
 \end{RoyalFigure}
 
 Points are only detected from the side view. A normal sweeping motion will miss \gls{gls-critical-point} that lay
@@ -247,7 +247,7 @@ This newly placed node on the \gls{acr-GVD} represents a new \gls{gls-narrow-cel
 second boundary is detected and slips into its initial modus.
 
 \begin{RoyalFigure}[!htb, label=fig:vastnarrow]{STAGES OF INCREMENTAL CONSTRUCTION~\cite{acar_complete_2001}}
-    \includegraphics[width=0.5\textwidth,trim=2 2 2 2,clip]{VASTNARROW.pdf}
+    \includegraphics[width=0.5\textwidth,trim=3 3 3 3,clip]{VASTNARROW.pdf}
 \end{RoyalFigure}
 
 Figure~\ref{fig:vastnarrow} depicts the stages of the incremental construction of the hierarchical decomposition while
@@ -287,9 +287,8 @@ step. \citeauthor{wong_complete_2004} states that there are two situations where
     \item A segment from the previous slice disappears in the current slice, see figure~\ref{fig:slicedec} (c) and (d).
 \end{enumerate}
 
-\begin{RoyalFigure}[!htb, label=fig:slicedec]{(a) SPLITTING OF SEGMENTS (b) MERGING OF SEGMENTS 
-\cite{wong_complete_2004}}
-    \includegraphics[height=2.5cm,trim=2 2 2 2,clip]{slicedec.pdf}
+\begin{RoyalFigure}[!htb, label=fig:slicedec]{ SPLITTING/MERGING OF SEGMENTS\cite{wong_complete_2004}}
+    \includegraphics[width=0.6\textwidth,trim=3 3 3 3,clip]{slicedec.pdf}
 \end{RoyalFigure}
 
 \begin{RoyalAlgorithm}[label=alg:offlineslicedecomposition]{OFF-LINE SLICE DECOMPOSITION}
@@ -325,7 +324,7 @@ hindsight. Thus backtracking will still be an issue.
 
 \begin{RoyalFigure}[!htb, label=fig:slicedecmpD]{SLICE DECOMPOSITION GENERATED BY 
 ALGORITHM~\ref{alg:offlineslicedecomposition}~\cite{wong_complete_2004}}
-    \includegraphics[height=3cm,trim=2 2 2 2,clip]{slicedecompD.pdf}
+    \includegraphics[width=0.6\textwidth,trim=3 3 3 3,clip]{slicedecompD.pdf}
 \end{RoyalFigure}
 
 \citet{wong_qualitative_2006} recognizes the limitations of slice decomposition and proposes a new method ``\emph{slice
@@ -337,7 +336,7 @@ instance with an \gls{gls-umbilical}, not every cell can be be reached. The rest
 view as a change of the boundary of the environment.
 
 \begin{RoyalFigure}[!htb, label=fig:slicedecompII]{(a) SPLIT, (b) MERGE, (c) END, (d) LENGTHEN, (e) SHORTEN}
-    \includegraphics[height=10cm,trim=2 2 2 2,clip]{slicedecompII.pdf}
+    \includegraphics[height=10cm,trim=3 3 3 3,clip]{slicedecompII.pdf}
 \end{RoyalFigure}
 
 \begin{RoyalTable}{X[1,l,m] X[4,l,m]}
@@ -345,20 +344,16 @@ view as a change of the boundary of the environment.
     \RoyalRow{SPLIT|Free space segment in the previous slice is split into two by the emergence of an obstacle. This is
     equivalent to obstacle segment emergence in normal Slice Decomposition.}
     \RoyalRow{MERGE|Free space segment in the current slice neighbors free spaces other than the free space segment 
-	in the
-    previous slice in the direction of the previous slice. This is equivalent to obstacle segment disappearance in 
-	normal
-    slice decomposition.}
+    in the previous slice in the direction of the previous slice. This is equivalent to obstacle segment 
+    disappearance in normal slice decomposition.}
     \RoyalRow{END|The previous free space segment is the final one in the current cell. This is equivalent to free space
     segment disappearance in the normal version.}
     \RoyalRow{LENGTHEN|Free space segment in the current slice neighbors an obstacle segment in addition to the free 
-	space
-    segment in the previous slice in the direction of the previous slice. Another way to view this situation is that the
-    current slice is much longer than the previous slice.}
+    space segment in the previous slice in the direction of the previous slice. Another way to view this situation is
+    that the current slice is much longer than the previous slice.}
     \RoyalRow{SHORTEN|Free space segment in the previous slice neighbors and obstacle segment in addition to the free
-	space
-    segment in the current slice in the direction of the current slice. Another way to view this situation is that the
-    current slice is much shorter than the previous slice.}
+    space segment in the current slice in the direction of the current slice. Another way to view this situation is 
+    that the current slice is much shorter than the previous slice.}
 \end{RoyalTable}
 
 \begin{RoyalAlgorithm}[label=alg:offlineslicedecompositionII]{OFF-LINE SLICE DECOMPOSITION II}
@@ -499,7 +494,7 @@ figure~\ref{fig:rotatedsonarvectors}.
 
 \begin{RoyalFigure}[!htb, label=fig:rotatedsonarvectors]{ROTATION OF SONAR READING TO MOST OCCUPIED 
 DIRECTION~\cite{wong_qualitative_2006}}
-    \includegraphics[width=\textwidth,trim=2 2 2 2,clip]{rotatedsonarvectors.pdf}
+    \includegraphics[width=\textwidth,trim=3 3 3 3,clip]{rotatedsonarvectors.pdf}
 \end{RoyalFigure}
 
 This vector is fed into a \gls{acr-MLP} which distinguishes three different type of classes: free space nodes,
@@ -507,14 +502,14 @@ obstacle nodes and everything else. This neural network first has to be taught. 
 that the landmark type have to be predefined.
 
 \subsection{GRID-BASED METHODS}
-Grid-based methods dived the working area into a raster of uniform grid cells. Each cell has an associated value stating
-whether an obstacles is present or if it's rather free space. The value can either be binary or a probability
-\cite{galceran_coverage_2014}. These grid cells are typically square in shape, but it's not uncommon to use triangle
+Grid-based methods divide the working area into a raster of uniform grid cells. Each cell has an associated value 
+stating whether an obstacles is present or if it's rather free space. The value can either be binary or a probability
+\cite{galceran_coverage_2014}. These grid cells are typically square in shape, but it's not uncommon to use triangle 
 shaped cell. The size of the cell usually corresponds with the size of a crawler.
 
 \begin{RoyalFigure}[!htb, label=fig:ccpdistancetransform]{COVERAGE PATH GENERATED FROM A DISTANCE 
 TRANSFORM~\cite{wong_qualitative_2006}}
-    \includegraphics[height=7cm,trim=2 2 2 2,clip]{cppdistancetransform.pdf}
+    \includegraphics[height=7cm,trim=3 3 3 3,clip]{cppdistancetransform.pdf}
 \end{RoyalFigure}
 
 Once the environment is mapped onto an uniform grid. An optimal \gls{gls-coverage-path} can be found using the by
@@ -679,10 +674,6 @@ considered old if at least one of its four smaller cells is covered. As a result
 along one side of the spanning tree until it reaches the end of the tree. At this point, the robot turns around to
 traverse the other side of the tree~\cite{galceran_coverage_2014}.
 
-\begin{RoyalFigure}[!htb, label=]{COVERAGE PATH GENERATED WITH THE SPIRAL-STC ALGORITHM~\cite{galceran_survey_2013}.}
-    \includegraphics[height=7cm,trim=2 2 2 2,clip]{spiral-stc.pdf}
-\end{RoyalFigure}
-
 \begin{RoyalAlgorithm}[label=alg:stc]{SPIRAL SPANNING TREE COVERAGE}
     \begin{algorithmic}[1]
         \Procedure{SpiralSpanningTreeCoverage}{ $ w , \gls{sym-x} $ }
@@ -701,6 +692,10 @@ traverse the other side of the tree~\cite{galceran_coverage_2014}.
     \end{algorithmic}
 \end{RoyalAlgorithm}
 
+\begin{RoyalFigure}[!htb, label=]{CPP SPIRAL-STC ALGORITHM~\cite{galceran_survey_2013}.}
+    \includegraphics[height=7cm,trim=3 3 3 3,clip]{spiral-stc.pdf}
+\end{RoyalFigure}
+
 \citet{wong_qualitative_2006} and \citet{lee_smooth_2011} states the path can be optimized by using smaller grid cells,
 however because accurate maneuverability is often an issue, a higher resolution is not the best approached.
 \citeauthor{lee_smooth_2011} proposes a new method for \gls{acr-Spiral-STC} by limiting the number of turns,
@@ -718,7 +713,7 @@ is associated to each and every grid cell. Each neuron has connections to its im
 neighbors~\cite{galceran_survey_2013}. This architecture is illustrated in figure~\ref{fig:cppnn}.
 
 \begin{RoyalFigure}[!htb, label=fig:cppnn]{ARCHITECTURE OF A NEURODYNAMICS MODEL~\cite{yan_complete_2012}}
-    \includegraphics[height=12cm,trim=2 2 2 2,clip]{cppnn.pdf}
+    \includegraphics[height=12cm,trim=3 3 3 3,clip]{cppnn.pdf}
 \end{RoyalFigure}
 
 The proposed neural network, is topologically expressed on a 2-dimensional occupancy grid map. The location of the
@@ -813,10 +808,12 @@ overlapping areas.
 
 \begin{figure}
     \begin{center}
-        \includegraphics[width=\textwidth,trim=2 2 2 2,clip]{predefinedtemplates.pdf}
+        \includegraphics[width=\textwidth,trim=3 3 3 3,clip]{predefinedtemplates.pdf}
     \end{center}
     \caption{Four predefined templates. Source: \citet{yan_complete_2012}}\label{fig:fourtemp}
 \end{figure}
 
-Grid based neural networks methods lend themselves to be easily integrated with map building. \citet{yan_complete_2012}
-describes how the sensor model can be used to build an on-line map of the environment where the \gls{gls-Dempster-shafer-theory} is used to filter out uncertainties of the sensor.
+Grid based neural networks methods lend themselves to be easily integrated with map building. 
+\citet{yan_complete_2012} describes how the sensor model can be used to build an on-line map of the environment where
+the \gls{gls-Dempster-shafer-theory} is used to filter out uncertainties of the sensor.
+\clearpage

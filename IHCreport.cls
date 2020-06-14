@@ -185,46 +185,45 @@
 \usepackage{colortbl}
 
 \NewDocumentCommand\RoyalCell{om}
-{
-  \IfValueT{#1}
-  {
-    \color{#1} #2
-  }
-  #2
+{%
+  \IfValueT{#1}%
+  {%
+    \color{#1} #2%
+  }%
+  #2%
   \let\RoyalCell\RoyalCella%
 }
 \NewDocumentCommand\RoyalCella{om}
-{
-  &
-  \IfValueT{#1}
-  {
-  \color{#1}
-  }
-  #2
+{%
+  &%
+  \IfValueT{#1}%
+  {%
+  \color{#1}%
+  }%
+  #2%
 }
 
 \NewDocumentCommand\RoyalRow{>{\SplitList{|}}m}
-{
-  \\ \ProcessList{#1}{\RoyalCell}
+{%
+  \\ \ProcessList{#1}{\RoyalCell}%
 }
 
 \NewDocumentCommand\RoyalHeader{>{\SplitList{|}}m}
-{
-  \ProcessList{#1}{\RoyalCell}
+{%
+  \ProcessList{#1}{\RoyalCell}%
 }
-
 
 \NewDocumentEnvironment{ RoyalTable }{m}
-{
-\setlength{\tabulinesep}{1pt}
-\setlength{\extrarowsep}{2pt}
-\noindent
-\taburowcolors[2] 2{RoyalWhite .. RoyalLightGrey}
-\begin{longtabu}{#1}
-  \rowcolor{RoyalRed} \rowfont{\sffamily\bfseries\color{RoyalWhite}}
+{%
+\setlength{\tabulinesep}{1pt}%
+\setlength{\extrarowsep}{2pt}%
+\noindent%
+\taburowcolors[2] 2{RoyalWhite .. RoyalLightGrey}%
+\begin{tabu}{#1}%
+  \rowcolor{RoyalRed} \rowfont{\sffamily\bfseries\color{RoyalWhite}}%
 }
-{
-\end{longtabu}
+{%
+\end{tabu}%
 }
 
 \NewDocumentEnvironment{ RoyalUM }{m}
@@ -243,8 +242,6 @@
 % === GRAPHICS ===
 \usepackage{graphicx}
 \graphicspath{ {resources/} }
-%\usepackage{minted}
-%\usepackage{morewrites}
 \usepackage[most, minted]{tcolorbox}
 \tcbuselibrary{minted}
 \usepackage{tikz}
@@ -272,10 +269,6 @@ minimum height=3em, minimum width=6em,rounded corners=.15cm]
 \usepackage[type1, black]{raleway}
 }
 \usepackage{mdsymbol}
-%\usepackage{amsmath,amssymb}
-%\usepackage[no-math]{fontspec}
-%\usepackage[T1]{fontenc}
-%\usepackage[utf8]{inputenc}
 \usepackage{bm}
 \usepackage[utf8]{luainputenc}
 \usepackage{mathrsfs}
@@ -354,23 +347,9 @@ minimum height=3em, minimum width=6em,rounded corners=.15cm]
 % === LAYOUT ===
 \usepackage{lipsum}
 \usepackage{ragged2e}
-% \usepackage[
-%  a4paper,
-%  tmargin=5mm,
-%  textwidth=155mm,
-%  textheight=250mm,
-%  heightrounded,
-%  twoside,
-%  bindingoffset=20mm,
-%  includeheadfoot,
-%  headheight=10mm,
-%  headsep=8mm,
-%  foot=15mm
-% ]{geometry}
 
 \setkomafont{captionlabel}{\sffamily\bfseries}
 \addtokomafont{caption}{\sffamily\bfseries\MakeUppercase}
-%\setkomafont{descriptionlabel}{\bfseries}
 
 \setlength\footheight{20pt}
 \ohead[]{}
@@ -439,13 +418,13 @@ minimum height=3em, minimum width=6em,rounded corners=.15cm]
 \renewcommand\chapterlinesformat[3]{%
      \ifnumodd{\thepage}{%
       \begin{tikzpicture}[overlay,remember picture]%
-       \node[headings/chapterbackground, anchor=south east, yshift=-45mm, xshift=-20mm] at (current page.north east) (ch) {#3};%
+       \node[headings/chapterbackground, anchor=south east, yshift=-45mm, xshift=-28mm] at (current page.north east) (ch) {#3};%
        \node[headings/chapternumber, anchor=south west] at (ch.south east) (chnr) {#2};%
        \node[headings/chapapp, anchor=south east] at (ch.north east) (chapp) {\MakeUppercase{\chapapp}};%
       \end{tikzpicture}%
      }{%
       \begin{tikzpicture}[overlay,remember picture]%
-       \node[headings/chapterbackground, anchor=south west, yshift=-45mm, xshift=20mm] at (current page.north west) (ch) {#3};%
+       \node[headings/chapterbackground, anchor=south west, yshift=-45mm, xshift=28mm] at (current page.north west) (ch) {#3};%
        \node[headings/chapternumber, anchor=south east] at (ch.south west) (chnr) {#2};%
        \node[headings/chapapp, anchor=south west] at (ch.north west) (chapp) {\MakeUppercase{\chapapp}};%
       \end{tikzpicture}%
@@ -471,7 +450,7 @@ minimum height=3em, minimum width=6em,rounded corners=.15cm]
 \NewDocumentEnvironment{front} { o }
 {%
 \frontmatter%
-\maketitle
+\maketitle%
 \setcounter{page}{1}%
 \pagenumbering{Roman}%
 \makequalitycontrol%
@@ -580,20 +559,20 @@ minimum height=3em, minimum width=6em,rounded corners=.15cm]
 
 \newlanguagecommand{\disclaimertxt}
 \addtolanguagecommand{\disclaimertxt}{english}{%
-This document has been prepared by \@unitname\ for \@client. The opinions and%
-information in this report are entirely those of \@unitname, based on data and%
-assumptions as reported throughout the text and upon information and data%
-obtained from sources which \@unitname\ believes to be reliable.\newline%
-While \@unitname\ has taken all reasonable care to ensure that the facts and%
-opinions expressed in this document are accurate, it makes no guarantee to any%
-person, organization or company, representation or warranty, express or implied%
-as to fairness, accuracy and liability for any loss howsoever, arising directly%
+This document has been prepared by Jelle Spijker for Royal IHC. The opinions and %
+information in this report are entirely those of Jelle Spijker, based on data and %
+assumptions as reported throughout the text and upon information and data %
+obtained from sources which Jelle Spijker believes to be reliable.\newline%
+While Jelle Spijker has taken all reasonable care to ensure that the facts and %
+opinions expressed in this document are accurate, it makes no guarantee to any %
+person, organization or company, representation or warranty, express or implied %
+as to fairness, accuracy and liability for any loss howsoever, arising directly %
 or indirectly from its use or contents.\newline%
-This document is intended for use by professionals or institutions. This%
-document remains the property of \@unitname. All rights reserved. This document%
-or any part thereof may not be made public or disclosed, copied or otherwise%
-reproduced or used in any form or by any means, without prior permission in%
-writing from \@unitname. \newline%
+This document is intended for use by professionals or institutions. This %
+document remains the property of Jelle Spijker. All rights reserved. This document %
+or any part thereof may not be made public or disclosed, copied or otherwise %
+reproduced or used in any form or by any means, without prior permission in %
+writing from Jelle Spijker. \newline%
 \begin{center}%
 This document is dated \thedate%
 \end{center}%
@@ -736,7 +715,8 @@ Dit document is gepubliceerd op \thedate%
   memory cannot be defined, but it defines mankind. The advent of computers, and the subsequent accumulation of % 
   incalculable data has given rise to a new system of memory and thought parallel to your own. Humanity has % 
   underestimated the consequences of computerization.}};%
-   \node[anchor=north east, inner sep=0pt, outer sep=1em, text width=6.5cm] at (quotenode.south east) (qoutenodeauthor)%
+   \node[anchor=north east, inner sep=0pt, outer sep=1em, text width=6.25cm] at (quotenode.south east) 
+(qoutenodeauthor)%
    {\RaggedRight Masamune Shirow - \textit{Kôkaku Kidôtai}};%
    \node[anchor=south east, xshift=-\coverpagerightmargin, yshift=50mm, inner sep=0pt, outer sep=0pt] at (current page.south east) (addrnode) {%
     \begin{tabu}{r}%
@@ -990,11 +970,9 @@ enhanced,%
  remember,%
  check odd page=true,%
  finish={%
-   \ifoddpage%
-    \node[fill=RoyalWhite, anchor=north east, draw=RoyalWhite, thick] at ([xshift=0mm]$(current page.east |- frame.south) $) {\usekomafont{captionlabel}\figurename~\thetcbcounter:~#2};%
-   \else%
-   \node[fill=RoyalWhite, anchor=north east, draw=RoyalWhite, thick] at ([xshift=-1.0in-8mm]$(current page.east |- frame.south) $) {\usekomafont{captionlabel}\figurename~\thetcbcounter:~#2};%
-  }%
+    \node[fill=RoyalWhite, anchor=north east, draw=RoyalWhite, thick] at ($ (frame.south -| frame.east) $) 
+{\usekomafont{captionlabel}\figurename~\thetcbcounter:~#2};%
+}%
 }
 
 % === LISTINGS ===

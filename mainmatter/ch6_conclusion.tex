@@ -24,7 +24,7 @@ Sensor fusion can be a great tool to battle this effect. A distinction is made f
 state of the vehicle and those that describe the environment. Were detected landmarks can act as ground truths, 
 anchoring the otherwise unbound error. State sensing is usually done with \glspl{acr-IMU}, consisting of an 
 accelerometer, gyroscope and magnetometer. These are also of use in the case of a crawler. Coupled with a pressure 
-sensor, which measures the water column above the crawler, helps in an accurate estimation of the \gls(sym-z) 
+sensor, which measures the water column above the crawler, helps in an accurate estimation of the \gls{sym-z} 
 position. This accuracy of the estimate will however degrade when dredging operations disturb the soil, which mixes 
 with the water and alter the density.
 
@@ -47,7 +47,7 @@ the Morse-based cellular decomposition strategy. \gls{acr-BCD} literally means `
 crawler will go back and forth in the sub-regions, as an ox might plow a field.
 
 Implementation of the \gls{acr-UKF} stands or fall with an accurate kinematic model. Estimating where the crawler 
-will be requires a complete model of the drive train. Which is model on first-principle, where the output of each 
+will be requires a complete model of the drive-train. Which is model on first-principle, where the output of each 
 component represent an energy transfer to the next. This drive-train actuates two rotating Archimedes screws, the 
 terramechanic model describes how the rotation is actually transformed in a translation of the crawler on the soil 
 bed. It proposes a novel method of estimating slippage by measuring an change in generated torque. Explaining that 

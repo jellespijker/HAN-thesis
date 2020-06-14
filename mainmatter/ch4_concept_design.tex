@@ -56,8 +56,8 @@ The crawler is comprised of multiple components which are listed in Appendix~\re
 will focus on components which are required for autonomous operations. The two drivetrains consists of an electric
 motor, with an attached gearbox, coupled to a hydraulic motor and a hydraulic system which drives a hydraulic pump. The
 shaft of the hydraulic motor is attached to a flexible coupling and connected with an Archimedes screw by a rigid flange
-connection. This drivetrain is discussed in detail in Section~\ref{sec:motion model}. The crawler is able to turn if
-both drivetrains operate at different velocities, which is discussed in Section~\ref{seq:steering model}. The control
+connection. This drive-train is discussed in detail in Section~\ref{sec:motion model}. The crawler is able to turn if
+both drivetrains operate at different velocities, which is discussed in Section~\ref{sec:steering model}. The control
 vector \gls{sym-u_k}, consist of two velocity components.
 
 Dead-reckoning is often accomplished with a \gls{gls-accelerometer}, \gls{gls-gyroscope} and \gls{gls-magnetometer},
@@ -68,7 +68,7 @@ Section~\ref{sec:pressure sensor}. Knowing actual rotational velocity of the Arc
 predict the traveled distance. Something that can be measure with an encoder attached on the shaft of the electro motor.
 These encoder are also used for the regular \gls{acr-PID} controller of the screws. Although we can measure the
 rotational velocity of the screws we can't know for sure how fast the crawler will actually move. Section~\ref{sec:soil
-dynamic model} describes how the change in required torque of the drivetrain will give a indication of the slippage of
+dynamic model} describes how the change in required torque of the drive-train will give a indication of the slippage of
 the Archimedes screws.
 
 
@@ -138,7 +138,7 @@ this only applies if there is no horizontal soil failure under the screws. Such 
 of a period in time where the screws turn but generate no forwarding force leading to an inaccurate estimation for the
 new predicted state. Due to the geometry of an \gls{gls-Archimedes-screw}, this slip coexists with a bulldozer effect
 created by the vanes acting as a shovel in the soil. This will lead to an increase in torque. it's proposed that by
-measuring the required torque of the drive train, a prediction can be made of how much slip has occurred, leading to a
+measuring the required torque of the drive-train, a prediction can be made of how much slip has occurred, leading to a
 better estimation of the future state-vector \gls{sym-x_kt+1}. This behavior and the mathematical model will be
 discussed in more detail in Section~\ref{sec:motion model}. Figure~\ref{fig:kalman process} shows the interaction and
 connectivity of the various components that serve as the input and output of the proposed filter.
@@ -309,7 +309,7 @@ by an Archimedes screw. A proven technology for land based vehicles, especially 
 have shown reliable operations, superior traction capabilities and they can be used as a buoyancy body. Typical 
 working territories for Archimedes driven vehicles are dredge deposit sites and swamps \cite{lotman_deep_2011}.
 
-\begin{RoyalFigure}[!htb, label=fig:archimedes_drive_train]{ARCHIMEDES DRIVE TRAIN}
+\begin{RoyalFigure}[!htb, label=fig:archimedes_drive_train]{ARCHIMEDES DRIVE-TRAIN}
     \includegraphics[width=\textwidth]{Archimedes_cross_section.png}
 \end{RoyalFigure}
 
@@ -329,7 +329,7 @@ hydraulic motor drives the Archimedes screws, which interact with the soil and g
 velocity when total friction and resistance is overcome.
 
 \newpage
-\begin{RoyalFigure}[!htb, label=fig:propulsionsystemmodel]{DRIVE TRAIN BASED ON FIRST PRINCIPLE}
+\begin{RoyalFigure}[!htb, label=fig:propulsionsystemmodel]{DRIVE-TRAIN BASED ON FIRST PRINCIPLE}
     \begin{tikzpicture}[auto, node distance=2.5cm,>=latex', align=center]
         % Placing the blocks
         \node [input, name=input] {};
@@ -902,10 +902,10 @@ with a sinkage of \SI{135}{\milli\meter}, offers less bearing capacity compared 
 clay, either loosely \SI{45}{\milli\meter} or densely packed \SI{11}{\milli\meter}
 
 \begin{RoyalFigure}[!htb, label=fig:sinkage depths]{SINKAGE DEPTH}
-    \includegraphics[width=0.25\textwidth,trim=2 2 2 2,clip]{sinkage_silt.png}
-    \includegraphics[width=0.25\textwidth,trim=2 2 2 2,clip]{sinkage_looslypackedclay.png}
-    \includegraphics[width=0.25\textwidth,trim=2 2 2 2,clip]{sinkage_clay.png}
-    \includegraphics[width=0.25\textwidth,trim=2 2 2 2,clip]{sinkage_sand.png}
+    \includegraphics[width=0.25\textwidth,trim=3 3 3 3,clip]{sinkage_silt.png}
+    \includegraphics[width=0.25\textwidth,trim=3 3 3 3,clip]{sinkage_looslypackedclay.png}
+    \includegraphics[width=0.25\textwidth,trim=3 3 3 3,clip]{sinkage_clay.png}
+    \includegraphics[width=0.25\textwidth,trim=3 3 3 3,clip]{sinkage_sand.png}
 \end{RoyalFigure}
 
 The sinkage depth is needed to determine friction losses between screw and soil. \citet{rajapakse_geotechnical_2011}
@@ -1108,7 +1108,7 @@ the operating point will lay somewhere around \SI{140}{\cubic\meter\per\hour}, r
 that a surface of roughly \SI{466}{\meter\squared} can be excavated with a depth of \SI{300}{\milli\meter}.
 
 \begin{RoyalFigure}[htb, label=fig:Q_h]{PRESSURE VS FLOW}
-    \includegraphics[width=0.66\textwidth,trim=2 2 2 2,clip]{q_h.png}
+    \includegraphics[width=0.66\textwidth,trim=3 3 3 3,clip]{q_h.png}
 \end{RoyalFigure}
 
 \subsection{STEERING MODEL}\label{sec:steering model}
@@ -1122,7 +1122,7 @@ soil dynamic models will compensate for occurring slippage and other drive-train
 described on a 2-dimensional space as a differential drive, which is a very simple driving mechanism.
 
 \begin{RoyalFigure}[!htb, label=fig:difdrivekinetics]{DIFFERENTIAL DRIVE KINEMATICS~\cite{klancar_wheeled_2017}}
-    \includegraphics[height=5cm,trim=2 2 2 2,clip]{difdrivekinetics.png}
+    \includegraphics[height=5cm,trim=3 3 3 3,clip]{difdrivekinetics.png}
 \end{RoyalFigure}
 
 Considering Figure~\ref{fig:difdrivekinetics}, it's possible to determine the rotation \gls{sym-psi} and tangential
@@ -1226,26 +1226,20 @@ communication in a cooperative swarm of autonomous vehicles with a common goal.
 
 \begin{RoyalNote}[label=Kernel_req]{KERNEL REQUIREMENTS}
 
-    The controller is designed to work on a embedded Linux device. Which runs a kernel compiled with the preemptible
+    The controller is designed to work on a embedded Linux device. Which runs a kernel compiled with the preemptible 
     real-time flags. It will use multiple background processes, all with their own priority. These processe will 
-	likely run
-    in infinite loops such as: polling sensors, computing location, controlling actuators. User-space programs in 
-	Linux have
-    always been preemptible. The kernel interrupts user-space programs to switch to other threads, using regular clock
-    ticks. Which means that an infinite loop in an user-space program cannot block the system.
+    likely run in infinite loops such as: polling sensors, computing location, controlling actuators. User-space 
+    programs in Linux have always been preemptible. The kernel interrupts user-space programs to switch to other 
+    threads, using regular clock ticks. Which means that an infinite loop in an user-space program cannot block the 
+    system.
 
     The kernel itself is not preemptible by default. This could result in kernel specific operations blocking the 
-	crawler
-    control responsiveness. These kernel operations might not be relevant for controlling the physical state of the 
-	crawler,
-    but they might block a crucial control process from being executed. Such as stopping movement before it runs into an
-    obstacle. Applying the RT\_PREEMPT patch to the Linux kernel allows interruption of kernel-space processes. This 
-	patch
-    further ensure that clock ticks are deterministic, meaning that the occur with less deviating time intervals then
-	those
-    of an unpatched kernel. Allowing for better estimations in the state vector of the Kalman filter during the 
-	prediction
-    phase.
+    crawler control responsiveness. These kernel operations might not be relevant for controlling the physical state 
+    of the crawler, but they might block a crucial control process from being executed. Such as stopping movement 
+    before it runs into an obstacle. Applying the RT\_PREEMPT patch to the Linux kernel allows interruption of 
+    kernel-space processes. This patch further ensure that clock ticks are deterministic, meaning that the occur with
+    less deviating time intervals then those of an unpatched kernel. Allowing for better estimations in the state 
+    vector of the Kalman filter during the prediction phase.
 
 \end{RoyalNote}
 
