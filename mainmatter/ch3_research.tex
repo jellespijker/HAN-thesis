@@ -5,22 +5,20 @@
 
 \chapter{RESEARCH}\label{chap:research}
 A crawler performs its tasks in an underwater environment. Its task consists of moving, mapping and dredging a 
-certain basin or area. In order to fulfill tasks its own accord, it has to be able to sense its surrounding 
-environment and execute its task using a strategy. Which ensures performance according to specification.
+certain basin or area. In order to fulfill tasks of its own accord, it has to be able to sense its surrounding 
+environment and execute its task using a strategy. This ensures performance according to specification.
 
-In the next sections the key philosophies and processes are investigated; All of these are needed to fulfill its 
+In the next sections, the key philosophies and processes are investigated; all of these are needed to fulfill its 
 objective. Firstly, in Section~\ref{sec:underwater_communication}, different ways of underwater communication are 
-reviewed. This is after all the interface between man and machine. A second review regarding useful sensors made in 
-Section~\ref{sec:sensors}, their workings and possible applications are described.
+reviewed. This is after all the interface between man and machine. A secondly, a review regarding useful sensors, their
+workings and possible applications is made in Section~\ref{sec:sensors}.
 
-Once the low-level tools, such as communication devices and sensors are discussed. A careful study is made into 
-possible implementation and fusion of these sensors. Such that they can be used to estimate a location of a crawler. 
-Which needs to operate in a~\gls{acr-GPS} deprived environment.
+Once the low-level tools (such as communication devices and sensors) are discussed, a detailed study is made into 
+possible implementation and fusion of these sensors. Such that they can be used to estimate a location of a crawler, 
+needed to operate it in a~\gls{acr-GPS} deprived environment. Section~\ref{sec:coverageunderuncertainty} describes 
+the use of cooperative localization techniques and~\gls{gls-Kalman-filter}ing.
 
-Section~\ref{sec:coverageunderuncertainty} describes the use of cooperative localization techniques 
-and~\gls{gls-Kalman-filter}.
-
-Lastly an survey is made for useful strategy at a higher abstraction level. Section~\ref{sec:cpp}, describes how a 
+Lastly, a survey is made for useful strategy at a higher abstraction level. Section~\ref{sec:cpp} describes how a 
 crawler could best perform its main task: covering and dredging a large basin, uniformly. These so 
-called~\gls{acr-CPP} algorithms, describe and propose different strategies that allow a crawler to perform its task 
+called~\gls{acr-CPP} algorithms describe and propose different strategies that allow a crawler to perform its task 
 in an unknown and changing environment.

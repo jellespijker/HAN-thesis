@@ -10,7 +10,7 @@ The actual implementation of the controller framework, as set out in Section~\re
 at \url{https://github.com/jellespijker/ohCaptain}. This includes build scripts and device-tree overlays for an arm
 embedded \gls{acr-SBC} of the \gls{acr-BBB} variant.
 
-Validation of the controller performance is an important benchmark. In particular the localization under uncertainty
+Validation of the controller performance is an significant benchmark. In particular the localization under uncertainty
 challenge. This could either be done in a field test with the actual crawler, or in a virtual simulation environment.
 Provided that the simulated environment is an accurate representation of the physical world. The crawler which was
 available at the beginning of this project, was for various unrelated reasons disassembled, before any actual testing
@@ -24,54 +24,53 @@ in Section~\ref{sec:results}.
 \section{SIMULATION}\label{sec:simulation}
 
 In order to tell something meaningful about the performance of a controller, it has to be subject to the same physical
-processes, as it would in real-life, albeit in virtual form. Section~\ref{sec:motion model} lists all known external
+processes as it would in real-life, albeit in virtual form. Section~\ref{sec:motion model} lists all known external
 forces which are interacting with the crawler, and concludes that the dynamic properties of the drive-train and soil
 play a huge part in the kinematic behavior of the crawler. There are a couple of physics simulation engines that which
-are candidates for usage in this project; These are \href{http://gazebosim.org/}{Gazebo},
+are candidates for usage in this project:  \href{http://gazebosim.org/}{Gazebo},
 \href{https://projectchrono.org/}{Project Chrono}, \href{https://pybullet.org/wordpress/}{Bullet} and
 \href{https://developer.nvidia.com/gameworks-physx-overview}{PhysX}.
 
 From this list, only \gls{gls-Project_Chrono} has an existing framework which takes into account soil dynamic
 behavior and
-terramechanics. This is either simulated using \gls{acr-DEM} or granular approach. Were each particle of sand is
+terramechanics. This is either simulated using \gls{acr-DEM} or granular approach. Where each particle of sand is
 an individual body and is represented as a spherical rigid bodies whose orientation is captured by Euler parameters.
-For each time step a complete geometric characterization of all contacting particles is then obtained using collision
-detection and inter- particle normal contact forces are calculated by allowing small inter-penetrations using a penalty
+For each time step a complete geometric characterisation of all contacting particles is then obtained using collision
+detection and inter-particle normal contact forces are calculated by allowing small inter-penetrations using a penalty
 method for \gls{acr-DEM}. Were the normal contact force is based on Hertz law and friction forces are calculated using
 the Coulomb limit~\cite{recuero_high-fidelity_2017}\cite{serban_co-simulation_2018}. This method is computational heavy
-and more suitable for detailed modeling.
+and more suitable for detailed modelling.
 
 An alternative method is the \gls{acr-SCM}, based upon the familiar Becker-Wong model. The model provides a
 semi-empirical approach to the simulation of soft soil. It offers high speed of simulation and it's accurate enough for
 many scenarios. It has the following attributes: it depends on parameters (the same that are used in the Bekker- Wong
 model); it can generate 3D ruts on terrains of variable height; it takes into account multi-pass hardening when wheels
 generate intersecting ruts; it can work with irregular triangle-based terrain meshes; it supports an optional refinement
-of the terrain mesh to capture fine details like tire threads and lugs; and, it's compatible with deformable tires and
+of the terrain mesh to capture fine details like tire threads and lugs and it's compatible with deformable tires and
 generic shapes like obstacles, track shoes of tanks, etc. On the downside, the new soil model cannot simulate lateral
 bulldozing effects like those happening when a tracked vehicle steers in-place and pushes material apart~
 \cite{tasora_overview_2018}. This means that the proposed slip-prediction method can't be used in this simulation.
 
-A big part of the physics engine, Project Chrono, is the autonomous vehicle support. This is set-up according to well
-known \gls{acr-OOP} practices such as, polymorphism, using virtual overrides in classes that represent physical
-bodies. A custom model for different models of a drive-train, body, wheels/tracks and controller can defined and
-connected as needed. Were the behavior of that individual model can be thought of as black box. As long as the interface
-with the components it connects to are maintained. Section~\ref{sec:simulation model} describes the modeling of the
-drive train in detail. The support of realistic sensor characteristic are not yet implemented in Project Chrono, since a
-big part of the validation is measuring the performance of a Kalman Filter. An extension for \gls{gls-Project_Chrono}
-had to be
-written, which allows for the modeling of sensor behavior. This is extension is described in Section~\ref{sec:sensor
-simulation}.
+A big part of the physics engine, Project Chrono, is the autonomous vehicle support. This is set-up according to 
+well-known \gls{acr-OOP} practices (such as polymorphism), using virtual overrides in classes that represent physical
+bodies. A custom model for different models of a drive-train, body, wheels/tracks and controller can defined and 
+connected as needed. Where the behavior of that individual model can be thought of as black box as long as the 
+interface with the components it connects to, is maintained. Section~\ref{sec:simulation model} describes the 
+modelling of the drive-train in detail. The support of realistic sensor characteristic are not yet implemented in 
+Project Chrono since a big part of the validation is measuring the performance of a Kalman Filter. An extension for 
+\gls{gls-Project_Chrono} had to be written, which allows for the modelling of sensor behavior. This extension is 
+described in Section~\ref{sec:sensor simulation}.
 
 \subsection{SENSOR SIMULATION}\label{sec:sensor simulation}
 
-One of the biggest challenges and risks determining how it should deal with uncertainties and errors introduced by the
-inherent behavior and limits of the sensors. \gls{gls-Project_Chrono} is an established and mature physics simulation
-engine which
-is written in C++. It consists of multiple modules. Simulating the behavior of an autonomous vehicle requires usage of
-the Core module, where Physics, Geometric and Collision objects are defined and the Vehicle module, containing among
-others objects for a Driver system, Powertrain, Terrain and Steering. The orientation and position for every object can
-be tracked, logged and plotted. These values represent continual ideal states, governed by the simulated physical laws.
-Simulating a controller with these values as input signals isn't representative for the real world.
+One of the biggest challenges and risks determining how it should deal with uncertainties and errors introduced by 
+the inherent behavior and limits of the sensors. \gls{gls-Project_Chrono} is an established and mature physics 
+simulation engine which is written in C++. It consists of multiple modules. Simulating the behavior of an autonomous 
+vehicle requires usage of the Core module, where Physics, Geometric and Collision objects are defined and the Vehicle
+module, containing among others objects for a Driver system, Powertrain, Terrain and Steering. The orientation and 
+position for every object can be tracked, logged and plotted. These values represent continual ideal states, governed
+by the simulated physical laws. Simulating a controller with these values as input signals isn't representative for 
+the real world.
 
 The code for \gls{gls-Project_Chrono} has been released under a BSD-3 clause, this allows for modification and
 distribution of
@@ -288,7 +287,7 @@ The simulated model is build from a rectangular block with the two 3D Archimedes
 files. The joints and connections are created in a source file. They have no 3D representation. 3D models use their
 meshes as boundaries during collision detection. The other components have simple primitives as shapes, which are
 defined in the source code. The drivetrain is a sequence of interconnected 1D components, with the same configuration
-and logic as described in Section~\ref{sec:motion model}. Terramechanics are modeled with the \gls{acr-SCM}.
+and logic as described in Section~\ref{sec:motion model}. Terramechanics are modelled with the \gls{acr-SCM}.
 
 The library \gls{gls-Chrono_Sensors} is compiled as a shared library, and linked to with the \gls{gls-Project_Chrono}
 executable. The controller~\gls{gls-ohCaptain} is added in source and compiled as part of Project Chrono. A wrapper
@@ -348,7 +347,7 @@ low performance of filtering noise and compensating for certain sensor character
 transformations. The effects of noise become evident it the jagged lines. Which are, for illustration purposes
 filter by decimation. The drift in signal obtained from the \gls{gls-gyroscope}, is showing in the divergence
 of the back-and-forth paths. The effects are most clear in the upper right corner. An other artifact of sensor
-characteristic behaviour, which translates in a traveled path, is a difference in absolute path length. This is
+characteristic behavior, which translates in a traveled path, is a difference in absolute path length. This is
 systematically under estimated.
 
 \begin{RoyalFigure}[htb, label=fig:NEES_kalman]{NEES OF THE CONTROLLER}

@@ -29,7 +29,7 @@ position. This accuracy of the estimate will however degrade when dredging opera
 with the water and alter the density.
 
 Localization under uncertainty can be refined with the use of a Kalman filter, which in the case of the crawler is an
-\gls{acr-UKF}. Due to the inherent non-linear behaviour of the kinematic model. A Kalman filter estimate where the
+\gls{acr-UKF}. Due to the inherent non-linear behavior of the kinematic model. A Kalman filter estimate where the
 crawler should be according to a state transition matrix \gls{sym-F} and a input vector \gls{sym-u_k}. This estimate 
 is updated with the measured values and a calculated error covariance matrix \gls{sym-P_k}. Which will become more 
 accurate over time. Filtering out noise and inaccuracies introduced due to sensor characteristics. If the state 
